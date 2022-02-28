@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RankMapper">
+
+
+	<resultMap type="org.kh.meme.rank.domain.MemeRank" id="memeRankMap">
+		<id property="memeName" column="MEME_NAME"/>
+		<result property="memeStatus" column="MEME_STATUS"/>
+		<result property="memeCount" column="MEME_COUNT"/>
+		<result property="memeRank" column="MEME_RANK"/>
+	</resultMap>
+	
+	<resultMap type="org.kh.meme.rank.domain.BoardRank" id="boardPushRankMap">
+		<id property="boardTitle" column="BOARD_TITLE"/>
+		<result property="boardType" column="BOARD_TYPE"/>
+		<result property="boardLike" column="BOARD_LIKE"/>
+		<result property="boardRank" column="BOARD_PUSH_RANK"/>
+	</resultMap>
+	
+	<resultMap type="org.kh.meme.rank.domain.BoardRank" id="boardFreeRankMap">
+		<id property="boardTitle" column="BOARD_TITLE"/>
+		<result property="boardType" column="BOARD_TYPE"/>
+		<result property="boardLike" column="BOARD_LIKE"/>
+		<result property="boardRank" column="BOARD_FREE_RANK"/>
+	</resultMap>
+	
+	<resultMap type="org.kh.meme.rank.domain.QuizRank" id="quizRankMap">
+		<id property="memberId" column="MEMBER_ID"/>
+		<result property="quizBestscore" column="QUIZ_BESTSCORE"/>
+		<result property="quizBestdate" column="QUIZ_BESTDATE"/>
+		<result property="quizRank" column="QUIZ_RANK"/>
+	</resultMap>
+	
+	<select id="selectMemeRank" resultMap="memeRankMap">
+		SELECT * 
+		FROM (
+		SELECT MEME_NAME, MEME_COUNT,
+		DENSE_RANK() OVER(ORDER BY MEME_COUNT DESC) MEME_RANK
+		FROM MEME_TBL
+		WHERE MEME_STATUS = 'Y'
+		ORDER BY MEME_RANK ASC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
+
+	
+	<select id="selectBoardPushRank" resultMap="boardPushRankMap">
+		SELECT * 
+		FROM (
+		SELECT BOARD_TITLE, BOARD_LIKE,
+		DENSE_RANK() OVER(ORDER BY BOARD_LIKE DESC) BOARD_PUSH_RANK
+		FROM BOARD_TBL
+		WHERE BOARD_TYPE = 'P'
+		ORDER BY BOARD_PUSH_RANK ASC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
+	
+	<select id="selectBoardFreeRank" resultMap="boardFreeRankMap">		
+		SELECT * 
+		FROM (
+		SELECT BOARD_TITLE, BOARD_LIKE,
+		DENSE_RANK() OVER(ORDER BY BOARD_LIKE DESC) BOARD_FREE_RANK
+		FROM BOARD_TBL
+		WHERE BOARD_TYPE = 'F'
+		ORDER BY BOARD_FREE_RANK ASC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
+	
+
+	<select id="selectQuizRank" resultMap="quizRankMap">
+		SELECT * 
+		FROM (
+		SELECT MEMBER_ID, QUIZ_BESTSCORE, QUIZ_BESTDATE, 
+		DENSE_RANK() OVER(ORDER BY QUIZ_BESTSCORE DESC) QUIZ_RANK
+		FROM QUIZ_BEST
+		ORDER BY QUIZ_RANK ASC
+		)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
+	
+</mapper>
+
