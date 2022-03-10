@@ -15,6 +15,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BoardStoreLogic implements BoardStore{
 
+	//게시글 총 개수(페이징 처리)
+	@Override
+	public int selectListCount(SqlSession sqlSession) {
+		int totalCount = sqlSession.selectOne("BoardMapper.selectListCount");
+		return totalCount;
+	}
+	
+	//게시글 리스트
 	@Override
 	public List<Board> selectAllBoard(SqlSession sqlSession, PageInfo pi) {
 		/**
@@ -48,61 +56,8 @@ public class BoardStoreLogic implements BoardStore{
 		return boardAllList;
 	}
 
-	//게시판
-	@Override
-	public int selectListCount(SqlSession sqlSession) {
-		int totalCount = sqlSession.selectOne("BoardMapper.selectListCount");
-		return totalCount;
-	}
-	
-	
-	//게시물 조회
-	@Override
-	public Board selectBoardOneById(SqlSession sqlSession, Integer boardNo) {
-		Board board = sqlSession.selectOne("BoardMapper.selectBoardOneById", boardNo);
-		return board;
-	}
-	
-	//게시물 조회 - 첨부파일
-	@Override
-	public BoardFile selectBoardFileOneByNo(SqlSession sqlSession, int boardNo) {
-		BoardFile boardFile = sqlSession.selectOne("BoardMapper.selectBoardFileOneByNo", boardNo);
-		return boardFile;
-	}
 
-	
-	//게시물 조회수
-	@Override
-	public int updateBoardCount(SqlSession sqlSession, Integer boardNo) {
-		int result = sqlSession.update("BoardMapper.updateBoardCount", boardNo);
-		return result;
-	}
-	
-	//게시물 추천수
-	
-	@Override
-	public int insertBoardLike(SqlSession sqlSession, Recommend recommend) {
-		int result = sqlSession.update("BoardMapper.insertBoardLike", recommend);
-		return result;
-	}
-
-	@Override
-	public int updateBoardLike(SqlSession sqlSession, Recommend recommend) {
-		int result = sqlSession.insert("BoardMapper.updateBoardLike", recommend);
-		return result;
-	}
-
-	//신고 수
-	@Override
-	public int updateBoardReport(SqlSession sqlSession, int boardNo) {
-		int result = sqlSession.update("BoardMapper.updateBoardReport", boardNo);
-		return result;
-	}
-
-	
-	
-
-	//게시물 작성
+	//게시물 등록
 	@Override
 	public int insertBoard(SqlSession sqlSession, Board board) {
 		int result = sqlSession.insert("BoardMapper.insertBoard", board);
@@ -115,8 +70,8 @@ public class BoardStoreLogic implements BoardStore{
 		return result;
 	}
 
-	//게시글 수정
 
+	//게시글 수정
 	@Override
 	public int updateBoard(SqlSession sqlSession, Board board) {
 		int result = sqlSession.update("BoardMapper.updateBoard", board);
@@ -143,12 +98,29 @@ public class BoardStoreLogic implements BoardStore{
 		return result;
 	}
 	
-
+	//게시글 지워질 때 댓글 같이 삭제
 	@Override
 	public void deleteCommentBoardNo(SqlSession sqlSession, Integer boardNo) {
 		sqlSession.delete("BoardMapper.deleteCommentByBoardNo", boardNo);
 	}
 	
+	
+	
+	//게시판 상세 페이지
+	@Override
+	public Board selectBoardOneById(SqlSession sqlSession, Integer boardNo) {
+		Board board = sqlSession.selectOne("BoardMapper.selectBoardOneById", boardNo);
+		return board;
+	}
+	
+	//게시물 상세 페이지 : 첨부파일
+	@Override
+	public BoardFile selectBoardFileOneByNo(SqlSession sqlSession, int boardNo) {
+		BoardFile boardFile = sqlSession.selectOne("BoardMapper.selectBoardFileOneByNo", boardNo);
+		return boardFile;
+	}
+
+
 
 	//댓글
 	@Override
@@ -174,14 +146,47 @@ public class BoardStoreLogic implements BoardStore{
 		int result = sqlSession.delete("BoardMapper.deleteComment", commentNo);
 		return result;
 	}
+	
+	
+	
+	//조회 수
+	@Override
+	public int updateBoardCount(SqlSession sqlSession, Integer boardNo) {
+		int result = sqlSession.update("BoardMapper.updateBoardCount", boardNo);
+		return result;
+	}
+	
+	//추천 수
+	//recommend table insert
+	@Override
+	public int insertBoardLike(SqlSession sqlSession, Recommend recommend) {
+		int result = sqlSession.update("BoardMapper.insertBoardLike", recommend);
+		return result;
+	}
+	// board table update
+	@Override
+	public int updateBoardLike(SqlSession sqlSession, Recommend recommend) {
+		int result = sqlSession.insert("BoardMapper.updateBoardLike", recommend);
+		return result;
+	}
+
+	//신고 수
+	@Override
+	public int updateBoardReport(SqlSession sqlSession, int boardNo) {
+		int result = sqlSession.update("BoardMapper.updateBoardReport", boardNo);
+		return result;
+	}
+
 
 	
-	//게시글 숨기기(관리자)
+	//관리자 : 신고 게시글 숨기기
 	@Override
 	public int updateBoardReportManagerToN(SqlSession sqlSession, int boardNo) {
 		int result = sqlSession.update("BoardMapper.updateBoardReportManagerToN", boardNo);
 		return result;
 	}
+	
+	//관리자 : 신고 게시글 보이기
 	@Override
 	public int updateBoardReportManagerToY(SqlSession sqlSession, int boardNo) {
 		int result = sqlSession.update("BoardMapper.updateBoardReportManagerToY", boardNo);
