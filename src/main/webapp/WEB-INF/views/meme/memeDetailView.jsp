@@ -20,7 +20,7 @@
 <body>
 	<br>
 	<br>
-	<h1 align="center">MEME DICTIONARY</h1>
+	<h1 align="center">유행어 사전</h1>
 	<br>
 	<hr>
 	<br>
@@ -35,14 +35,22 @@
 		</tr>
 		<tr>
 			<td height="300">유행어 설명</td>
-			<td width="600" align="left">${meme.memeContents}</td>
+			<td width="600" align="left">
+				<p>${meme.memeContents}</p> 
+				<c:if test="${not empty memeFile.memeFileRename }">
+					<p>
+						<img src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
+					</p>
+				</c:if>
+			</td>
+
 		</tr>
-		<tr>
+		<%-- 		<tr>
 			<td>첨부파일</td>
 			<td><img
 				src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
 			</td>
-		</tr>
+		</tr> --%>
 		<tr>
 			<td>등재요청자</td>
 			<td>${meme.memberNickname}</td>
@@ -55,7 +63,7 @@
 	<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
 	<div align="right">
 		<c:if test="${not empty sessionScope.loginMember }">
-		<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
+			<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
 		</c:if>
 	</div>
 
