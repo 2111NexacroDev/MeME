@@ -37,6 +37,102 @@
 		<result property="commentStatus" column="COMMENT_STATUS"/>
 	</resultMap>
 	
+
+	
+	<!-- 게시판 메인 -->
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_STATUS = 'Y'
+	</select>
+	
+	<select id="selectBoardAllList" resultMap="boardResultMap">
+		SELECT * FROM BOARD_TBL WHERE BOARD_STATUS = 'Y' ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="selectBoardOneById" resultMap="boardResultMap">
+  		SELECT * FROM BOARD_TBL WHERE BOARD_NO = #{boardNo }
+  	</select>
+  	
+	<select id="selectBoardFileOneByNo" resultMap="boardFileResultMap">
+  		SELECT * FROM BOARD_FILE WHERE BOARD_NO = #{boardNo}
+  	</select>
+  
+
+	<insert id="insertBoard" parameterType="Board">
+<!-- 		INSERT INTO BOARD_TBL (BOARD_NO, BOARD_TYPE, BOARD_TITLE, MEMBER_NICKNAME, BOARD_CONTENTS) -->
+<!-- 		VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, '어쩔티비', #{boardContents}) -->
+		INSERT INTO BOARD_TBL VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, #{memberNickname}, DEFAULT, DEFAULT,
+		 #{boardContents}, 0, 0, 0, DEFAULT)
+	</insert>
+	
+	<insert id="insertBoardFile" parameterType="BoardFile">
+		INSERT INTO BOARD_FILE VALUES(BOARD_SEQ_NO.CURRVAL, BOARD_FILE_SEQ.NEXTVAL, #{boardFilename }, #{boardFilerename }, #{boardFileextension })
+	</insert>
+	
+	
+	<update id="updateBoard" parameterType="Board">
+<!-- 		INSERT INTO BOARD_TBL (BOARD_NO, BOARD_TYPE, BOARD_TITLE, MEMBER_NICKNAME, BOARD_CONTENTS) -->
+<!-- 		VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, '어쩔티비', #{boardContents}) -->
+		UPDATE BOARD_TBL SET BOARD_TYPE = #{boardType}, BOARD_TITLE = #{boardTitle}, BOARD_CONTENTS = #{boardContents}, BOARD_REDATE = SYSDATE WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<update id="updateBoardFile" parameterType="BoardFile">
+		UPDATE BOARD_FILE SET BOARD_FILENAME = #{boardFilename}, BOARD_FILERENAME = #{boardFilerename} WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	
+	<delete id="deleteBoard">
+		DELETE FROM BOARD_TBL WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<delete id="deleteBoardFile">
+		DELETE FROM BOARD_FILE WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<delete id="deleteCommentByBoardNo">
+		DELETE FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	
+	<!-- 댓글 -->
+	<select id="selectAllComment" resultMap="commentResultMap">
+		SELECT * FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO DESC
+	</select>
+	
+	<insert id="insertComment">
+		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+	
+	<update id="updateComment">
+		UPDATE COMMENT_TBL SET COMMENT_CONTENTS = #{commentContents} WHERE COMMENT_NO = #{commentNo}	
+	</update>
+	
+	<delete id="deleteComment">
+		DELETE FROM COMMENT_TBL WHERE COMMENT_NO = #{commentNo}
+	</delete>
+	
+	
+	<!-- 조회 수 -->
+	<update id="updateBoardCount" parameterType="_int">
+		UPDATE BOARD_TBL SET BOARD_COUNT = BOARD_COUNT + 1 WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<!-- 추천 수 -->
+	<insert id="insertBoardLike" parameterType="org.kh.meme.board.domain.Recommend">
+		MERGE INTO RECOMMEND_TBL USING DUAL ON (BOARD_NO = #{boardNo} AND RECOMMEND_ID = #{recommendId})
+		WHEN NOT MATCHED THEN INSERT VALUES( #{boardNo}, #{recommendId})
+	</insert>
+
+	<update id="updateBoardLike" parameterType="org.kh.meme.board.domain.Recommend">
+		UPDATE BOARD_TBL SET BOARD_LIKE = (SELECT COUNT(*) FROM RECOMMEND_TBL WHERE RECOMMEND_TBL.BOARD_NO = BOARD_TBL.BOARD_NO)
+	</update>
+	
+	<!-- 신고 수 -->
+	<update id="updateBoardReport" parameterType="_int">
+		UPDATE BOARD_TBL SET BOARD_REPORT = BOARD_REPORT + 1 WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	
+	
 	<!-- 마이페이지 -->
 	<select id="selectMyPageListCount" parameterType="string" resultType="_int">
 		SELECT COUNT(*) FROM BOARD_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE BOARD_STATUS = 'Y' AND MEMBER_ID = #{memberId }
@@ -53,6 +149,7 @@
 	<select id="selectMyCommentList" parameterType="string" resultMap="commentResultMap">
 		SELECT * FROM COMMENT_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE MEMBER_ID = #{memberId} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO DESC
 	</select>
+	
 	
 	<!-- 관리자 페이지 -->
 	<!-- 신고 게시글 -->
@@ -84,101 +181,8 @@
 	<update id="updateBoardReportManagerToN" parameterType="Board">
 		UPDATE BOARD_TBL SET BOARD_STATUS = 'N' WHERE BOARD_NO = #{boardNo }
 	</update>
+	
 	<update id="updateBoardReportManagerToY" parameterType="Board">
 		UPDATE BOARD_TBL SET BOARD_STATUS = 'Y' WHERE BOARD_NO = #{boardNo }
 	</update>
-	
-	<!-- 게시판 메인 -->
-	<select id="selectListCount" resultType="_int">
-		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_STATUS = 'Y'
-	</select>
-	
-	<select id="selectBoardOneById" resultMap="boardResultMap">
-  		SELECT * FROM BOARD_TBL WHERE BOARD_NO = #{boardNo }
-  	</select>
-  	
-	<select id="selectBoardAllList" resultMap="boardResultMap">
-		SELECT * FROM BOARD_TBL WHERE BOARD_STATUS = 'Y' ORDER BY BOARD_NO DESC
-	</select>
-
-	<select id="selectBoardFileOneByNo" resultMap="boardFileResultMap">
-  		SELECT * FROM BOARD_FILE WHERE BOARD_NO = #{boardNo}
-  	</select>
-  
-
-	<insert id="insertBoard" parameterType="Board">
-<!-- 		INSERT INTO BOARD_TBL (BOARD_NO, BOARD_TYPE, BOARD_TITLE, MEMBER_NICKNAME, BOARD_CONTENTS) -->
-<!-- 		VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, '어쩔티비', #{boardContents}) -->
-		INSERT INTO BOARD_TBL VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, #{memberNickname}, DEFAULT, DEFAULT,
-		 #{boardContents}, 0, 0, 0, DEFAULT)
-
-	</insert>
-	
-	<insert id="insertBoardFile" parameterType="BoardFile">
-		INSERT INTO BOARD_FILE VALUES(BOARD_SEQ_NO.CURRVAL, BOARD_FILE_SEQ.NEXTVAL, #{boardFilename }, #{boardFilerename }, #{boardFileextension })
-	</insert>
-	
-	
-	<update id="updateBoard" parameterType="Board">
-<!-- 		INSERT INTO BOARD_TBL (BOARD_NO, BOARD_TYPE, BOARD_TITLE, MEMBER_NICKNAME, BOARD_CONTENTS) -->
-<!-- 		VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, '어쩔티비', #{boardContents}) -->
-		UPDATE BOARD_TBL SET BOARD_TYPE = #{boardType}, BOARD_TITLE = #{boardTitle}, BOARD_CONTENTS = #{boardContents}, BOARD_REDATE = SYSDATE WHERE BOARD_NO = #{boardNo}
-
-	</update>
-	
-	<update id="updateBoardFile" parameterType="BoardFile">
-		UPDATE BOARD_FILE SET BOARD_FILENAME = #{boardFilename}, BOARD_FILERENAME = #{boardFilerename} WHERE BOARD_NO = #{boardNo}
-	</update>
-	
-	
-	<delete id="deleteBoard">
-		DELETE FROM BOARD_TBL WHERE BOARD_NO = #{boardNo}
-
-	</delete>
-	
-	<delete id="deleteBoardFile">
-		DELETE FROM BOARD_FILE WHERE BOARD_NO = #{boardNo}
-	</delete>
-	
-	<delete id="deleteCommentByBoardNo">
-		DELETE FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo}
-	</delete>
-	
-	
-	<!-- 조회 수 -->
-	<update id="updateBoardCount" parameterType="_int">
-		UPDATE BOARD_TBL SET BOARD_COUNT = BOARD_COUNT + 1 WHERE BOARD_NO = #{boardNo}
-	</update>
-	
-	<!-- 추천 수 -->
-	<insert id="insertBoardLike" parameterType="org.kh.meme.board.domain.Recommend">
-		MERGE INTO RECOMMEND_TBL USING DUAL ON (BOARD_NO = #{boardNo} AND RECOMMEND_ID = #{recommendId})
-		WHEN NOT MATCHED THEN INSERT VALUES( #{boardNo}, #{recommendId})
-	</insert>
-
-	<update id="updateBoardLike" parameterType="org.kh.meme.board.domain.Recommend">
-		UPDATE BOARD_TBL SET BOARD_LIKE = (SELECT COUNT(*) FROM RECOMMEND_TBL WHERE RECOMMEND_TBL.BOARD_NO = BOARD_TBL.BOARD_NO)
-	</update>
-	
-	<!-- 신고 수 -->
-	<update id="updateBoardReport" parameterType="_int">
-		UPDATE BOARD_TBL SET BOARD_REPORT = BOARD_REPORT + 1 WHERE BOARD_NO = #{boardNo}
-	</update>
-	
-	<!-- 댓글 -->
-	<select id="selectAllComment" resultMap="commentResultMap">
-		SELECT * FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO DESC
-	</select>
-	
-	<insert id="insertComment">
-		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT)
-	</insert>
-	
-	<update id="updateComment">
-		UPDATE COMMENT_TBL SET COMMENT_CONTENTS = #{commentContents} WHERE COMMENT_NO = #{commentNo}	
-	</update>
-	
-	<delete id="deleteComment">
-		DELETE FROM COMMENT_TBL WHERE COMMENT_NO = #{commentNo}
-	</delete>
 </mapper>

@@ -43,7 +43,8 @@ public class BoardController {
 	@Autowired
 	private RankService rService;
 	
-
+	
+//테스트 코드
 	@RequestMapping(value="/boardtest", method=RequestMethod.GET)
 	public String boardTestList() {
 		return "/board/boardlist";
@@ -53,7 +54,6 @@ public class BoardController {
 	public String boarderror() {
 		return "/board/error";
 	}
-	
 
 	@RequestMapping(value="/boardwrite", method=RequestMethod.GET)
 	public String boardwritetest() {
@@ -66,75 +66,179 @@ public class BoardController {
 	}
 	
 	
-	//댓글
-	@ResponseBody
-	@RequestMapping(value="/board/commentAdd", method=RequestMethod.POST)
-	public String boardCommentAdd(
-			@ModelAttribute Comment comment) {
-		System.out.println(comment);
-//		String commentWriter = "어쩔티비";
-//		comment.setMemberNickname(commentWriter);
-		int result = bService.registerComment(comment);
-		
-		//후속조치
-		if(result > 0 ) {
-			return "success";
-		} else {
-			return "fail";
-		}
-
-	}
 	
-	
-	@ResponseBody
-	@RequestMapping(value="/board/commentList", method=RequestMethod.GET
-								, produces="application/json;charset=utf-8")
-	public String boardCommentList(
+	//게시글 리스트
+	@RequestMapping(value="/board", method = RequestMethod.GET, produces="application/text;charset=utf-8")
+	public String boardranklist(
 			Model model
-			, @RequestParam("boardNo") int boardNo) {
+			, @RequestParam(value="page", required=false) Integer page) {
 		
-		List<Comment> commentList = bService.printAllCommentList(boardNo);
+		int currentPage = (page != null) ? page : 1;
+		
+		int totalCount = bService.getListCount();
 
-		if(!commentList.isEmpty()) {
-//			return new Gson().toJson(rList);
-			//같은 내용
-//			Gson gson = new Gson();
-			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-			return gson.toJson(commentList);
-		}
-		return null;
-
-	}
-	
-
-	@ResponseBody
-	@RequestMapping(value="/board/commentModify", method=RequestMethod.POST)
-	public String boardReplyModify(
-			@ModelAttribute Comment comment) {
-		int result = bService.modifyComment(comment);
-		if(result > 0 ) {
-			return "success";
+		PageInfo pi = Pagination.getPageInfo(currentPage, totalCount);
+		
+		model.addAttribute("pi", pi);
+		//비즈니스 로직 -> DB에서 전체 게시물 갯수 가져옴
+		
+		//게시판
+		List<Board> boardAllList = bService.printAllBoard(pi);
+		
+		
+		//랭킹
+		model.addAttribute("rankmain", "board");
+		List<MemeRank> memeRankList = rService.printMemeRank();
+		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
+		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
+		List<QuizRank> quizRankList = rService.printQuizRank();
+ 
+		
+		if(!boardAllList.isEmpty() && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+			//게시판
+			model.addAttribute("boardAllList", boardAllList);
+			
+			//랭킹
+			model.addAttribute("memeRankList", memeRankList);
+			model.addAttribute("boardPushRankList", boardPushRankList);
+			model.addAttribute("boardFreeRankList", boardFreeRankList);
+			model.addAttribute("quizRankList", quizRankList);
+			return ".tiles/board/list";
 		} else {
-			return "fail";
+			//일단 error 나누어서 안 적음, 필요하면 적기
+			model.addAttribute("msg", "랭킹 조회 실패");
+			return "error";
 		}
+		
 	}
-	
-	@ResponseBody
-	@RequestMapping(value="/board/commentDelete", method=RequestMethod.GET)
-	public String boardCommentRemove(
-			@RequestParam("commentNo") int commentNo) {
-		int result = bService.removeComment(commentNo);
-		if(result > 0) {
-			return "success";
+
+
+
+	//게시글 등록 페이지 이동
+	@RequestMapping(value="/board/write", method=RequestMethod.GET)
+	public String boardwrite( HttpServletRequest request,
+			Model model) {
+		
+
+		//memberId session에서 가져오기
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("loginMember");
+		System.out.println(member);
+				
+				
+		//랭킹
+		model.addAttribute("rankmain", "board");
+		List<MemeRank> memeRankList = rService.printMemeRank();
+		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
+		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
+		List<QuizRank> quizRankList = rService.printQuizRank();
+ 
+		
+		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+			//랭킹
+			model.addAttribute("memeRankList", memeRankList);
+			model.addAttribute("boardPushRankList", boardPushRankList);
+			model.addAttribute("boardFreeRankList", boardFreeRankList);
+			model.addAttribute("quizRankList", quizRankList);
+			return ".tiles/board/write";
 		} else {
-			return "fail";
+			//일단 error 나누어서 안 적음, 필요하면 적기
+			model.addAttribute("msg", "랭킹 조회 실패");
+			return "error";
 		}
+		
+		
+	}
+		
+	//게시글 등록
+	@RequestMapping(value="/board/register", method=RequestMethod.POST)
+	public String boardRegister( 
+			Model model
+			, @ModelAttribute BoardFile boardFile
+			, @ModelAttribute Board board
+			, HttpServletRequest request
+			, @RequestParam(value="uploadFile", required = false) MultipartFile uploadFile
+			) {
+		
+		//memberId session에서 가져오기
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("loginMember");
+		System.out.println(member);
+		
+		try {
+			//첨부파일
+			if(!uploadFile.getOriginalFilename().contentEquals("")) {
+				String fileRename = saveFile(uploadFile, request);
+				if(fileRename != null) {
+					boardFile.setBoardFilename(uploadFile.getOriginalFilename());
+					boardFile.setBoardFilerename(fileRename);
+				}
+			}
+			
+			System.out.println(board);
+			System.out.println(boardFile);
+			board.setMemberNickname(member.getMemberNickname());
+//			int result = bService.registerBoard(board);
+
+			int result = bService.registerNewBoard(board, boardFile);
+			System.out.println(result); //이게 아예 안 넘어옴...
+			
+			//랭킹
+			model.addAttribute("rankmain", "board");
+			List<MemeRank> memeRankList = rService.printMemeRank();
+			List<BoardRank> boardPushRankList = rService.printBoardPushRank();
+			List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
+			List<QuizRank> quizRankList = rService.printQuizRank();
+			
+			
+			if(result > 0 && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+			
+				//랭킹
+				model.addAttribute("memeRankList", memeRankList);
+				model.addAttribute("boardPushRankList", boardPushRankList);
+				model.addAttribute("boardFreeRankList", boardFreeRankList);
+				model.addAttribute("quizRankList", quizRankList);
+				return "redirect:/board";
+			} else {
+				//일단 error 나누어서 안 적음, 필요하면 적기
+				model.addAttribute("msg", "랭킹 조회 실패");
+				return "error";
+			}
+		} catch (Exception e) {
+			System.out.println("게시글 추가 실패");
+			return "error";
+		}
+			
+		
 	}
 	
+	// 게시글 등록 시 첨부파일 저장
+	public String saveFile(MultipartFile uploadFile, HttpServletRequest request) {
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\boardUploadFiles";
+		File folder = new File(savePath);
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String fileOriginalname = uploadFile.getOriginalFilename();
+		String fileRename = sdf.format(new Date(System.currentTimeMillis())) + "."
+				+ fileOriginalname.substring(fileOriginalname.lastIndexOf(".") + 1);
+		String filePath = folder + "\\" + fileRename;
+		try {
+			uploadFile.transferTo(new File(filePath));
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return fileRename;
+
+	}
+
 	
 	
-	
-	//게시글
+	//게시글 수정 페이지 이동
 	@RequestMapping(value="/board/detail_updateView", method=RequestMethod.POST)
 	public String boardDetailUpdateView(
 			Model model
@@ -171,9 +275,8 @@ public class BoardController {
 		
 //		return ".tiles/board/update";
 	}
-	
-	
-	
+
+	//게시글 수정
 	@RequestMapping(value="/board/detail_update", method=RequestMethod.POST)
 	public String boardDetailUpdate(
 			Model model
@@ -239,6 +342,8 @@ public class BoardController {
 	}
 	
 	
+	
+	//게시글 detail 페이지에서 삭제
 	@RequestMapping(value="/board/detail_delete", method=RequestMethod.POST)
 	public String boardDetailDelete(
 			Model model
@@ -280,6 +385,7 @@ public class BoardController {
 		
 	}
 	
+	//마이페이지에서 게시글 삭제
 	@RequestMapping(value="/board/detail_delete_mypage", method=RequestMethod.POST)
 	public String boardDetailDeleteMyPage(
 			Model model
@@ -292,6 +398,7 @@ public class BoardController {
 		return "redirect:/myPage.me";
 	}
 	
+	//관리자 페이지에서 게시글 삭제
 	@RequestMapping(value="/board/detail_delete_admin", method=RequestMethod.POST)
 	public String boardDetailDeleteAdmin(
 			Model model
@@ -304,112 +411,11 @@ public class BoardController {
 		return "redirect:/admin/manageBoard.me";
 	}
 
-	@RequestMapping(value="/board/detail_report", method=RequestMethod.POST
-			, produces="application/json;charset=utf-8")
-	public String boardDetailReport(
-			HttpServletRequest request
-			, @RequestParam("boardNo") int boardNo) {
-		System.out.println(boardNo);
-		
-		String referer = request.getHeader("Referer");
-		
-		
-		int boardReportData = bService.addBoardReport(boardNo);
-		if(boardReportData > 0) {
-			//게시물 추천수
-			//board_tbl boardLike update
-			
-			System.out.println("board에 게시물 신고수 반영!");
-			return "redirect:/board/detail?boardNo="+boardNo;
-//			return "redirect:"+referer;
-		} else {
-			System.out.println("board에 게시물 신고수 반영 안됨!");
-			return "redirect:"+referer;
-		}
-
-	}
 	
-	@RequestMapping(value="/board/detail_reportAdminToN", method=RequestMethod.POST
-			, produces="application/json;charset=utf-8")
-	public String boardDetailReportManager1(
-			HttpServletRequest request
-			, @RequestParam("boardNo") int boardNo) {
-		System.out.println(boardNo);
-
-		String referer = request.getHeader("Referer");
-		
-		int boardReportManager = bService.boardReportManagerToN(boardNo);
-		if(boardReportManager > 0) {
-			//게시물 추천수
-			//board_tbl boardLike update
-			
-			System.out.println("board 숨기기");
-			return "redirect:/admin/manageBoardReported.me";
-//				return "redirect:"+referer;
-		} else {
-			System.out.println("board 숨기기 실패");
-			return "redirect:"+referer;
-		}
-		
-	}
 	
-	@RequestMapping(value="/board/detail_reportAdminToY", method=RequestMethod.POST
-			, produces="application/json;charset=utf-8")
-	public String boardDetailReportManager2(
-			HttpServletRequest request
-			, @RequestParam("boardNo") int boardNo) {
-		System.out.println(boardNo);
-
-		String referer = request.getHeader("Referer");
-		
-		int boardReportManager = bService.boardReportManagerToY(boardNo);
-		if(boardReportManager > 0) {
-			//게시물 추천수
-			//board_tbl boardLike update
-			
-			System.out.println("board 보이기");
-			return "redirect:/admin/manageBoardReported.me";
-//				return "redirect:"+referer;
-		} else {
-			System.out.println("board 보이기 실패");
-			return "redirect:"+referer;
-		}
-		
-	}
 	
-	@RequestMapping(value="/board/detail_like", method=RequestMethod.POST)
-	public String boardDetailLike( HttpServletRequest request 
-			, @RequestParam("boardNo") Integer boardNo) {
-		
-		//추천 수
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("loginMember");
-		System.out.println(member);
-		
-		Recommend recommend = new Recommend();
-		recommend.setBoardNo(boardNo);
-		recommend.setRecommendId(member.getMemberId());
-		
-		String referer = request.getHeader("Referer");
-		
-		//추천 수
-		//게시물 recommend 추가
-		int boardLikeData = bService.addBoardLike(recommend);
-		
-		if(boardLikeData > 0) {
-			//게시물 추천수
-			//board_tbl boardLike update
-			int boardLike = bService.updateBoardLike(recommend);
-			System.out.println("board에 게시물 추천수 반영!");
-			return "redirect:/board/detail?boardNo="+boardNo;
-//			return "redirect:"+referer;
-		} else {
-			System.out.println("board에 게시물 추천수 반영 안됨!");
-			return "redirect:"+referer;
-		}
-		
-	}
-
+	
+	//게시글 상세 페이지
 	@RequestMapping(value="/board/detail", method=RequestMethod.GET)
 	public String boardDetail( HttpServletRequest request
 			, Model model
@@ -457,174 +463,186 @@ public class BoardController {
 		
 	}
 
-	//글쓰기 페이지
-	@RequestMapping(value="/board/write", method=RequestMethod.GET)
-	public String boardwrite( HttpServletRequest request,
-			Model model) {
-		
 
-		//memberId session에서 가져오기
+
+	//댓글
+	@ResponseBody
+	@RequestMapping(value="/board/commentAdd", method=RequestMethod.POST)
+	public String boardCommentAdd(
+			@ModelAttribute Comment comment) {
+		System.out.println(comment);
+//		String commentWriter = "어쩔티비";
+//		comment.setMemberNickname(commentWriter);
+		int result = bService.registerComment(comment);
+		
+		//후속조치
+		if(result > 0 ) {
+			return "success";
+		} else {
+			return "fail";
+		}
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/board/commentList", method=RequestMethod.GET
+								, produces="application/json;charset=utf-8")
+	public String boardCommentList(
+			Model model
+			, @RequestParam("boardNo") int boardNo) {
+		
+		List<Comment> commentList = bService.printAllCommentList(boardNo);
+
+		if(!commentList.isEmpty()) {
+//			return new Gson().toJson(rList);
+			//같은 내용
+//			Gson gson = new Gson();
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+			return gson.toJson(commentList);
+		}
+		return null;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/board/commentModify", method=RequestMethod.POST)
+	public String boardReplyModify(
+			@ModelAttribute Comment comment) {
+		int result = bService.modifyComment(comment);
+		if(result > 0 ) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/board/commentDelete", method=RequestMethod.GET)
+	public String boardCommentRemove(
+			@RequestParam("commentNo") int commentNo) {
+		int result = bService.removeComment(commentNo);
+		if(result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
+	
+	
+	//게시글 조회 수는 detail 안에 들어있음 (들어갈 때마다 조회되는 거)
+
+	//게시글 추천 수
+	@RequestMapping(value="/board/detail_like", method=RequestMethod.POST)
+	public String boardDetailLike( HttpServletRequest request 
+			, @RequestParam("boardNo") Integer boardNo) {
+		
+		//추천 수
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("loginMember");
 		System.out.println(member);
-				
-				
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
- 
 		
-		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
-			return ".tiles/board/write";
+		Recommend recommend = new Recommend();
+		recommend.setBoardNo(boardNo);
+		recommend.setRecommendId(member.getMemberId());
+		
+		String referer = request.getHeader("Referer");
+		
+		//추천 수
+		//게시물 recommend 추가
+		int boardLikeData = bService.addBoardLike(recommend);
+		
+		if(boardLikeData > 0) {
+			//게시물 추천수
+			//board_tbl boardLike update
+			int boardLike = bService.updateBoardLike(recommend);
+			System.out.println("board에 게시물 추천수 반영!");
+			return "redirect:/board/detail?boardNo="+boardNo;
+//			return "redirect:"+referer;
 		} else {
-			//일단 error 나누어서 안 적음, 필요하면 적기
-			model.addAttribute("msg", "랭킹 조회 실패");
-			return "error";
+			System.out.println("board에 게시물 추천수 반영 안됨!");
+			return "redirect:"+referer;
 		}
-		
 		
 	}
-	
-	//게시글 등록
-	@RequestMapping(value="/board/register", method=RequestMethod.POST)
-	public String boardRegister( 
-			Model model
-			, @ModelAttribute BoardFile boardFile
-			, @ModelAttribute Board board
-			, HttpServletRequest request
-			, @RequestParam(value="uploadFile", required = false) MultipartFile uploadFile
-			) {
-		
-		//memberId session에서 가져오기
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("loginMember");
-		System.out.println(member);
-		
-		try {
-			//첨부파일
-			if(!uploadFile.getOriginalFilename().contentEquals("")) {
-				String fileRename = saveFile(uploadFile, request);
-				if(fileRename != null) {
-					boardFile.setBoardFilename(uploadFile.getOriginalFilename());
-					boardFile.setBoardFilerename(fileRename);
-				}
-			}
-			
-			System.out.println(board);
-			System.out.println(boardFile);
-			board.setMemberNickname(member.getMemberNickname());
-//			int result = bService.registerBoard(board);
 
-			int result = bService.registerNewBoard(board, boardFile);
-			System.out.println(result); //이게 아예 안 넘어옴...
+	//게시글 신고 수
+	@RequestMapping(value="/board/detail_report", method=RequestMethod.POST
+			, produces="application/json;charset=utf-8")
+	public String boardDetailReport(
+			HttpServletRequest request
+			, @RequestParam("boardNo") int boardNo) {
+		System.out.println(boardNo);
+		
+		String referer = request.getHeader("Referer");
+		
+		
+		int boardReportData = bService.addBoardReport(boardNo);
+		if(boardReportData > 0) {
+			//게시물 추천수
+			//board_tbl boardLike update
 			
-			//랭킹
-			model.addAttribute("rankmain", "board");
-			List<MemeRank> memeRankList = rService.printMemeRank();
-			List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-			List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-			List<QuizRank> quizRankList = rService.printQuizRank();
-			
-			
-			if(result > 0 && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-			
-				//랭킹
-				model.addAttribute("memeRankList", memeRankList);
-				model.addAttribute("boardPushRankList", boardPushRankList);
-				model.addAttribute("boardFreeRankList", boardFreeRankList);
-				model.addAttribute("quizRankList", quizRankList);
-				return "redirect:/board";
-			} else {
-				//일단 error 나누어서 안 적음, 필요하면 적기
-				model.addAttribute("msg", "랭킹 조회 실패");
-				return "error";
-			}
-		} catch (Exception e) {
-			System.out.println("게시글 추가 실패");
-			return "error";
-		}
-			
-		
-	}
-	
-
-	// 첨부파일저장
-	public String saveFile(MultipartFile uploadFile, HttpServletRequest request) {
-		String root = request.getSession().getServletContext().getRealPath("resources");
-		String savePath = root + "\\boardUploadFiles";
-		File folder = new File(savePath);
-		if (!folder.exists()) {
-			folder.mkdir();
-		}
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String fileOriginalname = uploadFile.getOriginalFilename();
-		String fileRename = sdf.format(new Date(System.currentTimeMillis())) + "."
-				+ fileOriginalname.substring(fileOriginalname.lastIndexOf(".") + 1);
-		String filePath = folder + "\\" + fileRename;
-		try {
-			uploadFile.transferTo(new File(filePath));
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return fileRename;
-
-	}
-
-	
-	
-	
-	
-	@RequestMapping(value="/board", method = RequestMethod.GET, produces="application/text;charset=utf-8")
-	public String boardranklist(
-			Model model
-			, @RequestParam(value="page", required=false) Integer page) {
-		
-		int currentPage = (page != null) ? page : 1;
-		
-		int totalCount = bService.getListCount();
-
-		PageInfo pi = Pagination.getPageInfo(currentPage, totalCount);
-		
-		model.addAttribute("pi", pi);
-		//비즈니스 로직 -> DB에서 전체 게시물 갯수 가져옴
-		
-		//게시판
-		List<Board> boardAllList = bService.printAllBoard(pi);
-		
-		
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
- 
-		
-		if(!boardAllList.isEmpty() && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-			//게시판
-			model.addAttribute("boardAllList", boardAllList);
-			
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
-			return ".tiles/board/list";
+			System.out.println("board에 게시물 신고수 반영!");
+			return "redirect:/board/detail?boardNo="+boardNo;
+//			return "redirect:"+referer;
 		} else {
-			//일단 error 나누어서 안 적음, 필요하면 적기
-			model.addAttribute("msg", "랭킹 조회 실패");
-			return "error";
+			System.out.println("board에 게시물 신고수 반영 안됨!");
+			return "redirect:"+referer;
+		}
+
+	}
+	
+	
+	
+	//관리자 : 신고 게시글 숨기기
+	@RequestMapping(value="/board/detail_reportAdminToN", method=RequestMethod.POST
+			, produces="application/json;charset=utf-8")
+	public String boardDetailReportManager1(
+			HttpServletRequest request
+			, @RequestParam("boardNo") int boardNo) {
+		System.out.println(boardNo);
+
+		String referer = request.getHeader("Referer");
+		
+		int boardReportManager = bService.boardReportManagerToN(boardNo);
+		if(boardReportManager > 0) {
+			//게시물 추천수
+			//board_tbl boardLike update
+			
+			System.out.println("board 숨기기");
+			return "redirect:/admin/manageBoardReported.me";
+//				return "redirect:"+referer;
+		} else {
+			System.out.println("board 숨기기 실패");
+			return "redirect:"+referer;
 		}
 		
 	}
+	
+	//관리자 : 신고 게시글 보이기
+	@RequestMapping(value="/board/detail_reportAdminToY", method=RequestMethod.POST
+			, produces="application/json;charset=utf-8")
+	public String boardDetailReportManager2(
+			HttpServletRequest request
+			, @RequestParam("boardNo") int boardNo) {
+		System.out.println(boardNo);
+
+		String referer = request.getHeader("Referer");
+		
+		int boardReportManager = bService.boardReportManagerToY(boardNo);
+		if(boardReportManager > 0) {
+			//게시물 추천수
+			//board_tbl boardLike update
+			
+			System.out.println("board 보이기");
+			return "redirect:/admin/manageBoardReported.me";
+//				return "redirect:"+referer;
+		} else {
+			System.out.println("board 보이기 실패");
+			return "redirect:"+referer;
+		}
+		
+	}
+	
+
 }

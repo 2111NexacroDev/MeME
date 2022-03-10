@@ -33,66 +33,22 @@ public class BoardServiceImpl implements BoardService {
 		return totalCount;
 	}
 	
-	
 	//게시물 리스트
 	@Override
 	public List<Board> printAllBoard(PageInfo pi) {
 		List<Board> boardAllList = bStore.selectAllBoard(sqlSession, pi);
 		return boardAllList;
 	}
-	
-	//게시물 디테일 페이지 확인
-	@Override
-	public Board printBoardOneByNo(Integer boardNo) {
-		Board board = bStore.selectBoardOneById(sqlSession, boardNo);
-		return board;
-	}
-	
-	@Override
-	public BoardFile printBoardFileOneByNo(int boardNo) {
-		BoardFile boardFile = bStore.selectBoardFileOneByNo(sqlSession, boardNo);
-		return boardFile;
-	}
-
-
-	//게시물 조회수 증가
-	@Override
-	public int boardCount(Integer boardNo) {
-		int result = bStore.updateBoardCount(sqlSession, boardNo);
-		return result;
-	}
-
-	//게시물 추천 수
-	
-	@Override
-	public int addBoardLike(Recommend recommend) {
-		int result = bStore.insertBoardLike(sqlSession, recommend);
-		return result;
-	}
-
-
-	@Override
-	public int updateBoardLike(Recommend recommend) {
-		int result = bStore.updateBoardLike(sqlSession, recommend);
-		return result;
-	}
-	
-	//게시물 신고 수
-	@Override
-	public int addBoardReport(int boardNo) {
-		int result = bStore.updateBoardReport(sqlSession, boardNo);
-		return result;
-	}
-
 
 	
-	//게시글 추가
+	//게시글 등록
+	//첨부파일 추가 전
 	@Override
 	public int registerBoard(Board board) {
 		int result = bStore.insertBoard(sqlSession, board);
 		return result;
 	}
-
+	//첨부파일 추가
 	@Override
 	public int registerNewBoard(Board board, BoardFile boardFile) {
 		int result = bStore.insertBoard(sqlSession, board);
@@ -114,7 +70,6 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	//게시글 삭제
-
 	@Override
 	public int deleteBoard(Integer boardNo) {
 		int result = bStore.deleteBoard(sqlSession, boardNo);
@@ -124,6 +79,21 @@ public class BoardServiceImpl implements BoardService {
 			bStore.deleteCommentBoardNo(sqlSession, boardNo);
 		}
 		return result;
+	}
+
+	
+	
+	//게시글 상세 페이지
+	@Override
+	public Board printBoardOneByNo(Integer boardNo) {
+		Board board = bStore.selectBoardOneById(sqlSession, boardNo);
+		return board;
+	}
+	
+	@Override
+	public BoardFile printBoardFileOneByNo(int boardNo) {
+		BoardFile boardFile = bStore.selectBoardFileOneByNo(sqlSession, boardNo);
+		return boardFile;
 	}
 
 
@@ -136,14 +106,12 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
-
 	@Override
 	public List<Comment> printAllCommentList(int boardNo) {
 		List<Comment> commentList = bStore.selectAllComment(sqlSession, boardNo);
 		return commentList;
 	}
 
-	
 	@Override
 	public int modifyComment(Comment comment) {
 		int result = bStore.updateComment(sqlSession, comment);
@@ -158,14 +126,45 @@ public class BoardServiceImpl implements BoardService {
 
 	
 	
-	//게시글 숨기기 (관리자)
+	//게시물 조회 수 증가
+	public int boardCount(Integer boardNo) {
+		int result = bStore.updateBoardCount(sqlSession, boardNo);
+		return result;
+	}
 
+	//게시물 추천 수
+	//recommend table insert
+	@Override
+	public int addBoardLike(Recommend recommend) {
+		int result = bStore.insertBoardLike(sqlSession, recommend);
+		return result;
+	}
+
+	// board table update
+	@Override
+	public int updateBoardLike(Recommend recommend) {
+		int result = bStore.updateBoardLike(sqlSession, recommend);
+		return result;
+	}
+	
+	
+	//게시물 신고 수
+	@Override
+	public int addBoardReport(int boardNo) {
+		int result = bStore.updateBoardReport(sqlSession, boardNo);
+		return result;
+	}
+
+
+	
+	//관리자 : 신고 게시글 숨기기
 	@Override
 	public int boardReportManagerToN(int boardNo) {
 		int result = bStore.updateBoardReportManagerToN(sqlSession, boardNo);
 		return result;
 	}
 
+	//관리자 : 신고 게시글 숨기기
 	@Override
 	public int boardReportManagerToY(int boardNo) {
 		int result = bStore.updateBoardReportManagerToY(sqlSession, boardNo);
