@@ -179,11 +179,14 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
-
+		
 		function searchMeme() {
+
 			var searchValue = document.querySelector("#keyword").value;
 			location.href = '/meme/detail?memeName=' + searchValue;
+			
 		}
+		
 	</script>
 </body>
 

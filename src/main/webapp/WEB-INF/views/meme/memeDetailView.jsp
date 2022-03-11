@@ -33,6 +33,7 @@
 			<td>유행시기</td>
 			<td>${meme.memeDate}</td>
 		</tr>
+		
 		<tr>
 			<td height="300">유행어 설명</td>
 			<td width="600" align="left">
