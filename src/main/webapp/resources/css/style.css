@@ -312,7 +312,7 @@ button {
 
 
 /* opennav bar start */
-
+/* 카테고리 안에 선택항목 */
 .sidenav {
     height: 100%;
     width: 0;
@@ -451,9 +451,9 @@ button {
     padding-left: 10px;
     padding-top: 4px;
 }
-
+/* 로그인 색상 변경 */
 .login_menu li a {
-    color: #ffffff;
+    color: #ffd400;
 }
 
 .login_menu li a:hover {
