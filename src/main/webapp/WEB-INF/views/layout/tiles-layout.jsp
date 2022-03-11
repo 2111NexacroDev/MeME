@@ -19,12 +19,12 @@
 		background-color: grey;
 	}
 	#header {
-		height:20%;
+		height:100px;
 		width:100%;
 		background-color: #8F2B00;
 	}
 	#content {
-		height : 80%;
+		height : 90%;
 		width: 100%;
 		background-color: #f9f9f9;
 	}
