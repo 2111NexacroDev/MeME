@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
+<!-- 랭킹 제외 tiles -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,12 @@
 		background-color: grey;
 	}
 	#header {
-		height:20%;
+		height:100px;
 		width:100%;
 		background-color: #8F2B00;
 	}
 	#content {
-		height : 80%;
+		height : 90%;
 		width: 100%;
 		background-color: #f9f9f9;
 	}

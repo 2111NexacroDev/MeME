@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+   <!-- 게시판 상세 페이지 초기 원본 -->
 <!DOCTYPE html>
 <html>
 <head>
