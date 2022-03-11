@@ -114,7 +114,7 @@
 									<div class="main">
 										<div class="input-group">
 											<input type="text" class="form-control" id="keyword" value=""
-												width="20px" placeholder="ex) 어쩔티비">
+												width="20px" placeholder="ex) 어쩔티비" onkeypress="if(event.keyCode==13){searchMeme();}" >
 
 											<div class="input-group-append">
 												<button class="btn btn-secondary" type="button"
@@ -186,6 +186,7 @@
 			location.href = '/meme/detail?memeName=' + searchValue;
 			
 		}
+		
 		
 	</script>
 </body>
