@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<!-- rank는 tiles 이용 layout에 있음 -->
 </body>
 </html>
