@@ -137,19 +137,19 @@
 	
 	<!-- 마이페이지 -->
 	<select id="selectMyPageListCount" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM BOARD_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE BOARD_STATUS = 'Y' AND MEMBER_ID = #{memberId }
+		SELECT COUNT(*) FROM BOARD_TBL JOIN MEMBER_TBL USING(MEMBER_ID) WHERE BOARD_STATUS = 'Y' AND MEMBER_ID = #{memberId }
 	</select>
 	
 	<select id="selectMyCommentListCount" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM COMMENT_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId }
+		SELECT COUNT(*) FROM COMMENT_TBL JOIN MEMBER_TBL USING(MEMBER_ID) WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId }
 	</select>
 	
 	<select id="selectMyBoardList" parameterType="string" resultMap="boardResultMap">
-		SELECT * FROM BOARD_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE MEMBER_ID = #{memberId} AND BOARD_STATUS = 'Y' ORDER BY BOARD_NO DESC
+		SELECT * FROM BOARD_TBL JOIN MEMBER_TBL USING(MEMBER_ID) WHERE BOARD_STATUS = 'Y' AND MEMBER_ID = #{memberId } ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectMyCommentList" parameterType="string" resultMap="commentResultMap">
-		SELECT * FROM COMMENT_TBL JOIN MEMBER_TBL USING(MEMBER_NICKNAME) WHERE MEMBER_ID = #{memberId} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO DESC
+		SELECT * FROM COMMENT_TBL JOIN MEMBER_TBL USING(MEMBER_ID) WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId } ORDER BY COMMENT_NO DESC
 	</select>
 	
 	
