@@ -8,6 +8,7 @@
 		<id property="boardNo" column="BOARD_NO"/>
 		<result property="boardType" column="BOARD_TYPE"/>
 		<result property="boardTitle" column="BOARD_TITLE"/>
+		<result property="memberId" column="MEMBER_ID"/>
 		<result property="memberNickname" column="MEMBER_NICKNAME"/>
 		<result property="boardDate" column="BOARD_DATE"/>
 		<result property="boardReDate" column="BOARD_REDATE"/>
@@ -30,6 +31,7 @@
 		<id property="commentNo" column="COMMENT_NO"/>
 		<result property="boardNo" column="BOARD_NO"/>
 		<result property="commentParentsno" column="COMMENT_PARENTSNO"/>
+		<result property="memberId" column="MEMBER_ID"/>
 		<result property="memberNickname" column="MEMBER_NICKNAME"/>
 		<result property="commentContents" column="COMMENT_CONTENTS"/>
 		<result property="commentDate" column="COMMENT_DATE"/>
@@ -60,7 +62,7 @@
 	<insert id="insertBoard" parameterType="Board">
 <!-- 		INSERT INTO BOARD_TBL (BOARD_NO, BOARD_TYPE, BOARD_TITLE, MEMBER_NICKNAME, BOARD_CONTENTS) -->
 <!-- 		VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, '어쩔티비', #{boardContents}) -->
-		INSERT INTO BOARD_TBL VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle}, #{memberNickname}, DEFAULT, DEFAULT,
+		INSERT INTO BOARD_TBL VALUES(BOARD_SEQ_NO.NEXTVAL, #{boardType}, #{boardTitle},  #{memberId}, #{memberNickname}, DEFAULT, DEFAULT,
 		 #{boardContents}, 0, 0, 0, DEFAULT)
 	</insert>
 	
@@ -99,7 +101,7 @@
 	</select>
 	
 	<insert id="insertComment">
-		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT)
+		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberId}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
 	<update id="updateComment">
