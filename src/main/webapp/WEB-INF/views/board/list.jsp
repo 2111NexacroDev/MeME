@@ -10,6 +10,13 @@
 <meta charset="UTF-8">
 <title>게시판</title>
 <style>
+	#boardWriteButton {
+		height:30px;
+		width:700px;
+		text-align: right;
+		margin: auto;
+	}
+	
 	#boardTable{
 		border: 1px solid black;
 		width:700px;
@@ -29,11 +36,12 @@
 </style>
 </head>
 <body>
-<p></p>
+<br>
 	<h1 align="center">게시판</h1>
-	<p align="right">
+	<div id="boardWriteButton">
 		<input type="button" value="글쓰기" onclick="boardWriteFunc();"/>
-	</p>
+	</div>
+
 	<table id="boardTable">
 		<tr>
 			<th>번호</th>
