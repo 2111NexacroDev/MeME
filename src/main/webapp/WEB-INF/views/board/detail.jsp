@@ -237,6 +237,7 @@
 	$("#cSubmit").on("click", function(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
+		var memberId = "${member.memberId}";
 		var commentContents = $("#commentContents").val();
 		
 // 		console.log("${sessionScope.loginMember}");
@@ -248,6 +249,7 @@
 				url: "/board/commentAdd",
 				type: "post",
 				data: { "boardNo" : boardNo,
+					"memberId" : memberId,
 					"memberNickname" : memberNickname,
 					"commentContents" : commentContents },
 				success: function(data){
@@ -273,6 +275,7 @@
 	function getCommentList(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
+		var memberId = "${member.memberId}";
 		$.ajax({
 			url: "/board/commentList",
 			type: "get",
@@ -297,7 +300,7 @@
 						$commentWriter = $("<td width='100'>").text(data[i].memberNickname);
 						$commentContent = $("<td align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
-						$commentDate = $("<td width='200'>").text(data[i].commentDate);
+						$commentDate = $("<td width='120'>").text(data[i].commentDate);
 // 						$commentDate = $("<td width='200'>").text(data[i].commentDate)
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
@@ -305,13 +308,13 @@
 							$btnArea = $("<td width='80'>")
 										.append("<a href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
-						}
+						} 
 						
 						$tr.append($commentWriter);
 						$tr.append($commentContent);
 						$tr.append($commentDate);
 						
-						if(data[i].memberNickname == memberNickname){
+						if(data[i].memberId == memberId){
 							$tr.append($btnArea);
 						}
 						

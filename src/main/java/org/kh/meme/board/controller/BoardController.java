@@ -178,6 +178,7 @@ public class BoardController {
 			System.out.println(board);
 			System.out.println(boardFile);
 			board.setMemberNickname(member.getMemberNickname());
+			board.setMemberId(member.getMemberId());
 //			int result = bService.registerBoard(board);
 
 			int result = bService.registerNewBoard(board, boardFile);
@@ -303,6 +304,7 @@ public class BoardController {
 		
 		board.setBoardNo(boardNo);
 		board.setMemberNickname(member.getMemberNickname());
+		board.setMemberId(member.getMemberId());
 		System.out.println(board);
 		System.out.println(boardFile);
 
