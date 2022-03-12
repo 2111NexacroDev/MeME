@@ -7,16 +7,16 @@
 <title>사전 등재 요청</title>
 </head>
 <body>
+	<div>
 	<br>
-	<br>
-	<h1 align="center">사전 등재 요청</h1>
-	<br>
+	<h1 align="center"><strong>사전 등재 요청</strong></h1>
 	<br>
 	<hr>
-	<br>
-	<br>
+	</div>
+	<div>
 	<form action="/meme/register" method="POST"
 		enctype="multipart/form-data">
+		<br>
 		<table align="center">
 			<tr>
 				<td>유행어</td>
@@ -46,6 +46,6 @@
 			</tr>
 		</table>
 	</form>
-
+	</div>
 </body>
 </html>

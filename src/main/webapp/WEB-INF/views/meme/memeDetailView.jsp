@@ -18,60 +18,61 @@
 </style>
 </head>
 <body>
-	<br>
-	<br>
-	<h1 align="center">유행어 사전</h1>
-	<br>
-	<hr>
-	<br>
-	<table id="memeDetailTable" align="center" border=1>
-		<tr>
-			<td>유행어</td>
-			<td>${meme.memeName}</td>
-		</tr>
-		<tr>
-			<td>유행시기</td>
-			<td>${meme.memeDate}</td>
-		</tr>
-		
-		<tr>
-			<td height="300">유행어 설명</td>
-			<td width="600" align="left">
-				<p>${meme.memeContents}</p> 
-				<c:if test="${not empty memeFile.memeFileRename }">
-					<p>
-						<img src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
-					</p>
-				</c:if>
-			</td>
+	<div>
+		<br>
+		<h1 align="center">유행어 사전</h1>
+		<br>
+		<hr>
+	</div>
 
-		</tr>
-		<%-- 		<tr>
+	<div>
+		<br>
+		<table id="memeDetailTable" align="center" border=1>
+			<tr>
+				<td>유행어</td>
+				<td>${meme.memeName}</td>
+			</tr>
+			<tr>
+				<td>유행시기</td>
+				<td>${meme.memeDate}</td>
+			</tr>
+
+			<tr>
+				<td height="300">유행어 설명</td>
+				<td width="600" align="left">
+					<p>${meme.memeContents}</p> 
+					<c:if test="${not empty memeFile.memeFileRename }">
+						<p>
+							<img src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
+						</p>
+					</c:if>
+				</td>
+
+			</tr>
+			<%-- 		<tr>
 			<td>첨부파일</td>
 			<td><img
 				src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
 			</td>
 		</tr> --%>
-		<tr>
-			<td>등재요청자</td>
-			<td>${meme.memberNickname}</td>
-		</tr>
-	</table>
+			<tr>
+				<td>등재요청자</td>
+				<td>${meme.memberNickname}</td>
+			</tr>
+		</table>
 
-	<br>
-	<hr>
+		<br>
+		<hr>
 
-	<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
-	<div align="right">
-		<c:if test="${not empty sessionScope.loginMember }">
-			<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
-		</c:if>
+		<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
+		<div align="right">
+			<c:if test="${not empty sessionScope.loginMember }">
+				<a
+					href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}">
+					의견내기 &nbsp;&nbsp;</a>
+			</c:if>
+		</div>
+		<br> <br> <br>
 	</div>
-
-
-	<br>
-	<br>
-	<br>
-
 </body>
 </html>
