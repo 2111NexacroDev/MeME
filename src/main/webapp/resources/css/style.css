@@ -453,7 +453,7 @@ button {
 }
 /* 로그인 색상 변경 */
 .login_menu li a {
-    color: #ffd400;
+    color: grey;
 }
 
 .login_menu li a:hover {

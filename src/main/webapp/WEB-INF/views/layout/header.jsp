@@ -80,8 +80,13 @@
 						<a align="left" href="/meme/timeline">타임라인</a>
 					</div>
 					<!-- 카테고리 아이콘 -->
-					<span class="toggle_icon" onclick="openNav()"><img
-						src="../resources/images/toggle-icon.png" style="width: 25px"></span>
+					<!-- <span class="toggle_icon" onclick="openNav()">
+							<img src="../resources/images/toggle-icon.png" style="width: 25px">
+						 </span> -->
+					<span class="toggle_icon" onclick="openNav()">
+						<i class="fa fa-bars fa-2x" aria-hidden="true" style="color:grey;"></i>
+					</span>
+						
 					<div class="main"></div>
 					<div class="header_box">
 						<!--                   	 <div class=""><a href="#">MEME</a></div> -->
