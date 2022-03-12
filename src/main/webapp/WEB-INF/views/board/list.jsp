@@ -88,20 +88,20 @@
 	</div>
 	</div>
 	<br>
-	<div>
+	<form action="/board/search" method="post">
 		<div style="text-align:center">
-			<select style="height:30px; width:80px">
+			<select name="type" style="height:30px; width:80px">
 				<option value="0" style="text-align: center">분류</option>
 				<option value="F" style="text-align: center">자유</option>
 				<option value="P" style="text-align: center">추진</option>
 				<option value="title" style="text-align: center">글제목</option>
 				<option value="writer" style="text-align: center">작성자</option>
-				<input type="text" name="keyword" style="height:30px; width:250px">
-				<button style="height:30px; width:100px">Search</button>
 			</select>
-			
+			<input type="text" name="keyword" style="height:30px; width:250px">
+			<button type="button" style="height:30px; width:100px">Search</button>
 		</div>
-	</div>
+	</form>
+
 	<script>
 		function boardWriteFunc(){
 			<c:if test="${empty sessionScope.loginMember }">
