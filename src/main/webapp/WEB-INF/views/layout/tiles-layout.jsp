@@ -21,7 +21,7 @@
 	#header {
 		height:100px;
 		width:100%;
-		background-color: #8F2B00;
+		background-color: #f9f9f9;
 	}
 	#content {
 		height : 90%;
@@ -38,7 +38,7 @@
 	#rank {
 		height:100%;
 		width:20%;
-		background-color: white;
+		background-color: #f9f9f9;
 		float:left;
 	}
 
