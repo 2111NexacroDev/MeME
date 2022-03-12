@@ -98,7 +98,7 @@
 				<option value="writer" style="text-align: center">작성자</option>
 			</select>
 			<input type="text" name="keyword" style="height:30px; width:250px">
-			<button type="button" style="height:30px; width:100px">Search</button>
+			<button type="submit" style="height:30px; width:100px">Search</button>
 		</div>
 	</form>
 
@@ -110,6 +110,10 @@
 	   		<c:if test="${not empty loginMember }">
 	   			location.href="/board/write";
 	        </c:if>
+		}
+		
+		function searchBtn() {
+			alert("검색");
 		}
 	</script>
 </body>

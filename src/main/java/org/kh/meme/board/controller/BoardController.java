@@ -13,6 +13,7 @@ import org.kh.meme.board.domain.Board;
 import org.kh.meme.board.domain.BoardFile;
 import org.kh.meme.board.domain.Comment;
 import org.kh.meme.board.domain.Recommend;
+import org.kh.meme.board.domain.Search;
 import org.kh.meme.board.service.BoardService;
 import org.kh.meme.common.PageInfo;
 import org.kh.meme.common.Pagination;
@@ -90,7 +91,10 @@ public class BoardController {
 	@RequestMapping(value="/board", method = RequestMethod.GET, produces="application/text;charset=utf-8")
 	public String boardranklist(
 			Model model
-			, @RequestParam(value="page", required=false) Integer page) {
+			, @RequestParam(value="page", required=false) Integer page
+			, @ModelAttribute Search search) {
+		
+		System.out.println(search);
 		
 		int currentPage = (page != null) ? page : 1;
 		
@@ -116,6 +120,14 @@ public class BoardController {
 			return "error";
 		}
 		
+	}
+	@RequestMapping(value="/board/search", method = RequestMethod.POST, produces="application/text;charset=utf-8")
+	public String boardSearch(Model model
+			, @ModelAttribute Search search) {
+		model.addAttribute("search", search);
+		System.out.println("search : " + search);
+		
+		return "redirect:/board";
 	}
 
 
