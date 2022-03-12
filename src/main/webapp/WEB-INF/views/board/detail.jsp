@@ -86,8 +86,8 @@
 				<input type="button" id="boardList" value="게시글 목록" 
 					onclick="location.href='/board';">
 			</td>
-			
-			<c:if test="${sessionScope.loginMember.memberNickname eq oneBoard.memberNickname || sessionScope.loginMember.memberId eq 'admin'}">
+			<!-- 관리자일 땐 삭제만 표시 -->
+			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
 				<td align="right">
 					<form action='<c:url value="/board/detail_updateView">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
@@ -96,6 +96,8 @@
 						<input type="submit" id="boardUpdate" value="수정">
 					</form>
 				</td>
+   			</c:if>
+   			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId || sessionScope.loginMember.memberId eq 'admin'}">
 				<td width="35px">
 					<form action='<c:url value="/board/detail_delete">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
