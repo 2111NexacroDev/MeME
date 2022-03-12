@@ -65,7 +65,26 @@ public class BoardController {
 		return "/board/boardDetailView";
 	}
 	
-	
+	//board에서 랭킹 정보 넘겨주기
+	public void boardRank(Model model) {
+		//랭킹
+		model.addAttribute("rankmain", "board");
+		List<MemeRank> memeRankList = rService.printMemeRank();
+		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
+		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
+		List<QuizRank> quizRankList = rService.printQuizRank();
+		
+		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+			//랭킹
+			model.addAttribute("memeRankList", memeRankList);
+			model.addAttribute("boardPushRankList", boardPushRankList);
+			model.addAttribute("boardFreeRankList", boardFreeRankList);
+			model.addAttribute("quizRankList", quizRankList);
+		} else {
+			//일단 error 나누어서 안 적음, 필요하면 적기
+			model.addAttribute("msg", "랭킹 조회 실패");
+		}
+	}
 	
 	//게시글 리스트
 	@RequestMapping(value="/board", method = RequestMethod.GET, produces="application/text;charset=utf-8")
@@ -84,25 +103,12 @@ public class BoardController {
 		
 		//게시판
 		List<Board> boardAllList = bService.printAllBoard(pi);
-		
-		
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
  
 		
-		if(!boardAllList.isEmpty() && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+		if(!boardAllList.isEmpty() ) {
 			//게시판
 			model.addAttribute("boardAllList", boardAllList);
-			
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
+			boardRank(model);
 			return ".tiles/board/list";
 		} else {
 			//일단 error 나누어서 안 적음, 필요하면 적기
@@ -119,35 +125,14 @@ public class BoardController {
 	public String boardwrite( HttpServletRequest request,
 			Model model) {
 		
-
 		//memberId session에서 가져오기
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("loginMember");
 		System.out.println(member);
-				
-				
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
- 
 		
-		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
-			return ".tiles/board/write";
-		} else {
-			//일단 error 나누어서 안 적음, 필요하면 적기
-			model.addAttribute("msg", "랭킹 조회 실패");
-			return "error";
-		}
-		
-		
+		boardRank(model);
+		return ".tiles/board/write";
+
 	}
 		
 	//게시글 등록
@@ -183,22 +168,10 @@ public class BoardController {
 
 			int result = bService.registerNewBoard(board, boardFile);
 			System.out.println(result); //이게 아예 안 넘어옴...
+		
 			
-			//랭킹
-			model.addAttribute("rankmain", "board");
-			List<MemeRank> memeRankList = rService.printMemeRank();
-			List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-			List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-			List<QuizRank> quizRankList = rService.printQuizRank();
-			
-			
-			if(result > 0 && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-			
-				//랭킹
-				model.addAttribute("memeRankList", memeRankList);
-				model.addAttribute("boardPushRankList", boardPushRankList);
-				model.addAttribute("boardFreeRankList", boardFreeRankList);
-				model.addAttribute("quizRankList", quizRankList);
+			if(result > 0) {
+				boardRank(model);
 				return "redirect:/board";
 			} else {
 				//일단 error 나누어서 안 적음, 필요하면 적기
@@ -248,25 +221,13 @@ public class BoardController {
 		//게시글 보기
 		Board oneBoard = bService.printBoardOneByNo(boardNo);
 		BoardFile boardFile = bService.printBoardFileOneByNo(oneBoard.getBoardNo());
-		
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
- 
-		
-		if(oneBoard != null && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+
+		if(oneBoard != null) {
 			//게시물
 			model.addAttribute("oneBoard", oneBoard);
 			model.addAttribute("boardFile", boardFile);
-			
-			model.addAttribute("memeRankList", memeRankList);
-				model.addAttribute("boardPushRankList", boardPushRankList);
-				model.addAttribute("boardFreeRankList", boardFreeRankList);
-				model.addAttribute("quizRankList", quizRankList);
-				return ".tiles/board/update";
+			boardRank(model);
+			return ".tiles/board/update";
 			
 		} else {
 			//일단 error 나누어서 안 적음, 필요하면 적기
@@ -308,25 +269,11 @@ public class BoardController {
 		System.out.println(board);
 		System.out.println(boardFile);
 
-
 		int result = bService.updateBoard(board, boardFile);
 		System.out.println(result);
 		
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
-		
-		
-		if(result > 0 && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-		
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
+		if(result > 0) {
+			boardRank(model);
 			return "redirect:/board";
 		} else {
 			//일단 error 나누어서 안 적음, 필요하면 적기
@@ -355,22 +302,10 @@ public class BoardController {
 
 		int result = bService.deleteBoard(boardNo);
 		System.out.println(result);
+	
 		
-		//랭킹
-		model.addAttribute("rankmain", "board");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
-		
-		
-		if(result > 0 && !memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
-		
-			//랭킹
-			model.addAttribute("memeRankList", memeRankList);
-			model.addAttribute("boardPushRankList", boardPushRankList);
-			model.addAttribute("boardFreeRankList", boardFreeRankList);
-			model.addAttribute("quizRankList", quizRankList);
+		if(result > 0) {
+			boardRank(model);
 			return "redirect:/board";
 		} else {
 			//일단 error 나누어서 안 적음, 필요하면 적기

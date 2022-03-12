@@ -45,6 +45,28 @@ public class QuizController {
 	@Autowired
 	private RankService rService;
 	
+
+	//quiz에서 랭킹 정보 넘겨주기
+	public void quizRank(Model model) {
+		//랭킹
+		model.addAttribute("rankmain", "quiz");
+		List<MemeRank> memeRankList = rService.printMemeRank();
+		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
+		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
+		List<QuizRank> quizRankList = rService.printQuizRank();
+		
+		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
+			//랭킹
+			model.addAttribute("memeRankList", memeRankList);
+			model.addAttribute("boardPushRankList", boardPushRankList);
+			model.addAttribute("boardFreeRankList", boardFreeRankList);
+			model.addAttribute("quizRankList", quizRankList);
+		} else {
+			//일단 error 나누어서 안 적음, 필요하면 적기
+			model.addAttribute("msg", "랭킹 조회 실패");
+		}
+	}
+	
 	// 신고하기 기능
 	@ResponseBody
 	@RequestMapping(value = "quiz/report.me", method = RequestMethod.GET)
@@ -97,12 +119,7 @@ public class QuizController {
 			qList.add(quiz);
 		}
 		
-		//랭킹
-		model.addAttribute("rankmain", "quiz");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
+		quizRank(model);
 		
 		// 퀴즈 결과
 		model.addAttribute("userAnswer", userAnswer);
@@ -129,12 +146,6 @@ public class QuizController {
 				}
 			}
 		}
-
-		//랭킹
-		model.addAttribute("memeRankList", memeRankList);
-		model.addAttribute("boardPushRankList", boardPushRankList);
-		model.addAttribute("boardFreeRankList", boardFreeRankList);
-		model.addAttribute("quizRankList", quizRankList);
 		
 		return ".tiles/quiz/result";
 	}
@@ -142,20 +153,7 @@ public class QuizController {
 	//랜덤 퀴즈 페이지
 	@RequestMapping(value = "/quiz/random.me", method = RequestMethod.GET)
 	public String random( Model model ) {
-		
-		//랭킹
-		model.addAttribute("rankmain", "quiz");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
-				
-		//랭킹
-		model.addAttribute("memeRankList", memeRankList);
-		model.addAttribute("boardPushRankList", boardPushRankList);
-		model.addAttribute("boardFreeRankList", boardFreeRankList);
-		model.addAttribute("quizRankList", quizRankList);
-		
+		quizRank(model);
 		return ".tiles/quiz/random";
 	}
 	
@@ -180,20 +178,7 @@ public class QuizController {
 		
 		Member member = (Member) session.getAttribute("loginMember");
 		
-		
-		//랭킹
-		model.addAttribute("rankmain", "quiz");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
-		
-
-		//랭킹
-		model.addAttribute("memeRankList", memeRankList);
-		model.addAttribute("boardPushRankList", boardPushRankList);
-		model.addAttribute("boardFreeRankList", boardFreeRankList);
-		model.addAttribute("quizRankList", quizRankList);
+		quizRank(model);
 		
 		if(member== null) {
 			return ".tilesHead/member/login";
@@ -254,19 +239,7 @@ public class QuizController {
 		Quiz quiz = qService.printOneByNo(quizNo);
 		model.addAttribute("quiz", quiz);
 		
-		//랭킹
-		model.addAttribute("rankmain", "quiz");
-		List<MemeRank> memeRankList = rService.printMemeRank();
-		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
-		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		List<QuizRank> quizRankList = rService.printQuizRank();
-				
-
-		//랭킹
-		model.addAttribute("memeRankList", memeRankList);
-		model.addAttribute("boardPushRankList", boardPushRankList);
-		model.addAttribute("boardFreeRankList", boardFreeRankList);
-		model.addAttribute("quizRankList", quizRankList);
+		quizRank(model);
 		
 		return ".tiles/quiz/modify";
 	}
