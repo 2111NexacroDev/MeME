@@ -71,7 +71,6 @@
 				<div class="containt_main">
 					<div id="mySidenav" class="sidenav">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
 						<a align="left" href="/">유행어사전</a>
 						<a align="left" href="/board">유행어 추진/자유게시판</a> 
 						<a align="left" href="/quiz/random.me">유행어 퀴즈 풀기</a>
@@ -80,19 +79,25 @@
 						<a align="left" href="/meme/timeline">타임라인</a>
 
 					</div>
-					<span class="toggle_icon" onclick="openNav()"><img
-						src="./resources/images/toggle-icon.png" style="width: 35px"></span>
+					<!-- 카테고리 버튼 -->
+					<!-- <span class="toggle_icon" onclick="openNav()">
+						<img src="./resources/images/toggle-icon.png" style="width: 35px">
+					</span>  -->
+					<span class="toggle_icon" onclick="openNav()">
+						<i class="fa fa-bars fa-2x" aria-hidden="true" style="color:grey;"></i>
+					</span>
 					<div class="main"></div>
 					<div class="header_box">
+						<!-- header 우측 로그인 페이지 이동버튼-->
 						<div class="login_menu">
 							<ul>
-								<li><c:if test="${empty sessionScope.loginMember }">
-										<a href="/login.me"><i class="fa fa-user fa-2x"
-											aria-hidden="true"></i></a>
+								<li>
+									<c:if test="${empty sessionScope.loginMember }">
+										<a href="/login.me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
 									</c:if> <c:if test="${not empty loginMember }">
-										<a href="/myPage.me"><i class="fa fa-user fa-2x"
-											aria-hidden="true"></i></a>
-									</c:if></li>
+										<a href="/myPage.me"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+									</c:if>
+								</li>
 							</ul>
 						</div>
 					</div>
