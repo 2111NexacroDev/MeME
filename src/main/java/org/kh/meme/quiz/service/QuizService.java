@@ -12,7 +12,7 @@ public interface QuizService {
 
 	public List<Quiz> random();
 	public Quiz printOneByNo(Integer quizNo);
-	public int writeQuiz(Quiz quiz, QuizFile quizFile);
+	public int writeQuiz(Quiz quiz);
 	public int modifyQuiz(Quiz quiz);
 	
 	public int writeQuizM(QuizCh quizCh);
@@ -22,6 +22,8 @@ public interface QuizService {
 	
 	public int registerReport(QuizReport qReport);
 	public int deleteOneByNo(int quizNo);
+	
+	public int writeQuizFile(QuizFile quizFile);
 	
 
 }
