@@ -170,3 +170,12 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 ## 6. Document
+
+Class Diagram
+
+![image](https://user-images.githubusercontent.com/97689858/158059943-aba82271-2e04-4fee-825e-c7b40f13a465.png)
+![image](https://user-images.githubusercontent.com/97689858/158059946-7b3a279e-8dc2-4f19-85ed-6df7063ef479.png)
+![image](https://user-images.githubusercontent.com/97689858/158059949-4153c36d-ae68-4970-9370-360825df6371.png)
+![image](https://user-images.githubusercontent.com/97689858/158059954-259d3539-ba8a-44de-9702-09c592f47bcf.png)
+![image](https://user-images.githubusercontent.com/97689858/158059958-4991280e-d9c9-4e81-8628-91e9522c8a01.png)
+![image](https://user-images.githubusercontent.com/97689858/158059963-1f121ebe-926f-4465-ae62-93cb14287139.png)
