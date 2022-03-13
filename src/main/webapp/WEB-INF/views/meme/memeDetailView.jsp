@@ -8,6 +8,24 @@
 <meta charset="UTF-8">
 <title>사전 상세 페이지</title>
 <style>
+.main {
+	text-align: center;
+}
+
+.main .dtail {
+	text-align: left;
+}
+
+#memeDtatilName {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+}
+
+#memeDtailDate {
+	padding-left: 40px
+}
+
 #memeDetailTable {
 	width: 700px;
 	background-color: white;
@@ -25,54 +43,41 @@
 		<hr>
 	</div>
 
+	<div class="main">
+		<br>
+		<div class="dtail" id="memeName"> 
+			<p id="memeDtatilName">' &nbsp; ${meme.memeName} &nbsp; '</p>
+		</div>
+		<br>
+		<div class="dtail">
+			<span id="memeDtailDate">${meme.memeDate}</span>
+		</div>
+		<br>
+		<div class="dtail">
+			<p id="memeDetailContents">${meme.memeContents}</p>
+			<br>
+			<c:if test="${not empty memeFile.memeFileRename }">
+				<span> <img
+					src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
+				</span>
+			</c:if>
+		</div>
+		<br>
+		<div class="dtail" id="memeDetailmemberNickname">
+			<span>등재요청자 &nbsp;&nbsp; : &nbsp;&nbsp; ${meme.memberNickname}</span>
+		</div>
+		<br>
+	</div>
 	<div>
 		<br>
-		<table id="memeDetailTable" align="center" border=1>
-			<tr>
-				<td>유행어</td>
-				<td>${meme.memeName}</td>
-			</tr>
-			<tr>
-				<td>유행시기</td>
-				<td>${meme.memeDate}</td>
-			</tr>
-
-			<tr>
-				<td height="300">유행어 설명</td>
-				<td width="600" align="left">
-					<p>${meme.memeContents}</p> 
-					<c:if test="${not empty memeFile.memeFileRename }">
-						<p>
-							<img src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
-						</p>
-					</c:if>
-				</td>
-
-			</tr>
-			<%-- 		<tr>
-			<td>첨부파일</td>
-			<td><img
-				src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
-			</td>
-		</tr> --%>
-			<tr>
-				<td>등재요청자</td>
-				<td>${meme.memberNickname}</td>
-			</tr>
-		</table>
-
-		<br>
 		<hr>
-
 		<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
 		<div align="right">
 			<c:if test="${not empty sessionScope.loginMember }">
-				<a
-					href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}">
-					의견내기 &nbsp;&nbsp;</a>
+				<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
 			</c:if>
 		</div>
-		<br> <br> <br>
+		<br> <br>
 	</div>
 </body>
 </html>

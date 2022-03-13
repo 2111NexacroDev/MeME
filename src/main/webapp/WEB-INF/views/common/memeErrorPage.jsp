@@ -16,12 +16,15 @@
 	}
 	
 </style>
+
 </head>
 <body>
+	<hr>
 	<div class="message">
-		<h3 align="center">${msg }</h3>
+		<h3 align="center"><strong>${msg }</strong></h3>
 		<div>
-		<a href="/meme/registerView"> 등록하러가기 </a>
+		<br>
+		<a href="/meme/registerView"> >>등록하러가기 </a>
 		</div>
 	</div>
 </body>
