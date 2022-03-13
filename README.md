@@ -179,3 +179,8 @@ Class Diagram
 ![image](https://user-images.githubusercontent.com/97689858/158059954-259d3539-ba8a-44de-9702-09c592f47bcf.png)
 ![image](https://user-images.githubusercontent.com/97689858/158059958-4991280e-d9c9-4e81-8628-91e9522c8a01.png)
 ![image](https://user-images.githubusercontent.com/97689858/158059963-1f121ebe-926f-4465-ae62-93cb14287139.png)
+
+Sequence Diagram
+
+![퀴즈(등록,수정,삭제)](https://user-images.githubusercontent.com/97689858/158064083-f017c165-4523-4617-9808-bdabf4f13cac.jpg)
+![랜덤퀴즈](https://user-images.githubusercontent.com/97689858/158064101-5e61fe9a-39cd-4d20-9524-f7237a955303.jpg)
