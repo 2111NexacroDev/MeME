@@ -40,7 +40,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 ## 3. 사용기술 및 개발환경
 
-<img src="https://user-images.githubusercontent.com/100409006/158172639-0e52687e-373e-487a-bfa1-2382452f80bf.png" alt="개발환경" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158173146-fffaf59d-92a3-4bcd-b8bc-f48fb61dda60.png" alt="개발환경" width="80%">
 
 <table>
    <tr>
