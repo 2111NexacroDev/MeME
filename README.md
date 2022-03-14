@@ -66,7 +66,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
   </tr>
   <tr>
     <td>DB</td>
-    <td colspan="2">oracle(11g)</td>
+    <td colspan="2">oracle 11g </td>
   </tr>
   <tr>
     <td>협업</td>
