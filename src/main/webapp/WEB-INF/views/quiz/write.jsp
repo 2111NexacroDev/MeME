@@ -23,6 +23,9 @@
 		color : #999;
 		font-size:.9em;
 	}
+	#title_name {
+   			font-weight: bold;
+	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -177,7 +180,8 @@
 </head>
 <body>
 	<p></p>
-	<h1 align="center">유행어 퀴즈 등록</h1>
+	<h1 align="center" id="title_name">유행어 퀴즈 등록</h1>
+	<hr>
 	<form action="/quiz/write.me" method="post" id="quizWriteForm" enctype="multipart/form-data">
 	    <select name="quizType" id="type">
 	        <option value="" selected disabled>유형선택</option>

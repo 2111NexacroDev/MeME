@@ -95,6 +95,9 @@
         #userAnswer{
             color: #008F7C;
         }
+        #title_name {
+   			font-weight: bold;
+		}
     </style>
 <script>
 window.onload = function(){
@@ -165,7 +168,8 @@ window.onload = function(){
 </head>
 <body>
 	<p></p>
-	<h1>퀴즈 결과</h1>
+	<h1 align="center" id="title_name">퀴즈 결과</h1>
+	<hr>
 	<div id="quizContents">
 		<c:forEach var="i" items="${qList}" varStatus="vs">
 			<b>문제 : ${i.quizQuest} <br></b>

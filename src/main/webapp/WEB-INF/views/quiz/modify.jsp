@@ -24,6 +24,9 @@
 		color : #999;
 		font-size:.9em;
 	}
+	#title_name {
+   font-weight: bold;
+	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -185,7 +188,8 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<h1 align="center">유행어 퀴즈 수정</h1>
+	<h1 id="title_name" align="center">유행어 퀴즈 수정</h1>
+	<hr>
 	<form action="/quiz/modify.me" method="post" id="quizWriteForm" enctype="multipart/form-data">
 	
 	    <select name="quizType" id="type">
