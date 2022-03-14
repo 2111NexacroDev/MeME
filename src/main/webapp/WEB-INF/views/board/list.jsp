@@ -37,11 +37,13 @@
 </head>
 <body>
 <br>
-	<h1 align="center">게시판</h1>
+	<div>
+		<h1 style="font-weight: bold" align="center">유행어 추진/자유게시판</h1>
+		<hr>
+	</div>
 	<div id="boardWriteButton">
 		<input type="button" value="글쓰기" onclick="boardWriteFunc();"/>
 	</div>
-
 	<table id="boardTable">
 		<tr>
 			<th>번호</th>

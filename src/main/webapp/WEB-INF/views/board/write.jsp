@@ -43,8 +43,10 @@
 </head>
 
 <body>
-
-	<h1 align="center">글쓰기</h1>
+	<div>
+		<h1 style="font-weight: bold" align="center">게시글 작성</h1>
+	<hr>
+	</div>
 	<br>
 	<form action="/board/register" method="post" enctype="multipart/form-data">
 		<table id="boardWriteTable" align="center" border="1">
