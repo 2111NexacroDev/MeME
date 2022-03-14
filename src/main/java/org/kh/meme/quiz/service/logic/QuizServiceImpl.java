@@ -78,7 +78,13 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public int writeQuizFile(QuizFile quizFile) {
 		int result = qStore.insertQuizFile(sqlSession, quizFile);
-		return 0;
+		return result;
+	}
+
+	@Override
+	public List<QuizFile> printAllFile(Integer quizNo) {
+		List<QuizFile> quizFileList = qStore.selectAllFile(sqlSession, quizNo);
+		return quizFileList;
 	}
 
 

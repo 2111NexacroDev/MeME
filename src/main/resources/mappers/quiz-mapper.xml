@@ -22,6 +22,13 @@
   		<result property="reportDate" column="REPORT_DATE"/>
   		<result property="quizNo" column="QUIZ_NO"/>
   	</resultMap>
+  	<resultMap type="QuizFile" id="quizFileResultMap">
+  		<id property="quizFileNo" column="QUIZ_FILENO"/>
+  		<result property="quizNo" column="QUIZ_NO"/>
+  		<result property="quizFileName" column="QUIZ_FILENAME"/>
+  		<result property="quizFileExtension" column="QUIZ_FILEEXTENSION"/>
+  		<result property="quizFileRename" column="QUIZ_FILERENAME"/>
+  	</resultMap>
   	
   	<!-- 마이페이지 -->
   	<select id="selectMyQuizList" parameterType="string" resultMap="quizResultMap">
@@ -94,4 +101,7 @@
   	<delete id="deleteQuizByNo" parameterType="_int">
   		DELETE FROM QUIZ_TBL WHERE QUIZ_NO = #{quizNo }
   	</delete>
+  	<select id="selectQuizFile" resultMap="quizFileResultMap">
+  		SELECT * FROM QUIZ_FILE WHERE QUIZ_NO = #{quizNo }
+  	</select>
   </mapper>

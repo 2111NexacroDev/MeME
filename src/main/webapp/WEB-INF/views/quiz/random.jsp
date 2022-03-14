@@ -31,7 +31,7 @@
     	var $answer = []; // 정답 배열
     	var $quizNo = []; // 퀴즈번호 배열
     	var $quizType = []; // 퀴즈 유형
-        var clock = 30; // 제한시간 설정
+        var clock = 5; // 제한시간 설정
         var nextNum = 0; // 퀴즈 인덱스
         var userAnswer = []; // 유저가 입력한 정답
         var score = 0; // 점수
@@ -112,7 +112,25 @@
 							$report[nextNum] = data.quizNo;
 					},
 					error : function() {
-						
+						alert("ajax 실패!");
+					}
+				});
+	        	
+	        	// 퀴즈 파일 가져오기
+	        	$.ajax({
+					url : "/quiz/getFileList.me",
+					type : "get",
+					dataType : "json",
+					data : {"quizNo" : $quizNo[nextNum]},
+					success : function(data) {
+						var str ="";
+						for(var i=0; i<data.length; i++) {
+							str += "<img src='/resources/quizUploadFiles/"+data[i].quizFileRename+data[i].quizFileName+""+"'><br>";
+						}
+						$('#quizFile').html(str);
+					},
+					error : function() {
+						alert("ajax 실패!");
 					}
 				});
         	}
@@ -158,6 +176,8 @@
 		<br>
 		<div id="quest">
 			<b id="question"></b> <br>
+			<div id="quizFile">
+			</div>
 			<div id="ch1"></div>
 			<div id="ch2"></div>
 			<div id="ch3"></div>

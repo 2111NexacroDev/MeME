@@ -83,6 +83,17 @@ public class QuizController {
 		}
 	}
 	
+	// 퀴즈 번호 이용해서 파일들 가져오기
+	@ResponseBody
+	@RequestMapping(value = "/quiz/getFileList.me", method = RequestMethod.GET)
+	public String getQuizFiles(
+			@RequestParam("quizNo") Integer quizNo) {
+		List<QuizFile> quizFileList = qService.printAllFile(quizNo);
+		
+		Gson gson = new Gson();
+		return gson.toJson(quizFileList);
+	}
+	
 	//퀴즈 결과
 	@RequestMapping(value = "/quiz/result.me", method = RequestMethod.POST)
 	public String result(Model model
@@ -96,6 +107,16 @@ public class QuizController {
 		for(int i = 0; i<quizNo.length; i++) {
 			Quiz quiz = new Quiz();
 			quiz = qService.printOneByNo(quizNo[i]);
+			
+			List<QuizFile> quizFileList = qService.printAllFile(quizNo[i]);
+			String[] fileName = new String [quizFileList.size()];
+			if(!quizFileList.isEmpty()) {
+				for(int j=0; j<quizFileList.size(); j++) {
+					fileName[j] = quizFileList.get(j).getQuizFileRename()+quizFileList.get(j).getQuizFileName();
+				}
+				quiz.setFileName(fileName);
+			}
+				
 			qList.add(quiz);
 		}
 		
