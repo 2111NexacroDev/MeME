@@ -274,5 +274,6 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 
 #### 타임라인
-![RANK 시퀀스 랭킹 리스트 drawio (1)](https://user-images.githubusercontent.com/100409006/158163609-b1486426-1f6a-4cb3-b925-f8f5e08ce441.png)
+![RANK 시퀀스 랭킹 리스트 사이즈 조정 drawio](https://user-images.githubusercontent.com/100409006/158178406-edc0798e-8387-49db-b5cf-1bfa1d9fb7e2.png)
+
 
