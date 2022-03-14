@@ -81,6 +81,12 @@ public class QuizStoreLogic implements QuizStore {
 		return result;
 	}
 
+	@Override
+	public List<QuizFile> selectAllFile(SqlSession sqlSession, Integer quizNo) {
+		List<QuizFile> quizFileList = sqlSession.selectList("QuizMapper.selectQuizFile", quizNo);
+		return quizFileList;
+	}
+
 
 
 

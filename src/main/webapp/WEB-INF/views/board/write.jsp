@@ -9,7 +9,7 @@
 <title>게시글 작성</title>
 <style>
 #boardWriteTable { 
-	width: 800px; 
+	width: 700px; 
 	height: 200px; 
 	background-color: #F5A678 ; 
  	border: 1px solid black; 
@@ -18,12 +18,9 @@
  	color: black;
 }
 
-#boardWriteTable th {
-	background-color: #F5A678;
-}
 
 .jb-th-1 {
-	height: 500px;
+	height: 400px;
 	text-align: center;
 }
 
@@ -46,20 +43,22 @@
 </head>
 
 <body>
+
 	<h1 align="center">글쓰기</h1>
+	<br>
 	<form action="/board/register" method="post" enctype="multipart/form-data">
 		<table id="boardWriteTable" align="center" border="1">
 			<tr>
-				<td align="left">
+				<td height="30px" align="left">
 					&nbsp&nbsp추진<input type="radio" name="boardType" value="P">
 					&nbsp&nbsp자유<input type="radio" name="boardType" value="F" checked> 	
 				</td>
 			<tr>
-				<td align="left">&nbsp<input type="file" name="uploadFile"></td>
+				<td height="30px" align="left">&nbsp<input type="file" name="uploadFile"></td>
 			</tr>
 			</tr>
 			<tr style="text-align: center; width: 100%">
-				<td >
+				<td height="30px">
 					<input type="text" name="boardTitle" value="" placeholder="글 제목"
 						style="width: 99%">
 				</td>
@@ -69,13 +68,15 @@
         			<textarea id="boardWriteTextarea_1" name="boardContents"></textarea>
         		</td>
       		</tr>
+      		<tr>
 				<td colspan="2" align="right" height="30px">
-					<input type="reset" value="취소">
+					<input type="reset" value="취소" onclick="location.href='/board';">
 					<input type="submit" value="등록하기">
 				</td>
 			</tr>
 		</table>
 	
 	</form>
+	<br><br><br>
 </body>
 </html>

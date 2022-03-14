@@ -38,8 +38,8 @@ public class RankController {
 		List<MemeRank> memeRankList = rService.printMemeRank();
 		List<BoardRank> boardPushRankList = rService.printBoardPushRank();
 		List<BoardRank> boardFreeRankList = rService.printBoardFreeRank();
-		
 		List<QuizRank> quizRankList = rService.printQuizRank();
+		
 		if(!memeRankList.isEmpty() && !boardPushRankList.isEmpty() && !boardFreeRankList.isEmpty() && !quizRankList.isEmpty()) {
 			model.addAttribute("memeRankList", memeRankList);
 			model.addAttribute("boardPushRankList", boardPushRankList);

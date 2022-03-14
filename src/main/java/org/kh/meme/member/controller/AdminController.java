@@ -27,7 +27,7 @@ public class AdminController {
 	@Autowired
 	private AdminService aService;
 	
-	
+	// 관리자 페이지 이동
 	@RequestMapping(value="/admin/adminHome.me", method=RequestMethod.GET)
 	public String adminHome(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -41,6 +41,7 @@ public class AdminController {
 		return ".tilesHead/admin/adminHome";
 	}
 	
+	// 관리자 페이지 - 회원 관리
 	@RequestMapping(value="/admin/manageMember.me", method=RequestMethod.GET)
 	public String manageMember(HttpServletRequest request
 			,Model model
@@ -65,6 +66,8 @@ public class AdminController {
 		return ".tilesHead/admin/manageMember";
 	}
 	
+	
+	// 관리자 페이지 - 유행어 관리
 	@RequestMapping(value="/admin/manageMeme.me", method=RequestMethod.GET)
 	public String manageMeme(HttpServletRequest request
 			,Model model
@@ -88,6 +91,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageMeme";
 	}
 	
+	// 관리자 페이지 - 유행어 관리 - 요청 관리
 	@RequestMapping(value="/admin/manageMemeRequest.me", method=RequestMethod.GET)
 	public String manageMemeRequest(HttpServletRequest request
 			,Model model
@@ -111,6 +115,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageMemeRequest";
 	}
 	
+	// 관리자 페이지 - 게시글 관리
 	@RequestMapping(value="/admin/manageBoard.me", method=RequestMethod.GET)
 	public String manageBoard(HttpServletRequest request
 			,Model model
@@ -134,6 +139,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageBoard";
 	}
 	
+	// 관리자 페이지 - 게시글 관리 - 신고된 게시글
 	@RequestMapping(value="/admin/manageBoardReported.me", method=RequestMethod.GET)
 	public String manageBoardReported(
 			Model model
@@ -160,6 +166,7 @@ public class AdminController {
 	}
 	
 
+	// 관리자 페이지 - 게시글 관리 - 글 상태
 	@RequestMapping(value="/admin/manageBoardStatus.me", method=RequestMethod.GET)
 	public String manageBoardStatus(HttpServletRequest request
 			, Model model
@@ -185,6 +192,7 @@ public class AdminController {
 	}
 	
 	
+	// 관리자 페이지 - 퀴즈 관리
 	@RequestMapping(value="/admin/manageQuiz.me", method=RequestMethod.GET)
 	public String manageQuiz(HttpServletRequest request
 			,Model model
@@ -208,6 +216,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageQuiz";
 	}
 	
+	// 관리자 페이지 - 퀴즈 관리 - 신고된 퀴즈
 	@RequestMapping(value="/admin/manageQuizReported.me", method=RequestMethod.GET)
 	public String manageQuizReported(HttpServletRequest request
 			,Model model

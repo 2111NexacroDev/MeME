@@ -112,7 +112,25 @@
 							$report[nextNum] = data.quizNo;
 					},
 					error : function() {
-						
+						alert("ajax 실패!");
+					}
+				});
+	        	
+	        	// 퀴즈 파일 가져오기
+	        	$.ajax({
+					url : "/quiz/getFileList.me",
+					type : "get",
+					dataType : "json",
+					data : {"quizNo" : $quizNo[nextNum]},
+					success : function(data) {
+						var str ="";
+						for(var i=0; i<data.length; i++) {
+							str += "<img src='/resources/quizUploadFiles/"+data[i].quizFileRename+data[i].quizFileName+""+"'><br>";
+						}
+						$('#quizFile').html(str);
+					},
+					error : function() {
+						alert("ajax 실패!");
 					}
 				});
         	}
@@ -158,6 +176,8 @@
 		<br>
 		<div id="quest">
 			<b id="question"></b> <br>
+			<div id="quizFile">
+			</div>
 			<div id="ch1"></div>
 			<div id="ch2"></div>
 			<div id="ch3"></div>
