@@ -276,6 +276,16 @@ public class QuizController {
 			,@RequestParam("quizNo") Integer quizNo
 			,Model model) {
 		Quiz quiz = qService.printOneByNo(quizNo);
+		
+		List<QuizFile> quizFileList = qService.printAllFile(quizNo);
+		String[] fileName = new String [quizFileList.size()];
+		if(!quizFileList.isEmpty()) {
+			for(int j=0; j<quizFileList.size(); j++) {
+				fileName[j] = quizFileList.get(j).getQuizFileRename()+quizFileList.get(j).getQuizFileName();
+			}
+			quiz.setFileName(fileName);
+		}
+		
 		model.addAttribute("quiz", quiz);
 		
 		//랭킹

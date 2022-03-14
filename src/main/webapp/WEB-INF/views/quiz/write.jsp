@@ -200,7 +200,6 @@
 		</div>
 		첨부 이미지
 		<br>
-		<!-- <input multiple="multiple" type="file" name="uploadFile"> -->
 		<div id='image_preview'>
 			<h3>이미지 미리보기</h3>
 			<input type='file' id='btnAtt' multiple='multiple' name="uploadFile" accept="image/*"/>
