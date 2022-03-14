@@ -40,15 +40,40 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 ## 3. 사용기술 및 개발환경
 
-|개발환경||
-|:---:|---|
-| FRONT | html5, js, css3 |
-| BACK | java, Spring/jsp |
-| IDE | eclipse |
-| SERVER | Apache Tomcat 8.5 |
-| DB | oracle(11g) sqldeveloper |
-| 협업 | GitHub |
-<img src="이미지주소" alt="이미지" width="200" height="400">
+<table>
+   <tr>
+    <th colspan="3">사용기술 및 개발환경</th>
+  </tr>
+  
+  <tr>
+    <td rowspan="2">개발 언어</td>
+    <td>FRONT</td>
+    <td>html5, js, css3</td>
+  </tr>
+  <tr>
+    <td>BACK</td>
+    <td> java, Spring/jsp</td>
+  </tr>
+  <tr>
+    <td>IDE</td>
+    <td colspan="2">eclipse, sqldeveloper</td>
+  </tr>
+  <tr>
+    <td>SERVER</td>
+    <td colspan="2">Apache Tomcat 8.5</td>
+  </tr>
+  <tr>
+    <td>DB</td>
+    <td colspan="2">oracle(11g)</td>
+  </tr>
+  <tr>
+    <td>협업</td>
+    <td colspan="2">GitHub</td>
+  </tr>
+</table>
+
+
+<img src="이미지주소" alt="이미지" width="400" height="300">
 
 
 <img src="https://user-images.githubusercontent.com/100409006/157793472-d75f95ab-b3de-45c5-944e-20e203a1b944.png" alt="front" width="300"/> <img src="https://user-images.githubusercontent.com/100409006/157793484-d8f2c7ce-6644-4124-8af4-afb9e1dde17f.png" alt="java" width="300" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793458-cb0528df-76ce-4571-bc94-bc8ec47f4f24.png" alt="spring" width="200" height="200">
@@ -68,7 +93,28 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
   - 로그인, 마이페이지, 관리자페이지, 유행어 추진/자유게시판 화면 구현
 
 - 이민선
-  - 유행어 추진/자유게시판,  유행어 랭킹
+    - **메인 페이지**
+    - **유행어 추진/자유게시판**
+      - 게시글
+        - 게시글 리스트
+        - 게시글 등록 (첨부파일)
+        - 게시글 상세페이지
+        - 게시글 수정
+        - 게시글 삭제
+        - 게시글 신고
+        - 게시글 추천
+        - 관리자 : 게시글 숨기기 / 보이기
+      - 댓글
+        - 댓글 리스트 출력
+        - 댓글 등록
+        - 댓글 수정
+        - 댓글 삭제
+
+    - **유행어 랭킹**
+        - 유행어 사전 : 조회 수에 따른 랭킹
+        - 유행어 추진 / 자유 게시판 : 추천 수에 따른 랭킹
+        - 유행어 퀴즈 : 회원별 맞춘 갯수에 따른 랭킹
+        - 페이지 별로 메인 랭킹을 달리 함
 
 - 장승훈
   - 퀴즈
@@ -78,6 +124,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
     - 랜덤 퀴즈
     - 퀴즈 신고
 <br/><br/>
+
 ## 5. 주요기능
 #### 1. 메인 페이지
 
@@ -170,12 +217,12 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ![24](https://user-images.githubusercontent.com/100409006/157795928-662fcae6-fb56-4e53-9f41-f3580c9f6c87.PNG)
 ![25](https://user-images.githubusercontent.com/100409006/157795931-ac43f23a-88b3-40df-8862-0b95cc5406ea.PNG)
 ![26](https://user-images.githubusercontent.com/100409006/157795918-89c0d96c-20ad-4740-b732-e7016a5db461.PNG)
-<br/><br/>
+<br/><br/><br/>
 
 
 ## 6. Document
 
-Class Diagram
+### Class Diagram
 
 ![image](https://user-images.githubusercontent.com/97689858/158059943-aba82271-2e04-4fee-825e-c7b40f13a465.png)
 ![image](https://user-images.githubusercontent.com/97689858/158059946-7b3a279e-8dc2-4f19-85ed-6df7063ef479.png)
@@ -184,11 +231,33 @@ Class Diagram
 ![image](https://user-images.githubusercontent.com/97689858/158059958-4991280e-d9c9-4e81-8628-91e9522c8a01.png)
 ![image](https://user-images.githubusercontent.com/97689858/158059963-1f121ebe-926f-4465-ae62-93cb14287139.png)
 
-Sequence Diagram
-
+<br/><br/>
+### Sequence Diagram
+#### 회원 관리
 ![membersequence drawio](https://user-images.githubusercontent.com/97710950/158091070-28c86742-200e-44f3-a79e-00de5d317f83.png)
+<br/><br/>
+
+#### 유행어 사전, 타임라인
 ![meme drawio](https://user-images.githubusercontent.com/98931301/158097561-abc42d18-b7ae-4198-9113-0a18302b6baa.png)
+<br/><br/>
+
+#### 유행어 추진/자유 게시판
+![BOARD 시퀀스 게시글리스트 drawio](https://user-images.githubusercontent.com/100409006/158163860-e2638c1e-2b76-4d9d-977a-6a8623e28a53.png)
+![BOARD 시퀀스 게시글 상세페이지 drawio](https://user-images.githubusercontent.com/100409006/158163883-634bc1c0-1659-4c5b-986f-9c60c4ad86ad.png)
+![BOARD board 시퀀스 게시글 작성 drawio](https://user-images.githubusercontent.com/100409006/158163877-de2f6ed9-fe38-465f-aa4e-cf8fd2d4de67.png)
+![BOARD 시퀀스 게시글 수정 drawio](https://user-images.githubusercontent.com/100409006/158163899-e2bb07ce-2e86-47a7-b83c-634a44f52487.png)
+![BOARD 시퀀스 게시글 삭제 drawio](https://user-images.githubusercontent.com/100409006/158163889-8d31fafd-8154-4675-82df-9a3c9208f45d.png)
+
+![BOARD 시퀀스 게시글 추천 drawio](https://user-images.githubusercontent.com/100409006/158163938-ad247611-fa80-4770-89a4-7763137eaf7d.png)
+![BOARD 시퀀스 게시글 신고 drawio](https://user-images.githubusercontent.com/100409006/158163951-713c7686-6083-44dc-851d-81a971b2fd83.png)
+![BOARD 시퀀스 게시글 숨기기 _ 보이기 drawio](https://user-images.githubusercontent.com/100409006/158163948-57263f08-6e08-4600-ac9f-102a9b119e3e.png)
+<br/><br/>
+
+#### 유행어 퀴즈
 ![랜덤퀴즈](https://user-images.githubusercontent.com/97689858/158095517-2ecd168e-b770-41ea-bec6-1788efab7197.jpg)
 ![퀴즈(등록,수정,삭제)](https://user-images.githubusercontent.com/97689858/158095528-f03d43e7-c663-42c7-9b4e-34641629edda.jpg)
+<br/><br/>
 
+#### 타임라인
+![RANK 시퀀스 랭킹 리스트 drawio (1)](https://user-images.githubusercontent.com/100409006/158163609-b1486426-1f6a-4cb3-b925-f8f5e08ce441.png)
 
