@@ -169,6 +169,9 @@ window.onload = function(){
 	<div id="quizContents">
 		<c:forEach var="i" items="${qList}" varStatus="vs">
 			<b>문제 : ${i.quizQuest} <br></b>
+			<c:forEach var="j" items="${i.fileName}">
+					<img src="/resources/quizUploadFiles/${j}"><br>
+			</c:forEach>
 	    	<c:if test="${not empty i.quizCh1}">
 	    		<div id="choice">
 	    		보기 <br>

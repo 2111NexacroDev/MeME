@@ -65,10 +65,7 @@ public class QuizStoreLogic implements QuizStore {
 
 	@Override
 	public int insertQuizFile(SqlSession sqlSession, QuizFile quizFile) {
-		int result =0;
-		if(quizFile.getQuizFileName()!=null) {
-			result = sqlSession.insert("QuizMapper.insertQuizFile", quizFile);
-		}
+		int result = sqlSession.insert("QuizMapper.insertQuizFile", quizFile);
 		return result;
 	}
 
@@ -82,6 +79,12 @@ public class QuizStoreLogic implements QuizStore {
 	public int deleteQuiz(SqlSession sqlSession, int quizNo) {
 		int result = sqlSession.delete("QuizMapper.deleteQuizByNo", quizNo);
 		return result;
+	}
+
+	@Override
+	public List<QuizFile> selectAllFile(SqlSession sqlSession, Integer quizNo) {
+		List<QuizFile> quizFileList = sqlSession.selectList("QuizMapper.selectQuizFile", quizNo);
+		return quizFileList;
 	}
 
 

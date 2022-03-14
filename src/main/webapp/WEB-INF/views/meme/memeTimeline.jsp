@@ -5,89 +5,176 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>timeline</title>
+<title>TimeLine</title>
+
 <style>
-	button{
-		width: 120px;	
-	}
-	button:hover{
-		background : #f26522;
-	}
+
+.c-header{
+	width: 50%;
+	float: left;
+}
+
+.c-main{
+	width: 50%;
+	float: left;
+}
+button:hover {
+	background: #f26522;
+}
+
+.c-main .btn_tooltip {
+	position: relative;
+	width: 120px;
+	height: 30px;
+	display: block;
+}
+
+.c-main .btn_tooltip .tooltiptext {
+	visibility: hidden; /* 이벤트가 없으면 툴팁 영역을 숨김 */
+	width: 280px;
+	height: 80px; /* 툴팁 영역의 넓이를 설정 */
+	background-color: black;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute; /* 절대 위치를 사용 */
+	top: 1px;
+	left: 125px;
+	z-index: 1;
+
+	/* 	말줄임css
+	display: -webkit-box;
+	-webkit-line-clamp:4;
+	-webkit-box-orient:vertical;
+	white-space: normal;
+	overflow:hidden;
+	text-over:ellipsis; */
+}
+
+.c-main .btn_tooltip .tooltiptext .more {
+	color: #fff;
+	font-size: 5px;
+	font-style: italic;
+}
+
+.c-main .btn_tooltip:hover .tooltiptext {
+	visibility: visible; /* hover 이벤트 발생시 영역을 보여줌 */
+}
 </style>
 </head>
 <body>
+
+	<script>
+		$(document).ready(function() {
+			$('.c-main .btn_tooltip .tooltiptext .tooltiptext_text').each(function() {
+				var textCut = $(this).text().substring(0, 65);
+				$(this).html('<span class="substring">' + textCut+ ' . . .' + '</span>');
+				});
+			});
+	</script>
+	
+<div>
 	<br>
-	<br>
-	<h1 align="center">TimeLine</h1>
+	<h1 align="center"><strong>유행어 타임라인</strong></h1>
 	<br>
 	<hr>
-	<br>
-	<div align="center">
-		<h3>2000년 이전</h3>
-		<c:forEach items="${memeTimeline }" var="tFirstList">
-			<%-- <button class="timelineBTN">${tFirstList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tFirstList.memeName }';">${tFirstList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
+</div>	
+
+	<div class="main">
+		<div class="contents">
+			<div class="c-header" align="center">
+				<h3>2000년 이전</h3>
+			</div>
+			<div class="c-main">	
+				<c:forEach items="${memeTimeline }" var="tFirstList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tFirstList.memeName }';">${tFirstList.memeName }
+						<span class="tooltiptext"><span class="tooltiptext_text">${tFirstList.memeContents }</span>
+							<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>
+			</div>
+			
+			<div class="c-header" align="center">
+				<h3>2001년 - 2005년</h3>
+			</div>
+			<div class="c-main">	
+				<c:forEach items="${memeSecondTimeline }" var="tSecondList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tSecondList.memeName }';">${tSecondList.memeName }
+						<span class="tooltiptext"> <span class="tooltiptext_text">${tSecondList.memeContents } </span>
+						<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>
+			</div>
+			
+			<div class="c-header" align="center">
+				<h3>2006년 - 2010년</h3>
+			</div>
+			<div class="c-main">	
+				<c:forEach items="${memeThirdTimeline }" var="tThirdList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tThirdList.memeName }';">${tThirdList.memeName }
+						<span class="tooltiptext"> <span class="tooltiptext_text"> ${tThirdList.memeContents } </span> 
+						<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>	
+			</div>
+
+			<div class="c-header" align="center">
+				<h3>2011년 - 2015년</h3>
+			</div>
+			<div class="c-main">	
+				<c:forEach items="${memeFourthTimeline }" var="tFourthList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tFourthList.memeName }';">${tFourthList.memeName }
+						<span class="tooltiptext"> <span class="tooltiptext_text"> ${tFourthList.memeContents } </span> 
+						<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>
+			</div>
+
+			<div class="c-header" align="center">
+				<h3>2016년 - 2020년</h3>
+			</div>
+			<div class="c-main">
+				<c:forEach items="${memeFifthTimeline }" var="tFifthList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tFifthList.memeName }';">${tFifthList.memeName }
+						<span class="tooltiptext"> <span class="tooltiptext_text"> ${tFifthList.memeContents } </span> 
+						<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>	
+			</div>
+
+			<div class="c-header" align="center">
+				<h3>2021년</h3>
+			</div>
+			<div class="c-main">	
+				<c:forEach items="${memeSixthTimeline }" var="tSixthList">
+					<button class="btn_tooltip"
+						onclick="location.href='/meme/detail?memeName=${tSixthList.memeName }';">${tSixthList.memeName }
+						<span class="tooltiptext"> <span class="tooltiptext_text"> ${tSixthList.memeContents } </span> 
+						<a class="more"> &nbsp;&nbsp; >>더알아보기 </a></span>
+					</button>
+					<br>
+				</c:forEach>
+			<br>	
+			</div>
+			
+		</div>
 	</div>
-
-	<div align="center">
-		<h3>2001년 - 2005년</h3>
-		<c:forEach items="${memeSecondTimeline }" var="tSecondList">
-			<%-- <button class="timelineBTN">${tSecondList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tSecondList.memeName }';">${tSecondList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
-	</div>
-
-	<div align="center">
-		<h3>2006년 - 2010년</h3>
-		<c:forEach items="${memeThirdTimeline }" var="tThirdList">
-			<%-- <button class="timelineBTN">${tThirdList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tThirdList.memeName }';">${tThirdList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
-	</div>
-
-	<div align="center">
-		<h3>2011년 - 2015년</h3>
-		<c:forEach items="${memeFourthTimeline }" var="tFourthList">
-			<%-- <button class="timelineBTN">${tFourthList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tFourthList.memeName }';">${tFourthList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
-	</div>
-
-	<div align="center">
-		<h3>2016년 - 2020년</h3>
-		<c:forEach items="${memeFifthTimeline }" var="tFifthList">
-			<%-- <button class="timelineBTN">${tFifthList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tFifthList.memeName }';">${tFifthList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
-	</div>
-
-	<div align="center">
-		<h3>2021년</h3>
-		<c:forEach items="${memeSixthTimeline }" var="tSixthList">
-			<%-- <button class="timelineBTN">${tSixthList.memeName }</button> --%>
-			<button
-				onclick="location.href='/meme/detail?memeName=${tSixthList.memeName }';">${tSixthList.memeName }</button>
-		</c:forEach>
-		<br>
-		<br>
-	</div>
-
-
 </body>
 </html>
