@@ -8,10 +8,18 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글</title>
 <!-- <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 
 <style>
+     #boardButtonTable {
+     	--border: 1px solid black;
+     	height:30px;
+        width: 700px;
+		text-align: right;
+		margin: auto; 
+     }
+     
      #boardDetailTable {
      	height:70px;
         width: 700px;
@@ -70,6 +78,39 @@
 </head>
 
 <body>
+
+	<br>
+	<table id="boardButtonTable">
+		<tr>
+			<td align="left"> 
+				<input type="button" id="boardList" value="게시글 목록" 
+					onclick="location.href='/board';">
+			</td>
+			<!-- 관리자일 땐 삭제만 표시 -->
+			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
+				<td align="right">
+					<form action='<c:url value="/board/detail_updateView">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+						</c:url>' method="post">
+	
+						<input type="submit" id="boardUpdate" value="수정">
+					</form>
+				</td>
+   			</c:if>
+   			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId || sessionScope.loginMember.memberId eq 'admin'}">
+				<td width="35px">
+					<form action='<c:url value="/board/detail_delete">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+						</c:url>' method="post">
+						<input type="submit" id="boardDelete" value="삭제">
+					</form>
+				</td>
+   			</c:if>
+			
+		</tr>
+	</table>
+	
+    
     <table id="boardDetailTable">
         <tr>
             <th width="10%">
@@ -121,7 +162,7 @@
 		</tr>
 		<tr>
 			<c:if test="${sessionScope.loginMember.memberId ne 'admin' || sessionScope.loginMember eq null}">
-				<td align="left">
+				<td align="right">
 					<form action='<c:url value="/board/detail_report">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 						</c:url>' method="post">
@@ -155,23 +196,6 @@
 				</td>
    			</c:if>
 			
-			<c:if test="${sessionScope.loginMember.memberNickname eq oneBoard.memberNickname || sessionScope.loginMember.memberId eq 'admin'}">
-				<td align="right">
-					<form action='<c:url value="/board/detail_updateView">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-	
-						<input type="submit" id="boardUpdate" value="수정">
-					</form>
-				</td>
-				<td align="right">
-					<form action='<c:url value="/board/detail_delete">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-						<input type="submit" id="boardDelete" value="삭제">
-					</form>
-				</td>
-   			</c:if>
 			
 		</tr>
 	</table>
@@ -220,6 +244,11 @@
 	    
 	</table>
 	
+
+	<br>
+	<br>
+	<br>
+	<br>
 	
 	<script>
 	getCommentList();
@@ -237,6 +266,7 @@
 	$("#cSubmit").on("click", function(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
+		var memberId = "${member.memberId}";
 		var commentContents = $("#commentContents").val();
 		
 // 		console.log("${sessionScope.loginMember}");
@@ -248,6 +278,7 @@
 				url: "/board/commentAdd",
 				type: "post",
 				data: { "boardNo" : boardNo,
+					"memberId" : memberId,
 					"memberNickname" : memberNickname,
 					"commentContents" : commentContents },
 				success: function(data){
@@ -273,6 +304,7 @@
 	function getCommentList(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
+		var memberId = "${member.memberId}";
 		$.ajax({
 			url: "/board/commentList",
 			type: "get",
@@ -297,7 +329,7 @@
 						$commentWriter = $("<td width='100'>").text(data[i].memberNickname);
 						$commentContent = $("<td align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
-						$commentDate = $("<td width='200'>").text(data[i].commentDate);
+						$commentDate = $("<td width='120'>").text(data[i].commentDate);
 // 						$commentDate = $("<td width='200'>").text(data[i].commentDate)
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
@@ -305,13 +337,13 @@
 							$btnArea = $("<td width='80'>")
 										.append("<a href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
-						}
+						} 
 						
 						$tr.append($commentWriter);
 						$tr.append($commentContent);
 						$tr.append($commentDate);
 						
-						if(data[i].memberNickname == memberNickname){
+						if(data[i].memberId == memberId){
 							$tr.append($btnArea);
 						}
 						

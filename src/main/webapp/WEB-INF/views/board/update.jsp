@@ -10,7 +10,7 @@
 <title>게시글 수정</title>
 <style>
 #boardWriteTable { 
-	width: 800px; 
+	width: 700px; 
 	height: 200px; 
 	background-color: #F5A678 ; 
  	border: 1px solid black; 
@@ -54,7 +54,7 @@
 					method="post" enctype="multipart/form-data">
 		<table id="boardWriteTable" align="center" border="1">
 			<tr>
-				<td align="left">
+				<td height="30px" align="left">
 				
 					<c:if test="${oneBoard.boardType eq 'P'}">
     					&nbsp&nbsp추진<input type="radio" name="boardType" value="P" checked>
@@ -67,11 +67,11 @@
 					
 				</td>
 			<tr>
-				<td align="left">&nbsp<input type="file" name="uploadFile"></td>
+				<td height="30px" align="left">&nbsp<input type="file" name="uploadFile"></td>
 			</tr>
 			</tr>
 			<tr style="text-align: center">
-				<td>
+				<td height="30px">
 					<input type="text" name="boardTitle" value="${oneBoard.boardTitle }" placeholder="글 제목"
 						style="width: 99%">
 				</td>
@@ -82,7 +82,9 @@
         		</td>
       		</tr>
 				<td colspan="2" align="right" height="30px">
-					<input type="reset" value="취소">
+					<input type="reset" value="취소" onclick="location.href='<c:url value="/board/detail">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+					</c:url>'">
 					<input type="submit" value="등록하기">
 				</td>
 			</tr>

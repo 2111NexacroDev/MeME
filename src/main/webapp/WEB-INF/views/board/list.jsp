@@ -10,6 +10,13 @@
 <meta charset="UTF-8">
 <title>게시판</title>
 <style>
+	#boardWriteButton {
+		height:30px;
+		width:700px;
+		text-align: right;
+		margin: auto;
+	}
+	
 	#boardTable{
 		border: 1px solid black;
 		width:700px;
@@ -29,11 +36,12 @@
 </style>
 </head>
 <body>
-<p></p>
+<br>
 	<h1 align="center">게시판</h1>
-	<p align="right">
+	<div id="boardWriteButton">
 		<input type="button" value="글쓰기" onclick="boardWriteFunc();"/>
-	</p>
+	</div>
+
 	<table id="boardTable">
 		<tr>
 			<th>번호</th>
@@ -88,20 +96,20 @@
 	</div>
 	</div>
 	<br>
-	<div>
+	<form action="/board/search" method="post">
 		<div style="text-align:center">
-			<select style="height:30px; width:80px">
+			<select name="type" style="height:30px; width:80px">
 				<option value="0" style="text-align: center">분류</option>
 				<option value="F" style="text-align: center">자유</option>
 				<option value="P" style="text-align: center">추진</option>
 				<option value="title" style="text-align: center">글제목</option>
 				<option value="writer" style="text-align: center">작성자</option>
-				<input type="text" name="keyword" style="height:30px; width:250px">
-				<button style="height:30px; width:100px">Search</button>
 			</select>
-			
+			<input type="text" name="keyword" style="height:30px; width:250px">
+			<button type="submit" style="height:30px; width:100px">Search</button>
 		</div>
-	</div>
+	</form>
+
 	<script>
 		function boardWriteFunc(){
 			<c:if test="${empty sessionScope.loginMember }">
@@ -110,6 +118,10 @@
 	   		<c:if test="${not empty loginMember }">
 	   			location.href="/board/write";
 	        </c:if>
+		}
+		
+		function searchBtn() {
+			alert("검색");
 		}
 	</script>
 </body>
