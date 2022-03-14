@@ -119,7 +119,7 @@
 									<div class="main">
 										<div class="input-group">
 											<input type="text" class="form-control" id="keyword" value=""
-												width="20px" placeholder="ex) 어쩔티비">
+												width="20px" placeholder="ex) 어쩔티비" onkeypress="if(event.keyCode==13){searchMeme();}" >
 
 											<div class="input-group-append">
 												<button class="btn btn-secondary" type="button"
@@ -184,11 +184,15 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
-
+		
 		function searchMeme() {
+
 			var searchValue = document.querySelector("#keyword").value;
 			location.href = '/meme/detail?memeName=' + searchValue;
+			
 		}
+		
+		
 	</script>
 </body>
 

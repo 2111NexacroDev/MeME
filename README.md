@@ -40,6 +40,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 ## 3. 사용기술 및 개발환경
 
+
 <img src="https://user-images.githubusercontent.com/100409006/158173146-fffaf59d-92a3-4bcd-b8bc-f48fb61dda60.png" alt="개발환경" width="80%">
 
 <table>
@@ -81,6 +82,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <img src="https://user-images.githubusercontent.com/100409006/157793472-d75f95ab-b3de-45c5-944e-20e203a1b944.png" alt="front" width="300"/> <img src="https://user-images.githubusercontent.com/100409006/157793484-d8f2c7ce-6644-4124-8af4-afb9e1dde17f.png" alt="java" width="300" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793458-cb0528df-76ce-4571-bc94-bc8ec47f4f24.png" alt="spring" width="200" height="200">
 <img src="https://user-images.githubusercontent.com/100409006/157793310-e961a2e9-741f-43d9-9267-c1411816362c.jpeg" alt="이클립스" width="200" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793495-704e1089-00bc-4165-98bc-22fc5dbe62af.png" alt="tomcat" width="300" height="300"> <img src="https://user-images.githubusercontent.com/100409006/157793488-37968231-8812-416b-9353-41e656625458.png" alt="oracle" width="400" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793477-44fad024-8f79-4be7-80ed-9af905632ef9.png" alt="깃허브" width="400" height="200">
 -->
+
 
 <br/><br/>
 ## 4. 프로젝트 기능 구현
@@ -131,6 +133,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
     - 랜덤 퀴즈
     - 퀴즈 신고
 <br/><br/>
+
 
 ## 5. 주요기능
 #### 1. 메인 페이지
@@ -224,6 +227,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ![24](https://user-images.githubusercontent.com/100409006/157795928-662fcae6-fb56-4e53-9f41-f3580c9f6c87.PNG)
 ![25](https://user-images.githubusercontent.com/100409006/157795931-ac43f23a-88b3-40df-8862-0b95cc5406ea.PNG)
 ![26](https://user-images.githubusercontent.com/100409006/157795918-89c0d96c-20ad-4740-b732-e7016a5db461.PNG)
+
 <br/><br/><br/>
 
 

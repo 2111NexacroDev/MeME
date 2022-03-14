@@ -24,6 +24,7 @@ public interface QuizService {
 	public int deleteOneByNo(int quizNo);
 	
 	public int writeQuizFile(QuizFile quizFile);
+
 	public List<QuizFile> printAllFile(Integer quizNo);
 	
 

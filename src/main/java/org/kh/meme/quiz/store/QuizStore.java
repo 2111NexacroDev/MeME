@@ -8,7 +8,6 @@ import org.kh.meme.quiz.domain.QuizBest;
 import org.kh.meme.quiz.domain.QuizCh;
 import org.kh.meme.quiz.domain.QuizFile;
 import org.kh.meme.quiz.domain.QuizReport;
-import org.mybatis.spring.SqlSessionTemplate;
 
 public interface QuizStore {
 
