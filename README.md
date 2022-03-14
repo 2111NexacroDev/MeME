@@ -258,7 +258,15 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ![BOARD 시퀀스 게시글 추천 drawio](https://user-images.githubusercontent.com/100409006/158163938-ad247611-fa80-4770-89a4-7763137eaf7d.png)
 ![BOARD 시퀀스 게시글 신고 drawio](https://user-images.githubusercontent.com/100409006/158163951-713c7686-6083-44dc-851d-81a971b2fd83.png)
 ![BOARD 시퀀스 게시글 숨기기 _ 보이기 drawio](https://user-images.githubusercontent.com/100409006/158163948-57263f08-6e08-4600-ac9f-102a9b119e3e.png)
+
+
+![COMMENT 시퀀스 댓글 리스트 drawio](https://user-images.githubusercontent.com/100409006/158175505-357e7e75-a435-4e83-bcc1-ec551353ddc8.png)
+![COMMENT 시퀀스 댓글 등록 drawio](https://user-images.githubusercontent.com/100409006/158175503-651c5b10-03a8-4a1d-a4ea-997458b669bc.png)
+![COMMENT 시퀀스 댓글 수정 drawio](https://user-images.githubusercontent.com/100409006/158175499-5e32c34e-9f4f-43c8-afd7-948515584203.png)
+![COMMENT 시퀀스 댓글 삭제 drawio](https://user-images.githubusercontent.com/100409006/158175506-eac0cf9d-bbc8-4e32-9e23-3861b4375f49.png)
+
 <br/><br/>
+
 
 #### 유행어 퀴즈
 ![랜덤퀴즈](https://user-images.githubusercontent.com/97689858/158095517-2ecd168e-b770-41ea-bec6-1788efab7197.jpg)
