@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -81,6 +83,17 @@ public class QuizController {
 		}
 	}
 	
+	// 퀴즈 번호 이용해서 파일들 가져오기
+	@ResponseBody
+	@RequestMapping(value = "/quiz/getFileList.me", method = RequestMethod.GET)
+	public String getQuizFiles(
+			@RequestParam("quizNo") Integer quizNo) {
+		List<QuizFile> quizFileList = qService.printAllFile(quizNo);
+		
+		Gson gson = new Gson();
+		return gson.toJson(quizFileList);
+	}
+	
 	//퀴즈 결과
 	@RequestMapping(value = "/quiz/result.me", method = RequestMethod.POST)
 	public String result(Model model
@@ -94,6 +107,16 @@ public class QuizController {
 		for(int i = 0; i<quizNo.length; i++) {
 			Quiz quiz = new Quiz();
 			quiz = qService.printOneByNo(quizNo[i]);
+			
+			List<QuizFile> quizFileList = qService.printAllFile(quizNo[i]);
+			String[] fileName = new String [quizFileList.size()];
+			if(!quizFileList.isEmpty()) {
+				for(int j=0; j<quizFileList.size(); j++) {
+					fileName[j] = quizFileList.get(j).getQuizFileRename()+quizFileList.get(j).getQuizFileName();
+				}
+				quiz.setFileName(fileName);
+			}
+				
 			qList.add(quiz);
 		}
 		
@@ -209,29 +232,29 @@ public class QuizController {
 			,@ModelAttribute Quiz quiz
 			,@ModelAttribute QuizCh quizCh
 			,@ModelAttribute QuizFile quizFile
-			,@RequestParam(value="uploadFile", required = false) MultipartFile uploadFile
+			,@RequestParam(value="uploadFile", required = false) List<MultipartFile> uploadFile
 			, HttpServletRequest request
 			,HttpSession session) {
+		String renameFileName = "";
 		try {
-			if(!uploadFile.getOriginalFilename().contentEquals("")) {
-				// 실제 파일 저장
-				String renameFileName = saveFile(uploadFile, request);
-				
-				if(renameFileName != null) {
-					quizFile.setQuizFileName(uploadFile.getOriginalFilename());
-					quizFile.setQuizFileRename(renameFileName);
-				}
-			}
-			
 			Member member = (Member) session.getAttribute("loginMember");
 			if(member!= null) {
 				quiz.setMemberId(member.getMemberId());
-				quizFile.setQuizFileExtension("jpeg");
-				int result = qService.writeQuiz(quiz, quizFile);
+				int result = qService.writeQuiz(quiz);
 				if(quiz.getQuizType().equals("M")) {
 					qService.writeQuizM(quizCh);
 				}
 				if(result>0) {
+					for(int i=0; i<uploadFile.size(); i++) {
+						// 실제 파일 저장
+						renameFileName = saveFile(uploadFile.get(i), request);
+						
+						quizFile.setQuizFileName(uploadFile.get(i).getOriginalFilename());
+						quizFile.setQuizFileRename(renameFileName);
+						quizFile.setQuizFileExtension(uploadFile.get(i).getOriginalFilename().substring(uploadFile.get(i).getOriginalFilename().lastIndexOf(".")+1));
+						qService.writeQuizFile(quizFile);
+					}
+					
 					return "redirect:/quiz/writeView.me";
 				} else {
 					model.addAttribute("msg", "퀴즈등록 실패");
@@ -240,6 +263,7 @@ public class QuizController {
 			} else {
 				return ".tilesHead/member/login";
 			}
+			
 		}catch (Exception e) {
 			model.addAttribute("msg", e.toString());
 			return "common/errorPage";
@@ -252,6 +276,16 @@ public class QuizController {
 			,@RequestParam("quizNo") Integer quizNo
 			,Model model) {
 		Quiz quiz = qService.printOneByNo(quizNo);
+		
+		List<QuizFile> quizFileList = qService.printAllFile(quizNo);
+		String[] fileName = new String [quizFileList.size()];
+		if(!quizFileList.isEmpty()) {
+			for(int j=0; j<quizFileList.size(); j++) {
+				fileName[j] = quizFileList.get(j).getQuizFileRename()+quizFileList.get(j).getQuizFileName();
+			}
+			quiz.setFileName(fileName);
+		}
+		
 		model.addAttribute("quiz", quiz);
 		
 		//랭킹
@@ -309,20 +343,20 @@ public class QuizController {
 		if(!folder.exists()) {
 			folder.mkdir();
 		}
+	
 		// 파일명 변경(중복 되지 않도록, 년도 월 일 시 분 초)
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String originalFileName = uploadFile.getOriginalFilename();
-		String renameFileName = sdf.format(new Date(System.currentTimeMillis()))
-				+"."+originalFileName.substring(originalFileName.lastIndexOf(".")+1);
-		String filePath = folder +"\\" + renameFileName;
-		// 파일 저장
-		try {
-			uploadFile.transferTo(new File(filePath));
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			String originalFileName = uploadFile.getOriginalFilename();	
+			String renameFileName = sdf.format(new Date(System.currentTimeMillis()));
+			String filePath = folder +"\\" +renameFileName +originalFileName;
+			// 파일 저장
+			try {
+				uploadFile.transferTo(new File(filePath));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		// 파일명 리턴!
 		return renameFileName;
 	}

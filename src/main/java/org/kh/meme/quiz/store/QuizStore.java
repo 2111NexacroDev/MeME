@@ -24,5 +24,6 @@ public interface QuizStore {
 	public int updateScore(SqlSession sqlSession, QuizBest qBest);
 	public int insertReport(SqlSession sqlSession, QuizReport qReport);
 	public int deleteQuiz(SqlSession sqlSession, int quizNo);
+	public List<QuizFile> selectAllFile(SqlSession sqlSession, Integer quizNo);
 
 }

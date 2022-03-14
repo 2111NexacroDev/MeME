@@ -34,11 +34,8 @@ public class QuizServiceImpl implements QuizService {
 	}
 	
 	@Override
-	public int writeQuiz(Quiz quiz, QuizFile quizFile) {
+	public int writeQuiz(Quiz quiz) {
 		int result = qStore.insertQuiz(sqlSession, quiz);
-		if(result > 0) {
-			qStore.insertQuizFile(sqlSession, quizFile);
-		}
 		return result;
 	}
 	
@@ -76,6 +73,18 @@ public class QuizServiceImpl implements QuizService {
 	public int deleteOneByNo(int quizNo) {
 		int result = qStore.deleteQuiz(sqlSession, quizNo);
 		return result;
+	}
+
+	@Override
+	public int writeQuizFile(QuizFile quizFile) {
+		int result = qStore.insertQuizFile(sqlSession, quizFile);
+		return result;
+	}
+
+	@Override
+	public List<QuizFile> printAllFile(Integer quizNo) {
+		List<QuizFile> quizFileList = qStore.selectAllFile(sqlSession, quizNo);
+		return quizFileList;
 	}
 
 
