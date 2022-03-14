@@ -183,6 +183,7 @@ Class Diagram
 Sequence Diagram
 
 ![membersequence drawio](https://user-images.githubusercontent.com/97710950/158091070-28c86742-200e-44f3-a79e-00de5d317f83.png)
+![meme drawio](https://user-images.githubusercontent.com/98931301/158097561-abc42d18-b7ae-4198-9113-0a18302b6baa.png)
 ![랜덤퀴즈](https://user-images.githubusercontent.com/97689858/158095517-2ecd168e-b770-41ea-bec6-1788efab7197.jpg)
 ![퀴즈(등록,수정,삭제)](https://user-images.githubusercontent.com/97689858/158095528-f03d43e7-c663-42c7-9b4e-34641629edda.jpg)
 
