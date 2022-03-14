@@ -47,7 +47,11 @@
 </head>
 
 <body>
-	<h1 align="center">게시글 수정</h1>
+	<div>
+		<h1 style="font-weight: bold" align="center">게시글 수정</h1>
+		<hr>
+	</div>
+	<br>
 	<form action= '<c:url value="/board/detail_update">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 					</c:url>'
@@ -91,5 +95,6 @@
 		</table>
 	
 	</form>
+	<br><br><br>
 </body>
 </html>
