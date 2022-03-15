@@ -108,7 +108,7 @@
 	#delete {
 		text-align: center;
 		font-size: smaller;
-		width: 35px;
+		width: 50px;
 	}
 	
 	.header {
