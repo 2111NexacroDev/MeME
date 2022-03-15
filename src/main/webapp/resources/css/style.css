@@ -168,6 +168,11 @@ img {
     margin: 0;
     padding: 0;
 }
+.form-control {
+	border-color: #f26522 !important;
+	box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
 
 /*검색창 focus*/
 .form-control:focus {
@@ -215,7 +220,6 @@ button {
 .banner_bg_main {
     width: 100%;
     float: left;
-
 /*    background-image: url(../images/blackmain.png);*/
 /* 	background-color : blue; */
 /* 	background-image: url(../images/banner-bg.png); */
@@ -501,7 +505,12 @@ a:hover {
 }
 
 .banner_taital {
-    width: 100%;
+	background-image: url(../images/banner_j_final.png);
+	background-size: 1100px 200px;
+	background-repeat: no-repeat;
+	background-color : #ffffff;
+    width: 1100px;
+    height: 200px;
     font-size: 40px;
     color: #ffffff;
     text-align: center;
