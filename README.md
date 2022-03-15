@@ -322,7 +322,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ![퀴즈(등록,수정,삭제)](https://user-images.githubusercontent.com/97689858/158293538-510c82dd-b172-48a3-adbf-e3fb9729f8e9.jpg)
 <br/><br/>
 
-#### 타임라인
+#### 랭킹 리스트
 ![RANK 시퀀스 랭킹 리스트 사이즈 조정 drawio](https://user-images.githubusercontent.com/100409006/158178406-edc0798e-8387-49db-b5cf-1bfa1d9fb7e2.png)
 
 
