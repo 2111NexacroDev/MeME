@@ -166,6 +166,7 @@
 </head>
 <body>
 	<div id="quizContents">
+		<br>
 		<div align="right">
 		<B>제한시간 :<span id="time"></span></B> 초</div>
 		<div id="type" style="font-weight:bolder;"></div>
