@@ -25,7 +25,7 @@
 	}
 	#boardTable th{
 		height: 30px;
-		background-color:#EB755E  ;
+		background-color:#f26522  ;
 		color:  white;
 	}
 	

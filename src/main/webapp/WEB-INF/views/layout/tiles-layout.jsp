@@ -43,7 +43,7 @@
 	}
 	#rank {
 		height:100%;
-		width:20%;
+		width:250px;
 		background-color: #f9f9f9;
 		float:left;
 	}
