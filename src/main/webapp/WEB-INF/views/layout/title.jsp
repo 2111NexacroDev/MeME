@@ -15,7 +15,7 @@
 <body>
 	<br>
 	<div>
-		<h1 style="font-weight: bold">타이틀 추가</h1>
+		<h1 style="font-weight: bold">${title }</h1>
 		<hr>
 	</div>
 </body>
