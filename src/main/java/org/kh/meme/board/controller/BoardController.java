@@ -112,6 +112,7 @@ public class BoardController {
 		if(!boardAllList.isEmpty() ) {
 			//게시판
 			model.addAttribute("boardAllList", boardAllList);
+			model.addAttribute("title", "유행어 추진/자유게시판");
 			boardRank(model);
 			return ".tiles/board/list";
 		} else {
