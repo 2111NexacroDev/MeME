@@ -294,7 +294,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 
 #### 유행어 사전, 타임라인
-![meme drawio (1)](https://user-images.githubusercontent.com/98931301/158296370-11d59a20-5f24-4ca5-b54a-62baa10c3dfa.png)
+![meme drawio (2)](https://user-images.githubusercontent.com/98931301/158297324-98df53c5-f41f-429a-b216-fab514dd2215.png)
 <br/><br/>
 
 #### 유행어 추진/자유 게시판
