@@ -169,8 +169,9 @@ img {
     padding: 0;
 }
 
+/*검색창 focus*/
 .form-control:focus {
-    border-color: #ffffff !important;
+    border-color: #f26522 !important;
     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
 
@@ -215,10 +216,10 @@ button {
     width: 100%;
     float: left;
 
-    background-image: url(../images/blackmain.png);
+/*    background-image: url(../images/blackmain.png);*/
 /* 	background-color : blue; */
 /* 	background-image: url(../images/banner-bg.png); */
-	background-color : #008F7C;
+	background-color : #ffffff;
     height: 100%;
     background-size: 100%;
     background-repeat: no-repeat;

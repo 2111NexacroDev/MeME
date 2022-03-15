@@ -48,7 +48,6 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
 	media="screen">
-
 </head>
 <body>
 	<!-- banner bg main start -->
@@ -115,7 +114,6 @@
 							<br><br><br><br><br>
 								<div class="col-sm-12">
 									<h1 class="banner_taital">유행어를 검색하세요</h1>
-
 									<div class="main">
 										<div class="input-group">
 											<input type="text" class="form-control" id="keyword" value=""
