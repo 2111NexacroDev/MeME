@@ -26,7 +26,7 @@
 	#title {
 		height:100px;
 		width:100%;
-		background-color: #FF0000;
+		background-color: #f9f9f9;
 		text-align: center;
 		margin: auto;
 	}
