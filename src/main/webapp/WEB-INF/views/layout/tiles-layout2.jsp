@@ -16,36 +16,27 @@
 	#container {
 		height:100%;
 		width:100%;
-		background-color: grey;
+		background-color: #f9f9f9;
 	}
 	#header {
 		height:100px;
 		width:100%;
-		background-color: #f9f9f9;
 	}
 	#title2 {
 		height:100px;
 		width:100%;
-		background-color: #f9f9f9;
 		text-align: center;
 		margin: auto;
 	}
 	#content {
-		height : 100%;
+		--height : 100%;
 		width: 100%;
-		background-color: #f9f9f9;
 	}
 	#body {
 		height:100%;
-		width:80%;
-		background-color: #f9f9f9;
+		width:100%;
 		float:left;
-	}
-	#left, #right {
-		width:10%;
-		height:100%;
 		background-color: #f9f9f9;
-		float:left;
 	}
 </style>
 </head>
@@ -59,14 +50,9 @@
 			<jsp:include page="title.jsp"></jsp:include>
 		</div>
 		<div id="content">
-			<div id="left">
-			</div>
 			<div id="body">
 				<tiles:insertAttribute name="body" />
 			</div>
-			<div id="left">
-			</div>
-			
 		</div>
 	</div>
 </body>
