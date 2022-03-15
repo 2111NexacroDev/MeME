@@ -33,12 +33,15 @@
 	text-align: center;
 	margin: auto;
 }
+#title_name {
+	font-weight: bold;
+}
 </style>
 </head>
 <body>
 	<div>
 		<br>
-		<h1 align="center">유행어 사전</h1>
+		<h1 id="title_name" align="center">유행어 사전</h1>
 		<br>
 		<hr>
 	</div>

@@ -97,6 +97,30 @@
 					</form>
 				</td>
    			</c:if>
+   			<c:if test="${sessionScope.loginMember.memberId eq 'admin'}">
+				<td align="right">
+					<c:if test="${oneBoard.boardStatus eq 'Y' }">
+						<form action='<c:url value="/board/detail_reportAdminToN">
+							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+							</c:url>' method="post">
+							
+							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();">
+	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
+	
+						</form>
+					</c:if>
+					<c:if test="${oneBoard.boardStatus eq 'N' }">
+						<form action='<c:url value="/board/detail_reportAdminToY">
+							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+							</c:url>' method="post">
+				
+							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();">
+	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
+		
+						</form>
+					</c:if>
+				</td>
+   			</c:if>
    			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId || sessionScope.loginMember.memberId eq 'admin'}">
 				<td width="35px">
 					<form action='<c:url value="/board/detail_delete">
@@ -171,30 +195,7 @@
 					</form>
 				</td>
 			</c:if>
-   			<c:if test="${sessionScope.loginMember.memberId eq 'admin'}">
-				<td align="left">
-				<c:if test="${oneBoard.boardStatus eq 'Y' }">
-					<form action='<c:url value="/board/detail_reportAdminToN">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-						
-						<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();">
-<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
-
-					</form>
-				</c:if>
-				<c:if test="${oneBoard.boardStatus eq 'N' }">
-					<form action='<c:url value="/board/detail_reportAdminToY">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-			
-						<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();">
-<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
-	
-					</form>
-				</c:if>
-				</td>
-   			</c:if>
+   			
 			
 			
 		</tr>
