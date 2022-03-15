@@ -16,7 +16,7 @@
 	#container {
 		height:100%;
 		width:100%;
-		background-color: grey;
+		/* background-color: grey; */
 	}
 	#header {
 		height:100px;
