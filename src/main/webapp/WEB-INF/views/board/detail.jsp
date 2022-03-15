@@ -23,7 +23,7 @@
      #boardDetailTable {
      	height:70px;
         width: 700px;
-		background-color: #EB755E  ; 
+		background-color: #ccc  ; 
 		color : black;
 		border: 1px solid black; 
 		text-align: center;

@@ -25,7 +25,7 @@
 	}
 	#boardTable th{
 		height: 30px;
-		background-color:#EB755E  ;
+		background-color:#f26522  ;
 		color:  white;
 	}
 	
@@ -37,10 +37,6 @@
 </head>
 <body>
 <br>
-	<div>
-		<h1 style="font-weight: bold" align="center">유행어 추진/자유게시판</h1>
-		<hr>
-	</div>
 	<div id="boardWriteButton">
 		<input type="button" value="글쓰기" onclick="boardWriteFunc();"/>
 	</div>

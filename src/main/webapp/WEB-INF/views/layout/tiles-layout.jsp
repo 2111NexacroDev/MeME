@@ -26,7 +26,7 @@
 	#title {
 		height:100px;
 		width:100%;
-		background-color: #FF0000;
+		background-color: #f9f9f9;
 		text-align: center;
 		margin: auto;
 	}
@@ -43,7 +43,7 @@
 	}
 	#rank {
 		height:100%;
-		width:20%;
+		width:250px;
 		background-color: #f9f9f9;
 		float:left;
 	}
