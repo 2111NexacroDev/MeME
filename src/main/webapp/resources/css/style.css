@@ -168,9 +168,14 @@ img {
     margin: 0;
     padding: 0;
 }
+.form-control {
+	border-color: #f26522 !important;
+	box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
 
 .form-control:focus {
-    border-color: #ffffff !important;
+    border-color: #f26522 !important;
     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
 
@@ -501,7 +506,7 @@ a:hover {
 }
 
 .banner_taital {
-	background-image: url(../images/banner_j.png);
+	background-image: url(../images/banner_j_final.png);
 	background-size: 1100px 200px;
 	background-repeat: no-repeat;
 	background-color : #ffffff;
