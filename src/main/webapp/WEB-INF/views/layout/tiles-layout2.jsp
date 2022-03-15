@@ -31,7 +31,7 @@
 		margin: auto;
 	}
 	#content {
-		height : 90%;
+		height : 100%;
 		width: 100%;
 		background-color: #f9f9f9;
 	}
