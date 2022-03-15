@@ -39,12 +39,12 @@
 </style>
 </head>
 <body>
-	<div>
+<!-- 	<div>
 		<br>
 		<h1 id="title_name" align="center">유행어 사전</h1>
 		<br>
 		<hr>
-	</div>
+	</div> -->
 
 	<div class="main">
 		<br>

@@ -75,12 +75,12 @@ button:hover {
 			});
 	</script>
 	
-<div>
+<!-- <div>
 	<br>
 	<h1 align="center"><strong>유행어 타임라인</strong></h1>
 	<br>
 	<hr>
-</div>	
+</div>	 -->
 
 	<div class="main">
 		<div class="contents">

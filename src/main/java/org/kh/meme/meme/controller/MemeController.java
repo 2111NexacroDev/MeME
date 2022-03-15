@@ -71,6 +71,7 @@ public class MemeController {
 		// 로그인 후 등재 요청시 작성자에 닉네임 출력
 		Member member = (Member) session.getAttribute("loginMember");
 		model.addAttribute("memberNickname", member.getMemberNickname());
+		model.addAttribute("title", "사전 등재 요청");
 		return ".tilesHead/meme/memeRegisterForm";
 	}
 
@@ -177,10 +178,12 @@ public class MemeController {
 				model.addAttribute("meme", meme);
 
 				model.addAttribute("memeFile", memeFile);
+				model.addAttribute("title", "유행어 사전");
 				return ".tiles/meme/memeDetailView";
 			} else {
 				// 일단 error 나누어서 안 적음, 필요하면 적기
-				model.addAttribute("msg", "사전 상세 조회 실패");
+				/* model.addAttribute("msg", "사전 상세 조회 실패"); */
+				model.addAttribute("title", "");
 				return "common/memeErrorPage";
 			}
 
@@ -197,6 +200,7 @@ public class MemeController {
 	public String memeRequestView(Model model, @RequestParam(value = "memeNo") int memeNo) {
 
 		memeRank(model);
+		model.addAttribute("title", "사전 수정/삭제요청");
 		return ".tiles/meme/memeRequestForm";
 
 	}
@@ -269,7 +273,7 @@ public class MemeController {
 		model.addAttribute("memeSixthTimeline",memeSixthTimeline);
 		
 		
-		
+		model.addAttribute("title", "유행어 타임라인");
 		return".tilesHead/meme/memeTimeline";
 	}
 	
