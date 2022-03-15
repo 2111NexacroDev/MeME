@@ -23,7 +23,7 @@
 		width:100%;
 		background-color: #f9f9f9;
 	}
-	#title {
+	#title2 {
 		height:100px;
 		width:100%;
 		background-color: #FF0000;
@@ -55,7 +55,7 @@
 		<div id="header">
 			<jsp:include page="header.jsp"></jsp:include>
 		</div>
-		<div id="title">
+		<div id="title2">
 			<jsp:include page="title.jsp"></jsp:include>
 		</div>
 		<div id="content">
