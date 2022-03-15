@@ -24,7 +24,7 @@
 		background-color: #f9f9f9;
 	}
 	#title {
-		height:80px;
+		height:100px;
 		width:100%;
 		background-color: #FF0000;
 		text-align: center;
@@ -36,9 +36,8 @@
 		background-color: #f9f9f9;
 	}
 	#body {
-		margin-top: -10px
 		height:100%;
-		width:100%;
+		width:80%;
 		background-color: #f9f9f9;
 		float:left;
 	}
