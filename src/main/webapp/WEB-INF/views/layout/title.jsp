@@ -16,6 +16,7 @@
 	<br>
 	<div>
 		<h1 style="font-weight: bold">${title }</h1>
+		<br>
 		<hr>
 	</div>
 </body>

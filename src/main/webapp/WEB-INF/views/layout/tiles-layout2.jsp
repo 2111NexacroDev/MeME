@@ -26,12 +26,12 @@
 	#title2 {
 		height:100px;
 		width:100%;
-		background-color: #FF0000;
+		background-color: #f9f9f9;
 		text-align: center;
 		margin: auto;
 	}
 	#content {
-		height : 90%;
+		height : 100%;
 		width: 100%;
 		background-color: #f9f9f9;
 	}

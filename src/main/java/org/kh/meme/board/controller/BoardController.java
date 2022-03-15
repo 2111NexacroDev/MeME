@@ -142,7 +142,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("loginMember");
 		System.out.println(member);
-		
+		model.addAttribute("title", "게시글 등록");
 		boardRank(model);
 		return ".tiles/board/write";
 
@@ -185,6 +185,7 @@ public class BoardController {
 			
 			if(result > 0) {
 				boardRank(model);
+				
 				return "redirect:/board";
 			} else {
 				//일단 error 나누어서 안 적음, 필요하면 적기
@@ -240,6 +241,7 @@ public class BoardController {
 			model.addAttribute("oneBoard", oneBoard);
 			model.addAttribute("boardFile", boardFile);
 			boardRank(model);
+			model.addAttribute("title", "게시글 수정");
 			return ".tiles/board/update";
 			
 		} else {

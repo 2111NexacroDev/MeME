@@ -46,11 +46,13 @@
 	  position:absolute; 
 	  left:0; top:40px; 
 	  box-sizing: border-box; 
-	  border : 5px solid #ccc;
+	  border : 5px solid #f26522;
 	  width : 100%;
 	}
 	.tabmenu input:checked ~ label{
-	  background:#ccc;
+	  background:#f26522;
+	  color: white;
+	  font-weight: bold;
 	}
 	.tabmenu input:checked ~ .rankTabCon{
 	  display:block;
