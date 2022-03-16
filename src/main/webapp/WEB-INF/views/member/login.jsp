@@ -63,6 +63,8 @@
 		padding-left : 15px;
 		height : 40px;
 		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #f26522;
 	}
 	tr {
 	text-align : center;
@@ -97,7 +99,7 @@
 	<div class="inner_footer">
 		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">아이디 찾기</button>&nbsp;&nbsp;&nbsp;
 		<button class="btn_footer" type="button" onclick="location.href='/member/findPw.me'">비밀번호 찾기</button>&nbsp;&nbsp;&nbsp;
-		<button class="btn_footer" type="button" onclick="location.href='/member/join.me'">회원가입</button> 
+		<button class="btn_footer" type="button" onclick="location.href='/member/join.me'">회원가입</button>
 	</div>
 </body>
 </html>
