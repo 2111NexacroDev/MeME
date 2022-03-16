@@ -203,11 +203,11 @@ public class QuizController {
 		
 		Member member = (Member) session.getAttribute("loginMember");
 		
-		quizRank(model);
-		model.addAttribute("title", "유행어 퀴즈 등록");
 		if(member== null) {
-			return ".tilesHead/member/login";
+			return "redirect:/login.me";
 		}else {
+			model.addAttribute("title", "유행어 퀴즈 등록");
+			quizRank(model);
 			return ".tiles/quiz/write";
 		}
 	}

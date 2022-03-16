@@ -8,15 +8,13 @@
 <style>
 	.inner {
 		position : absolute;
-		width : 300px;
-		height : 200px;
-		top : 50%;
-		left : 50%;
- 		margin-top : -100px; 
- 		margin-left : -150px;
+		width : 400px;
+		height : 190px;
+		top : 200px;
+		left : 50%; 
+ 		margin-left : -200px;
  		margin-bottom : 50px; 
 		text-align: center;
-		background-color : #EBB388;
 	}
  	.header {
  		height : 20%;
@@ -27,45 +25,81 @@
 		margin-top : 20px;
 	}
 
-	#loginButton {
-		background-color : #8F2B00;
-		color: white;
-		margin-top: 5px;
+	.btn_login {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 350px;
+		height: 60px;
+		padding-top: 5px;
+		transition-duration: 0.5s;
+	}
+	.btn_login:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
 	}
 	button {
-		color : #8F2B00;
+		color : #252525;
 		font-weight: bold;
-		background-color: #EBB388;
-		margin-top: 5px;
+		background-color: #f9f9f9;
+		border-radius: 5px;
+		transition-duration: 0.5s;
 	}
-	
-	
+	button:hover {
+		color : #f26522;
+		transition-duration: 0.5s;
+	}
+	.inner_footer {
+		position: absolute;
+		width: 400px;
+		top : 520px;
+		left : 50%;
+		margin-left : -200px;
+		text-align: center;
+	}
+	#ipt {
+		margin-bottom : 10px;
+		padding-left : 15px;
+		height : 40px;
+		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #f26522;
+	}
+	tr {
+	text-align : center;
+	}
+	.login_logo {
+		margin-bottom : 5px;
+	}
 </style>
 </head>
 <body>
 	<div class="inner">
 	<br>
-		<h3 align="center">로그인</h3>
+		<img class="login_logo" width="370px" src="./resources/images/login_logo_2.png">
 		<div class="content" align="center">
 			<form action="/member/login.me" method="post">
 				<table>
 					<tr>
-						<td colspan="2"><input type="text" name="memberId" placeholder="아이디"></td>
+						<td colspan="2"><input type="text" id="ipt" name="memberId" placeholder="아이디"></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="password" name="memberPw" placeholder="비밀번호"></td>	
-					</tr>
-					<b></b>
-					<tr align="center">
-						<td><button id="loginButton" type="submit">로그인</button></td>
-						<td><button id="joinButton" type="button" onclick="location.href='/member/join.me'">회원가입</button>
+						<td colspan="2"><input type="password" id="ipt" name="memberPw" placeholder="비밀번호"></td>	
 					</tr>
 					<tr align="center">
-						<td colspan="2"><button type="button" onclick="location.href='/member/findId.me'">아이디/비밀번호 찾기</button></td>
+						<td><button class="btn_login" id="loginButton" type="submit">로그인</button></td>
+					</tr>
+					<tr align="center">
 					</tr>
 				</table>
 			</form>
 		</div>
+	</div>
+	<div class="inner_footer">
+		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">아이디 찾기</button>&nbsp;&nbsp;&nbsp;
+		<button class="btn_footer" type="button" onclick="location.href='/member/findPw.me'">비밀번호 찾기</button>&nbsp;&nbsp;&nbsp;
+		<button class="btn_footer" type="button" onclick="location.href='/member/join.me'">회원가입</button>
 	</div>
 </body>
 </html>

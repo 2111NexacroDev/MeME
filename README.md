@@ -14,6 +14,7 @@
 4. [프로젝트 기능 구현](#4-프로젝트-기능-구현)
 5. [주요기능](#5-주요기능)
 6. [Document](#6-document)
+   - [ERD](#erd)
    - [Class Diagram](#class-diagram)
    - [Sequence Diagram](#sequence-diagram)
 
@@ -274,6 +275,18 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 ## 6. Document
+### ERD
+<img src="https://user-images.githubusercontent.com/100409006/158596658-c7f483d7-df2f-4d4e-a4ed-c48a9e5a95e8.PNG" alt="member_tbl" width="50%">
+
+<img src="https://user-images.githubusercontent.com/100409006/158596639-17d73031-103d-4a21-8b35-240d4013cdf9.PNG" alt="meme_tbl" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158596643-4b17c744-b4cf-4e8f-80d6-35e6173e375a.PNG" alt="meme_file, meme_request" width="50%">
+
+<img src="https://user-images.githubusercontent.com/100409006/158596646-a2e639b7-f9fe-4c1d-a10a-14faea75e249.PNG" alt="board_tbl" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158596648-a36547c2-3c37-402e-83fd-1d6a279073c1.PNG" alt="board_file,recommend_tbl" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158596649-c8df9221-9038-4fa7-bf5e-0994eb77dd1c.PNG" alt="comment_tbl" width="50%">
+
+<img src="https://user-images.githubusercontent.com/100409006/158596652-51397041-1d44-4b31-b703-85764aaf0e55.PNG" alt="quiz_tbl" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158596653-673040e5-bbd0-4d78-897c-02402c6fd323.PNG" alt="quiz_file, quiz_ch" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158596654-86d7c5c1-82bb-4e84-b812-518ca6b0c2d2.PNG" alt="quiz_best, report_tbl" width="50%">
+
+<br/><br/>
 
 ### Class Diagram
 <img src="https://user-images.githubusercontent.com/100409006/158534222-528fdb32-1a03-40f1-b39e-35cf61c5dd52.PNG" alt="회원관리" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158534225-cb7f97f1-c642-4a7e-8d69-83fc8e6c5c15.PNG" alt="유행어사전" width="50%">
