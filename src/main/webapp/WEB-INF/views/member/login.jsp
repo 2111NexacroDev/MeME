@@ -10,9 +10,8 @@
 		position : absolute;
 		width : 400px;
 		height : 190px;
-		top : 50%;
-		left : 50%;
- 		margin-top : -300px; 
+		top : 200px;
+		left : 50%; 
  		margin-left : -200px;
  		margin-bottom : 50px; 
 		text-align: center;
@@ -54,9 +53,8 @@
 	.inner_footer {
 		position: absolute;
 		width: 400px;
-		top : 50%;
+		top : 520px;
 		left : 50%;
-		margin-top : 20px;
 		margin-left : -200px;
 		text-align: center;
 	}
