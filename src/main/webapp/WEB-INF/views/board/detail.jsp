@@ -192,7 +192,7 @@
 			
 		</tr>
 		<tr>
-			<c:if test="${sessionScope.loginMember.memberId ne 'admin' || sessionScope.loginMember eq null}">
+			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
 				<td align="right">
 					<form action='<c:url value="/board/detail_report">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
