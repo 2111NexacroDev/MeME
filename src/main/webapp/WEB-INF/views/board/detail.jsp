@@ -20,6 +20,12 @@
 		margin: auto; 
      }
      
+     	#listButton {
+     		border : 1px solid black;
+			border-radius : 5px;
+			padding : 3px;
+     	}
+     
      #boardDetailTable {
      	height:70px;
         width: 700px;
@@ -83,8 +89,9 @@
 	<table id="boardButtonTable">
 		<tr>
 			<td align="left"> 
-				<input type="button" id="boardList" value="게시글 목록" 
-					onclick="location.href='/board';">
+				<button type="button" id="listButton" onclick="location.href='/board';">
+					목록
+				</button>
 			</td>
 			<!-- 관리자일 땐 삭제만 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
@@ -207,7 +214,7 @@
 	<table id="boardCommentTable2" border="1" width="95%">
 		<tr>
 			<td>
-				<textarea rows="3" cols="55" id="commentContents" style="width: 100%; height: 80px;"></textarea>
+				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" style="width: 100%; height: 80px; padding: 15px;"></textarea>
 			</td>
 			<td>
 				<input type="button" value="등록하기" id="cSubmit" style="width: 100%; height: 80px;" ></input>
@@ -221,7 +228,7 @@
 	    	<tr align="left" height="40px">
 			<!-- 댓글 갯수 -->
 				<td colspan="4">
-					<b id="commentCount">댓글갯수(3)</b>
+					<i class="fa fa-comment" aria-hidden="true" style="padding:10px;"></i><b id="commentCount">댓글갯수(3)</b>
 				</td>
 			</tr>
 	    </thead>
