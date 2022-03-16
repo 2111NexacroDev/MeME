@@ -60,10 +60,12 @@
 	#rankTable {
 		text-align : center;
 		color: black;
+		border : 1px solid black;
 	}
 	
 	#rankTable th {
 		height : 30px;
+		
 	}
 	#rankTable tr {
 		height : 25px;

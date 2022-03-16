@@ -38,11 +38,20 @@
 		width:60%;
 		float:left;
 	}
-	#rank {
-		height:100%;
-		width:250px;
+	#rankContainer {
+		position: fixed;
+		height:50%;
+		width:20%;
 		float:left;
+		top: 200px;
+		left: 70%;
 	}
+	#rank {
+		width:250px;
+		top: 20px;
+		position: absolute; 
+	}
+
 	#left, #right {
 		width:10%;
 		height:100%;
@@ -52,7 +61,6 @@
 </style>
 </head>
 <body>	
-
 	<div id= "container">
 		<div id="header">
 			<jsp:include page="header.jsp"></jsp:include>
@@ -66,15 +74,13 @@
 			<div id="body">
 				<tiles:insertAttribute name="body" />
 			</div>
-			
-			<div id="rank">
-				<jsp:include page="rank.jsp"></jsp:include>
+			<div id="rankContainer">
+				<div id="rank">
+					<jsp:include page="rank.jsp"></jsp:include>
+				</div>
 			</div>
 			<div id="right">
 			</div>
-		</div>
-		<div id="footer">
-			<hr>
 		</div>
 	</div>
 </body>
