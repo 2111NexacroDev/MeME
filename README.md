@@ -283,50 +283,59 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ## 6. Document
 
 ### Class Diagram
-<img src="https://user-images.githubusercontent.com/100409006/158534222-528fdb32-1a03-40f1-b39e-35cf61c5dd52.PNG" alt="이미지" width="80%">
-<img src="https://user-images.githubusercontent.com/100409006/158534225-cb7f97f1-c642-4a7e-8d69-83fc8e6c5c15.PNG" alt="이미지" width="80%">
-<img src="https://user-images.githubusercontent.com/100409006/158534229-162b5c91-6a94-4d7c-8d59-5e0c13e07e37.PNG" alt="이미지" width="80%">
-<img src="https://user-images.githubusercontent.com/100409006/158534231-f3b441ea-8fe9-4637-8f8e-acaff1c4a09e.PNG" alt="이미지" width="80%">
-<img src="https://user-images.githubusercontent.com/100409006/158534232-cb5037d0-8605-4800-8e00-75a8aa8a666a.PNG" alt="이미지" width="80%">
-<img src="https://user-images.githubusercontent.com/100409006/158534235-45efffe5-3154-4f06-8aa5-1b6422adfb8e.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534222-528fdb32-1a03-40f1-b39e-35cf61c5dd52.PNG" alt="회원관리" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158534225-cb7f97f1-c642-4a7e-8d69-83fc8e6c5c15.PNG" alt="유행어사전" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158534229-162b5c91-6a94-4d7c-8d59-5e0c13e07e37.PNG" alt="유행어 추진/자유게시판" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158534231-f3b441ea-8fe9-4637-8f8e-acaff1c4a09e.PNG" alt="유행어퀴즈" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158534232-cb5037d0-8605-4800-8e00-75a8aa8a666a.PNG" alt="타임라인" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158534235-45efffe5-3154-4f06-8aa5-1b6422adfb8e.PNG" alt="랭킹" width="50%">
 
 <br/><br/>
 
 ### Sequence Diagram
 #### 회원 관리
-![membersequence drawio](https://user-images.githubusercontent.com/97710950/158091070-28c86742-200e-44f3-a79e-00de5d317f83.png)
+<img src="https://user-images.githubusercontent.com/100409006/158545112-22b06b38-9854-4fe7-8141-1b4008b6504b.PNG" alt="회원관리 : 회원가입" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545114-8d0aaede-353f-4d9e-9978-119044063c02.PNG" alt="회원관리 : 로그인" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158545116-d7261c14-af66-4285-b2ac-655857de510c.PNG" alt="회원관리 : 아이디 비번 찾기" width="50%">
+
+
+<img src="https://user-images.githubusercontent.com/100409006/158545118-d96d362f-0bcb-4774-b34b-12dd5dfc4557.PNG" alt="마이페이지 : 내가 쓴 글" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545121-ae3b9394-e3d4-47cd-b13f-dcc463b0ad1f.PNG" alt="마이페이지 : 내가 쓴 댓글" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158545125-1bfc86eb-f2aa-4b1d-b7a1-33c4545ccec8.PNG" alt="마이페이지 : 내가 만든 퀴즈" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545127-9f69f101-3d13-4060-834d-ba280a98e78b.PNG" alt="마이페이지 : 회원 정보 수정" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158545129-5a3c1247-6e86-45a7-b994-a73574c60ec3.PNG" alt="마이페이지 : 회원 탈퇴" width="50%">
+
+
+<img src="https://user-images.githubusercontent.com/100409006/158545130-4c121ad9-6180-42a6-9740-20d3f29a64ce.PNG" alt="관리자 : 회원관리" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545099-2d2c4609-4ad5-48ab-80ce-4f951b51c729.PNG" alt="관리자 : 사전관리" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158545108-4adc2455-9c84-4ea2-8b77-0e7904a4fb08.PNG" alt="관리자 : 게시글관리" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545110-a77ebc1e-699f-4470-beb7-0db1a7db2d6e.PNG" alt="관리자 : 퀴즈 관리" width="50%">
+
 <br/><br/>
 
-#### 유행어 사전, 타임라인
-![meme drawio (2)](https://user-images.githubusercontent.com/98931301/158297324-98df53c5-f41f-429a-b216-fab514dd2215.png)
+#### 유행어 사전
+<img src="https://user-images.githubusercontent.com/100409006/158546871-4ae58c1a-ce6a-4ae0-83ce-846fb51b0a9a.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158546864-1272e921-51de-42cd-b61b-271499b4446f.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158546869-8bcefb84-deb1-45dd-ae3a-fd091b05d59d.PNG" alt="이미지" width="50%">
+
 <br/><br/>
 
 #### 유행어 추진/자유 게시판
-![BOARD 시퀀스 게시글리스트 drawio](https://user-images.githubusercontent.com/100409006/158163860-e2638c1e-2b76-4d9d-977a-6a8623e28a53.png)
-![BOARD 시퀀스 게시글 상세페이지 drawio](https://user-images.githubusercontent.com/100409006/158163883-634bc1c0-1659-4c5b-986f-9c60c4ad86ad.png)
-![BOARD board 시퀀스 게시글 작성 drawio](https://user-images.githubusercontent.com/100409006/158163877-de2f6ed9-fe38-465f-aa4e-cf8fd2d4de67.png)
-![BOARD 시퀀스 게시글 수정 drawio](https://user-images.githubusercontent.com/100409006/158163899-e2bb07ce-2e86-47a7-b83c-634a44f52487.png)
-![BOARD 시퀀스 게시글 삭제 drawio](https://user-images.githubusercontent.com/100409006/158163889-8d31fafd-8154-4675-82df-9a3c9208f45d.png)
-
-![BOARD 시퀀스 게시글 추천 drawio](https://user-images.githubusercontent.com/100409006/158163938-ad247611-fa80-4770-89a4-7763137eaf7d.png)
-![BOARD 시퀀스 게시글 신고 drawio](https://user-images.githubusercontent.com/100409006/158163951-713c7686-6083-44dc-851d-81a971b2fd83.png)
-![BOARD 시퀀스 게시글 숨기기 _ 보이기 drawio](https://user-images.githubusercontent.com/100409006/158163948-57263f08-6e08-4600-ac9f-102a9b119e3e.png)
+<img src="https://user-images.githubusercontent.com/100409006/158549565-2554e19d-9d98-44cf-ab1f-47df284f1b62.PNG" alt="게시글리스트" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549571-b02e0760-646f-4e37-af8f-ac49e640b6c5.PNG" alt="상세페이지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158549566-44efe89e-6573-4c99-95f6-974590b1770f.PNG" alt="게시글 등록" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549573-d4b8f219-47fa-4016-adec-5dd3a237118a.PNG" alt="게시글 수정" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158549575-36445563-cdc4-43c1-b126-29295a125f7c.PNG" alt="게시글 삭제" width="50%">
 
 
-![COMMENT 시퀀스 댓글 리스트 drawio](https://user-images.githubusercontent.com/100409006/158175505-357e7e75-a435-4e83-bcc1-ec551353ddc8.png)
-![COMMENT 시퀀스 댓글 등록 drawio](https://user-images.githubusercontent.com/100409006/158175503-651c5b10-03a8-4a1d-a4ea-997458b669bc.png)
-![COMMENT 시퀀스 댓글 수정 drawio](https://user-images.githubusercontent.com/100409006/158175499-5e32c34e-9f4f-43c8-afd7-948515584203.png)
-![COMMENT 시퀀스 댓글 삭제 drawio](https://user-images.githubusercontent.com/100409006/158175506-eac0cf9d-bbc8-4e32-9e23-3861b4375f49.png)
+<img src="https://user-images.githubusercontent.com/100409006/158549577-89d951c3-d4ae-4a9e-9c6f-bf0e2c8dcbd3.PNG" alt=" 게시글 추천" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549536-b6a38e9e-0b9c-4461-a95d-ce27abe102a1.PNG" alt="게시글 신고" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158549542-906cac81-f7c3-458a-acef-3d7aa16f3dee.PNG" alt="게시글 숨기기" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549546-fbca65d8-839b-4738-badd-ed674bafef45.PNG" alt="게시글 보이기" width="50%">
+
+
+<img src="https://user-images.githubusercontent.com/100409006/158549552-55fa39cd-2ec8-4f58-a7bb-43ea221e6c1c.PNG" alt="댓글 리스트" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549556-9aaa5418-fabc-465b-99e1-149498f15bd0.PNG" alt="댓글 등록" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158549561-c95db1a7-d049-4143-ad94-df9ca4bc4ce1.PNG" alt="댓글 수정" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549563-5398d9df-27d8-48e9-a168-fe451a7ff0b0.PNG" alt="댓글 삭제" width="50%">
 
 <br/><br/>
-
 
 #### 유행어 퀴즈
-![랜덤퀴즈](https://user-images.githubusercontent.com/97689858/158095517-2ecd168e-b770-41ea-bec6-1788efab7197.jpg)
-![퀴즈(등록,수정,삭제)](https://user-images.githubusercontent.com/97689858/158293538-510c82dd-b172-48a3-adbf-e3fb9729f8e9.jpg)
+<img src="https://user-images.githubusercontent.com/100409006/158550226-33ad7fa1-76f0-4c04-8f70-3f39e2912eb8.PNG" alt="퀴즈 등록" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550229-9e0499b0-069b-4c66-b09d-4745e761814c.PNG" alt="퀴즈 수정" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158550236-80850c3b-98ab-43b9-bb34-ba959ee154fc.PNG" alt="퀴즈 삭제" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550240-1e3a803a-3027-4dbe-8d5d-21ae4ae24210.PNG" alt="랜덤 퀴즈" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158550245-0d358900-c3b2-4b7b-80be-54c494043fa1.PNG" alt="퀴즈결과" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550222-12afdf05-0f4d-474a-a42f-090fd868400c.PNG" alt="퀴즈신고" width="50%">
+
 <br/><br/>
 
-#### 랭킹 리스트
-![RANK 시퀀스 랭킹 리스트 사이즈 조정 drawio](https://user-images.githubusercontent.com/100409006/158178406-edc0798e-8387-49db-b5cf-1bfa1d9fb7e2.png)
+#### 유행어 타임라인
+<img src="https://user-images.githubusercontent.com/100409006/158550596-1af24c79-19ee-4d76-a20d-5d03f66e20b5.PNG" alt="타임라인" width="50%">
 
+<br/><br/>
 
+#### 랭킹
+<img src="https://user-images.githubusercontent.com/100409006/158550612-e2658bcb-ac6a-49f9-a8fa-9fcb2272c9c6.PNG" alt="랭킹" width="50%">
