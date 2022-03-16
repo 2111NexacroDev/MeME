@@ -117,12 +117,13 @@
 									<div class="main">
 										<div class="input-group">
 											<input type="text" class="form-control" id="keyword" value=""
-												width="20px" placeholder="ex) 어쩔티비" onkeypress="if(event.keyCode==13){searchMeme();}" >
+												width="20px" placeholder="ex) 어쩔티비" onkeypress="if(event.keyCode==13){searchMeme();}"
+												style="border:2px solid #f26522">
 
 											<div class="input-group-append">
 												<button class="btn btn-secondary" type="button"
 													onclick="searchMeme();"
-													style="background-color: #f26522; border-color: #f26522">
+													style="background-color: #f26522; border: 2px solid #f26522">
 													<i class="fa fa-search"></i>
 												</button>
 											</div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="QuizMapper">
+  	<resultMap type="Quiz" id="quizResultMap">
+  		<id property="quizNo" column="QUIZ_NO"/>
+  		<result property="quizType" column="QUIZ_TYPE"/>
+  		<result property="quizQuest" column="QUIZ_QUESTION"/>
+  		<result property="quizAnswer" column="QUIZ_ANSWER"/>
+  		<result property="memberId" column="MEMBER_ID"/>
+  		<result property="quizDate" column="QUIZ_DATE"/>
+  		<result property="quizCh1" column="QUIZ_CH1"/>
+  		<result property="quizCh2" column="QUIZ_CH2"/>
+  		<result property="quizCh3" column="QUIZ_CH3"/>
+  		<result property="quizCh4" column="QUIZ_CH4"/>
+  	</resultMap>
+  	<resultMap type="QuizReport" id="quizReportResultMap">
+  		<id property="reportNo" column="REPORT_NO"/>
+  		<result property="reportId" column="REPORT_ID"/>
+  		<result property="reportContents" column="REPORT_CONTENTS"/>
+  		<result property="reportDate" column="REPORT_DATE"/>
+  		<result property="quizNo" column="QUIZ_NO"/>
+  	</resultMap>
+  	
+  	<!-- 마이페이지 -->
+  	<select id="selectMyQuizList" parameterType="string" resultMap="quizResultMap">
+  		SELECT * FROM QUIZ_TBL WHERE MEMBER_ID = #{memberId } ORDER BY QUIZ_NO DESC
+  	</select>
+  	
+  	<select id="selectMyQuizCount" parameterType="string" resultType="_int">
+  		SELECT COUNT(*) FROM QUIZ_TBL WHERE MEMBER_ID = #{memberId }
+  	</select>
+  	
+  	<!-- 관리자페이지 -->
+  	<select id="selectAllQuizListCount" resultType="_int">
+  		SELECT COUNT(*) FROM QUIZ_TBL
+  	</select>
+  	
+  	<select id="selectAllQuizReportListCount" resultType="_int">
+  		SELECT COUNT(*) FROM QUIZ_REPORT
+  	</select>
+  	
+  	<select id="selectAllQuizList" resultMap="quizResultMap">
+  		SELECT * FROM QUIZ_TBL ORDER BY QUIZ_NO DESC
+  	</select>
+  	
+  	<select id="selectAllQuizReportList" resultMap="quizReportResultMap">
+  		SELECT * FROM QUIZ_REPORT ORDER BY REPORT_NO DESC
+  	</select>
+  	<!-- 퀴즈 메인 -->
+  	<select id="selectRandom" resultMap="quizResultMap">
+  		SELECT QUIZ_NO FROM (SELECT QUIZ_NO FROM QUIZ_TBL ORDER BY DBMS_RANDOM.VALUE) WHERE <![CDATA[ROWNUM<=100]]>
+  	</select>
+
+  	<select id="selectOneByNo" resultMap="quizResultMap">
+  		SELECT * FROM QUIZ_TBL Q
+      LEFT OUTER JOIN QUIZ_CH C
+      ON Q.QUIZ_NO = C.QUIZ_NO
+      WHERE Q.QUIZ_NO = #{quizNo}
+  	</select>
+  	
+  	<insert id="insertQuiz" parameterType="Quiz">
+  		INSERT INTO QUIZ_TBL VALUES(QUIZ_SEQ_NO.NEXTVAL, #{quizType}, #{quizQuest}, #{quizAnswer}, #{memberId}, DEFAULT)
+  	</insert>
+  	<insert id="insertQuizFile" parameterType="QuizFile">
+		INSERT INTO QUIZ_FILE VALUES(QUIZ_SEQ_FILENO.NEXTVAL, #{quizFileName }, #{quizFileExtension }, #{quizFileRename }, QUIZ_SEQ_NO.CURRVAL)  	
+  	</insert>
+  	<update id="updateQuiz" parameterType="Quiz">
+  		UPDATE QUIZ_TBL SET QUIZ_QUESTION = #{quizQuest}, QUIZ_ANSWER=#{quizAnswer}, QUIZ_DATE = DEFAULT, QUIZ_TYPE=#{quizType} WHERE QUIZ_NO = #{quizNo}
+  	</update>
+  	
+  	<insert id="insertQuizM" parameterType="QuizCh">
+  		INSERT INTO QUIZ_CH VALUES(QUIZ_SEQ_NO.CURRVAL, #{quizCh1}, #{quizCh2}, #{quizCh3}, #{quizCh4})
+  	</insert>
+  	<update id="updateQuizM" parameterType="Quiz">
+  		UPDATE QUIZ_CH SET QUIZ_CH1 = #{quizCh1}, QUIZ_CH2 = #{quizCh2}, QUIZ_CH3 = #{quizCh3}, QUIZ_CH4 = #{quizCh4} WHERE QUIZ_NO = #{quizNo}
+  	</update>
+  	
+  	<select id="selectScore" resultType="_int">
+  		SELECT QUIZ_BESTSCORE FROM QUIZ_BEST WHERE MEMBER_ID = #{memberId}
+  	</select>
+  	
+  	<update id="updateScore" parameterType="QuizBest">
+		MERGE INTO QUIZ_BEST USING DUAL ON (MEMBER_ID = #{memberId})
+		WHEN MATCHED THEN
+	    UPDATE SET QUIZ_BESTSCORE=#{bestScore}, QUIZ_BESTDATE = DEFAULT
+		WHEN NOT MATCHED THEN
+	    INSERT(MEMBER_ID, QUIZ_BESTSCORE, QUIZ_BESTDATE) VALUES(#{memberId}, #{bestScore}, DEFAULT)
+  	</update>
+  	<insert id="insertQuizReport" parameterType="QuizReport">
+  		INSERT INTO QUIZ_REPORT VALUES(QUIZ_SEQ_REPORTNO.NEXTVAL, #{reportId}, #{reportContents}, DEFAULT, #{quizNo})
+  	</insert>
+  	<delete id="deleteQuizByNo" parameterType="_int">
+  		DELETE FROM QUIZ_TBL WHERE QUIZ_NO = #{quizNo }
+  	</delete>
+  </mapper>
