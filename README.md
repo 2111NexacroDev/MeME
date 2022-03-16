@@ -14,6 +14,9 @@
 4. [프로젝트 기능 구현](#4-프로젝트-기능-구현)
 5. [주요기능](#5-주요기능)
 6. [Document](#6-document)
+   - [Class Diagram](#class-diagram)
+   - [Sequence Diagram](#sequence-diagram)
+
 
 <br/><br/>
 ## 1. 개요
@@ -280,15 +283,15 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ## 6. Document
 
 ### Class Diagram
-
-![image](https://user-images.githubusercontent.com/97689858/158059943-aba82271-2e04-4fee-825e-c7b40f13a465.png)
-![image](https://user-images.githubusercontent.com/97689858/158059946-7b3a279e-8dc2-4f19-85ed-6df7063ef479.png)
-![image](https://user-images.githubusercontent.com/97689858/158059949-4153c36d-ae68-4970-9370-360825df6371.png)
-![image](https://user-images.githubusercontent.com/97689858/158059954-259d3539-ba8a-44de-9702-09c592f47bcf.png)
-![image](https://user-images.githubusercontent.com/97689858/158059958-4991280e-d9c9-4e81-8628-91e9522c8a01.png)
-![image](https://user-images.githubusercontent.com/97689858/158059963-1f121ebe-926f-4465-ae62-93cb14287139.png)
+<img src="https://user-images.githubusercontent.com/100409006/158534222-528fdb32-1a03-40f1-b39e-35cf61c5dd52.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534225-cb7f97f1-c642-4a7e-8d69-83fc8e6c5c15.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534229-162b5c91-6a94-4d7c-8d59-5e0c13e07e37.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534231-f3b441ea-8fe9-4637-8f8e-acaff1c4a09e.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534232-cb5037d0-8605-4800-8e00-75a8aa8a666a.PNG" alt="이미지" width="80%">
+<img src="https://user-images.githubusercontent.com/100409006/158534235-45efffe5-3154-4f06-8aa5-1b6422adfb8e.PNG" alt="이미지" width="80%">
 
 <br/><br/>
+
 ### Sequence Diagram
 #### 회원 관리
 ![membersequence drawio](https://user-images.githubusercontent.com/97710950/158091070-28c86742-200e-44f3-a79e-00de5d317f83.png)
