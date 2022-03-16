@@ -34,15 +34,12 @@
 		height: 60px;
 		padding-top: 5px;
 		transition-duration: 0.5s;
-		
 	}
 	.btn_login:hover {
 		background-color: #f26522;
 	    color: #ffffff;
 	    transition-duration: 0.5s;
 	}
-	
-	
 	button {
 		color : #252525;
 		font-weight: bold;
@@ -50,12 +47,10 @@
 		border-radius: 5px;
 		transition-duration: 0.5s;
 	}
-	
 	button:hover {
 		color : #f26522;
 		transition-duration: 0.5s;
 	}
-	
 	.inner_footer {
 		position: absolute;
 		width: 400px;
@@ -65,7 +60,6 @@
 		margin-left : -200px;
 		text-align: center;
 	}
-
 	#ipt {
 		margin-bottom : 10px;
 		padding-left : 15px;
@@ -78,7 +72,6 @@
 	.login_logo {
 		margin-bottom : 5px;
 	}
-	
 </style>
 </head>
 <body>
@@ -105,8 +98,8 @@
 	</div>
 	<div class="inner_footer">
 		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">아이디 찾기</button>&nbsp;&nbsp;&nbsp;
-		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">비밀번호 찾기</button>&nbsp;&nbsp;&nbsp;
-		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">회원가입</button>
+		<button class="btn_footer" type="button" onclick="location.href='/member/findPw.me'">비밀번호 찾기</button>&nbsp;&nbsp;&nbsp;
+		<button class="btn_footer" type="button" onclick="location.href='/member/join.me'">회원가입</button>
 	</div>
 </body>
 </html>
