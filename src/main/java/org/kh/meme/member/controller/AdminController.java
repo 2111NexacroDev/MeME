@@ -27,7 +27,7 @@ public class AdminController {
 	@Autowired
 	private AdminService aService;
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö ÀÌµ¿
+	// ê´€ë¦¬ì í˜ì´ì§€ ì´ë™
 	@RequestMapping(value="/admin/adminHome.me", method=RequestMethod.GET)
 	public String adminHome(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -41,7 +41,7 @@ public class AdminController {
 		return ".tilesHead/admin/adminHome";
 	}
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - È¸¿ø °ü¸®
+	// ê´€ë¦¬ì í˜ì´ì§€ - íšŒì› ê´€ë¦¬
 	@RequestMapping(value="/admin/manageMember.me", method=RequestMethod.GET)
 	public String manageMember(HttpServletRequest request
 			,Model model
@@ -67,7 +67,7 @@ public class AdminController {
 	}
 	
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - À¯Çà¾î °ü¸®
+	// ê´€ë¦¬ì í˜ì´ì§€ - ì‚¬ì „ ê´€ë¦¬
 	@RequestMapping(value="/admin/manageMeme.me", method=RequestMethod.GET)
 	public String manageMeme(HttpServletRequest request
 			,Model model
@@ -91,7 +91,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageMeme";
 	}
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - À¯Çà¾î °ü¸® - ¿äÃ» °ü¸®
+	// ê´€ë¦¬ì í˜ì´ì§€ - ì‚¬ì „ ìš”ì²­ ê´€ë¦¬
 	@RequestMapping(value="/admin/manageMemeRequest.me", method=RequestMethod.GET)
 	public String manageMemeRequest(HttpServletRequest request
 			,Model model
@@ -115,7 +115,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageMemeRequest";
 	}
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - °Ô½Ã±Û °ü¸®
+	// ê´€ë¦¬ì í˜ì´ì§€ - ê²Œì‹œê¸€ ê´€ë¦¬
 	@RequestMapping(value="/admin/manageBoard.me", method=RequestMethod.GET)
 	public String manageBoard(HttpServletRequest request
 			,Model model
@@ -139,7 +139,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageBoard";
 	}
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - °Ô½Ã±Û °ü¸® - ½Å°íµÈ °Ô½Ã±Û
+	// ê´€ë¦¬ì í˜ì´ì§€ - ì‹ ê³ ëœ ê²Œì‹œê¸€ ê´€ë¦¬
 	@RequestMapping(value="/admin/manageBoardReported.me", method=RequestMethod.GET)
 	public String manageBoardReported(
 			Model model
@@ -166,7 +166,7 @@ public class AdminController {
 	}
 	
 
-	// °ü¸®ÀÚ ÆäÀÌÁö - °Ô½Ã±Û °ü¸® - ±Û »óÅÂ
+	// ê´€ë¦¬ì í˜ì´ì§€ - ê²Œì‹œê¸€ ìƒíƒœ
 	@RequestMapping(value="/admin/manageBoardStatus.me", method=RequestMethod.GET)
 	public String manageBoardStatus(HttpServletRequest request
 			, Model model
@@ -192,7 +192,7 @@ public class AdminController {
 	}
 	
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - ÄûÁî °ü¸®
+	// ê´€ë¦¬ì í˜ì´ì§€ - í€´ì¦ˆ ê´€ë¦¬
 	@RequestMapping(value="/admin/manageQuiz.me", method=RequestMethod.GET)
 	public String manageQuiz(HttpServletRequest request
 			,Model model
@@ -216,7 +216,7 @@ public class AdminController {
 		return ".tilesHead/admin/manageQuiz";
 	}
 	
-	// °ü¸®ÀÚ ÆäÀÌÁö - ÄûÁî °ü¸® - ½Å°íµÈ ÄûÁî
+	// ê´€ë¦¬ì í˜ì´ì§€ - ì‹ ê³ ëœ í€´ì¦ˆ
 	@RequestMapping(value="/admin/manageQuizReported.me", method=RequestMethod.GET)
 	public String manageQuizReported(HttpServletRequest request
 			,Model model

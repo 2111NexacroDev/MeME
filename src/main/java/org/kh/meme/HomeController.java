@@ -28,10 +28,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	// ·Î±×ÀÎ ÆäÀÌÁö ÀÌµ¿
+	// ë¡œê·¸ì¸ í˜ì´ì§€ ì´ë™
 	@RequestMapping(value="/login.me", method=RequestMethod.GET)
 	public String login() {
-		
 		return ".tilesHead/member/login";
 	}
 	
