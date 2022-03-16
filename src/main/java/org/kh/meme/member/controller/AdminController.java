@@ -234,7 +234,6 @@ public class AdminController {
 		PageInfo pi = Pagination.getPageInfo(currentPage, totalCount);
 		model.addAttribute("pi", pi);
 		
-		
 		List<QuizReport> allQuizReportList = aService.printAllQuizReportRequest(pi);
 		model.addAttribute("allQuizReportList", allQuizReportList);
 		return ".tilesHead/admin/manageQuizReported";
