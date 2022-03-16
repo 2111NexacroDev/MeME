@@ -143,6 +143,7 @@ public class QuizController {
 		}
 		
 		quizRank(model);
+		model.addAttribute("title", "퀴즈 결과");
 		
 		// 퀴즈 결과
 		model.addAttribute("userAnswer", userAnswer);
@@ -177,6 +178,7 @@ public class QuizController {
 	@RequestMapping(value = "/quiz/random.me", method = RequestMethod.GET)
 	public String random( Model model ) {
 		quizRank(model);
+		model.addAttribute("title", "랜덤 퀴즈");
 		return ".tiles/quiz/random";
 	}
 	
@@ -202,7 +204,7 @@ public class QuizController {
 		Member member = (Member) session.getAttribute("loginMember");
 		
 		quizRank(model);
-		
+		model.addAttribute("title", "유행어 퀴즈 등록");
 		if(member== null) {
 			return ".tilesHead/member/login";
 		}else {
@@ -274,7 +276,7 @@ public class QuizController {
 		model.addAttribute("quiz", quiz);
 		
 		quizRank(model);
-		
+		model.addAttribute("title", "유행어 퀴즈 수정");
 		return ".tiles/quiz/modify";
 	}
 	

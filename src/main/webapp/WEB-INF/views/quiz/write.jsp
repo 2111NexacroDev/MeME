@@ -179,9 +179,6 @@
 </script>
 </head>
 <body>
-	<p></p>
-	<h1 align="center" id="title_name">유행어 퀴즈 등록</h1>
-	<hr>
 	<form action="/quiz/write.me" method="post" id="quizWriteForm" enctype="multipart/form-data">
 	    <select name="quizType" id="type">
 	        <option value="" selected disabled>유형선택</option>

@@ -167,9 +167,6 @@ window.onload = function(){
 </script>
 </head>
 <body>
-	<p></p>
-	<h1 align="center" id="title_name">퀴즈 결과</h1>
-	<hr>
 	<div id="quizContents">
 		<c:forEach var="i" items="${qList}" varStatus="vs">
 			<b>문제 : ${i.quizQuest} <br></b>

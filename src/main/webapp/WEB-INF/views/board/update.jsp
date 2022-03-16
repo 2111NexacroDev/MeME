@@ -12,8 +12,8 @@
 #boardWriteTable { 
 	width: 700px; 
 	height: 200px; 
-	background-color: #F5A678 ; 
- 	border: 1px solid black; 
+	--background-color: #F5A678 ; 
+ 	border: 1px solid #f9f9f9; 
 	text-align: center;
  	margin: auto; 
  	color: black;
@@ -24,7 +24,7 @@
 }
 
 .jb-th-1 {
-	height: 500px;
+	height: 400px;
 	text-align: center;
 }
 
@@ -38,19 +38,40 @@
 #boardWriteTextarea_1 {
 
 	height:100%;
-	width:100%;
+	width:99%;
 }
     
-    
+
+/* [라디오 버튼 커스텀 스타일 변경 실시] */
+input[type='radio'] {
+	-webkit-appearance:none;
+	width:15px;
+	height:15px;
+	/* [라디오 버튼 테두리 색상 정의] */
+	border:1px solid darkgray;
+	border-radius:50%;
+	outline:none;
+	/* [라디오 버튼 배경 색상 정의] */
+	background:#ffffff;
+}
+input[type='radio']:before {
+	/* [content null 설정해서 커스텀 지정] */
+	content:'';
+	display:block;
+	width:70%;
+	height:70%;
+	margin: 2px auto;
+	border-radius:50%;  
+}
+input[type='radio']:checked:before {
+	/* [라디오 버튼이 클릭 되었을 경우 내부 원형 색상] */
+	background: #f26522;
+}
 </style>
 
 </head>
 
 <body>
-	<div>
-		<h1 style="font-weight: bold" align="center">게시글 수정</h1>
-		<hr>
-	</div>
 	<br>
 	<form action= '<c:url value="/board/detail_update">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
@@ -75,7 +96,7 @@
 			</tr>
 			</tr>
 			<tr style="text-align: center">
-				<td height="30px">
+				<td height="50px">
 					<input type="text" name="boardTitle" value="${oneBoard.boardTitle }" placeholder="글 제목"
 						style="width: 99%">
 				</td>
@@ -85,7 +106,7 @@
         			<textarea id="boardWriteTextarea_1" name="boardContents">${oneBoard.boardContents}</textarea>
         		</td>
       		</tr>
-				<td colspan="2" align="right" height="30px">
+				<td colspan="2" align="right" height="50px">
 					<input type="reset" value="취소" onclick="location.href='<c:url value="/board/detail">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 					</c:url>'">

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="TimelineMapper">
+<!--   <resultMap type="org.kh.meme.meme.domain.Meme" id="memeTimelinetMap">
+  	<id property="memeNo" column="MEME_NO"/>
+  	<result property="memeName" column="MEME_NAME" />
+  	<result property="memeDate" column="MEME_DATE" />
+  	<result property="memeContents" column="MEME_CONTENTS" />
+  	<result property="memberNickname" column="MEMBER_NICKNAME" />
+  	<result property="memeCount" column="MEME_COUNT" />
+  	<result property="memeStatus" column="MEME_STATUS" />
+  </resultMap>
+  
+  <select id="selectFirstTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM MEME_TBL WHERE '01/01/01' <= MEME_DATE AND MEME_DATE<= '05/12/31' ORDER BY MEME_COUNT DESC ]]>
+  </select>  -->
+  </mapper>
