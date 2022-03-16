@@ -80,13 +80,6 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 
-
-<!--
-<img src="https://user-images.githubusercontent.com/100409006/157793472-d75f95ab-b3de-45c5-944e-20e203a1b944.png" alt="front" width="300"/> <img src="https://user-images.githubusercontent.com/100409006/157793484-d8f2c7ce-6644-4124-8af4-afb9e1dde17f.png" alt="java" width="300" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793458-cb0528df-76ce-4571-bc94-bc8ec47f4f24.png" alt="spring" width="200" height="200">
-<img src="https://user-images.githubusercontent.com/100409006/157793310-e961a2e9-741f-43d9-9267-c1411816362c.jpeg" alt="이클립스" width="200" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793495-704e1089-00bc-4165-98bc-22fc5dbe62af.png" alt="tomcat" width="300" height="300"> <img src="https://user-images.githubusercontent.com/100409006/157793488-37968231-8812-416b-9353-41e656625458.png" alt="oracle" width="400" height="200"> <img src="https://user-images.githubusercontent.com/100409006/157793477-44fad024-8f79-4be7-80ed-9af905632ef9.png" alt="깃허브" width="400" height="200">
--->
-
-
 <br/><br/>
 ## 4. 프로젝트 기능 구현
 
