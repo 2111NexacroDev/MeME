@@ -125,7 +125,7 @@ button:hover {
 			</div>
 			
 			<div class="c-header" align="center">
-				<h3><i>2006년 <br> &emsp; - 2010년</i></h3>
+				<h3><span class="year">2006년</span><br> &emsp;&emsp;<span class="year"> - 2010년 </span></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeThirdTimeline }" var="tThirdList">
@@ -140,7 +140,7 @@ button:hover {
 			</div>
 
 			<div class="c-header" align="center">
-				<h3>2011년 <br> &emsp; - 2015년</h3>
+				<h3><span class="year">2011년</span><br> &emsp;&emsp;<span class="year"> - 2015년 </span></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeFourthTimeline }" var="tFourthList">
@@ -155,7 +155,7 @@ button:hover {
 			</div>
 
 			<div class="c-header" align="center">
-				<h3>2016년 <br> &emsp; - 2020년</h3>
+				<h3><span class="year">2016년</span><br> &emsp;&emsp;<span class="year"> - 2020년 </span></h3>
 			</div>
 			<div class="c-main">
 				<c:forEach items="${memeFifthTimeline }" var="tFifthList">
@@ -170,7 +170,7 @@ button:hover {
 			</div>
 
 			<div class="c-header" align="center">
-				<h3>2021년</h3>
+				<h3><span class="year">2021년</span></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeSixthTimeline }" var="tSixthList">
