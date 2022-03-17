@@ -50,7 +50,7 @@
 	#rank {
 		width:250px;
 		top: 20px;
-		right: 5px;
+		right: 10%;
 		position: absolute; 
 	}
 
