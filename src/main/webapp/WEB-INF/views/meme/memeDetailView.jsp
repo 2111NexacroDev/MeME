@@ -8,43 +8,29 @@
 <meta charset="UTF-8">
 <title>사전 상세 페이지</title>
 <style>
- .main {
+.main {
 	text-align: center;
-} 
- .main .dtail {
+}
+
+.main .dtail {
 	text-align: left;
 }
 
 #memeDtatilName {
+	color: black;
 	font-size: 20px;
 	font-weight: bold;
-	font-style:italic;
 	text-align: left;
-	background: linear-gradient(to top, #ccc 50%, transparent 50%);
 }
 
 #memeDtailDate {
-	padding-left: 20px;
+	padding-left: 40px
 }
 
-<<<<<<< HEAD
 #memeDetailContents {
 	color: black;
- 	padding-left: 10px;
-  	line-height:150%;
+}
 
-=======
-#memeDetailTable {
-	width: 700px;
-	background-color: white;
-	border: 1px solid black;
-	text-align: center;
-	margin: auto;
->>>>>>> refs/remotes/origin/master
-}
-#title_name {
-	font-weight: bold;
-}
 </style>
 </head>
 <body>
@@ -55,10 +41,10 @@
 		<hr>
 	</div> -->
 
- 	<div class="main"> 
+	<div class="main">
 		<br>
 		<div class="dtail" id="memeName"> 
-			<span id="memeDtatilName">' &nbsp; ${meme.memeName} &nbsp; '</span>
+			<p id="memeDtatilName">' &nbsp; ${meme.memeName} &nbsp; '</p>
 		</div>
 		<br>
 		<div class="dtail">
@@ -66,10 +52,9 @@
 		</div>
 		<br>
 		<div class="dtail">
-			<span id="memeDetailContents">${meme.memeContents}</span>
+			<p id="memeDetailContents">${meme.memeContents}</p>
 			<br>
 			<c:if test="${not empty memeFile.memeFileRename }">
-				<br>
 				<span> <img
 					src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
 				</span>
@@ -80,14 +65,15 @@
 			<span>등재요청자 &nbsp;&nbsp; : &nbsp;&nbsp; ${meme.memberNickname}</span>
 		</div>
 		<br>
- 	</div> 
+	</div>
 	<div>
 		<br>
 		<hr>
 		<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
 		<div align="right">
+		<br>
 			<c:if test="${not empty sessionScope.loginMember }">
-				<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
+				<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> >>의견내기 &nbsp;&nbsp;</a>
 			</c:if>
 		</div>
 		<br> <br>
