@@ -14,6 +14,9 @@
 4. [프로젝트 기능 구현](#4-프로젝트-기능-구현)
 5. [주요기능](#5-주요기능)
 6. [Document](#6-document)
+   - [Use Case Diagram](#use-case-diagram)
+   - [Wireframe](#wireframe)
+   - [Flowchart](#flowchart)
    - [ERD](#erd)
    - [Class Diagram](#class-diagram)
    - [Sequence Diagram](#sequence-diagram)
@@ -26,7 +29,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 실제로 '무야호'를 몰라 '문찐'이 되어본 경험에서 나온 아이디어이다.
 
 
-**MEME DICTIONARY는 직접 유행어를 만들거나, 이미 유행하고 있는 말을 등록할 수 있고,
+> **MEME DICTIONARY는 직접 유행어를 만들거나, 이미 유행하고 있는 말을 등록할 수 있고,
 빠르게 생겨나고 사라지는 유행어의 흐름도 확인해볼 수 있다.**
 
 단순히 유행어 검색 뿐 아니라 유행어 랭킹 및 퀴즈 게임도 함께 즐길 수 있는
@@ -101,35 +104,15 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
       - 아이디 찾기
       - 비밀번호 재설정
     - 마이페이지
-      - 화면 구현
-      - 내가 쓴 글
-         - 내가 쓴 글 조회
-         - 내가 쓴 글 수정
-         - 내가 쓴 글 삭제
-      - 내가 만든 퀴즈
-         - 내가 만든 퀴즈 조회
-         - 내가 만든 퀴즈 수정
-         - 내가 만든 퀴즈 삭제
-      - 내가 쓴 댓글
-         - 내가 쓴 댓글 조회
+      - 내가 쓴 글, 댓글, 퀴즈 관리
       - 회원 정보 수정
       - 회원 탈퇴
       - 로그아웃
     - 관리자페이지
-      - 화면 구현
-      - 회원 관리 페이지
-         - 회원 목록 조회
-      - 유행어 사전 관리 페이지
-         - 전체 유행어 목록 조회
-         - 유행어 요청 목록 조회
-      - 게시판 관리 페이지
-         - 전체 글 목록 조회
-         - 신고된 글 목록 조회
-         - 글 삭제
-      - 퀴즈 관리 페이지
-         - 전체 퀴즈 목록 조회
-         - 신고된 퀴즈 목록 조회
-         - 퀴즈 삭제
+      - 회원 관리
+      - 유행어 사전 관리
+      - 게시판 관리
+      - 퀴즈 관리
 
 - 신시원
   - **회원 관리**
@@ -147,19 +130,13 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
       - 화면 구현
     - **유행어 추진/자유게시판**
       - 게시글
-        - 게시글 리스트
-        - 게시글 등록 (첨부파일)
-        - 게시글 상세페이지
-        - 게시글 수정
-        - 게시글 삭제
-        - 게시글 신고
-        - 게시글 추천
+        - 게시글 목록 및 상세페이지 조회, 등록(첨부파일), 수정, 삭제
+        - 게시글 신고 / 추천
         - 관리자 : 게시글 숨기기 / 보이기
+        - 비회원은 조회만 허용하며 관리자는 수정 비허용
       - 댓글
-        - 댓글 리스트 출력
-        - 댓글 등록
-        - 댓글 수정
-        - 댓글 삭제
+        - 댓글 목록 조회, 등록, 수정, 삭제
+        - 로그인 시에만 작성 가능
 
     - **유행어 랭킹**
         - 유행어 사전 : 조회 수에 따른 랭킹
@@ -169,12 +146,12 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 - 장승훈
   - **유행어 퀴즈**
-    - 30초 랜덤 퀴즈 : 랜덤으로 퀴즈 가져오기(이미지,객관식문항)
-    - 퀴즈 등록 : 퀴즈 유형에따라 객관식문항 등록, 다중 이미지 등록
-    - 퀴즈 수정 : 퀴즈 유형에따라 객관식문항 수정, 다중 이미지 수정
-    - 퀴즈 삭제 : 퀴즈 유형에따라 객관식문항 삭제, 다중 이미지 삭제
+    - 30초 랜덤 퀴즈 : 랜덤으로 퀴즈 가져오기(이미지, 객관식 문항)
+    - 퀴즈 등록 : 퀴즈 유형에 따라 객관식 문항 등록, 다중 이미지 등록
+    - 퀴즈 수정 : 퀴즈 유형에 따라 객관식 문항 수정, 다중 이미지 수정
+    - 퀴즈 삭제 : 퀴즈 유형에 따라 객관식 문항 삭제, 다중 이미지 삭제
     - 퀴즈 결과 : 퀴즈와 사용자의 입력값을 가져와 출력 해주고 회원의 최고 기록을 저장
-    - 퀴즈 신고 : 잘못 된 문제를 신고 할 수 있다.
+    - 퀴즈 신고 : 잘못된 문제를 신고할 수 있다.
 <br/><br/>
 
 
@@ -275,7 +252,49 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 ## 6. Document
+### Use Case Diagram
+<img src="https://user-images.githubusercontent.com/100409006/158661233-24bf03e3-1299-43b3-9392-7e043bc2a829.PNG" alt="회원관리" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661236-6335097b-b107-4549-9732-d761a095b17f.PNG" alt="유행어사전" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158661239-478f054e-e649-4249-ba17-5aaaff0ba6b2.PNG" alt="게시판" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661221-c65dfd0a-1597-42c2-8e68-1cf3c75482a2.PNG" alt="퀴즈" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158661228-45d8e97f-aa02-4f05-8931-448f6068ef41.PNG" alt="타임라인" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661230-f852628d-79ce-49bc-83c5-9344be7e4634.PNG" alt="랭킹" width="50%">
+
+
+<br><br>
+
+### Wireframe
+### Flowchart
+
+##### 사용자
+<img src="https://user-images.githubusercontent.com/100409006/158662408-5f9dad17-fb55-4fba-9ad1-03b364d2aad8.png" alt="사용자" width="70%">
+
+
+##### 관리자
+<img src="https://user-images.githubusercontent.com/100409006/158662402-ce8144e8-a2cb-425a-a4d5-b68da28cbf27.png" alt="관리자" width="70%">
+
+<!--
+<img src="https://user-images.githubusercontent.com/100409006/158661773-26b53041-6d9e-4ad1-89b2-f63f76e37519.PNG" alt="사용자 플로우차트" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661778-d35af87c-5180-4db1-8b3c-179196d6f250.PNG" alt="로그인 유행어사전" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158661780-0ee58ecf-e085-40b8-a8e2-a69610dda4de.PNG" alt="게시판 랭킹" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661760-d46b4480-060d-4b5e-af35-d587970c1667.PNG" alt="퀴즈 타임라인" width="50%">
+
+
+<img src="https://user-images.githubusercontent.com/100409006/158661764-ab5b5b12-dd4d-4e17-ba48-82e4975acc8e.PNG" alt="관리자" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158661768-7f724da8-98a6-44b0-9c87-6b4b29359aff.PNG" alt="회원 사전" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158661770-91bd41d5-8226-4a4d-92b1-fb227d3710c0.PNG" alt="게시판 퀴즈" width="50%">
+-->
+
+<br><br>
 ### ERD
+##### 회원 (논리, 물리)
+<img src="https://user-images.githubusercontent.com/100409006/158663932-ace87749-8e02-4de3-b3a8-bff43170e7dc.PNG" alt="회원 논리" width="300px"> <img src="https://user-images.githubusercontent.com/100409006/158663933-98da7e7a-3e21-47c8-bec2-aee20f809ecb.PNG" alt="회원 물리" width="400px">
+##### 유행어 사전 (논리, 물리)
+<img src="https://user-images.githubusercontent.com/100409006/158663923-540c249e-995d-465a-a654-a97946c6f924.PNG" alt="사전 논리" width="500px"> <img src="https://user-images.githubusercontent.com/100409006/158663926-8748df9f-9159-479a-bd40-67679c9d33b7.PNG" alt="사전 물리" width="500px">
+##### 유행어 추진 / 자유게시판 (논리, 물리)
+<img src="https://user-images.githubusercontent.com/100409006/158663912-a7207a2c-f574-4747-bce7-78e8e359b18d.PNG" alt="게시판 논리" width="500px"> <img src="https://user-images.githubusercontent.com/100409006/158663921-8f4ed0c8-848c-4a0f-9eb6-797a118348e7.PNG" alt="게시판 물리" width="500px">
+##### 유행어 퀴즈 (논리, 물리)
+<img src="https://user-images.githubusercontent.com/100409006/158663927-3e78ab51-9d7a-447f-958a-23fdd5179f1a.PNG" alt="퀴즈 논리" width="500px"> <img src="https://user-images.githubusercontent.com/100409006/158663928-d53e3ec3-33f3-4aa6-991e-d47166a8ad85.PNG" alt="퀴즈 물리" width="500px">
+
+
+<br/><br/>
+
+
+##### 테이블 기술서
 <img src="https://user-images.githubusercontent.com/100409006/158596658-c7f483d7-df2f-4d4e-a4ed-c48a9e5a95e8.PNG" alt="member_tbl" width="50%">
 
 <img src="https://user-images.githubusercontent.com/100409006/158596639-17d73031-103d-4a21-8b35-240d4013cdf9.PNG" alt="meme_tbl" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158596643-4b17c744-b4cf-4e8f-80d6-35e6173e375a.PNG" alt="meme_file, meme_request" width="50%">
@@ -296,7 +315,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br/><br/>
 
 ### Sequence Diagram
-#### 회원 관리
+##### 회원 관리
 <img src="https://user-images.githubusercontent.com/100409006/158545112-22b06b38-9854-4fe7-8141-1b4008b6504b.PNG" alt="회원관리 : 회원가입" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158545114-8d0aaede-353f-4d9e-9978-119044063c02.PNG" alt="회원관리 : 로그인" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158545116-d7261c14-af66-4285-b2ac-655857de510c.PNG" alt="회원관리 : 아이디 비번 찾기" width="50%">
 
@@ -311,12 +330,12 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 <br/><br/>
 
-#### 유행어 사전
+##### 유행어 사전
 <img src="https://user-images.githubusercontent.com/100409006/158546871-4ae58c1a-ce6a-4ae0-83ce-846fb51b0a9a.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158546864-1272e921-51de-42cd-b61b-271499b4446f.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158546869-8bcefb84-deb1-45dd-ae3a-fd091b05d59d.PNG" alt="이미지" width="50%">
 
 <br/><br/>
 
-#### 유행어 추진/자유 게시판
+##### 유행어 추진/자유 게시판
 <img src="https://user-images.githubusercontent.com/100409006/158549565-2554e19d-9d98-44cf-ab1f-47df284f1b62.PNG" alt="게시글리스트" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549571-b02e0760-646f-4e37-af8f-ac49e640b6c5.PNG" alt="상세페이지" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158549566-44efe89e-6573-4c99-95f6-974590b1770f.PNG" alt="게시글 등록" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549573-d4b8f219-47fa-4016-adec-5dd3a237118a.PNG" alt="게시글 수정" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158549575-36445563-cdc4-43c1-b126-29295a125f7c.PNG" alt="게시글 삭제" width="50%">
@@ -331,17 +350,17 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 <br/><br/>
 
-#### 유행어 퀴즈
+##### 유행어 퀴즈
 <img src="https://user-images.githubusercontent.com/100409006/158550226-33ad7fa1-76f0-4c04-8f70-3f39e2912eb8.PNG" alt="퀴즈 등록" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550229-9e0499b0-069b-4c66-b09d-4745e761814c.PNG" alt="퀴즈 수정" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158550236-80850c3b-98ab-43b9-bb34-ba959ee154fc.PNG" alt="퀴즈 삭제" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550240-1e3a803a-3027-4dbe-8d5d-21ae4ae24210.PNG" alt="랜덤 퀴즈" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158550245-0d358900-c3b2-4b7b-80be-54c494043fa1.PNG" alt="퀴즈결과" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158550222-12afdf05-0f4d-474a-a42f-090fd868400c.PNG" alt="퀴즈신고" width="50%">
 
 <br/><br/>
 
-#### 유행어 타임라인
+##### 유행어 타임라인
 <img src="https://user-images.githubusercontent.com/100409006/158550596-1af24c79-19ee-4d76-a20d-5d03f66e20b5.PNG" alt="타임라인" width="50%">
 
 <br/><br/>
 
-#### 랭킹
+##### 랭킹
 <img src="https://user-images.githubusercontent.com/100409006/158550612-e2658bcb-ac6a-49f9-a8fa-9fcb2272c9c6.PNG" alt="랭킹" width="50%">
