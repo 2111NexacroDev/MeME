@@ -39,7 +39,7 @@
 		float:left;
 	}
 	#rankContainer {
-		background-color: red;
+		--background-color: red;
 		position: fixed;
 		height:50%;
 		width:19%;
