@@ -8,10 +8,6 @@
 <meta charset="UTF-8">
 <title>사전 상세 페이지</title>
 <style>
-.main {
-	text-align: center;
-}
-
 .main .dtail {
 	text-align: left;
 }
