@@ -64,12 +64,7 @@
 		height : 40px;
 		width : 350px;
 		border-radius: 5px;
-		border: 1px solid #808080;
-		background-color : #f9f9f9;
-	}
-	#ipt:focus {
 		border: 1px solid #f26522;
-		background-color : #ededed;
 	}
 	tr {
 	text-align : center;

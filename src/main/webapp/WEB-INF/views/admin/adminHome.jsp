@@ -77,9 +77,9 @@
 		width: 50px;
 	}
 	
-/* 	#title {
+	#title {
 		width: 150px;
-	} */
+	}
 	
 	#date {
 		width: 100px;

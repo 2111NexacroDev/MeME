@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 글쓰기 페이지 -->
 <title>Insert title here</title>
 <style>
 	#quizWriteForm {

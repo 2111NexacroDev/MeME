@@ -17,7 +17,6 @@
 }
 
 #memeDtatilName {
-	color: black;
 	font-size: 20px;
 	font-weight: bold;
 	text-align: left;
@@ -27,10 +26,16 @@
 	padding-left: 40px
 }
 
-#memeDetailContents {
-	color: black;
+#memeDetailTable {
+	width: 700px;
+	background-color: white;
+	border: 1px solid black;
+	text-align: center;
+	margin: auto;
 }
-
+#title_name {
+	font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -71,9 +76,8 @@
 		<hr>
 		<!-- 로그인한 회원만 의견내기 a태그가 보여짐-->
 		<div align="right">
-		<br>
 			<c:if test="${not empty sessionScope.loginMember }">
-				<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> >>의견내기 &nbsp;&nbsp;</a>
+				<a href="/meme/requestView?memeName=${meme.memeName}&memeNo=${meme.memeNo}"> 의견내기 &nbsp;&nbsp;</a>
 			</c:if>
 		</div>
 		<br> <br>

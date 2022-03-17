@@ -81,7 +81,7 @@ button:hover {
 	<br>
 	<hr>
 </div>	 -->
-	<br>
+
 	<div class="main">
 		<div class="contents">
 			<div class="c-header" align="center">
