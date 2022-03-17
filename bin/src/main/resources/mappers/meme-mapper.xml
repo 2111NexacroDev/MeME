@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemeMapper">
+	<resultMap type="org.kh.meme.meme.domain.Meme"
+		id="memeResultMap">
+		<id property="memeNo" column="MEME_NO" />
+		<result property="memeName" column="MEME_NAME" />
+		<result property="memeDate" column="MEME_DATE" />
+		<result property="memeContents" column="MEME_CONTENTS" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memeCount" column="MEME_COUNT" />
+		<result property="memeStatus" column="MEME_STATUS" />
+	</resultMap>
+
+	<resultMap type="org.kh.meme.meme.domain.MemeFile"
+		id="memeFileResultMap">
+		<id property="memeNo" column="MEME_NO" />
+		<result property="memeFileNo" column="MEME_FILENO" />
+		<result property="memeFileName" column="MEME_FILENAME" />
+		<result property="memeFileExtension"
+			column="MEME_FILEEXTENSION" />
+		<result property="memeFileRename" column="MEME_FILERENAME" />
+	</resultMap>
+	
+	<resultMap type="org.kh.meme.meme.domain.MemeRequest"
+		id="memeRequestResultMap">
+		<id property="memeReqNo" column="MEMEREQ_NO" />
+		<result property="memeNo" column="MEME_NO" />
+		<result property="memeRequestType" column="MEMEREQUEST_TYPE" />
+		<result property="memeRequestContents" column="MEMEREQUEST_CONTENTS" />
+		<result property="memeRequestStatus" column="MEMEREQUEST_STATUS" />
+	</resultMap>
+
+	<!-- 유행어 검색가능한 페이지 수 -->
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		MEME_TBL WHERE MEME_STATUS='Y'
+	</select>
+	<select id="selectAllList" resultMap="memeResultMap">
+		SELECT * FROM MEME_TBL
+		WHERE MEME_STATUS='Y' ORDER BY MEME_NO DESC
+	</select>
+	<!-- 유행어 검색하여 상세페이지 이동 -->
+	<select id="selectOneByMeme" resultMap="memeResultMap">
+		SELECT * FROM MEME_TBL
+		WHERE MEME_NAME = #{memeName} AND MEME_STATUS = 'Y'
+	</select>
+	<select id="selectOneByMemeFile" resultMap="memeFileResultMap">
+		SELECT * FROM
+		MEME_FILE WHERE MEME_NO = #{memeNo}
+	</select>
+	<select id="selectMemeRequestListCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		MEME_REQUEST WHERE MEMEREQUEST_STATUS='Y'
+	</select>
+	<select id="selectAllMemeRequestList" resultMap="memeRequestResultMap">
+		SELECT * FROM
+		MEME_REQUEST WHERE MEMEREQUEST_STATUS='N' ORDER BY MEMEREQ_NO DESC
+	</select>
+
+	<!-- 유행어 등록 요청 -->
+	<insert id="insertMeme"
+		parameterType="org.kh.meme.meme.domain.Meme">
+		INSERT INTO MEME_TBL VALUES(SEQ_MEME_NO.NEXTVAL,
+		#{memeName}, #{memeDate},
+		#{memeContents} , #{memberNickname}, DEFAULT,
+		DEFAULT)
+	</insert>
+	<insert id="insertMemeFile">
+		INSERT INTO MEME_FILE VALUES(SEQ_MEME_NO.CURRVAL,
+		SEQ_MEME_FILENO.NEXTVAL, #{memeFileName }, #{memeFileExtension },
+		#{memeFileRename })
+	</insert>
+
+	<!-- 조회수 증가 -->
+	<update id="updateMemeCount" parameterType="_int">
+		UPDATE MEME_TBL SET
+		MEME_COUNT = MEME_COUNT + 1 WHERE MEME_NO = #{memeNo}
+	</update>
+
+	<!-- 사전 수정삭제요청 -->
+	<insert id="insertMemeRequest"
+		parameterType="org.kh.meme.meme.domain.MemeRequest">
+		INSERT INTO MEME_REQUEST VALUES(SEQ_MEMEREQ_NO.NEXTVAL,
+		#{memeNo},
+		#{memeRequestType}, #{memeRequestContents},
+		'N')
+	</insert>
+
+
+	<resultMap type="org.kh.meme.meme.domain.Meme"
+		id="memeTimelinetMap">
+		<id property="memeNo" column="MEME_NO" />
+		<result property="memeName" column="MEME_NAME" />
+		<result property="memeDate" column="MEME_DATE" />
+		<result property="memeContents" column="MEME_CONTENTS" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memeCount" column="MEME_COUNT" />
+		<result property="memeStatus" column="MEME_STATUS" />
+	</resultMap>
+
+	<select id="selectFirstTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE MEME_DATE<='00/12/31' AND MEME_STATUS = 'Y' ORDER BY MEME_COUNT DESC) WHERE ROWNUM <= 5 ]]>
+	</select>
+
+	<select id="selectSecondTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE '01/01/01' <= MEME_DATE AND MEME_DATE<= '05/12/31' AND MEME_STATUS = 'Y' ORDER BY MEME_COUNT DESC ) WHERE ROWNUM <= 5]]>
+	</select>
+
+	<select id="selectThirdTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE '06/01/01' <= MEME_DATE AND MEME_DATE <= '10/12/31' AND MEME_STATUS = 'Y' ORDER BY MEME_COUNT DESC) WHERE ROWNUM <= 5 ]]>
+	</select>
+
+	<select id="selectFourthTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE '11/01/01' <= MEME_DATE AND MEME_DATE <= '15/12/31' AND MEME_STATUS = 'Y' ORDER BY MEME_COUNT DESC) WHERE ROWNUM <= 5 ]]>
+	</select>
+
+	<select id="selectFifthTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE '16/01/01' <= MEME_DATE AND MEME_DATE <= '20/12/31' AND MEME_STATUS = 'Y' ORDER BY MEME_COUNT DESC) WHERE ROWNUM <= 5 ]]>
+	</select>
+
+	<select id="selectSixthTimeline" resultMap="memeTimelinetMap">	
+	<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE '21/01/01' <= MEME_DATE AND MEME_DATE <= '21/12/31' ORDER BY MEME_COUNT DESC) WHERE ROWNUM <=5 ]]>
+	</select>
+
+</mapper>
