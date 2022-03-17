@@ -77,7 +77,7 @@
 		width: 50px;
 	}
 	
-/* 	#title {
+	#title {
 		width: 150px;
 	} */
 	

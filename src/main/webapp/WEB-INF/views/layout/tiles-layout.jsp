@@ -39,22 +39,22 @@
 		float:left;
 	}
 	#rankContainer {
-		backgroud-color: red;
+		--background-color: red;
 		position: fixed;
-		height:200px;
-		width:20%;
+		height:50%;
+		width:19%;
 		float:left;
 		top: 200px;
-		left: 70%;
+		left: 80%;
 	}
 	#rank {
 		width:250px;
 		top: 20px;
-		right: 1%;
+		right: 5px;
 		position: absolute; 
 	}
 
-	#left{
+	#left {
 		width:20%;
 		height:100%;
 		float:left;

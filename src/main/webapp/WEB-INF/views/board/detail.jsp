@@ -20,12 +20,6 @@
 		margin: auto; 
      }
      
-     	#listButton {
-     		border : 1px solid black;
-			border-radius : 5px;
-			padding : 3px;
-     	}
-     
      #boardDetailTable {
      	height:70px;
         width: 700px;
@@ -89,9 +83,8 @@
 	<table id="boardButtonTable">
 		<tr>
 			<td align="left"> 
-				<button type="button" id="listButton" onclick="location.href='/board';">
-					목록
-				</button>
+				<input type="button" id="boardList" value="게시글 목록" 
+					onclick="location.href='/board';">
 			</td>
 			<!-- 관리자일 땐 삭제만 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
@@ -192,8 +185,7 @@
 			
 		</tr>
 		<tr>
-			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
-			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
+			<c:if test="${sessionScope.loginMember.memberId ne 'admin' || sessionScope.loginMember eq null}">
 				<td align="right">
 					<form action='<c:url value="/board/detail_report">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
@@ -215,7 +207,7 @@
 	<table id="boardCommentTable2" border="1" width="95%">
 		<tr>
 			<td>
-				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" style="width: 100%; height: 80px; padding: 15px;"></textarea>
+				<textarea rows="3" cols="55" id="commentContents" style="width: 100%; height: 80px;"></textarea>
 			</td>
 			<td>
 				<input type="button" value="등록하기" id="cSubmit" style="width: 100%; height: 80px;" ></input>
@@ -229,7 +221,7 @@
 	    	<tr align="left" height="40px">
 			<!-- 댓글 갯수 -->
 				<td colspan="4">
-					<i class="fa fa-comment" aria-hidden="true" style="padding:10px;"></i><b id="commentCount">댓글갯수(3)</b>
+					<b id="commentCount">댓글갯수(3)</b>
 				</td>
 			</tr>
 	    </thead>
