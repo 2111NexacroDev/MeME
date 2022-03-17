@@ -8,11 +8,10 @@
 <meta charset="UTF-8">
 <title>사전 상세 페이지</title>
 <style>
-.main {
+ .main {
 	text-align: center;
-}
-
-.main .dtail {
+} 
+ .main .dtail {
 	text-align: left;
 }
 
@@ -20,15 +19,20 @@
 	color: black;
 	font-size: 20px;
 	font-weight: bold;
+	font-style:italic;
 	text-align: left;
+	background: linear-gradient(to top, #ccc 50%, transparent 50%);
 }
 
 #memeDtailDate {
-	padding-left: 40px
+	padding-left: 20px;
 }
 
 #memeDetailContents {
 	color: black;
+ 	padding-left: 10px;
+  	line-height:150%;
+
 }
 
 </style>
@@ -41,10 +45,10 @@
 		<hr>
 	</div> -->
 
-	<div class="main">
+ 	<div class="main"> 
 		<br>
 		<div class="dtail" id="memeName"> 
-			<p id="memeDtatilName">' &nbsp; ${meme.memeName} &nbsp; '</p>
+			<span id="memeDtatilName">' &nbsp; ${meme.memeName} &nbsp; '</span>
 		</div>
 		<br>
 		<div class="dtail">
@@ -52,9 +56,10 @@
 		</div>
 		<br>
 		<div class="dtail">
-			<p id="memeDetailContents">${meme.memeContents}</p>
+			<span id="memeDetailContents">${meme.memeContents}</span>
 			<br>
 			<c:if test="${not empty memeFile.memeFileRename }">
+				<br>
 				<span> <img
 					src="/resources/memeUploadFiles/${memeFile.memeFileRename }">
 				</span>
@@ -65,7 +70,7 @@
 			<span>등재요청자 &nbsp;&nbsp; : &nbsp;&nbsp; ${meme.memberNickname}</span>
 		</div>
 		<br>
-	</div>
+ 	</div> 
 	<div>
 		<br>
 		<hr>

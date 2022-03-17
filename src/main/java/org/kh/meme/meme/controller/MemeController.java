@@ -188,7 +188,7 @@ public class MemeController {
 			}
 
 		} catch (Exception e) {
-			model.addAttribute("msg", "사전에 등재되지 않은 단어 입니다. 유행어를 등록 해주세요~!");
+			model.addAttribute("msg", "사전에 등재되지 않은 단어 입니다.");
 			return ".tilesHead/common/memeErrorPage";
 
 		}

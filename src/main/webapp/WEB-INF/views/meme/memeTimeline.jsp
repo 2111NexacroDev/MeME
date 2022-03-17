@@ -9,9 +9,17 @@
 
 <style>
 
+.year{
+	font-weight:750;
+	font-style:italic;
+	line-height:200%;
+	background: linear-gradient(to top, #ccc 50%, transparent 50%);
+}
+
 .c-header{
 	width: 50%;
 	float: left;
+	font: litalic;
 }
 
 .c-main{
@@ -20,12 +28,14 @@
 }
 button:hover {
 	background: #f26522;
+	color:white;
 }
 
 .c-main .btn_tooltip {
 	position: relative;
 	width: 120px;
-	height: 30px;
+	height: 33px;
+	border-radius: 5px;
 	display: block;
 }
 
@@ -85,7 +95,7 @@ button:hover {
 	<div class="main">
 		<div class="contents">
 			<div class="c-header" align="center">
-				<h3>2000년 이전</h3>
+				<h3><span class="year">2000년 이전</span></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeTimeline }" var="tFirstList">
@@ -100,7 +110,7 @@ button:hover {
 			</div>
 			
 			<div class="c-header" align="center">
-				<h3>2001년 - 2005년</h3>
+				<h3><span class="year">2001년</span><br> &emsp;&emsp;<span class="year"> - 2005년 </span></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeSecondTimeline }" var="tSecondList">
@@ -115,7 +125,7 @@ button:hover {
 			</div>
 			
 			<div class="c-header" align="center">
-				<h3>2006년 - 2010년</h3>
+				<h3><i>2006년 <br> &emsp; - 2010년</i></h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeThirdTimeline }" var="tThirdList">
@@ -130,7 +140,7 @@ button:hover {
 			</div>
 
 			<div class="c-header" align="center">
-				<h3>2011년 - 2015년</h3>
+				<h3>2011년 <br> &emsp; - 2015년</h3>
 			</div>
 			<div class="c-main">	
 				<c:forEach items="${memeFourthTimeline }" var="tFourthList">
@@ -145,7 +155,7 @@ button:hover {
 			</div>
 
 			<div class="c-header" align="center">
-				<h3>2016년 - 2020년</h3>
+				<h3>2016년 <br> &emsp; - 2020년</h3>
 			</div>
 			<div class="c-main">
 				<c:forEach items="${memeFifthTimeline }" var="tFifthList">
