@@ -16,7 +16,12 @@
 		text-align: right;
 		margin: auto;
 	}
-	
+		#writeButton {
+			border : 1px solid black;
+			border-radius : 5px;
+			padding : 3px;
+		}
+		
 	#boardTable{
 		border: 1px solid black;
 		width:700px;
@@ -32,13 +37,16 @@
 	#boardTable th, td{
 		border: 1px solid black;
 	}
-
+	
 </style>
 </head>
 <body>
 <br>
+	<!-- 글쓰기 버튼 -->
 	<div id="boardWriteButton">
-		<input type="button" value="글쓰기" onclick="boardWriteFunc();"/>
+		<button type="button" id="writeButton" onclick="boardWriteFunc();">
+			<i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기
+		</button>
 	</div>
 	<table id="boardTable">
 		<tr>
