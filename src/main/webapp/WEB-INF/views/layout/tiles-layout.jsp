@@ -39,21 +39,23 @@
 		float:left;
 	}
 	#rankContainer {
+		--background-color: red;
 		position: fixed;
 		height:50%;
-		width:20%;
+		width:19%;
 		float:left;
 		top: 200px;
-		left: 70%;
+		left: 80%;
 	}
 	#rank {
 		width:250px;
 		top: 20px;
+		right: 5px;
 		position: absolute; 
 	}
 
-	#left, #right {
-		width:10%;
+	#left {
+		width:20%;
 		height:100%;
 		float:left;
 	}
@@ -78,8 +80,6 @@
 				<div id="rank">
 					<jsp:include page="rank.jsp"></jsp:include>
 				</div>
-			</div>
-			<div id="right">
 			</div>
 		</div>
 	</div>
