@@ -192,7 +192,7 @@
 			
 		</tr>
 		<tr>
-			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 신고버튼 표시 -->
+			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
 				<td align="right">
 					<form action='<c:url value="/board/detail_report">
