@@ -260,7 +260,37 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 <br><br>
 
 ### Wireframe
-[와이어프레임 문서](https://github.com/mingulee-devel/flutter_kdubus-app/files/8301714/-.-.pdf)
+[MEME DICTIONARY - 와이어프레임](https://github.com/mingulee-devel/flutter_kdubus-app/files/8301714/-.-.pdf)
+
+##### 회원
+<img src="https://user-images.githubusercontent.com/100409006/158964978-ee145058-5a10-4abb-ba71-df7f6ab6cdc9.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158964979-2bd49202-bff6-435f-b7e5-bc81c8498054.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158964980-c9368fb4-58f4-4d76-be85-128ec3ad31b1.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158964973-391d2505-1950-45a0-9c5e-303d9aac331f.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158964977-2af9203f-bd88-47a9-ad1a-d083ce1d19ca.PNG" alt="이미지" width="50%">
+
+<img src="https://user-images.githubusercontent.com/100409006/158965275-f4067a30-4dc8-4334-bfb6-dd5e11e56184.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965279-b15a1966-956f-4607-991e-8a03a2c8057f.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965281-9ba03422-5ade-4e06-9c3d-3b5837352506.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965266-31ca9b79-e652-4e31-a66e-09aeb00d44fe.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965270-8da91ede-e1ff-4886-9937-933d8729f151.PNG" alt="이미지" width="50%">
+
+<img src="https://user-images.githubusercontent.com/100409006/158965577-3507a6ee-b9e5-4ef5-8f38-67ccd2e51e80.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965580-d255476b-4a18-4275-b6b9-2b8ec8f8343f.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965582-51676423-b7ad-4f9f-be54-716b0850dfd9.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965584-98ceb542-78c8-44b6-9c74-006ba504f7e8.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965585-3a13a00c-de39-4708-af8c-84ad99a61f8f.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965587-3b97370d-5288-445e-9132-f3e298ab4672.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965570-4769736f-4b5f-47b3-9c4b-bfa60d2f4d99.PNG" alt="이미지" width="50%">
+
+##### 사전 & 타임라인
+<img src="https://user-images.githubusercontent.com/100409006/158965863-f5e999e7-4d26-4819-a018-6be13124db0b.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965855-8918a849-1cd4-41a1-88b8-66d89a233b80.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158965860-85e0149f-74ca-4fdb-867f-c63bc12c95de.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158965861-bd52fb8f-ad2d-42bd-a182-7eee083fcd1e.PNG" alt="이미지" width="50%">
+
+##### 게시판
+<img src="https://user-images.githubusercontent.com/100409006/158966013-6a22f256-824d-42c4-b106-4a21f94ec750.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966016-eeb6ad1b-5e9b-4872-a838-41a584a5a006.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158966019-09cd4a02-dd94-40a8-904b-c833768910b8.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966022-76d83026-aaa4-4f59-8bd2-1025272abbbe.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158966023-1025def3-d275-4940-9b9e-d387e43efa1e.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966024-f409ecf6-ec70-4ed4-819e-9846975602a5.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158966011-6ed336ec-8ea2-4af8-8455-c22545ef4ec6.PNG" alt="이미지" width="50%">
+
+##### 퀴즈
+<img src="https://user-images.githubusercontent.com/100409006/158966238-72f65a49-55c4-4370-a619-ff46c11d53e1.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966242-e225f260-fb6b-4718-a19c-17655d548402.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158966245-834361af-4174-4743-a0f5-bf89d1069c32.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966247-d1fbb931-972a-4805-8e9f-fead2d56f66b.PNG" alt="이미지" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/158966249-d933e9cf-75b7-4937-94a9-7fd34293e4f5.PNG" alt="이미지" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158966232-c7d201a7-db5a-4b2e-9515-dc9c459df25e.PNG" alt="이미지" width="50%">
+
 
 <br><br>
 
