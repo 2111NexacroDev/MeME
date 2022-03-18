@@ -82,12 +82,12 @@ input[type='radio']:checked:before {
 				<td height="30px" align="left">
 				
 					<c:if test="${oneBoard.boardType eq 'P'}">
-    					&nbsp&nbsp추진<input type="radio" name="boardType" value="P" checked>
-						&nbsp&nbsp자유<input type="radio" name="boardType" value="F" > 	
+    					&nbsp&nbsp추진 <input type="radio" name="boardType" value="P" checked>
+						&nbsp&nbsp자유 <input type="radio" name="boardType" value="F" > 	
 					</c:if>
 					<c:if test="${oneBoard.boardType eq 'F'}">
-    					&nbsp&nbsp추진<input type="radio" name="boardType" value="P">
-						&nbsp&nbsp자유<input type="radio" name="boardType" value="F" checked> 	
+    					&nbsp&nbsp추진 <input type="radio" name="boardType" value="P">
+						&nbsp&nbsp자유 <input type="radio" name="boardType" value="F" checked> 	
 					</c:if>
 					
 				</td>
