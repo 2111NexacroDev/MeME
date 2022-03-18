@@ -15,12 +15,30 @@
 		width:700px;
 		text-align: right;
 		margin: auto;
+		margin-bottom: 5px;
 	}
+		
+		/* 주황색 */
+/* 		#writeButton {
+     		border : 1px solid #f26522;
+     		background-color: #fef3ee;
+     		color: #f26522;
+			--border-radius : 5px;
+			padding : 5px 8px;
+			font-size:13px;
+			font-weight: bold;
+     	} */
+     	
+     	/* 검정색 */
 		#writeButton {
-			border : 1px solid black;
-			border-radius : 5px;
-			padding : 3px;
-		}
+     		border : 1px solid grey;
+     		background-color: #ffffff;
+     		color: black;
+			--border-radius : 5px;
+			padding : 5px 8px;
+			font-size:13px;
+			font-weight: bold;
+     	}
 		
 	#boardTable{
 		border: 1px solid black;
@@ -42,12 +60,15 @@
 </head>
 <body>
 <br>
+
 	<!-- 글쓰기 버튼 -->
 	<div id="boardWriteButton">
 		<button type="button" id="writeButton" onclick="boardWriteFunc();">
 			<i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기
 		</button>
 	</div>
+	
+	
 	<table id="boardTable">
 		<tr>
 			<th>번호</th>
@@ -81,6 +102,7 @@
 		</c:forEach>
 		
 	</table>
+
 	<br>
 	<br>
 	
