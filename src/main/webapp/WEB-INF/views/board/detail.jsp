@@ -39,14 +39,23 @@
      }
      
      	#boardDetailTable td p {
+	   		--color: red;
+	   	 	margin : 3px 0 10px 20px;
+	   	}
+    	#boardDetailTable td div {
     	 	--color: red;
-    	 	margin : 3px 0 10px 20px;
-    	 }
-    	 #boardDetailTable td div {
-    	 	--color: red;
-    	 	margin : 3px 0 3px 23px;
-    	 }
-	
+    	 	margin : 3px 0 3px 22px;
+    	}
+    	 
+    	/* 신고 버튼 */
+		#boardReport {
+			margin-bottom: 20px;
+			margin-right: 20px;
+			font-size: 13px;
+			background-color: #ffffff;
+			border:none;
+		}
+		
 	/* 내용 영역 */
 	#boardDetailTable2 {
 		width: 700px;
@@ -200,7 +209,7 @@
         <tr style="text-align:left;">
             <th colspan="1">
             	<c:if test="${oneBoard.boardType eq 'P'}">
-					<span style="color:green; margin: 20px 0 10px 20px;">추진 > </span>
+					<p style="color:green; margin: 20px 0 10px 20px;">추진 > </p>
 				</c:if>
 				<c:if test="${oneBoard.boardType eq 'F'}">
 					<p style="color:green; margin: 20px 0 10px 20px;">자유 > </p>	
@@ -215,18 +224,36 @@
 		</tr>
 
 		<tr>
-			<td width="20%">
-				<div style="font-weight: 500;">${oneBoard.memberNickname }</div>
+			<td>
+				<div style="font-weight: 600;">${oneBoard.memberNickname }</div>
 			</td>
 			
-			<td rowspan="2" align="right" >
+			<%-- <td rowspan="2" align="right" >
 				<div style="font-size:13px; margin-right: 20px;"> 조회수: ${oneBoard.boardCount } </div>
-			</td>
+			</td> --%>
 		</tr>
 		<tr>
-			<td>
-				<div style="font-size:12px; margin-bottom:20px;">${oneBoard.boardDate }</div>
+			<td width="15%">
+				<div style="font-size:12px; margin-left: 23px; margin-bottom:20px;">${oneBoard.boardDate }</div>
 			</td>
+			
+			<td align="left" >
+				<div style="font-size:12px; margin-left: 0px; margin-bottom:20px;"> 조회수: ${oneBoard.boardCount } </div>
+			</td>
+			
+						<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
+			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
+				<td align="right">
+					<form action='<c:url value="/board/detail_report">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+						</c:url>' method="post">
+						<button type="submit" id="boardReport" onclick="reportFunc();">신고</button>
+	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
+					</form>
+				</td>
+			</c:if>
+			
+			
 		</tr>
 	</table>
 	
@@ -257,7 +284,7 @@
 		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
 							<button type="submit" id="boardRecommand" >
 								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
-								<i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> 
+								<i class="fa fa-heart" aria-hidden="true" style="color:red; "></i> 
 							</button>
 							
 		                </c:if>
@@ -272,18 +299,6 @@
 			<td id="commentArea">
 				<i class="fa fa-comment" aria-hidden="true" style="padding:5px; margin-left: 10px;"></i><span id="commentCount">댓글갯수(3)</span>
 			</td>
-
-			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
-			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
-				<td align="right">
-					<form action='<c:url value="/board/detail_report">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-						<input style="background-color:#DB4000; color:white" type="submit" id="boardReport" value="신고" onclick="reportFunc();">
-	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
-					</form>
-				</td>
-			</c:if>
 			
 		</tr>
 	</table>

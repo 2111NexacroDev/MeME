@@ -29,7 +29,7 @@
 		margin: auto;
 	}
 	#content {
-		height : 100%;
+		height : 120%;
 		width: 100%;
 		background-color: #f9f9f9;
 	}
