@@ -13,10 +13,12 @@
 	width: 700px; 
 	height: 200px; 
  	border: 1px solid #ccc;
- 	--border-radius : 10px;
+ 	border-collapse: separate;
+	border-radius : 5px;
 	text-align: center;
  	margin: auto; 
  	color: black;
+ 	background-color: #ffffff;
 }
 
 		
@@ -47,13 +49,10 @@
 	}
 
 	#uploadfile {
-		border : 1px solid grey;
-   		background-color: #ffffff;
-   		color: black;
 		--border-radius : 5px;
-		padding : 5px 8px;
-		font-size:13px;
-		font-weight: bold;
+		padding : 5px 0;
+		margin-bottom: 10px;
+		font-size:14px;
 	}
 
 	
@@ -75,17 +74,20 @@
 		margin: 5px;
 		border-radius: 0; 
 		--border-radius: 5px; 
-		border: 1px solid #ccc;
+		border: none;
+		font-size:14px;
 	}
 	
 	#boardWriteTextarea_1 {
-		height:100%;
+		height:95%;
 		width:95%;
 		resize: none;
 		padding: 10px;
+		margin: 5px;
 		border-radius: 0;
 		--border-radius: 5px; 
-		border: 1px solid #ccc;
+		border: none;
+		font-size:14px;
 		
 	}
 
@@ -94,7 +96,7 @@
 		border : 1px solid #f26522;
 		background-color: #fef3ee;
 		color: #f26522;
-		--border-radius : 5px;
+		border-radius : 5px;
 		padding : 5px 10px;
 		font-size:13px;
 		font-weight: bold;
@@ -105,7 +107,7 @@
 		border : 1px solid #888;
 		background-color: #ffffff;
 		color: #888;
-		--border-radius : 5px;
+		border-radius : 5px;
 		padding : 5px 10px;
 		font-size:13px;
 		font-weight: bold;
@@ -139,20 +141,36 @@
 				</td>
 			<tr>
 				<td style="padding:0 15px;" height="30px" height="30px" align="left">
-					&nbsp<input type="file" name="uploadFile">
+					&nbsp<input type="file" id="uploadfile" name="uploadFile">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<hr style="width:670px;">
 				</td>
 			</tr>
 			
 			<tr style="text-align: center">
-				<td height="50px">
+				<td height="40px">
 					<input type="text" id="boardWriteTitle_1" name="boardTitle" placeholder="제목을 입력해주세요" value="${oneBoard.boardTitle }">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<hr style="width:670px;">
 				</td>
 			</tr>
 			<tr>
         		<td class="jb-th-1">
         			<textarea id="boardWriteTextarea_1" name="boardContents" placeholder="내용을 입력해주세요">${oneBoard.boardContents}</textarea>
         		</td>
-      		</tr>
+        	</tr>
+        	<tr>
+				<td>
+					<hr style="width:670px;">
+				</td>
+			</tr>
+      		<tr>
 				<td colspan="2" align="right" height="50px" style="padding:15px;">
 					<input type="reset" id="writeCancelButton" value="취소" onclick="location.href='<c:url value="/board/detail">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
