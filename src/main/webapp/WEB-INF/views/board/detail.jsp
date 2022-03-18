@@ -19,7 +19,7 @@
 		text-align: right;
 		margin: auto; 
      }
-     
+     	/* 목록 버튼 */
      	#listButton {
      		border : 1px solid black;
 			border-radius : 5px;
@@ -36,34 +36,60 @@
 		margin: auto; 
 		border: 1px solid #ccc;
 		border-bottom: 0pt;
+		border-collapse: separate;
+		border-radius: 5px 5px 0 0;
      }
-     
+     	/* 게시글 title*/
      	#boardDetailTable td p {
 	   		--color: red;
 	   	 	margin : 3px 0 10px 20px;
 	   	}
+	   	/* 닉네임, 작성 날짜, 조회수 */
     	#boardDetailTable td div {
     	 	--color: red;
     	 	margin : 3px 0 3px 22px;
     	}
     	 
     	/* 신고 버튼 */
-		#boardReport {
-			margin-bottom: 15px;
+		#reportButton {
+			margin-bottom: 12px;
 			margin-right: 20px;
-			padding: 5px;
+			padding: 3px;
 			text-align:center;
 			font-size: 13px;
 			background-color: #ffffff;
 			border:none;
 		}
 		
-		/* 신고 버튼 */
-		#boardReport:hover{
+		/* 수정 버튼 */
+		#updateButton {
+			margin-bottom: 12px;
+			margin-right:-13px;
+			padding: 3px;
+			--text-align:center;
+			font-size: 13px;
+			background-color: #ffffff;
+			border:none;
+		}
+		
+		/* 삭제 버튼 */
+		#deleteButton {
+			margin-bottom: 12px;
+			margin-right: 20px;
+			padding: 3px;
+			--text-align:center;
+			font-size: 13px;
+			background-color: #ffffff;
+			border:none;
+		}
+		
+		
+		#boardDetailTable button:hover {
 			background-color: #ccc;
 			border-radius : 5px;
 			border:none;
 		}
+		
 		
 	/* 내용 영역 */
 	#boardDetailTable2 {
@@ -116,7 +142,7 @@
 		}
 		
 		/* 추천 버튼 */
-		#boardRecommand {
+		#recommandButton {
      		border : 1px solid white;
      		background-color: white;
 			border-radius : 5px;
@@ -127,19 +153,23 @@
 	#boardCommentTable {
 		width: 700px;
 	 	border: 1px solid #ccc; 
-	 	border-top: 0pt;
+	 	border-bottom: 0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
+	 	
 	}
 	
 	/* 댓글 등록창 */
 	#boardCommentTable2 {
 		width: 700px; 
 	 	border: 1px solid #ccc; 
+	 	--border-top:0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
+	 	border-collapse: separate;
+		border-radius: 0 0 5px 5px;
 	}
 
 
@@ -166,16 +196,6 @@
 				</button>
 			</td>
 			<!-- 관리자일 땐 삭제만 표시 -->
-			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
-				<td align="right">
-					<form action='<c:url value="/board/detail_updateView">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-	
-						<input type="submit" id="boardUpdate" value="수정">
-					</form>
-				</td>
-   			</c:if>
    			<c:if test="${sessionScope.loginMember.memberId eq 'admin'}">
 				<td align="right">
 					<c:if test="${oneBoard.boardStatus eq 'Y' }">
@@ -200,15 +220,7 @@
 					</c:if>
 				</td>
    			</c:if>
-   			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId || sessionScope.loginMember.memberId eq 'admin'}">
-				<td width="35px">
-					<form action='<c:url value="/board/detail_delete">
-						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-						</c:url>' method="post">
-						<input type="submit" id="boardDelete" value="삭제">
-					</form>
-				</td>
-   			</c:if>
+
 			
 		</tr>
 	</table>
@@ -247,7 +259,7 @@
 			</td>
 			
 			<td align="left" >
-				<div style="font-size:12px; margin-left: 0px; margin-bottom:20px;"> 조회수: ${oneBoard.boardCount } </div>
+				<div style="font-size:12px; margin-left: 0px; margin-bottom:18px;"> 조회수: ${oneBoard.boardCount } </div>
 			</td>
 			
 						<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
@@ -256,12 +268,32 @@
 					<form action='<c:url value="/board/detail_report">
 						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 						</c:url>' method="post">
-						<button type="submit" id="boardReport" onclick="reportFunc();">신고</button>
+						<button type="submit" id="reportButton" onclick="reportFunc();">신고</button>
 	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
 					</form>
 				</td>
 			</c:if>
 			
+			
+			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">
+				<td align="right">
+					<form action='<c:url value="/board/detail_updateView">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+						</c:url>' method="post">
+						<button type="submit" id="updateButton">수정</button>
+					</form>
+				</td>
+   			</c:if>
+   			
+			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId || sessionScope.loginMember.memberId eq 'admin'}">
+				<td align="right">
+					<form action='<c:url value="/board/detail_delete">
+						<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+						</c:url>' method="post">
+						<button type="submit" id="deleteButton">삭제</button>
+					</form>
+				</td>
+   			</c:if>
 			
 		</tr>
 	</table>
@@ -285,13 +317,13 @@
 							</c:url>' method="post">
 		           		
 						<c:if test="${empty member || member.memberId eq 'admin' }">
-		           			<button type="button" id="boardRecommand" onclick="notLoginFunc();">
+		           			<button type="button" id="recommandButton" onclick="notLoginFunc();">
 								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
 								<i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> 
 							</button>
 		           		</c:if>
 		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
-							<button type="submit" id="boardRecommand" >
+							<button type="submit" id="recommandButton" >
 								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
 								<i class="fa fa-heart" aria-hidden="true" style="color:red; "></i> 
 							</button>
@@ -313,22 +345,7 @@
 	</table>
 
 
-	<!-- 댓글 등록 -->
-	
-	<table id="boardCommentTable2" width="95%">
-		<tr>
-			<td>
-				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" 
-					style="font-size:13px; width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
-			</td>
-			
-		</tr>
-		<tr>
-			<td align="right">
-				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
-			</td>
-		</tr>
-	</table>
+
 	
 	<!-- 댓글 목록 -->
 	<table id="boardCommentTable" border="1">
@@ -358,6 +375,23 @@
 	    </tbody>
 	    
 	    
+	</table>
+	
+	<!-- 댓글 등록 -->
+	
+	<table id="boardCommentTable2" width="95%">
+		<tr>
+			<td>
+				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" 
+					style="font-size:13px; width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right">
+				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
+			</td>
+		</tr>
 	</table>
 	
 
@@ -455,7 +489,7 @@
 						$commentContent = $("<td align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
 						
-						$commentDate = $("<td width='200'>").text(data[i].commentDate);
+						$commentDate = $("<td width='120'>").text(data[i].commentDate);
 // 						$commentDate = $("<td width='200'>").text(data[i].commentDate)
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
