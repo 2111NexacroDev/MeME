@@ -60,7 +60,7 @@
 	 	border: 1px solid black; 
 		text-align: center;
 	 	margin: auto; 
-	 	--border-top: 0pt;
+	 	border-top: 0pt;
 	 	border-bottom: 0pt;
 	}
 		#recommendArea	{
@@ -378,11 +378,12 @@
 						$commentWriter = $("<td width='100'>").text(data[i].memberNickname);
 						$commentContent = $("<td align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
-						$commentDate = $("<td width='120'>").text(data[i].commentDate);
+						
+						$commentDate = $("<td width='200'>").text(data[i].commentDate);
 // 						$commentDate = $("<td width='200'>").text(data[i].commentDate)
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
-						if(data[i].memberNickname == memberNickname) {
+						if(data[i].memberId == memberId) {
 							$btnArea = $("<td width='80'>")
 										.append("<a href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
@@ -428,7 +429,7 @@
 	function modifyViewComment(obj, commentContents, commentNo){
 // 		alert("test");
 		var $trModify = $("<tr>");
-		$trModify.append("<td colspan='2'><input type='text' size='70%' value='"+commentContents+"' id='modifyCommentVal'></td>");
+		$trModify.append("<td colspan='2'><input type='text' size='65px' value='"+commentContents+"' id='modifyCommentVal'></td>");
 		$trModify.append("<td colspan='2'><button onclick='modifyComment("+commentNo+", \""+commentContents+"\")'>수정완료</button>");
 		console.log(obj);
 		$(obj).parent().parent().after($trModify);
