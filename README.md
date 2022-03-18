@@ -371,7 +371,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ##### 유행어 추진/자유 게시판
 <img src="https://user-images.githubusercontent.com/100409006/158549565-2554e19d-9d98-44cf-ab1f-47df284f1b62.PNG" alt="게시글리스트" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549571-b02e0760-646f-4e37-af8f-ac49e640b6c5.PNG" alt="상세페이지" width="50%">
 <img src="https://user-images.githubusercontent.com/100409006/158549566-44efe89e-6573-4c99-95f6-974590b1770f.PNG" alt="게시글 등록" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549573-d4b8f219-47fa-4016-adec-5dd3a237118a.PNG" alt="게시글 수정" width="50%">
-<img src="https://user-images.githubusercontent.com/100409006/158549575-36445563-cdc4-43c1-b126-29295a125f7c.PNG" alt="게시글 삭제" width="50%">
+<img src="https://user-images.githubusercontent.com/100409006/159044470-139cf141-cff3-4c4b-9688-44201394ac38.png" alt="게시글 삭제" width="50%">
 
 
 <img src="https://user-images.githubusercontent.com/100409006/158549577-89d951c3-d4ae-4a9e-9c6f-bf0e2c8dcbd3.PNG" alt=" 게시글 추천" width="50%"><img src="https://user-images.githubusercontent.com/100409006/158549536-b6a38e9e-0b9c-4461-a95d-ce27abe102a1.PNG" alt="게시글 신고" width="50%">
