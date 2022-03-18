@@ -22,7 +22,7 @@
      	
      	/* 검정색 */
 		#writeButton {
-     		border : 1px solid grey;
+     		border : 1px solid #ccc;
      		background-color: #ffffff;
      		color: black;
 			--border-radius : 5px;
