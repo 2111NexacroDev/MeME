@@ -94,10 +94,13 @@
 		DELETE FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo}
 	</delete>
 	
+	<delete id="deleteRecommendByBoardNo">
+		DELETE FROM RECOMMEND_TBL WHERE BOARD_NO = #{boardNo}
+	</delete>
 	
 	<!-- 댓글 -->
 	<select id="selectAllComment" resultMap="commentResultMap">
-		SELECT * FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO DESC
+		SELECT * FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO ASC
 	</select>
 	
 	<insert id="insertComment">
