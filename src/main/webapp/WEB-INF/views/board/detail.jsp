@@ -53,7 +53,28 @@
 	        width: 100%;
 	        background-color: white;
 	    }
-	         
+	    
+	#boardDetailTable3 {
+		width: 700px;
+		background-color: white; 
+	 	border: 1px solid black; 
+		text-align: center;
+	 	margin: auto; 
+	 	--border-top: 0pt;
+	 	border-bottom: 0pt;
+	}
+		#recommendArea	{
+			align:left;
+			text-align: left;
+			width:90px;
+			padding : 10px 0;
+		}
+		#commentArea {
+			align:left;
+			text-align: left;
+			--width:90%;
+		}
+	   
 	#boardCommentTable {
 		width: 700px;
 	 	border: 1px solid black; 
@@ -177,15 +198,18 @@
 	    	</td>
 		</tr>
 	
+		
+	</table>
+	<table id="boardDetailTable3" >
 		<tr>
-			<td id="recommendArea" align="left">
-				<div style="margin:10px 5px ;">
+			<td id="recommendArea">
+				<div style="margin:0 0 0 5px;">
 					<form action='<c:url value="/board/detail_like">
 							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 							</c:url>' method="post">
 		           			
 						<c:if test="${empty member || member.memberId eq 'admin' }">
-		           			<i class="fa fa-heart" aria-hidden="true" style="color:red"></i> 추천
+		           			<i class="fa fa-heart" aria-hidden="true" style="color:red; margin:5px"></i> 추천
 		           		</c:if>
 		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
 							<button type="submit" id="boardRecommand">
@@ -194,10 +218,16 @@
 							</button>
 							
 		                </c:if>
-
+		
 					${oneBoard.boardLike }
 					</form>
 				</div>
+				
+			</td>
+			
+			<!-- 댓글 갯수 -->
+			<td id="commentArea">
+				<i class="fa fa-comment" aria-hidden="true" style="padding:5px;"></i><span id="commentCount">댓글갯수(3)</span>
 			</td>
 
 			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
@@ -235,14 +265,14 @@
 	
 	<!-- 댓글 목록 -->
 	<table id="boardCommentTable" border="1">
-	    <thead>
+<!-- 	    <thead>
 	    	<tr align="left" height="40px">
-			<!-- 댓글 갯수 -->
+			댓글 갯수
 				<td colspan="4">
 					<i class="fa fa-comment" aria-hidden="true" style="padding:10px;"></i><b id="commentCount">댓글갯수(3)</b>
 				</td>
 			</tr>
-	    </thead>
+	    </thead> -->
 	    <tbody>
 	    
 <!-- 	    <tr> -->
