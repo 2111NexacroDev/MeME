@@ -178,11 +178,14 @@
 				<form action='<c:url value="/board/detail_like">
 					<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 					</c:url>' method="post">
-					<c:if test="${empty sessionScope.loginMember }">
-	           			추천
+					<c:if test="${empty member || member.memberId eq 'admin' }">
+	           			<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
 	           		</c:if>
-	           		<c:if test="${not empty loginMember }">
-	           			<input type="submit" id="boardRecommand" value="추천">
+	           		<c:if test="${not empty member && member.memberId ne 'admin'}">
+	           			<button type="submit" id="boardRecommand">
+							<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
+							<!-- <i class="fa fa-heart" aria-hidden="true"></i> -->
+						</button>
 	                </c:if>
 
 					<br>${oneBoard.boardLike }
