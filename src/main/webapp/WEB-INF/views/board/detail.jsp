@@ -29,22 +29,28 @@
      #boardDetailTable {
      	height:70px;
         width: 700px;
-		background-color: #ccc  ; 
+		background-color: #ccc; 
 		color : black;
-		border: 1px solid black; 
-		text-align: center;
+		--text-align: center;
 		margin: auto; 
+		border: 1px solid black;
+		border-bottom: 0pt;
      }
-
-	     #boardDetailTable tr {
-	        border: 1px solid black; 
-	     }
+     
+     	#boardDetailTable td p {
+    	 	--color: red;
+    	 	margin : 3px 0 10px 15px;
+    	 }
+    	 #boardDetailTable td div {
+    	 	--color: red;
+    	 	margin : 3px 0 3px 18px;
+    	 }
 	
 	#boardDetailTable2 {
 		width: 700px;
 		background-color: white; 
 	 	border: 1px solid black; 
-		text-align: center;
+		--text-align: center;
 	 	margin: auto; 
 	 	border-bottom: 0pt;
 	}
@@ -86,6 +92,7 @@
 	#boardCommentTable2 {
 		width: 700px; 
 	 	border: 1px solid black; 
+	 	border-bottom: 0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
@@ -168,28 +175,39 @@
 	
     
     <table id="boardDetailTable">
-        <tr>
-            <th width="10%">
+        <tr style="text-align:left;">
+            <th colspan="1">
             	<c:if test="${oneBoard.boardType eq 'P'}">
-					추진
+					<span style="color:green; margin:10px 5px;">추진 > </span>
 				</c:if>
 				<c:if test="${oneBoard.boardType eq 'F'}">
-					자유	
-				</c:if>
+					<p style="color:green; margin:10px 15px;">자유 > </p>	
+				</c:if> 
 			</th>
 			
-			<th colspan="2" width="90%">
-				${oneBoard.boardTitle }
-			</th>
-			
+		</tr>
+		<tr>
+			<td colspan="3" width="90%">
+				<p style="text-align:left; font-weight:bold; font-size:25px;">${oneBoard.boardTitle }</p>
+			</td>
 		</tr>
 
 		<tr>
-			<td width="33%">글쓴이(닉네임) : ${oneBoard.memberNickname }</td>
-			<td width="34%">작성날짜 : ${oneBoard.boardDate }</td>
-			<td width="33%">조회수: ${oneBoard.boardCount }</td>
+			<td width="20%">
+				<div style="font-weight: 500;">${oneBoard.memberNickname }</div>
+			</td>
+			
+			<td rowspan="2" align="right" >
+				<div style="font-size:13px; margin-right: 20px;"> 조회수: ${oneBoard.boardCount } </div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div style="font-size:12px; margin-bottom:8px;">${oneBoard.boardDate }</div>
+			</td>
 		</tr>
 	</table>
+	
 	<table id="boardDetailTable2" >
 	    <tr>
 	        <td class="jb-th-1" align="left" valign="top">
