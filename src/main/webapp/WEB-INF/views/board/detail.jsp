@@ -61,6 +61,17 @@
 			border:none;
 		}
 		
+		/* 게시글 숨기기/보이기 */
+		#boardReportAdmin {
+			margin-bottom: 12px;
+			margin-right:-13px;
+			padding: 3px;
+			--text-align:center;
+			font-size: 13px;
+			background-color: #ffffff;
+			border:none;
+		}
+		
 		/* 수정 버튼 */
 		#updateButton {
 			margin-bottom: 12px;
@@ -260,7 +271,8 @@
 							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 							</c:url>' method="post">
 							
-							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();">
+							<!-- <input type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();"> -->
+							<button type="submit" id="boardReportAdmin" onclick="reportAdminFuncToN();">숨기기</button>
 	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
 	
 						</form>
@@ -270,7 +282,8 @@
 							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 							</c:url>' method="post">
 				
-							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();">
+							<!-- <input type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();"> -->
+							<button type="submit" id="boardReportAdmin" onclick="reportAdminFuncToY();">보이기</button>
 	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
 		
 						</form>
