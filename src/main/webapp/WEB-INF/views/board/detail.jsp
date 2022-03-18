@@ -96,6 +96,7 @@
 	#boardCommentTable {
 		width: 700px;
 	 	border: 1px solid #ccc; 
+	 	border-top: 0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
@@ -105,7 +106,6 @@
 	#boardCommentTable2 {
 		width: 700px; 
 	 	border: 1px solid #ccc; 
-	 	border-bottom: 0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
