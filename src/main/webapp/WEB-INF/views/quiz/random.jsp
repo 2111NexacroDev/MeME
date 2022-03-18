@@ -185,8 +185,8 @@
 			<div id="ch3"></div>
 			<div id="ch4"></div>
 			<br> <br> <br>
-			<div align="center">
-				<input type="text" id="answer">
+			<div>
+				<input type="text" id="answer" size="50">
 			</div>
 			
 		</div>

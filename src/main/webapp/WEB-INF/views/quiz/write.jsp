@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 글쓰기 페이지 -->
 <title>Insert title here</title>
 <style>
 	#quizWriteForm {
@@ -14,7 +13,7 @@
 		margin: auto;
 	}
 	#att_zone{
-	width: 660px;
+	width: 400px;
 	min-height:150px;
 	padding:10px;
 	border:1px dotted #00f;
@@ -188,17 +187,17 @@
 	        <option value="S">단답형퀴즈</option>
 	    </select>
 	    <br>
-	    <textarea name="quizQuest" cols="50" rows="10" placeholder="문제를 입력 해주세요"></textarea><br><br>
-	    <input type="text" name="quizAnswer" placeholder="정답을 입력 해주세요"><br>
+	    <textarea name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요"></textarea><br><br>
+	    <input type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51"><br>
 	    <br>
 	    <div id="choice" style="display: none;">
-			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요"> &nbsp;&nbsp;
+			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40"> &nbsp;&nbsp;
 			<input type="button" id="plus" value="+">
 			<input type="button" id="minus" value="-">
 			<br>
-			<input type="text" name="quizCh2" placeholder="보기를 입력 해주세요">
-			<input type="text" name="quizCh3" id="quizCh3" placeholder="보기를 입력 해주세요" style="display: none">
-			<input type="text" name="quizCh4" id="quizCh4" placeholder="보기를 입력 해주세요" style="display: none">
+			<input type="text" name="quizCh2" placeholder="보기를 입력 해주세요" size="40">
+			<input type="text" name="quizCh3" id="quizCh3" placeholder="보기를 입력 해주세요" style="display: none" size="40">
+			<input type="text" name="quizCh4" id="quizCh4" placeholder="보기를 입력 해주세요" style="display: none" size="40">
 		</div>
 		첨부 이미지
 		<br>
