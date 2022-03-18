@@ -87,7 +87,7 @@ input[type='radio']:checked:before {
 			</tr>
 			<tr>
         		<td class="jb-th-1">
-        			<textarea id="boardWriteTextarea_1" name="boardContents"></textarea>
+        			<textarea id="boardWriteTextarea_1" name="boardContents" style="resize: none;"></textarea>
         		</td>
       		</tr>
       		<tr>
