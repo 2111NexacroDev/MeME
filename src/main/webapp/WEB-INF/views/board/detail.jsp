@@ -29,7 +29,7 @@
 			font-size:13px;
 			font-weight: bold;
      	}
-     
+
      /* 게시글 정보 영역 */
      #boardDetailTable {
      	height:70px;
@@ -98,10 +98,15 @@
 			border:none;
 		}
 		
-		
-		#boardDetailTable button:hover {
+		/* 배경 깔리는 버전 */
+/* 		#boardDetailTable button:hover {
 			background-color: #fef3ee;
 			border-radius : 5px;
+			border:none;
+		} */
+		
+		#boardDetailTable button:hover {
+			color: #f26522;
 			border:none;
 		}
 		
@@ -113,6 +118,7 @@
 	 	border: 1px solid #ccc; 
 		--text-align: center;
 	 	margin: auto; 
+	 	border-top: 0pt;
 	 	border-bottom: 0pt;
 	}
 	    .jb-th-1 {
@@ -168,18 +174,45 @@
 	#boardCommentTable {
 		width: 700px;
 	 	border: 1px solid #ccc; 
+	 	border-top: 0pt;
 	 	border-bottom: 0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
-	 	
 	}
+	
+		#boardCommentTable td {
+			font-size: 14px;
+		}
+		
+		#commentNicknametd {
+			padding-left: 20px;
+		}
+		
+		#commentUpdateButton {
+			font-size: 13px;
+		}
+		
+		#commentDeleteButton {
+			font-size: 13px;
+			margin-right: 20px;
+		}
+		
+		#commentEditTd {
+			padding-right: 25px;
+		}
+		
+		#commentEditButton {
+			background-color: #ffffff;
+			margin-right: 20px;
+			font-size: 13px;
+		}
 	
 	/* 댓글 등록창 */
 	#boardCommentTable2 {
 		width: 700px; 
 	 	border: 1px solid #ccc; 
-	 	--border-top:0pt;
+	 	border-top:0pt;
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
@@ -315,7 +348,14 @@
    			</c:if>
 			
 		</tr>
+		<tr>
+			<td colspan="4">
+				<hr style="width:670px;">
+			</td>
+		</tr>
 	</table>
+	
+	
 	
 	<table id="boardDetailTable2" >
 	    <tr>
@@ -361,13 +401,19 @@
 			</td>
 			
 		</tr>
+		
+		<tr>
+			<td colspan="4">
+				<hr style="width:670px;">
+			</td>
+		</tr>
 	</table>
 
 
 
 	
 	<!-- 댓글 목록 -->
-	<table id="boardCommentTable" border="1">
+	<table id="boardCommentTable">
 <!-- 	    <thead>
 	    	<tr align="left" height="40px">
 			댓글 갯수
@@ -391,6 +437,7 @@
 <!-- 		            <input type="button" id="Cinput" value="대댓글 입력"> -->
 <!-- 		        </td> -->
 <!-- 		    </tr> -->
+			
 	    </tbody>
 	    
 	    
@@ -402,7 +449,7 @@
 		<tr>
 			<td>
 				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" 
-					style="font-size:13px; width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
+					style="font-size:13px; width: 100%; height: 50px; padding: 15px; padding-left: 20px; border: none; resize: none;"></textarea>
 			</td>
 			
 		</tr>
@@ -504,7 +551,7 @@
 						//배열의 인덱스를 가져오는 구문
 						$tr = $("<tr height='30'>");
 						//기능이없는 $, tr태그 만들어줌
-						$commentWriter = $("<td width='100'>").text(data[i].memberNickname);
+						$commentWriter = $("<td id='commentNicknametd' width='100'>").text(data[i].memberNickname);
 						$commentContent = $("<td align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
 						
@@ -513,10 +560,16 @@
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
 						if(data[i].memberId == memberId) {
+							//$commentDate = $("<td width='120'>").text(data[i].commentDate);
 							$btnArea = $("<td width='80'>")
-										.append("<a href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
-										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
-						} 
+										.append("<a id='commentUpdateButton' href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
+										.append("<a id='commentDeleteButton' href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
+						} else {
+							//$commentDate = $("<td colspan='3'>").text(data[i].commentDate);
+						}
+						
+						/* 댓글 구분선 추가 */
+						$line = $("<tr> <td colspan='4'> <hr style='width:670px;'>");
 						
 						$tr.append($commentWriter);
 						$tr.append($commentContent);
@@ -526,7 +579,9 @@
 							$tr.append($btnArea);
 						}
 						
+						
 						$tableBody.append($tr);
+						$tableBody.append($line);
 						//크기만큼 반복
 						//여기까지 해야 댓글 가능
 					}
@@ -558,8 +613,8 @@
 	function modifyViewComment(obj, commentContents, commentNo){
 // 		alert("test");
 		var $trModify = $("<tr>");
-		$trModify.append("<td colspan='2'><input type='text' size='65px' value='"+commentContents+"' id='modifyCommentVal'></td>");
-		$trModify.append("<td colspan='2'><button onclick='modifyComment("+commentNo+", \""+commentContents+"\")'>수정완료</button>");
+		$trModify.append("<td colspan='3' align='right' id='commentEditTd'><input type='text' size='65px' value='"+commentContents+"' id='modifyCommentVal'></td>");
+		$trModify.append("<td colspan='2'><button id='commentEditButton' onclick='modifyComment("+commentNo+", \""+commentContents+"\")'>수정완료</button>");
 		console.log(obj);
 		$(obj).parent().parent().after($trModify);
 	}
