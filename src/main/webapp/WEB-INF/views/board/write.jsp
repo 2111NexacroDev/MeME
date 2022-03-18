@@ -125,7 +125,7 @@
 				</td>
 			<tr>
 				<td style="padding:0 15px;" height="30px" align="left">
-					&nbsp<input type="file" id="upload02" name="uploadFile">
+					&nbsp<input type="file" name="uploadFile">
 				</td>
 			</tr>
 			</tr>
