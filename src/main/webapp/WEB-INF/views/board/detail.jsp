@@ -180,28 +180,34 @@
 	 	margin: auto;
 	 	background-color: white;
 	}
-	
+		
+		/* 닉네임, 내용, 날짜 글씨 크기 */
 		#boardCommentTable td {
 			font-size: 14px;
 		}
 		
+		/* 닉네임 영역 */
 		#commentNicknametd {
 			padding-left: 20px;
 		}
 		
+		/* 댓글 수정 버튼 */
 		#commentUpdateButton {
 			font-size: 13px;
 		}
 		
+		/* 댓글 삭제 버튼 */
 		#commentDeleteButton {
 			font-size: 13px;
 			margin-right: 20px;
 		}
 		
+		/* 댓글 수정 영역 */
 		#commentEditTd {
 			padding-right: 25px;
 		}
 		
+		/* 수정완료 버튼 */
 		#commentEditButton {
 			background-color: #ffffff;
 			margin-right: 20px;
@@ -455,7 +461,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin:15px 10px;">등록</button>
+				<button type="button" id="cSubmit" style="font-size:13px; color:#888; background-color: white; width: 40px; height: 20px; margin:15px 10px;">등록</button>
 			</td>
 		</tr>
 	</table>
