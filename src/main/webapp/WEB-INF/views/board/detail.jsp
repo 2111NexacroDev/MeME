@@ -49,10 +49,19 @@
     	 
     	/* 신고 버튼 */
 		#boardReport {
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 			margin-right: 20px;
+			padding: 5px;
+			text-align:center;
 			font-size: 13px;
 			background-color: #ffffff;
+			border:none;
+		}
+		
+		/* 신고 버튼 */
+		#boardReport:hover{
+			background-color: #ccc;
+			border-radius : 5px;
 			border:none;
 		}
 		
@@ -209,10 +218,10 @@
         <tr style="text-align:left;">
             <th colspan="1">
             	<c:if test="${oneBoard.boardType eq 'P'}">
-					<p style="color:green; margin: 20px 0 10px 20px;">추진 > </p>
+					<p style="color: #f26522; margin: 20px 0 10px 20px;">추진 > </p>
 				</c:if>
 				<c:if test="${oneBoard.boardType eq 'F'}">
-					<p style="color:green; margin: 20px 0 10px 20px;">자유 > </p>	
+					<p style="color: #f26522; margin: 20px 0 10px 20px;">자유 > </p>	
 				</c:if> 
 			</th>
 			
