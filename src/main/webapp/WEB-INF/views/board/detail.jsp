@@ -178,30 +178,28 @@
 		</tr>
 	
 		<tr>
-			<td align="left">
-				<form action='<c:url value="/board/detail_like">
-					<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-					</c:url>' method="post">
-					<div style="margin:10px;">
+			<td id="recommendArea" align="left">
+				<div style="margin:10px 5px ;">
+					<form action='<c:url value="/board/detail_like">
+							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+							</c:url>' method="post">
+		           			
 						<c:if test="${empty member || member.memberId eq 'admin' }">
-		           			<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
+		           			<i class="fa fa-heart" aria-hidden="true" style="color:red"></i> 추천
 		           		</c:if>
 		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
-	
-		           			<button type="submit" id="boardRecommand">
-								<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
-								<!-- <i class="fa fa-heart" aria-hidden="true"></i> -->
+							<button type="submit" id="boardRecommand">
+								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
+								<i class="fa fa-heart" aria-hidden="true" style="color:red"></i> 추천
 							</button>
+							
 		                </c:if>
-	
-						${oneBoard.boardLike }
-					</div>
-					
-				</form>
-				
+
+					${oneBoard.boardLike }
+					</form>
+				</div>
 			</td>
-			
-			
+
 			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
 				<td align="right">
