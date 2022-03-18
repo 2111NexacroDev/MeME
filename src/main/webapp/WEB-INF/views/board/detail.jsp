@@ -195,32 +195,7 @@
 					목록
 				</button>
 			</td>
-			<!-- 관리자일 땐 삭제만 표시 -->
-   			<c:if test="${sessionScope.loginMember.memberId eq 'admin'}">
-				<td align="right">
-					<c:if test="${oneBoard.boardStatus eq 'Y' }">
-						<form action='<c:url value="/board/detail_reportAdminToN">
-							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-							</c:url>' method="post">
-							
-							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();">
-	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
-	
-						</form>
-					</c:if>
-					<c:if test="${oneBoard.boardStatus eq 'N' }">
-						<form action='<c:url value="/board/detail_reportAdminToY">
-							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
-							</c:url>' method="post">
-				
-							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();">
-	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
-		
-						</form>
-					</c:if>
-				</td>
-   			</c:if>
-
+			
 			
 		</tr>
 	</table>
@@ -262,7 +237,11 @@
 				<div style="font-size:12px; margin-left: 0px; margin-bottom:18px;"> 조회수: ${oneBoard.boardCount } </div>
 			</td>
 			
-						<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
+			
+			
+			<!-- 비회원 X, 회원 자신의 글 : 수정 삭제 / 다른 회원 글 : 신고, 관리자 : 숨기기/보이기 삭제 -->
+			
+			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 신고 버튼 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
 				<td align="right">
 					<form action='<c:url value="/board/detail_report">
@@ -273,6 +252,32 @@
 					</form>
 				</td>
 			</c:if>
+			
+   			<c:if test="${sessionScope.loginMember.memberId eq 'admin'}">
+				<td align="right">
+					<c:if test="${oneBoard.boardStatus eq 'Y' }">
+						<form action='<c:url value="/board/detail_reportAdminToN">
+							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+							</c:url>' method="post">
+							
+							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 숨기기" onclick="reportAdminFuncToN();">
+	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
+	
+						</form>
+					</c:if>
+					<c:if test="${oneBoard.boardStatus eq 'N' }">
+						<form action='<c:url value="/board/detail_reportAdminToY">
+							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
+							</c:url>' method="post">
+				
+							<input style="background-color:#DB4000; color:white" type="submit" id="boardReportAdmin" value="게시글 보이기" onclick="reportAdminFuncToY();">
+	<%-- 					<br><p id="boardReport">${oneBoard.boardReport }</p> --%>
+		
+						</form>
+					</c:if>
+				</td>
+   			</c:if>
+			
 			
 			
 			<c:if test="${sessionScope.loginMember.memberId eq oneBoard.memberId}">

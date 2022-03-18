@@ -29,9 +29,10 @@ public interface BoardStore {
 
 	//게시글 삭제
 	public int deleteBoard(SqlSession sqlSession, Integer boardNo);
+	//게시글 지워질 때 첨부파일, 댓글, 추천 기록 같이 삭제
 	public int deleteBoardFile(SqlSession sqlSession, Integer boardNo);
-	//게시글 지워질 때 댓글 같이 삭제
 	public void deleteCommentBoardNo(SqlSession sqlSession, Integer boardNo);
+	public void deleteRecommendBoardNo(SqlSession sqlSession, Integer boardNo);
 	
 	
 	//게시판 상세 페이지
@@ -66,6 +67,7 @@ public interface BoardStore {
 	public int updateBoardReportManagerToN(SqlSession sqlSession, int boardNo);
 	//관리자 : 신고 게시글 보이기
 	public int updateBoardReportManagerToY(SqlSession sqlSession, int boardNo);
+
 
 
 
