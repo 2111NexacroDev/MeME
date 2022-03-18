@@ -12,7 +12,7 @@
 	width: 700px; 
 	height: 200px; 
  	border: 1px solid #ccc;
- 	border-radius : 5px;
+ 	--border-radius : 10px;
 	text-align: center;
  	margin: auto; 
  	color: black;
@@ -119,7 +119,7 @@
 	<form action="/board/register" method="post" enctype="multipart/form-data">
 		<table id="boardWriteTable" align="center">
 			<tr >
-				<td style="padding:15px;" height="30px" align="left">
+				<td style="padding:15px; padding-bottom:10px;" height="30px" align="left">
 					&nbsp&nbsp추진 <input type="radio" name="boardType" value="P">
 					&nbsp&nbsp자유 <input type="radio" name="boardType" value="F" checked>
 				</td>
