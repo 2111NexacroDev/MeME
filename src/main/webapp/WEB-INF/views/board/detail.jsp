@@ -40,11 +40,11 @@
      
      	#boardDetailTable td p {
     	 	--color: red;
-    	 	margin : 3px 0 10px 15px;
+    	 	margin : 3px 0 10px 20px;
     	 }
     	 #boardDetailTable td div {
     	 	--color: red;
-    	 	margin : 3px 0 3px 18px;
+    	 	margin : 3px 0 3px 23px;
     	 }
 	
 	/* 내용 영역 */
@@ -60,6 +60,8 @@
 	        height: 300px;
 	        width: 100%;
 	        background-color: white;
+	        padding: 20px;
+	        padding-top: 30px;
 	    }
 	
 	/* 댓글 수, 추천 수, 신고 버튼 */
@@ -79,17 +81,28 @@
 			width:90px;
 			padding : 10px 0;
 		}
+		
+			#recommendArea div {
+				margin-left: 20px;
+			}
+		
+		
 		#commentArea {
 			align:left;
 			text-align: left;
 			--width:90%;
+			
+		}
+		#commentCount {
+			font-size:13px;
 		}
 		
 		/* 추천 버튼 */
 		#boardRecommand {
-     		border : 1px solid #ccc;
+     		border : 1px solid white;
+     		background-color: white;
 			border-radius : 5px;
-			padding : 3px;
+			--padding : 3px;
      	}
 	
 	/* 댓글 목록 영역 */
@@ -187,10 +200,10 @@
         <tr style="text-align:left;">
             <th colspan="1">
             	<c:if test="${oneBoard.boardType eq 'P'}">
-					<span style="color:green; margin:10px 5px;">추진 > </span>
+					<span style="color:green; margin: 20px 0 10px 20px;">추진 > </span>
 				</c:if>
 				<c:if test="${oneBoard.boardType eq 'F'}">
-					<p style="color:green; margin:10px 15px;">자유 > </p>	
+					<p style="color:green; margin: 20px 0 10px 20px;">자유 > </p>	
 				</c:if> 
 			</th>
 			
@@ -212,7 +225,7 @@
 		</tr>
 		<tr>
 			<td>
-				<div style="font-size:12px; margin-bottom:8px;">${oneBoard.boardDate }</div>
+				<div style="font-size:12px; margin-bottom:20px;">${oneBoard.boardDate }</div>
 			</td>
 		</tr>
 	</table>
@@ -220,8 +233,8 @@
 	<table id="boardDetailTable2" >
 	    <tr>
 	        <td class="jb-th-1" align="left" valign="top">
-	            <p>${oneBoard.boardContents }</p>
-	            <p><img src="/resources/boardUploadFiles/${boardFile.boardFilerename}"></p>
+	            <div>${oneBoard.boardContents }</div>
+	            <div><img src="/resources/boardUploadFiles/${boardFile.boardFilerename}"></div>
 	    	</td>
 		</tr>
 	
@@ -230,23 +243,26 @@
 	<table id="boardDetailTable3" >
 		<tr>
 			<td id="recommendArea">
-				<div style="margin:0 0 0 5px;">
+				<div>
 					<form action='<c:url value="/board/detail_like">
 							<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 							</c:url>' method="post">
-		           			
+		           		
 						<c:if test="${empty member || member.memberId eq 'admin' }">
-		           			<i class="fa fa-heart" aria-hidden="true" style="color:red; margin:5px"></i> 추천
+		           			<button type="button" id="boardRecommand" onclick="notLoginFunc();">
+								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
+								<i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> 
+							</button>
 		           		</c:if>
 		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
-							<button type="submit" id="boardRecommand">
+							<button type="submit" id="boardRecommand" >
 								<!--  <i class="fa fa-heart-o" aria-hidden="true"></i> 추천 --> 
-								<i class="fa fa-heart" aria-hidden="true" style="color:red"></i> 추천
+								<i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> 
 							</button>
 							
 		                </c:if>
 		
-					${oneBoard.boardLike }
+						<span style="font-size:13px;">추천 ${oneBoard.boardLike }</span>
 					</form>
 				</div>
 				
@@ -254,7 +270,7 @@
 			
 			<!-- 댓글 갯수 -->
 			<td id="commentArea">
-				<i class="fa fa-comment" aria-hidden="true" style="padding:5px;"></i><span id="commentCount">댓글갯수(3)</span>
+				<i class="fa fa-comment" aria-hidden="true" style="padding:5px; margin-left: 10px;"></i><span id="commentCount">댓글갯수(3)</span>
 			</td>
 
 			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
@@ -279,13 +295,13 @@
 		<tr>
 			<td>
 				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" 
-					style="width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
+					style="font-size:13px; width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
 			</td>
 			
 		</tr>
 		<tr>
 			<td align="right">
-				<button type="button" id="cSubmit" style="background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
+				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
 			</td>
 		</tr>
 	</table>
@@ -328,6 +344,15 @@
 	
 	<script>
 	getCommentList();
+	
+	function notLoginFunc(){
+		<c:if test="${empty sessionScope.loginMember }">
+			alert("로그인이 필요합니다.");
+   		</c:if>
+   		<c:if test="${not empty loginMember }">
+   			location.href="/board/write";
+        </c:if>
+	}
 	
 	function reportFunc(){
 		alert("신고 완료 되었습니다.");
@@ -395,7 +420,7 @@
 				var $tr;
 				
 				/* jquery 아님 그냥 변수 선언 */
-				$("#commentCount").text("댓글 ("+ data.length +")"); //댓글 개수 표시
+				$("#commentCount").text("댓글 "+ data.length); //댓글 개수 표시
 				
 				if(data.length > 0){
 					for(var i in data){
