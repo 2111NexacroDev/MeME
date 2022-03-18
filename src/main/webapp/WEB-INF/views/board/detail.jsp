@@ -26,6 +26,7 @@
 			padding : 3px;
      	}
      
+     /* 게시글 정보 영역 */
      #boardDetailTable {
      	height:70px;
         width: 700px;
@@ -46,6 +47,7 @@
     	 	margin : 3px 0 3px 18px;
     	 }
 	
+	/* 내용 영역 */
 	#boardDetailTable2 {
 		width: 700px;
 		background-color: white; 
@@ -59,7 +61,8 @@
 	        width: 100%;
 	        background-color: white;
 	    }
-	    
+	
+	/* 댓글 수, 추천 수, 신고 버튼 */
 	#boardDetailTable3 {
 		width: 700px;
 		background-color: white; 
@@ -69,6 +72,7 @@
 	 	border-top: 0pt;
 	 	border-bottom: 0pt;
 	}
+		/*추천, 댓글 수 td 영역*/
 		#recommendArea	{
 			align:left;
 			text-align: left;
@@ -80,7 +84,15 @@
 			text-align: left;
 			--width:90%;
 		}
-	   
+		
+		/* 추천 버튼 */
+		#boardRecommand {
+     		border : 1px solid black;
+			border-radius : 5px;
+			padding : 3px;
+     	}
+	
+	/* 댓글 목록 영역 */
 	#boardCommentTable {
 		width: 700px;
 	 	border: 1px solid black; 
@@ -89,6 +101,7 @@
 	 	background-color: white;
 	}
 	
+	/* 댓글 등록창 */
 	#boardCommentTable2 {
 		width: 700px; 
 	 	border: 1px solid black; 
@@ -97,11 +110,7 @@
 	 	margin: auto;
 	 	background-color: white;
 	}
-		#boardRecommand {
-     		border : 1px solid black;
-			border-radius : 5px;
-			padding : 3px;
-     	}
+
 
 	    .textInput2 {
 	        padding-top: 80px;
