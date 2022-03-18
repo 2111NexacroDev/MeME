@@ -30,11 +30,11 @@
      #boardDetailTable {
      	height:70px;
         width: 700px;
-		background-color: #ccc; 
+		background-color: white; 
 		color : black;
 		--text-align: center;
 		margin: auto; 
-		border: 1px solid black;
+		border: 1px solid #ccc;
 		border-bottom: 0pt;
      }
      
@@ -51,7 +51,7 @@
 	#boardDetailTable2 {
 		width: 700px;
 		background-color: white; 
-	 	border: 1px solid black; 
+	 	border: 1px solid #ccc; 
 		--text-align: center;
 	 	margin: auto; 
 	 	border-bottom: 0pt;
@@ -66,7 +66,7 @@
 	#boardDetailTable3 {
 		width: 700px;
 		background-color: white; 
-	 	border: 1px solid black; 
+	 	border: 1px solid #ccc; 
 		text-align: center;
 	 	margin: auto; 
 	 	border-top: 0pt;
@@ -87,7 +87,7 @@
 		
 		/* 추천 버튼 */
 		#boardRecommand {
-     		border : 1px solid black;
+     		border : 1px solid #ccc;
 			border-radius : 5px;
 			padding : 3px;
      	}
@@ -95,7 +95,7 @@
 	/* 댓글 목록 영역 */
 	#boardCommentTable {
 		width: 700px;
-	 	border: 1px solid black; 
+	 	border: 1px solid #ccc; 
 		text-align: center;
 	 	margin: auto;
 	 	background-color: white;
@@ -104,7 +104,7 @@
 	/* 댓글 등록창 */
 	#boardCommentTable2 {
 		width: 700px; 
-	 	border: 1px solid black; 
+	 	border: 1px solid #ccc; 
 	 	border-bottom: 0pt;
 		text-align: center;
 	 	margin: auto;
