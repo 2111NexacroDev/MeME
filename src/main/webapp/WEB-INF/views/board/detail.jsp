@@ -367,6 +367,7 @@
 	    <tr>
 	        <td class="jb-th-1" align="left" valign="top">
 	            <div>${oneBoard.boardContents }</div>
+	            <br>
 	            <div><img src="/resources/boardUploadFiles/${boardFile.boardFilerename}"></div>
 	    	</td>
 		</tr>

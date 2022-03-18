@@ -67,7 +67,6 @@
 	#rankTable th {
 		height : 30px;
 		border-bottom : 1px solid black;
-		
 	}
 	#rankTable td {
 		height : 25px;

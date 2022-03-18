@@ -18,16 +18,7 @@
 		margin-bottom: 5px;
 	}
 		
-		/* 주황색 */
-/* 		#writeButton {
-     		border : 1px solid #f26522;
-     		background-color: #fef3ee;
-     		color: #f26522;
-			--border-radius : 5px;
-			padding : 5px 8px;
-			font-size:13px;
-			font-weight: bold;
-     	} */
+		
      	
      	/* 검정색 */
 		#writeButton {
@@ -39,23 +30,45 @@
 			font-size:13px;
 			font-weight: bold;
      	}
-		
+     	
+		/* 주황색 */
+ 		#writeButton:hover {
+     		border : 1px solid #f26522;
+     		background-color: #fef3ee;
+     		color: #f26522;
+			--border-radius : 5px;
+			padding : 5px 8px;
+			font-size:13px;
+			font-weight: bold;
+     	} 
+     	
 	#boardTable{
 		border: 1px solid black;
 		width:700px;
 		text-align: center;
 		margin: auto;
+		border-collapse: collapse;
+		
 	}
-	#boardTable th{
+	
+	#boardTable td, #boardTable th {
+	  	border: 1px solid #ddd;
+	  	padding: 6px;
+	}
+	
+	#boardTable tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#boardTable tr:hover {background-color: #ddd;}
+	
+	#boardTable th {
 		height: 30px;
-		background-color:#f26522  ;
-		color:  white;
+	  	padding-top: 10px;
+	  	padding-bottom: 10px;
+	  	text-align: center;
+	  	background-color: #f26522;
+		color: white;
 	}
-	
-	#boardTable th, td{
-		border: 1px solid black;
-	}
-	
+
 </style>
 </head>
 <body>
