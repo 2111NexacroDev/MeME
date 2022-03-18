@@ -14,16 +14,20 @@
 <style>
      #boardButtonTable {
      	--border: 1px solid black;
-     	height:30px;
+     	height:40px;
         width: 700px;
 		text-align: right;
 		margin: auto; 
      }
      	/* 목록 버튼 */
      	#listButton {
-     		border : 1px solid black;
+     		border : 1px solid #f26522;
+     		background-color: #fef3ee;
+     		color: #f26522;
 			border-radius : 5px;
-			padding : 3px;
+			padding : 5px 10px;
+			font-size:13px;
+			font-weight: bold;
      	}
      
      /* 게시글 정보 영역 */
@@ -96,7 +100,7 @@
 		
 		
 		#boardDetailTable button:hover {
-			background-color: #ccc;
+			background-color: #fef3ee;
 			border-radius : 5px;
 			border:none;
 		}
@@ -198,7 +202,6 @@
 
 <body>
 
-	<br>
 	<table id="boardButtonTable">
 		<tr>
 			<td align="left"> 
@@ -206,8 +209,6 @@
 					목록
 				</button>
 			</td>
-			
-			
 		</tr>
 	</table>
 	
@@ -407,7 +408,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
+				<button type="button" id="cSubmit" style="font-size:13px; background-color: white; width: 40px; height: 20px; margin:15px 10px;">등록</button>
 			</td>
 		</tr>
 	</table>
