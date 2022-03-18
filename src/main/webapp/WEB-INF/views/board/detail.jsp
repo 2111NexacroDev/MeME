@@ -69,7 +69,11 @@
 	 	margin: auto;
 	 	background-color: white;
 	}
-
+		#boardRecommand {
+     		border : 1px solid black;
+			border-radius : 5px;
+			padding : 3px;
+     	}
 
 	    .textInput2 {
 	        padding-top: 80px;
@@ -173,28 +177,31 @@
 	    	</td>
 		</tr>
 	
-		<tr height="100px">
-			<td>
+		<tr>
+			<td align="left">
 				<form action='<c:url value="/board/detail_like">
 					<c:param name="boardNo" value="${oneBoard.boardNo }"></c:param>
 					</c:url>' method="post">
-					<c:if test="${empty member || member.memberId eq 'admin' }">
-	           			<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
-	           		</c:if>
-	           		<c:if test="${not empty member && member.memberId ne 'admin'}">
-	           			<button type="submit" id="boardRecommand">
-							<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
-							<!-- <i class="fa fa-heart" aria-hidden="true"></i> -->
-						</button>
-	                </c:if>
-
-					<br>${oneBoard.boardLike }
+					<div style="margin:10px;">
+						<c:if test="${empty member || member.memberId eq 'admin' }">
+		           			<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
+		           		</c:if>
+		           		<c:if test="${not empty member && member.memberId ne 'admin'}">
+	
+		           			<button type="submit" id="boardRecommand">
+								<i class="fa fa-heart-o" aria-hidden="true"></i> 추천
+								<!-- <i class="fa fa-heart" aria-hidden="true"></i> -->
+							</button>
+		                </c:if>
+	
+						${oneBoard.boardLike }
+					</div>
+					
 				</form>
 				
 			</td>
 			
-		</tr>
-		<tr>
+			
 			<!-- 로그인한 회원 중 자신의 글이 아닌 게시글에 버튼 표시 -->
 			<c:if test="${sessionScope.loginMember.memberId ne 'admin' && sessionScope.loginMember ne null && sessionScope.loginMember.memberId ne oneBoard.memberId}">
 				<td align="right">
@@ -206,8 +213,6 @@
 					</form>
 				</td>
 			</c:if>
-   			
-			
 			
 		</tr>
 	</table>
@@ -215,13 +220,17 @@
 
 	<!-- 댓글 등록 -->
 	
-	<table id="boardCommentTable2" border="1" width="95%">
+	<table id="boardCommentTable2" width="95%">
 		<tr>
 			<td>
-				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" style="width: 100%; height: 80px; padding: 15px;"></textarea>
+				<textarea rows="3" cols="55" id="commentContents" placeholder="댓글을 남겨보세요" 
+					style="width: 100%; height: 50px; padding: 15px; border: none; resize: none;"></textarea>
 			</td>
-			<td>
-				<input type="button" value="등록하기" id="cSubmit" style="width: 100%; height: 80px;" ></input>
+			
+		</tr>
+		<tr>
+			<td align="right">
+				<button type="button" id="cSubmit" style="background-color: white; width: 40px; height: 20px; margin: 10px 5px;">등록</button>
 			</td>
 		</tr>
 	</table>
