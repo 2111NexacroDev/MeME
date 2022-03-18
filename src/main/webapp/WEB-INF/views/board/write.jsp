@@ -11,12 +11,39 @@
 #boardWriteTable { 
 	width: 700px; 
 	height: 200px; 
-	--background-color: #ccc ; 
- 	border: 1px solid #f9f9f9; 
+ 	border: 1px solid #ccc;
+ 	border-radius : 5px;
 	text-align: center;
  	margin: auto; 
  	color: black;
 }
+
+	/* [라디오 버튼 커스텀 스타일 변경 실시] */
+	input[type='radio'] {
+		-webkit-appearance:none;
+		width:15px;
+		height:15px;
+		/* [라디오 버튼 테두리 색상 정의] */
+		border:1px solid darkgray;
+		border-radius:50%;
+		outline:none;
+		/* [라디오 버튼 배경 색상 정의] */
+		background:#ffffff;
+	}
+	input[type='radio']:before {
+		/* [content null 설정해서 커스텀 지정] */
+		content:'';
+		display:block;
+		width:70%;
+		height:70%;
+		margin: 2px auto;
+		border-radius:50%;  
+	}
+	input[type='radio']:checked:before {
+		/* [라디오 버튼이 클릭 되었을 경우 내부 원형 색상] */
+		background: #f26522;
+	}
+	
 	#uploadfile {
 		border : 1px solid grey;
    		background-color: #ffffff;
@@ -38,50 +65,25 @@
 		width: 99%;
 	}
 
-#boardWriteTitle_1 {
-	width: 99%; 
-	padding: 5px 10px;  
-	border-radius: 0; 
-	--border-radius: 5px; 
-	border: 1px solid #ccc;
-}
-
-#boardWriteTextarea_1 {
-	height:100%;
-	width:99%;
-	resize: none;
-	padding: 10px;
-	border-radius: 0;
-	--border-radius: 5px; 
-	border: 1px solid #ccc;
+	#boardWriteTitle_1 {
+		width: 95%; 
+		padding: 5px 10px;  
+		margin: 5px;
+		border-radius: 0; 
+		--border-radius: 5px; 
+		border: 1px solid #ccc;
+	}
 	
-}
-
-/* [라디오 버튼 커스텀 스타일 변경 실시] */
-input[type='radio'] {
-	-webkit-appearance:none;
-	width:15px;
-	height:15px;
-	/* [라디오 버튼 테두리 색상 정의] */
-	border:1px solid darkgray;
-	border-radius:50%;
-	outline:none;
-	/* [라디오 버튼 배경 색상 정의] */
-	background:#ffffff;
-}
-input[type='radio']:before {
-	/* [content null 설정해서 커스텀 지정] */
-	content:'';
-	display:block;
-	width:70%;
-	height:70%;
-	margin: 2px auto;
-	border-radius:50%;  
-}
-input[type='radio']:checked:before {
-	/* [라디오 버튼이 클릭 되었을 경우 내부 원형 색상] */
-	background: #f26522;
-}
+	#boardWriteTextarea_1 {
+		height:100%;
+		width:95%;
+		resize: none;
+		padding: 10px;
+		border-radius: 0;
+		--border-radius: 5px; 
+		border: 1px solid #ccc;
+		
+	}
 
 	/* 등록 버튼 */
  	#writeSubmitButton {
@@ -115,14 +117,14 @@ input[type='radio']:checked:before {
 
 	<br>
 	<form action="/board/register" method="post" enctype="multipart/form-data">
-		<table id="boardWriteTable" align="center" border="1">
-			<tr>
-				<td height="30px" align="left">
+		<table id="boardWriteTable" align="center">
+			<tr >
+				<td style="padding:15px;" height="30px" align="left">
 					&nbsp&nbsp추진 <input type="radio" name="boardType" value="P">
 					&nbsp&nbsp자유 <input type="radio" name="boardType" value="F" checked>
 				</td>
 			<tr>
-				<td height="30px" align="left">
+				<td style="padding:0 15px;" height="30px" align="left">
 					&nbsp<input type="file" id="upload02" name="uploadFile">
 				</td>
 			</tr>
@@ -138,7 +140,7 @@ input[type='radio']:checked:before {
         		</td>
       		</tr>
       		<tr>
-				<td colspan="2" align="right" height="50px" >
+				<td colspan="2" align="right" height="50px" style="padding:15px;" >
 					<input type="reset" id="writeCancelButton" value="취소" onclick="location.href='/board';">
 					<input type="submit" id="writeSubmitButton" value="등록하기">
 				</td>
