@@ -177,6 +177,8 @@
 		</div>
 		<br>
 		<div id="quest">
+			<img src="/resources/images/quiz_Q.png">
+			<br>
 			<b id="question"></b> <br>
 			<div id="quizFile">
 			</div>
@@ -185,6 +187,8 @@
 			<div id="ch3"></div>
 			<div id="ch4"></div>
 			<br> <br> <br>
+			<img src="/resources/images/quiz_A.png">
+				<br>
 			<div>
 				<input type="text" id="answer" size="50">
 			</div>
