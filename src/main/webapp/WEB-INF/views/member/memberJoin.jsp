@@ -34,6 +34,7 @@
 		font-weight: bold;
 		border-radius: 5px;
 		transition-duration: 0.5s;
+		background-color: #f9f9f9;
 	}
 	button:hover {
 		color : #f26522;
@@ -93,6 +94,9 @@
 	    color: #ffffff;
 	    transition-duration: 0.5s;
 	}
+	.btn_rtn {
+	margin-top: 5px;
+	}
 	
 </style>
 </head>
@@ -125,6 +129,10 @@
 					<tr align="center">
 						<td>
 							<button class="btn_submit" type="submit">회원가입</button>
+						</td>
+					</tr><tr align="center">
+						<td>
+							<button type="button" class="btn_rtn" onclick="location.href='/login.me'">로그인 페이지로 돌아가기</button>
 						</td>
 					</tr>
 				</table>
