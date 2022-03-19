@@ -8,48 +8,19 @@
 <style>
 	.inner {
 	position : absolute;
-	width : 300px;
-	height : 250px;
-	top : 50%;
+	width : 400px;
+	height : 400px;
+	top : 250px;
 	left : 50%;
-	margin-top : -125px;
-	margin-left : -150px;
-	background-color : #EBB388;
+	margin-left : -200px;
 	}
 	
 	#mypageNavi {
 	/* 	background-color : #75582F; */
-		font-weight: bold;
-		width: 500px;
+		width: 400px;
 		height: 50px;
 		text-align: center;
-		align: center;
-		margin: auto;
 	}
-	
-	#mypageNavi ul {
-		list-style-type : none;
-		padding-left : 60px;
-	}
-	
-	#mypageNavi li {
-		color : #DB4000;
-		float : left;
-	/* 	background-color : white; */
-		padding-right : 10px;
-		text-align : center;
-	}
-	#mypageNavi li a {
-		color : black;
-		display : block;
-		text-decoration : none;
-		text-align : center;
-	}
-	#mypageNavi li a.current {
-		color : white;
-		background-color : #DB4000;
-	}
-	
 	.header {
 		height : 20%;
 		margin-left : 20px;
@@ -58,17 +29,69 @@
 		height : 80%;
 		margin-top : 5px;
 	}
-	
-	#findButton {
-		background-color : #8F2B00 ;
-		color: white;
-		margin-top: 10px;
-	}
 	button {
-		color : #8F2B00;
+		color : #252525;
 		font-weight: bold;
-		background-color: #EBB388;
-		margin-top: 10px;
+		border-radius: 5px;
+		transition-duration: 0.5s;
+	}
+	button:hover {
+		color : #f26522;
+		transition-duration: 0.5s;
+	}
+	#ipt {
+		margin-bottom : 10px;
+		padding-left : 15px;
+		height : 40px;
+		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #808080;
+		background-color : #f9f9f9;
+	}
+	#ipt:focus {
+		border: 1px solid #f26522;
+		background-color : #ededed;
+	}
+	.btn_pw {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+		transition-duration: 0.5s;
+	}
+	.btn_pw:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_id {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #f26522;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+	}
+	.btn_id:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_submit {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 350px;
+		height: 60px;
+		padding-top: 5px;
+		transition-duration: 0.5s;
+	}
+	.btn_submit:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
 	}
 	
 </style>
@@ -77,25 +100,22 @@
 	<div class="inner">
 	<br><br>
 		<div id="mypageNavi">
-			<ul>
-				<li>아이디 찾기</li>
-				<li><a href="/member/findPw.me">비밀번호 찾기</a></li>
-			</ul>
+			<button class="btn_id" type="button">아이디 찾기</button>
+			<button class="btn_pw" type="button" onclick="location.href='/member/findPw.me'">비밀번호 찾기</button>
 		</div>
 		<div class="body">
 			<form action="/member/findId.me" method="post">
 				<table align="center">
 					<tr align="center">
-						<td colspan="2"><input type="text" name="memberName" placeholder="이름"></td>
+						<td colspan="2"><input id="ipt" type="text" name="memberName" placeholder="이름"></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="text" name="memberEmail" placeholder="이메일"></td>
+						<td colspan="2"><input id="ipt" type="text" name="memberEmail" placeholder="이메일"></td>
 					</tr>
 					<tr align="center">
 						<td>
-							<button id="findButton" type="submit">아이디 찾기</button>
+							<button class="btn_submit" type="submit">아이디 찾기</button>
 						</td>
-						<td><button type="button" onclick="location.href='/login.me'">돌아가기</button>
 					</tr>
 				</table>
 			</form>
