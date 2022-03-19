@@ -25,7 +25,7 @@
      		border : 1px solid #ccc;
      		background-color: #ffffff;
      		color: black;
-			--border-radius : 5px;
+			border-radius : 5px;
 			padding : 5px 8px;
 			font-size:13px;
 			font-weight: bold;
@@ -36,7 +36,7 @@
      		border : 1px solid #f26522;
      		background-color: #fef3ee;
      		color: #f26522;
-			--border-radius : 5px;
+			border-radius : 5px;
 			padding : 5px 8px;
 			font-size:13px;
 			font-weight: bold;
