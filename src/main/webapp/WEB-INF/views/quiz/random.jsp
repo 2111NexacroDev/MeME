@@ -27,6 +27,11 @@
 	#title_name {
    font-weight: bold;
 	}
+	
+	#quest_Q {
+		height:300px;
+		--background-color:red;
+	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -177,16 +182,21 @@
 		</div>
 		<br>
 		<div id="quest">
-			<img src="/resources/images/quiz_Q.png">
-			<br>
-			<b id="question"></b> <br>
-			<div id="quizFile">
+		
+			<div id="quest_Q">
+				<img src="/resources/images/quiz_Q.png">
+				<br>
+				
+				<b id="question"></b> <br>
+				<div id="quizFile">
+				</div>
+				<div id="ch1"></div>
+				<div id="ch2"></div>
+				<div id="ch3"></div>
+				<div id="ch4"></div>
+				<br> <br> <br>
+				
 			</div>
-			<div id="ch1"></div>
-			<div id="ch2"></div>
-			<div id="ch3"></div>
-			<div id="ch4"></div>
-			<br> <br> <br>
 			<img src="/resources/images/quiz_A.png">
 				<br>
 			<div>
