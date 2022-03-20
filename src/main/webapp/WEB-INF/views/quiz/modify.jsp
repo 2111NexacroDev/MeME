@@ -311,13 +311,13 @@ $(document).ready(function(){
 	    
 	    <hr style="width:670px; text-align:center;">
 
-	    <textarea id="quizQuest" name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요"></textarea>
+	    <textarea id="quizQuest" name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요">${quiz.quizQuest }</textarea>
 
 	    <hr style="width:670px; text-align:center;">
 
-	    <input id="quizAnswer" type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51"><br>
+	    <input id="quizAnswer" type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51" value="${quiz.quizAnswer }"><br>
 	    <div id="choice" style="display: none;">
-			<input style="border:none; margin:5px 0 5px 0; padding-left:0" type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40"> &nbsp;&nbsp;
+			<input style="border:none; margin:5px 0 5px 0; padding-left:0" type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40" value="${quiz.quizCh1 }"> &nbsp;&nbsp;
 			<input type="button" id="plus" value="+">
 			<input type="button" id="minus" value="-">
 			<br>
