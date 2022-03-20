@@ -173,21 +173,22 @@
 						</h5>
 				</fieldset>
 				<br>
-				<div style=" color: #75582F; font-weight:bold;">
-					<input type="checkbox" id="check_delete"> 안내사항을 확인하였으며, 이에 동의합니다.
+				<div style=" color: grey; font-weight:bold;">
+					<input type="checkbox" id="check_delete"> &nbsp;&nbsp;안내사항을 확인하였으며, 이에 동의합니다.
 				</div>
 				
 				<br>
 				<button class="btn_submit" id="deleteMemberButton" onclick="deleteButton();">회원 탈퇴</button>
-				<p></p>
+				
 				<div class="footer">
+				<br><br>
 					<button type="button" onclick="location.href='/'">홈으로</button>
 					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 				</div>
 			</div>
 		</div>
 	</div>
-	
+	<br><br>
 <script>
 	function deleteButton() {
 		var test = document.getElementById("check_delete");

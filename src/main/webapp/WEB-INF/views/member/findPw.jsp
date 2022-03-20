@@ -127,6 +127,7 @@
 						</td>
 					</tr><tr align="center">
 						<td>
+							<br>
 							<button type="button" class="btn_rtn" onclick="location.href='/login.me'">로그인 페이지로 돌아가기</button>
 						</td>
 					</tr>

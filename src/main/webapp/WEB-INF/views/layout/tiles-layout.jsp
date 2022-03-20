@@ -11,7 +11,7 @@
 	html, body {
 		height: 100%;
 		width: 100%;
-		background-color: black;
+		background-color: #f9f9f9;
 	}
 	#container {
 		height:100%;

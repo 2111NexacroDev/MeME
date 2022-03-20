@@ -182,6 +182,7 @@
 						</tr>
 					</c:forEach>
 				</table>
+				<br>
 				<div style="text-align:center" class="pi">
 					<c:if test="${pi.startNavi gt 1 }">
 						<button style="height:25px; width:55px">이전</button>
@@ -197,7 +198,9 @@
 					</c:if>
 				</div>
 				<div class="footer">
+					<br>
 					<button type="button" onclick="location.href='/'">홈으로</button>
+					&nbsp;
 					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 				</div>
 			</div>

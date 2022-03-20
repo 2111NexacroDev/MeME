@@ -48,11 +48,12 @@
 		color : #f26522;
 		transition-duration: 0.5s;
 	}
+	/* 입력창 */
 	#ipt {
 		margin-bottom : 10px;
 		padding-left : 15px;
 		height : 40px;
-		width : 350px;
+		width : 270px;
 		border-radius: 5px;
 		border: 1px solid #808080;
 		background-color : #f9f9f9;
@@ -189,13 +190,17 @@
 					</table>
 					<br>
 					<button class="btn_submit" id="modifyMemberButton" type="submit">정보수정</button>
-				</form><br>
+				</form>
 				<div class="footer">
+				<br>
 					<button type="button" onclick="location.href='/'">홈으로</button>
+					&nbsp;
 					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>
 				</div>
+				<br><br><br><br><br><br>
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

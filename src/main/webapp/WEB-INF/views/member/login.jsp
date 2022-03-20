@@ -102,6 +102,7 @@
 		</div>
 	</div>
 	<div class="inner_footer">
+	<br>
 		<button class="btn_footer" type="button" onclick="location.href='/member/findId.me'">아이디 찾기</button>&nbsp;&nbsp;&nbsp;
 		<button class="btn_footer" type="button" onclick="location.href='/member/findPw.me'">비밀번호 찾기</button>&nbsp;&nbsp;&nbsp;
 		<button class="btn_footer" type="button" onclick="location.href='/member/join.me'">회원가입</button>
