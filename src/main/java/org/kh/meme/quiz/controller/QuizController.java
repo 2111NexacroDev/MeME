@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 
 
 @Controller
@@ -108,12 +109,14 @@ public class QuizController {
 	// 퀴즈 번호 이용해서 파일들 가져오기
 	@ResponseBody
 	@RequestMapping(value = "/quiz/getFileList.me", method = RequestMethod.GET)
-	public String getQuizFiles(
-			@RequestParam("quizNo") Integer quizNo) {
+	public void getQuizFiles(
+			@RequestParam("quizNo") Integer quizNo
+			,HttpServletResponse response) throws JsonIOException, IOException {
 		List<QuizFile> quizFileList = qService.printAllFile(quizNo);
+		response.setCharacterEncoding("utf-8");
 		
 		Gson gson = new Gson();
-		return gson.toJson(quizFileList);
+		gson.toJson(quizFileList, response.getWriter());
 	}
 	
 	//퀴즈 결과
