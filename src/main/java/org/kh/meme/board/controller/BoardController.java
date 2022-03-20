@@ -94,7 +94,7 @@ public class BoardController {
 			, @RequestParam(value="page", required=false) Integer page
 			, @ModelAttribute Search search) {
 		
-		System.out.println(search);
+		System.out.println("/board : " +search);
 		
 		int currentPage = (page != null) ? page : 1;
 		
@@ -124,9 +124,9 @@ public class BoardController {
 	}
 	@RequestMapping(value="/board/search", method = RequestMethod.POST, produces="application/text;charset=utf-8")
 	public String boardSearch(Model model
-			, @ModelAttribute Search search) {
+			, @ModelAttribute("search") Search search) {
 		model.addAttribute("search", search);
-		System.out.println("search : " + search);
+		System.out.println("/search : " + search);
 		
 		return "redirect:/board";
 	}

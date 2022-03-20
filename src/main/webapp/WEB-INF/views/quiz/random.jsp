@@ -1,3 +1,5 @@
+
+   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +20,12 @@
 		margin: auto;
 	}
 	
+	#question {
+		font-size: 18px;
+	}
+	
 	[id^='ch'] {
+		font-size: 15px;
 		color: #008F7C;
 	}
 	#type {
@@ -29,8 +36,7 @@
 	}
 	
 	#quest_Q {
-		height:300px;
-		--background-color:red;
+		height:350px;
 	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -59,7 +65,6 @@
             	$("#postSubmit").submit();
             }
         }, 1000);
-
         // 엔터눌럿을때, 정답 칸에 값이 있을떄, 다음퀴즈 진행
         $(document).keyup(function(event) {
           	 if (event.keyCode == '13' && $('#answer').val() != '') {
@@ -116,7 +121,6 @@
 								$('#ch4').html("(4) "+data.quizCh4);
 								$('#answer').attr("placeholder", "1 ~ 4 숫자 입력후 엔터");
 							}
-
 							$report[nextNum] = data.quizNo;
 					},
 					error : function() {
@@ -182,11 +186,7 @@
 		</div>
 		<br>
 		<div id="quest">
-		
 			<div id="quest_Q">
-				<img src="/resources/images/quiz_Q.png">
-				<br>
-				
 				<b id="question"></b> <br>
 				<div id="quizFile">
 				</div>
@@ -195,12 +195,10 @@
 				<div id="ch3"></div>
 				<div id="ch4"></div>
 				<br> <br> <br>
-				
+				</div>
 			</div>
-			<img src="/resources/images/quiz_A.png">
-				<br>
 			<div>
-				<input type="text" id="answer" size="50">
+				<input type="text" id="answer" size="65">
 			</div>
 			
 		</div>
