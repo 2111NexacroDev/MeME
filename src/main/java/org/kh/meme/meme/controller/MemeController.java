@@ -191,7 +191,7 @@ public class MemeController {
 
 		} catch (Exception e) {
 			List<Meme> memeSuggestionList = mService.printMemeSuggesion(memeName);
-			model.addAttribute("msg", "사전에 등록되지 않은 단어입니다.");
+			model.addAttribute("msg", "찾으시는 유행어가 없다면 사전 등재를 요청해 보세요.");
 			model.addAttribute("memeSuggestionList", memeSuggestionList);
 			return ".tilesHead/common/memeErrorPage";
 
