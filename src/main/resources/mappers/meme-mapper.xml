@@ -14,6 +14,17 @@
 		<result property="memeStatus" column="MEME_STATUS" />
 	</resultMap>
 
+	<resultMap type="org.kh.meme.meme.domain.Meme"
+		id="memeSuggestionMap">
+		<id property="memeNo" column="MEME_NO" />
+		<result property="memeName" column="MEME_NAME" />
+		<result property="memeDate" column="MEME_DATE" />
+		<result property="memeContents" column="MEME_CONTENTS" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memeCount" column="MEME_COUNT" />
+		<result property="memeStatus" column="MEME_STATUS" />
+	</resultMap>
+
 	<resultMap type="org.kh.meme.meme.domain.MemeFile"
 		id="memeFileResultMap">
 		<id property="memeNo" column="MEME_NO" />
@@ -23,14 +34,16 @@
 			column="MEME_FILEEXTENSION" />
 		<result property="memeFileRename" column="MEME_FILERENAME" />
 	</resultMap>
-	
+
 	<resultMap type="org.kh.meme.meme.domain.MemeRequest"
 		id="memeRequestResultMap">
 		<id property="memeReqNo" column="MEMEREQ_NO" />
 		<result property="memeNo" column="MEME_NO" />
 		<result property="memeRequestType" column="MEMEREQUEST_TYPE" />
-		<result property="memeRequestContents" column="MEMEREQUEST_CONTENTS" />
-		<result property="memeRequestStatus" column="MEMEREQUEST_STATUS" />
+		<result property="memeRequestContents"
+			column="MEMEREQUEST_CONTENTS" />
+		<result property="memeRequestStatus"
+			column="MEMEREQUEST_STATUS" />
 	</resultMap>
 
 	<!-- 유행어 검색가능한 페이지 수 -->
@@ -52,12 +65,15 @@
 		MEME_FILE WHERE MEME_NO = #{memeNo}
 	</select>
 	<select id="selectMemeRequestListCount" resultType="_int">
-		SELECT COUNT(*) FROM
+		SELECT
+		COUNT(*) FROM
 		MEME_REQUEST WHERE MEMEREQUEST_STATUS='Y'
 	</select>
-	<select id="selectAllMemeRequestList" resultMap="memeRequestResultMap">
+	<select id="selectAllMemeRequestList"
+		resultMap="memeRequestResultMap">
 		SELECT * FROM
-		MEME_REQUEST WHERE MEMEREQUEST_STATUS='N' ORDER BY MEMEREQ_NO DESC
+		MEME_REQUEST WHERE MEMEREQUEST_STATUS='N' ORDER
+		BY MEMEREQ_NO DESC
 	</select>
 
 	<!-- 유행어 등록 요청 -->
@@ -79,6 +95,11 @@
 		UPDATE MEME_TBL SET
 		MEME_COUNT = MEME_COUNT + 1 WHERE MEME_NO = #{memeNo}
 	</update>
+
+	<!-- 검색 제안 -->
+	<select id="selectMemeSuggestion" resultMap="memeSuggestionMap">
+		<![CDATA[ SELECT * FROM (SELECT * FROM MEME_TBL WHERE MEME_NAME LIKE '%' || #{memeName}|| '%' AND MEME_STATUS= 'Y' ORDER BY MEME_COUNT DESC)WHERE ROWNUM <=5 ]]>
+	</select>
 
 	<!-- 사전 수정삭제요청 -->
 	<insert id="insertMemeRequest"

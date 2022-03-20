@@ -18,8 +18,10 @@ public interface MemeStore {
 	public Meme selectOneByMeme(SqlSession session, String MemeName);
 	public MemeFile selectOneByMemeFile(SqlSession session, int memeNo);
 	public int updateCount(SqlSession Session, int memeNo);
-	
 	public int insertMemeFile(SqlSession session, MemeFile memeFile);
+	//검색 제안
+	public List<Meme> selectMemesuggesstion(SqlSessionTemplate sqlSession, String memeName);
+
 	
 	//사전 수정삭제 요청 등록
 	public int insertMemeRequest(SqlSession Session, MemeRequest memeRequest);
@@ -31,5 +33,7 @@ public interface MemeStore {
 	public List<Meme> selectFourthTimeline(SqlSessionTemplate sqlSession);
 	public List<Meme> selectFifthTimeline(SqlSessionTemplate sqlSession);
 	public List<Meme> selectSixthTimeline(SqlSessionTemplate sqlSession);
+	
+
 	
 }

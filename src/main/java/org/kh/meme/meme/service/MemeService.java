@@ -20,6 +20,8 @@ public interface MemeService {
 	public MemeFile printOneByMemeFile(int memeNo);
 	//사전 조회수
 	public int memeCountUpdate(int memeNo);
+	//검색 제안
+	public List<Meme> printMemeSuggesion(String memeName);
 	//사전 수정삭제요청 등록
 	int requestMeme(MemeRequest memeRequest);
 	//타임라인
@@ -29,5 +31,9 @@ public interface MemeService {
 	public List<Meme> printFourthMemeTimeline();
 	public List<Meme> printFifthMemeTimeline();
 	public List<Meme> printSixthMemeTimeline();
+
+
+
+
 
 }

@@ -60,6 +60,14 @@ public class MemeStoreLogic implements MemeStore{
 		int result = session.update("MemeMapper.updateMemeCount", memeNo);
 		return result;
 	}
+	
+	//검색제안
+	@Override
+	public List<Meme> selectMemesuggesstion(SqlSessionTemplate sqlSession, String memeName) {
+		List<Meme> memeSuggestionList = sqlSession.selectList("MemeMapper.selectMemeSuggestion", memeName);
+		return memeSuggestionList;
+	}
+
 
 	//사전 수정 삭제 요청
 	@Override
@@ -105,6 +113,9 @@ public class MemeStoreLogic implements MemeStore{
 		List<Meme> memeSixthTimeline = sqlSession.selectList("MemeMapper.selectSixthTimeline");
 		return memeSixthTimeline;
 	}
+
+
+
 
 
 
