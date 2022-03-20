@@ -102,9 +102,6 @@
 </head>
 <body>
 	<div class="inner">
-		<div class="header">
-			<h3 align="center">회원가입</h3>		
-		</div>
 		<div class="body">
 			<form action="/member/join.me" method="post">
 				<table align="center">

@@ -69,8 +69,8 @@ public class MemberController {
 	
 	// 회원가입 페이지 이동
 	@RequestMapping(value="/member/join.me", method=RequestMethod.GET)
-	public String memberJoin() {
-		
+	public String memberJoin(Model model) {
+		model.addAttribute("title", "회원가입");
 		return ".tilesHead/member/memberJoin";
 	}
 	
@@ -95,7 +95,8 @@ public class MemberController {
 	
 	// 아이디 찾기 페이지 이동
 	@RequestMapping(value="/member/findId.me", method=RequestMethod.GET)
-	public String memberFindIdRedirect() {
+	public String memberFindIdRedirect(Model model) {
+		model.addAttribute("title", "아이디 찾기");
 		return ".tilesHead/member/findId";
 	}
 	
@@ -121,7 +122,8 @@ public class MemberController {
 	
 	// 비밀번호 찾기 페이지 이동
 	@RequestMapping(value="/member/findPw.me", method=RequestMethod.GET)
-	public String memberFindPwRedirect() {
+	public String memberFindPwRedirect(Model model) {
+		model.addAttribute("title", "비밀번호 찾기");
 		return ".tilesHead/member/findPw";
 	}
 	
@@ -134,6 +136,7 @@ public class MemberController {
 			Member memberOne = mService.findMemberPw(member);
 			if(memberOne != null) {
 				model.addAttribute("member", memberOne);
+				model.addAttribute("title", "비밀번호 재설정");
 				return ".tilesHead/member/pwReset";
 			}else {
 				request.setAttribute("msg", "비밀번호 찾기 실패");
@@ -175,6 +178,7 @@ public class MemberController {
 		}
 		Member member = mService.selectById(memberOne.getMemberId());
 		model.addAttribute("member", member);
+		model.addAttribute("title", "마이페이지");
 		return ".tilesHead/member/modifyMember";
 	}
 	
@@ -194,7 +198,8 @@ public class MemberController {
 	
 	// 회원 탈퇴 페이지 이동
 	@RequestMapping(value="/member/deleteMember.me", method=RequestMethod.GET)
-	public String memberDeleteMemberRedirect() {
+	public String memberDeleteMemberRedirect(Model model) {
+		model.addAttribute("title", "마이페이지");
 		return ".tilesHead/member/deleteMember";
 	}
 	
@@ -208,7 +213,7 @@ public class MemberController {
 			session.invalidate();
 			return ".tilesHead/member/removeSuccess";
 		}else {
-			request.setAttribute("msg", "�쉶�썝�깉�눜 �떎�뙣!");
+			request.setAttribute("msg", "회원 탈퇴 실패!");
 			return ".tilesHead/common/errorPage";
 		}
 	}
@@ -238,6 +243,7 @@ public class MemberController {
 		
 		List<Board> myBoardList = mService.printMyBoard(pi, member.getMemberId());
 		model.addAttribute("myBoardList", myBoardList);
+		model.addAttribute("title", "마이페이지");
 		return ".tilesHead/member/myPage";
 	}
 	
@@ -264,6 +270,7 @@ public class MemberController {
 
 		List<Quiz> myQuizList = mService.printMyQuiz(pi, member.getMemberId());
 		model.addAttribute("myQuizList", myQuizList);
+		model.addAttribute("title", "마이페이지");
 		return ".tilesHead/member/myQuiz";
 	}
 	
@@ -287,7 +294,7 @@ public class MemberController {
 
 		List<Comment> myCommentList = mService.printMyComment(pi, member.getMemberId());
 		model.addAttribute("myCommentList", myCommentList);
-		System.out.println(myCommentList);
+		model.addAttribute("title", "마이페이지");
 		return ".tilesHead/member/myComment";
 	}
 	

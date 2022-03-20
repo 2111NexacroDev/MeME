@@ -134,14 +134,14 @@
 	.btn_subnav_sel {
 		color : #f26522;
 	}
-	.btn_mod {
-		background-color: blue;
-		color : #ffffff;
-	}
-	.btn_del {
-		background-color: red;
-		color : #ffffff;
-	}
+/* 	.btn_mod { */
+/* 		background-color: blue; */
+/* 		color : #ffffff; */
+/* 	} */
+/* 	.btn_del { */
+/* 		background-color: red; */
+/* 		color : #ffffff; */
+/* 	} */
 	.tbl_body {
 		text-align: center;
 	}
@@ -161,7 +161,7 @@
 			</div>
 			<div id="subnav">
 				<br>
-					<button type="button" class="btn_subnav_sel">유행어추진/자유게시판</button>
+					<button type="button" class="btn_subnav_sel">게시판</button>
 				&nbsp;&nbsp;
 					<button type="button" onclick="location.href='/member/myQuiz.me'">퀴즈</button>
 			</div>

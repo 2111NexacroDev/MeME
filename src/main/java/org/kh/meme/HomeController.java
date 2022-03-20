@@ -30,7 +30,7 @@ public class HomeController {
 	
 	// 로그인 페이지
 	@RequestMapping(value="/login.me", method=RequestMethod.GET)
-	public String login() {
+	public String login(Model model) {
 		return ".tilesHead/member/login";
 	}
 	
