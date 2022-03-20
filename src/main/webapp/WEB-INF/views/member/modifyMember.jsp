@@ -33,7 +33,9 @@
 	}
 	.body {
 		height : 80%;
-		margin-top : 5px;
+	}
+	.content {
+		margin-top: -60px;
 	}
 	button {
 		color : #252525;
@@ -160,36 +162,38 @@
 			<div id="subnav">
 			
 			</div>
-			<form action="/member/modifyMember.me" method="POST">
-				<table align="center">
-					<tr>
-						<th width="80px">아이디</th>
-						<td><input id="ipt" type="text" name="memberId" readonly value="${member.memberId }"></td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td><input id="ipt" type="password" name="memberPw" required></td>
-					</tr>
-					<tr>
-						<th>이름</th>
-						<td><input id="ipt" type="text" name="memberName" readonly value="${member.memberName }"></td>
-					</tr>
-					<tr>
-						<th>닉네임</th>
-						<td><input id="ipt" type="text" name="memberNickname" readonly value="${member.memberNickname }"></td>
-					</tr>
-					<tr>
-						<th>이메일</th>
-						<td><input id="ipt" type="text" name="memberEmail" value="${member.memberEmail }" required></td>
-					</tr>
-				</table>
-				<br>
-				<button class="btn_submit" id="modifyMemberButton" type="submit">정보수정</button>
-			</form>
-			<br><br>
-			<div class="footer">
-				<button type="button" onclick="location.href='/'">홈으로</button>
-				<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>
+			<div class="content">
+			
+				<form action="/member/modifyMember.me" method="POST">
+					<table align="center">
+						<tr>
+							<th width="80px">아이디</th>
+							<td><input id="ipt" type="text" name="memberId" readonly value="${member.memberId }"></td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input id="ipt" type="password" name="memberPw" required></td>
+						</tr>
+						<tr>
+							<th>이름</th>
+							<td><input id="ipt" type="text" name="memberName" readonly value="${member.memberName }"></td>
+						</tr>
+						<tr>
+							<th>닉네임</th>
+							<td><input id="ipt" type="text" name="memberNickname" readonly value="${member.memberNickname }"></td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td><input id="ipt" type="text" name="memberEmail" value="${member.memberEmail }" required></td>
+						</tr>
+					</table>
+					<br>
+					<button class="btn_submit" id="modifyMemberButton" type="submit">정보수정</button>
+				</form><br>
+				<div class="footer">
+					<button type="button" onclick="location.href='/'">홈으로</button>
+					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -33,7 +33,9 @@
 	}
 	.body {
 		height : 80%;
-		margin-top : 5px;
+	}
+	.content {
+		margin-top : -60px;
 	}
 	button {
 		color : #252525;
@@ -178,11 +180,11 @@
 				<br>
 				<button class="btn_submit" id="deleteMemberButton" onclick="deleteButton();">회원 탈퇴</button>
 				<p></p>
+				<div class="footer">
+					<button type="button" onclick="location.href='/'">홈으로</button>
+					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
+				</div>
 			</div>
-		</div>
-		<div class="footer">
-			<button type="button" onclick="location.href='/'">홈으로</button>
-			<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 		</div>
 	</div>
 	
