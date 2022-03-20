@@ -150,6 +150,11 @@
 			<button type="submit" style="height:30px; width:100px">Search</button>
 		</div>
 	</form>
+	
+<!-- 	<form action="/board/detail" method="post" >
+		<input type="hidden" name="type" id="type">
+		<input type="hidden" name="keyword" id="keyword">
+	</form> -->
 
 	<script>
 		function boardWriteFunc(){

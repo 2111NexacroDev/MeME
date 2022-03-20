@@ -87,20 +87,20 @@
         
         #choice{
         	color: darkgreen;
-        	font-size: 20px;
+        	font-size: 15px;
         }
         
         #quizQuest {
-        	font-size: 20px
+        	font-size: 18px;
         }
         #answer{
             color: red;
-            font-size: 20px;
+            font-size: 15px;
         }
         
         #userAnswer{
             color: #008F7C;
-            font-size: 20px;
+            font-size: 15px;
         }
         #title_name {
    			font-weight: bold;
@@ -195,7 +195,7 @@ window.onload = function(){
 		    	<br><br><br>
 		</c:forEach>
 		정답 갯수 : ${score }
-		
+		<br><br>
 		<!-- 모달 영역 -->
 		<div id="modal" class="modal-overlay">
 	        <div class="modal-window">
