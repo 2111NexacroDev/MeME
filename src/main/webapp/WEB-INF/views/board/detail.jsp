@@ -225,14 +225,23 @@
 		
 		/* 댓글 수정 영역 */
 		#commentEditTd {
-			padding-right: 25px;
+			padding: 5px 10px 5px 30px;
 		}
-		
+		#modifyCommentVal {
+			padding: 10px;
+			border: 1px solid #ccc;
+			background-color: #fef3ee;
+			border-radius: 5px;
+			font-size: 13px;
+		}
 		/* 수정완료 버튼 */
 		#commentEditButton {
+			width: 60px;
 			background-color: #ffffff;
-			margin-right: 20px;
+			margin: 5px 35px 10px 0;
 			font-size: 13px;
+			text-align: right;
+			color: #f26522;
 		}
 	
 	/* 댓글 등록창 */
@@ -650,9 +659,10 @@
 	function modifyViewComment(obj, commentContents, commentNo){
 // 		alert("test");
 		var $trModify = $("<tr>");
-		$trModify.append("<td colspan='3' align='right' id='commentEditTd'><input type='text' size='65px' value='"+commentContents+"' id='modifyCommentVal'></td>");
-		$trModify.append("<td colspan='2'><button id='commentEditButton' onclick='modifyComment("+commentNo+", \""+commentContents+"\")'>수정완료</button>");
+		$trModify.append("<td colspan='2' align='left' id='commentEditTd'><input type='text' size='80%' value='"+commentContents+"' id='modifyCommentVal'></td>");
+		$trModify.append("<td colspan='2' align='right'><button id='commentEditButton' onclick='modifyComment("+commentNo+", \""+commentContents+"\")'>수정완료</button>");
 		console.log(obj);
+		$(obj).parent().parent().next().remove();
 		$(obj).parent().parent().after($trModify);
 	}
 	
