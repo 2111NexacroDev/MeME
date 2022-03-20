@@ -38,13 +38,6 @@
 </style>
 </head>
 <body>
-	<!-- 	<div>
-		<br>
-		<h1 id="title" align="center">사전 수정/삭제 요청</h1>
-		<br>
-		<hr>
-	</div> -->
-
 	<div class="main">
 		<form id="memeRequestForm" action="/meme/request" method="get"
 			enctype="multipart/form-data">

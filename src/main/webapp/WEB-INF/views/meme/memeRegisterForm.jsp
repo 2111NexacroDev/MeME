@@ -38,14 +38,6 @@
 </style>
 </head>
 <body>
-	<!-- 	<div>
-		<br>
-		<h1 align="center">
-			<strong>사전 등재 요청</strong>
-		</h1>
-		<br>
-		<hr>
-	</div> -->
 	<div class="main">
 		<form action="/meme/register" method="POST"
 			enctype="multipart/form-data">
