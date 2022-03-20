@@ -159,6 +159,7 @@
 				<div class="footer">
 				<br><br>
 					<button type="button" onclick="location.href='/'">홈으로</button>
+					&nbsp;
 					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 				</div>
 			</div>
