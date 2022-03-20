@@ -41,7 +41,7 @@
 	#rankContainer {
 		--background-color: red;
 		position: fixed;
-		height:50%;
+		height:30%;
 		width:19%;
 		float:left;
 		top: 200px;
