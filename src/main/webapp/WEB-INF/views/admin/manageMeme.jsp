@@ -7,37 +7,78 @@
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
 <style>
-.inner {
-	position : absolute;
-	width : 800px;
-	top : 250px;
-	left : 50%;
-	margin-left : -400px;
+	.inner {
+		position : absolute;
+		width : 800px;
+		top : 250px;
+		left : 50%;
+		margin-left : -400px;
 	}
 	
-	#mypageNavi {
-	/* 	background-color : #75582F; */
-		width: 800px;
-		height: 40px;
-		text-align: center;
-	}
-	#subnav {
-		text-align: left;
-		height: 100px;
-		width: 600px;
-	}
-	.header {
-		color: white;
-		background-color: #f26522;
-		height: 30px;
-		text-align: center;
-	}
 	.body {
 		height : 80%;
 	}
+	
+	/* 네비 */
+		#mypageNavi {
+		/* 	background-color : #75582F; */
+			width: 800px;
+			height: 40px;
+			text-align: center;
+		}
+		#subnav {
+			text-align: left;
+			height: 40px;
+			width: 600px;
+		}
+	
 	.content {
-		margin-top: -80px;
+		margin-top: -20px;
 	}
+	
+		table {
+			background-color:white;
+			border:1px solid #ccc;
+			text-align: center;
+		}
+			table td {
+				padding: 3px;
+			}
+			/* table header */
+			.header {
+				color: white;
+				background-color: #f26522;
+				height: 30px;
+			}
+			.tbl_body {
+				
+			}
+			/* 총 너비 600으로 맞춤 (수정, 삭제 버튼 50)*/
+			#tbl_one {
+				width: 80px;
+			}
+			
+			#tbl_two {
+				width: 300px;
+			}
+			
+			#tbl_three {
+				width: 120px;
+			}
+			
+			#tbl_four {
+				width: 100px;
+			}
+			
+			#tbl_five {
+				width: 50px;
+			}
+			
+			#tbl_six {
+				width: 50px;
+			}
+	
+	/* 버튼 스타일 */
 	button {
 		color : #252525;
 		font-weight: bold;
@@ -49,19 +90,8 @@
 		color : #f26522;
 		transition-duration: 0.5s;
 	}
-	#ipt {
-		margin-bottom : 10px;
-		padding-left : 15px;
-		height : 40px;
-		width : 350px;
-		border-radius: 5px;
-		border: 1px solid #808080;
-		background-color : #f9f9f9;
-	}
-	#ipt:focus {
-		border: 1px solid #f26522;
-		background-color : #ededed;
-	}
+	
+	/* #mypageNavi */
 	.btn_nav {
 		font-size: 16px;
 	    color: #ffffff;
@@ -89,64 +119,19 @@
 	    color: #ffffff;
 	    transition-duration: 0.5s;
 	}
-	.btn_submit {
-		font-size: 16px;
-	    color: #ffffff;
-	    background-color: #252525;
-		width: 350px;
-		height: 60px;
-		padding-top: 5px;
-		transition-duration: 0.5s;
-	}
-	.btn_submit:hover {
-		background-color: #f26522;
-	    color: #ffffff;
-	    transition-duration: 0.5s;
-	}
-	.btn_rtn {
-	margin-top: 5px;
-	}
 	
-	#tbl_one {
-		width: 35px;
-	}
-	
-	#tbl_two {
-		width: 300px;
-	}
-	
-	#tbl_three {
-		width: 80px;
-	}
-	
-	#tbl_four {
-		width: 100px;
-	}
-	
-	#tbl_five {
-		width: 50px;
-	}
-	
-	#tbl_six {
-		width: 50px;
-	}
-	.sub {
-		font-size: smaller;
-	}
+	/* #subnav */
 	.btn_subnav_sel {
 		color : #f26522;
 	}
-	.btn_mod {
-		background-color: blue;
-		color : #ffffff;
+	
+	/* 수정, 삭제 버튼 */
+	.btn_mod, .btn_del { 
+		background-color: #ffffff;
+		--color : #ffffff;
+		font-weight: normal;
 	}
-	.btn_del {
-		background-color: red;
-		color : #ffffff;
-	}
-	.tbl_body {
-		text-align: center;
-	}
+	
 	
 </style>
 </head>
@@ -173,7 +158,7 @@
 					<tr class="header">
 						<th id="tbl_one">번호</th>
 						<th id="tbl_two">유행어</th>
-						<th id="tbl_three">출처</th>
+						<th id="tbl_three">작성자</th>
 						<th id="tbl_four">등재일</th>
 						<th>&nbsp;</th>
 					</tr>
@@ -186,7 +171,7 @@
 							<td><a href="${mDetail }">${allMemeList.memeName }</a></td>
 							<td>${allMemeList.memberNickname }</td>
 							<td>${allMemeList.memeDate }</td>
-							<td><button>삭제</button></td>
+							<td><button class="btn_del">삭제</button></td>
 						</tr>
 					</c:forEach>
 				</table>
