@@ -42,11 +42,11 @@
 	.rankTabCon{
 	  display:none; 
 	  text-align:left; 
-	  padding: 20px;
+	  padding: 15px;
 	  position:absolute; 
 	  left:0; top:40px; 
 	  box-sizing: border-box; 
-	  border : 5px solid #f26522;
+	  border : 3px solid #f26522;
 	  width : 100%;
 	}
 	.tabmenu input:checked ~ label{
@@ -60,15 +60,19 @@
 	#rankTable {
 		text-align : center;
 		color: black;
-		border : 1px solid black;
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
 	}
 	
 	#rankTable th {
 		height : 30px;
-		
+		border-bottom : 1px solid black;
 	}
-	#rankTable tr {
+	#rankTable td {
 		height : 25px;
+		padding: 3px;
+		border : none;
+		border-bottom : 1px solid #ccc;
 	}
 	
 </style>
@@ -79,7 +83,7 @@
 	    <li id="tab1" class="btnCon"> <input type="radio" name="tabmenu" id="tabmenu1">
 	      <label for="tabmenu1">유행어</label>
 	      <div class="rankTabCon">
-	      	<table id="rankTable" align="center" border="1">
+	      	<table id="rankTable" align="center">
 			<!-- 번호, 제목, 작성자, 날짜, 조회수, 첨부파일 -->
 				<tr>
 					<th width="50" >등수</th>
@@ -98,7 +102,7 @@
 	    <li id="tab2" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu2">
 	      <label for="tabmenu2">추진</label>
 	      <div class="rankTabCon">
-	      	<table id="rankTable" align="center" border="1">
+	      	<table id="rankTable" align="center">
 			<!-- 번호, 제목, 작성자, 날짜, 조회수, 첨부파일 -->
 				<tr>
 					<th width="50" >등수</th>
@@ -119,7 +123,7 @@
 	    <li id="tab3" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu3">
 	      <label for="tabmenu3">자유</label>
 	      <div class="rankTabCon">
-	      		<table id="rankTable" align="center" border="1">
+	      		<table id="rankTable" align="center">
 				<!-- 번호, 제목, 작성자, 날짜, 조회수, 첨부파일 -->
 					<tr>
 						<th width="50" >등수</th>
@@ -139,7 +143,7 @@
 	    <li id="tab4" class="btnCon"><input type="radio" name="tabmenu" id="tabmenu4">
 	      <label for="tabmenu4">퀴즈</label>
 	      <div class="rankTabCon">
-	      	<table id="rankTable" align="center" border="1">
+	      	<table id="rankTable" align="center">
 			<!-- 번호, 제목, 작성자, 날짜, 조회수, 첨부파일 -->
 				<tr>
 					<th width="50" >등수</th>

@@ -77,6 +77,7 @@ public class BoardServiceImpl implements BoardService {
 		if(result > 0) {
 			bStore.deleteBoardFile(sqlSession, boardNo);
 			bStore.deleteCommentBoardNo(sqlSession, boardNo);
+			bStore.deleteRecommendBoardNo(sqlSession, boardNo);
 		}
 		return result;
 	}

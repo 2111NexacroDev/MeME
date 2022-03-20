@@ -92,18 +92,23 @@ public class BoardStoreLogic implements BoardStore{
 		return result;
 	}
 
+	//게시글 지워질 때 댓글 같이 삭제
 	@Override
 	public int deleteBoardFile(SqlSession sqlSession, Integer boardNo) {
 		int result = sqlSession.delete("BoardMapper.deleteBoardFile", boardNo);
 		return result;
 	}
 	
-	//게시글 지워질 때 댓글 같이 삭제
 	@Override
 	public void deleteCommentBoardNo(SqlSession sqlSession, Integer boardNo) {
 		sqlSession.delete("BoardMapper.deleteCommentByBoardNo", boardNo);
 	}
 	
+	@Override
+	public void deleteRecommendBoardNo(SqlSession sqlSession, Integer boardNo) {
+		sqlSession.delete("BoardMapper.deleteRecommendByBoardNo", boardNo);
+		
+	}
 	
 	
 	//게시판 상세 페이지
@@ -192,6 +197,8 @@ public class BoardStoreLogic implements BoardStore{
 		int result = sqlSession.update("BoardMapper.updateBoardReportManagerToY", boardNo);
 		return result;
 	}
+
+
 
 
 

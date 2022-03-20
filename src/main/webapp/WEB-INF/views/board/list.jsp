@@ -15,39 +15,73 @@
 		width:700px;
 		text-align: right;
 		margin: auto;
+		margin-bottom: 5px;
 	}
-		#writeButton {
-			border : 1px solid black;
-			border-radius : 5px;
-			padding : 3px;
-		}
 		
+		
+     	
+     	/* 검정색 */
+		#writeButton {
+     		border : 1px solid #ccc;
+     		background-color: #ffffff;
+     		color: black;
+			border-radius : 5px;
+			padding : 5px 8px;
+			font-size:13px;
+			font-weight: bold;
+     	}
+     	
+		/* 주황색 */
+ 		#writeButton:hover {
+     		border : 1px solid #f26522;
+     		background-color: #fef3ee;
+     		color: #f26522;
+			border-radius : 5px;
+			padding : 5px 8px;
+			font-size:13px;
+			font-weight: bold;
+     	} 
+     	
 	#boardTable{
 		border: 1px solid black;
 		width:700px;
 		text-align: center;
 		margin: auto;
+		border-collapse: collapse;
+		
 	}
-	#boardTable th{
+	
+	#boardTable td, #boardTable th {
+	  	border: 1px solid #ddd;
+	  	padding: 6px;
+	}
+	
+	#boardTable tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#boardTable tr:hover {background-color: #ddd;}
+	
+	#boardTable th {
 		height: 30px;
-		background-color:#f26522  ;
-		color:  white;
+	  	padding-top: 10px;
+	  	padding-bottom: 10px;
+	  	text-align: center;
+	  	background-color: #f26522;
+		color: white;
 	}
-	
-	#boardTable th, td{
-		border: 1px solid black;
-	}
-	
+
 </style>
 </head>
 <body>
 <br>
+
 	<!-- 글쓰기 버튼 -->
 	<div id="boardWriteButton">
 		<button type="button" id="writeButton" onclick="boardWriteFunc();">
 			<i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기
 		</button>
 	</div>
+	
+	
 	<table id="boardTable">
 		<tr>
 			<th>번호</th>
@@ -81,6 +115,7 @@
 		</c:forEach>
 		
 	</table>
+
 	<br>
 	<br>
 	
