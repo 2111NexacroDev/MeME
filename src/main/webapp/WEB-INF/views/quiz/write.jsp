@@ -31,7 +31,7 @@
 			font-size: 14px;
 		}
 		
-		
+	/*문제 작성란*/
 	#quizQuest {
 		width:95%;
 		resize: none;
@@ -39,7 +39,7 @@
 		margin: 15px;
 		border: none;
 	}
-	
+	/*정답 작성란*/
 	#quizAnswer {
 		width:95%;
 		margin : 15px;
@@ -48,13 +48,14 @@
 		padding: 10px;
 		border: none;
 	}
-	
+	/*객관식 보기 작성란*/
 	#choice {
 		width:100%;
 		margin : 15px;
 		margin-top: 0;
 		margin-bottom: 0;
 		padding: 10px;
+		padding-top:0;
 		--border: none;
 	}
 		#plus, #minus {
@@ -65,10 +66,17 @@
 			border: 1px solid #ccc;
 			border-radius: 50%;
 		}
+		
+		#choice input[type="text"] {
+			font-size: 14px;
+			border: none;
+			margin-bottom :5px;
+		}
 	
 	#image_preview {
 		width:95%;
 		margin : 15px;
+		margin-left: 20px;
 		margin-top: 0;
 		padding: 5px;
 	}
@@ -77,7 +85,7 @@
 		}
 	
 	#att_zone{
-		width: 100%;
+		width: 98%;
 		min-height:150px;
 		padding:10px;
 		border:1px dotted #f26522;
@@ -292,10 +300,8 @@
 	    
 	    <input id="quizAnswer" type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51"><br>
 
-	    
-	   	
 	    <div id="choice" style="display: none;">
-			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40"> &nbsp;&nbsp;
+			<input style="border:none; margin:5px 0 5px 0; padding-left:0" type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40"> &nbsp;&nbsp;
 			<input type="button" id="plus" value="+">
 			<input type="button" id="minus" value="-">
 			<br>
@@ -309,7 +315,6 @@
 				첨부 이미지 &nbsp&nbsp&nbsp&nbsp<input type='file' id='btnAtt' multiple='multiple' name="uploadFile" accept="image/*"/>
 			</div> 
 			
-			<br>
 			<div style="margin-bottom: 10px;">이미지 미리보기</div>
 			
 			<div id='att_zone' 
