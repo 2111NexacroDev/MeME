@@ -64,6 +64,13 @@ public class MemeServiceImpl implements MemeService{
 		return result;
 	}
 
+	//검색제안
+	@Override
+	public List<Meme> printMemeSuggesion(String memeName) {
+		List<Meme> printMemeSuggesion = mStore.selectMemesuggesstion(sqlSession, memeName);
+		return printMemeSuggesion;
+	}
+	
 	//사전 수정삭제 요청
 	@Override
 	public int requestMeme(MemeRequest memeRequest) {
@@ -108,6 +115,10 @@ public class MemeServiceImpl implements MemeService{
 		List<Meme> memeSixthTimeline = mStore.selectSixthTimeline(sqlSession);
 		return memeSixthTimeline;
 	}
+
+
+
+
 
 
 
