@@ -188,7 +188,28 @@
 		
 		/* 닉네임 영역 */
 		#commentNicknametd {
-			padding-left: 20px;
+			padding: 10px 0 5px 30px;
+			font-weight: bold;
+			text-align: left;
+		}
+		
+		/*날짜 영역*/
+		#commentDate {
+			align: right;
+			text-align: right;
+			padding: 10px 30px 5px 0;
+		}
+		
+		#commentBtntd {
+			align: right;
+			text-align: right;
+			padding: 10px 10px 5px 0;
+		}
+		
+		#commentContenttd {
+			align: right;
+			padding-left: 30px;
+			padding: 5px 0 10px 30px;
 		}
 		
 		/* 댓글 수정 버튼 */
@@ -556,19 +577,20 @@
 				if(data.length > 0){
 					for(var i in data){
 						//배열의 인덱스를 가져오는 구문
-						$tr = $("<tr height='30'>");
+						$tr = $("<tr height='25'>");
+						$tr2 = $("<tr height='25'>");
 						//기능이없는 $, tr태그 만들어줌
-						$commentWriter = $("<td id='commentNicknametd' width='100'>").text(data[i].memberNickname);
-						$commentContent = $("<td align='left'>").text(data[i].commentContents);
+						$commentWriter = $("<td id='commentNicknametd' width='15%'>").text(data[i].memberNickname);
+						$commentContent = $("<td id='commentContenttd' colspan='4' align='left'>").text(data[i].commentContents);
 						//데이터를 포함하고 있는 td
 						
-						$commentDate = $("<td width='120'>").text(data[i].commentDate);
+						$commentDate = $("<td id='commentDate' width='50%'>").text(data[i].commentDate);
 // 						$commentDate = $("<td width='200'>").text(data[i].commentDate)
 // 										.append("&nbsp&nbsp <a href='javascript:void(0);' onclick='modifyViewComment(this);'> 수정 </a>")
 // 										.append("<a href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");			
 						if(data[i].memberId == memberId) {
 							//$commentDate = $("<td width='120'>").text(data[i].commentDate);
-							$btnArea = $("<td width='80'>")
+							$btnArea = $("<td id='commentBtntd' width='10%'>")
 										.append("<a id='commentUpdateButton' href='javascript:void(0);' onclick='modifyViewComment(this, \""+data[i].commentContents+"\", "+data[i].commentNo+" );'> 수정 </a>")
 										.append("<a id='commentDeleteButton' href='javascript:void(0);' onclick='removeComment("+data[i].commentNo+");'>삭제 </a>");	
 						} else {
@@ -579,15 +601,17 @@
 						$line = $("<tr> <td colspan='4'> <hr style='width:670px;'>");
 						
 						$tr.append($commentWriter);
-						$tr.append($commentContent);
+						//$tr.append($commentContent);
 						$tr.append($commentDate);
 						
 						if(data[i].memberId == memberId){
 							$tr.append($btnArea);
 						}
 						
+						$tr2.append($commentContent);
 						
 						$tableBody.append($tr);
+						$tableBody.append($tr2);
 						$tableBody.append($line);
 						//크기만큼 반복
 						//여기까지 해야 댓글 가능
