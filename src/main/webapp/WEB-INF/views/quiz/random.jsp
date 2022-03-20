@@ -18,7 +18,12 @@
 		margin: auto;
 	}
 	
+	#question {
+		font-size: 20px;
+	}
+	
 	[id^='ch'] {
+		font-size: 20px;
 		color: #008F7C;
 	}
 	#type {
@@ -26,6 +31,10 @@
 	}
 	#title_name {
    font-weight: bold;
+	}
+	
+	#quest_Q {
+		height:350px;
 	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -177,8 +186,7 @@
 		</div>
 		<br>
 		<div id="quest">
-			<img src="/resources/images/quiz_Q.png">
-			<br>
+			<div id="quest_Q">
 			<b id="question"></b> <br>
 			<div id="quizFile">
 			</div>
@@ -187,10 +195,9 @@
 			<div id="ch3"></div>
 			<div id="ch4"></div>
 			<br> <br> <br>
-			<img src="/resources/images/quiz_A.png">
-				<br>
+				</div>
 			<div>
-				<input type="text" id="answer" size="50">
+				<input type="text" id="answer" size="65">
 			</div>
 			
 		</div>

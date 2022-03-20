@@ -16,6 +16,7 @@
 			width: 500px;
 			text-align: left;
 			margin: auto;
+			background-color: #f9f9f9;
 		}
 		button{
 			background-color: red;
@@ -85,15 +86,21 @@
         }
         
         #choice{
-        	color: darkgreen
+        	color: darkgreen;
+        	font-size: 20px;
         }
         
+        #quizQuest {
+        	font-size: 20px
+        }
         #answer{
             color: red;
+            font-size: 20px;
         }
         
         #userAnswer{
             color: #008F7C;
+            font-size: 20px;
         }
         #title_name {
    			font-weight: bold;
@@ -169,7 +176,7 @@ window.onload = function(){
 <body>
 	<div id="quizContents">
 		<c:forEach var="i" items="${qList}" varStatus="vs">
-			<b><img src="/resources/images/quiz_Q.png"> ${i.quizQuest} <br></b>
+			<b id="quizQuest"> ${i.quizQuest}</b><br>
 			<c:forEach var="j" items="${i.fileName}">
 					<img src="/resources/quizUploadFiles/${j}"><br>
 			</c:forEach>
@@ -182,7 +189,7 @@ window.onload = function(){
 		    	(4) ${i.quizCh4} <br>
 		    	</div>
 	    	</c:if>
-		    	<div id="answer"><img src="/resources/images/quiz_A.png"> ${i.quizAnswer} <br></div>
+		    	<div id="answer">정답 : ${i.quizAnswer} <br></div>
 		    	<div id="userAnswer">나의 답 : ${userAnswer[vs.index] } <br></div>
 		        <button align="right" class="btn-modal" id="${i.quizNo}"><img src="/resources/images/quiz_report.png"></button>
 		    	<br><br><br>
