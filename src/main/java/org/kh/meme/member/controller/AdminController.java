@@ -29,7 +29,7 @@ public class AdminController {
 	
 	// 관리자 페이지 이동
 	@RequestMapping(value="/admin/adminHome.me", method=RequestMethod.GET)
-	public String adminHome(HttpServletRequest request) {
+	public String adminHome(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("loginMember");
 		if(member == null) {
@@ -37,7 +37,7 @@ public class AdminController {
 		}else if(member.getmGrade().equals("M")) {
 			return ".tilesHead/admin/error";
 		}
-		
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/adminHome";
 	}
 	
@@ -63,6 +63,7 @@ public class AdminController {
 		List<Member> allMemberList = aService.printAllMember(pi);
 		model.addAttribute("allMemberList", allMemberList);
 		
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageMember";
 	}
 	
@@ -88,6 +89,7 @@ public class AdminController {
 		
 		List<Meme> allMemeList = aService.printAllMeme(pi);
 		model.addAttribute("allMemeList", allMemeList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageMeme";
 	}
 	
@@ -112,6 +114,7 @@ public class AdminController {
 		
 		List<MemeRequest> allMemeList = aService.printAllMemeRequest(pi);
 		model.addAttribute("allMemeRequestList", allMemeList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageMemeRequest";
 	}
 	
@@ -136,6 +139,7 @@ public class AdminController {
 		
 		List<Board> allBoardList = aService.printAllBoard(pi);
 		model.addAttribute("allBoardList", allBoardList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageBoard";
 	}
 	
@@ -161,12 +165,13 @@ public class AdminController {
 		
 		List<Board> reportBoardList = aService.printAllReportBoard(pi);
 		model.addAttribute("reportBoardList", reportBoardList);
+		model.addAttribute("title", "관리자 페이지");
 		
 		return ".tilesHead/admin/manageBoardReported";
 	}
 	
 
-	// 관리자 페이지 - 게시글 상태
+	// 관리자 페이지 - 숨긴 글 관리
 	@RequestMapping(value="/admin/manageBoardStatus.me", method=RequestMethod.GET)
 	public String manageBoardStatus(HttpServletRequest request
 			, Model model
@@ -188,6 +193,7 @@ public class AdminController {
 		
 		List<Board> statusNBoardList = aService.printStatusNBoard(pi);
 		model.addAttribute("statusNBoardList", statusNBoardList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageBoardStatus";
 	}
 	
@@ -213,6 +219,7 @@ public class AdminController {
 		
 		List<Quiz> allQuizList = aService.printAllQuiz(pi);
 		model.addAttribute("allQuizList", allQuizList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageQuiz";
 	}
 	
@@ -236,6 +243,7 @@ public class AdminController {
 		
 		List<QuizReport> allQuizReportList = aService.printAllQuizReportRequest(pi);
 		model.addAttribute("allQuizReportList", allQuizReportList);
+		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageQuizReported";
 	}
 }

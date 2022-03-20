@@ -8,126 +8,149 @@
 <title>관리자 페이지</title>
 <style>
 	.inner {
-/* 		position: absolute; */
-		width: 700px;
-		top: 50%;
-		left: 50%;
-		text-align: center;
-		margin: auto;
-/* 		border: 1px solid black; */
-	/* 	margin-top: -250px; */
-	/* 	margin-left: -350px; */
-		background-color: #f9f9f9;
+	position : absolute;
+	width : 900px;
+	top : 250px;
+	left : 50%;
+	margin-left : -450px;
 	}
 	
-	.body {
-/* 		height: 80%; */
-	}
-	.content {
-		height : 60%;
-		width : 100%;
-		margin: auto;
-		text-align: center;
-	}
-	.pi {
-		height : 10%;
-	}
-	.footer {
-		height : 10%;
-	}
-
 	#mypageNavi {
 	/* 	background-color : #75582F; */
+		width: 800px;
+		height: 40px;
+		text-align: center;
+	}
+	#subnav {
+		text-align: left;
+		height: 100px;
+		width: 600px;
+	}
+	.header {
+		color: white;
+		background-color: #f26522;
+		height: 30px;
+		text-align: center;
+	}
+	.body {
+		height : 80%;
+	}
+	.content {
+		margin-top: -80px;
+	}
+	button {
+		color : #252525;
 		font-weight: bold;
-		width: 500px;
-		height: 50px;
-		text-align: center;
-		margin: auto;
+		border-radius: 5px;
+		transition-duration: 0.5s;
+		background-color : #f9f9f9;
+	}
+	button:hover {
+		color : #f26522;
+		transition-duration: 0.5s;
+	}
+	#ipt {
+		margin-bottom : 10px;
+		padding-left : 15px;
+		height : 40px;
+		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #808080;
+		background-color : #f9f9f9;
+	}
+	#ipt:focus {
+		border: 1px solid #f26522;
+		background-color : #ededed;
+	}
+	.btn_nav {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+		transition-duration: 0.5s;
+	}
+	.btn_nav:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_nav_sel {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #f26522;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+	}
+	.btn_nav_sel:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_submit {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 350px;
+		height: 60px;
+		padding-top: 5px;
+		transition-duration: 0.5s;
+	}
+	.btn_submit:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_rtn {
+	margin-top: 5px;
 	}
 	
-	#mypageNavi ul {
-		list-style-type : none;
-		padding-left : 50px;
-	}
-	
-	#mypageNavi li {
-		color : #DB4000;
-		float : left;
-	/* 	background-color : white; */
-		padding-right : 10px;
-		text-align : center;
-	}
-	#mypageNavi li a {
-		color : black;
-		display : block;
-		text-decoration : none;
-		text-align : center;
-	}
-	#mypageNavi li a.current {
-		color : white;
-		background-color : #DB4000;
-	}
-	
-	#part {
-		text-align: center;
-	font-size: smaller;
-		width: 150px;
-	}
-	
-	#no {
-		text-align: center;
-	font-size: smaller;
+	#tbl_one {
 		width: 50px;
 	}
 	
-	#question {
-		text-align: center;
-	font-size: smaller;
+	#tbl_two {
+		width: 50px;
+	}
+	
+	#tbl_three {
 		width: 500px;
 	}
 	
-	#answer {
-		text-align: center;
-		font-size: smaller;
-		width: 200px;
-	}
-	
-	#writer {
-		text-align: center;
-		font-size: smaller;
+	#tbl_four {
 		width: 100px;
 	}
 	
-	#date {
-		text-align: center;
-		font-size: smaller;
-		width: 200px;
+	#tbl_five {
+		width: 100px;
 	}
 	
-	#views {
-		text-align: center;
- 		font-size: smaller; 
-		width: 50px;
+	#tbl_six {
+		width: 130px;
 	}
-	#delete {
-		text-align: center;
-		font-size: smaller;
-		width: 40px;
+	#tbl_seven {
+		width: 60px;
 	}
-	
-
-	.header {
-		color: white;
-		background-color: #A64E08  ;
-		height: 30px;
-	}
-	
 	.sub {
 		font-size: smaller;
 	}
-	button {
-		color : #8F2B00;
+	.btn_subnav_sel {
+		color : #f26522;
 	}
+	.btn_mod {
+		background-color: blue;
+		color : #ffffff;
+	}
+	.btn_del {
+		background-color: red;
+		color : #ffffff;
+	}
+	.tbl_body {
+		text-align: center;
+	}
+	
 </style>
 </head>
 <body>
@@ -135,37 +158,33 @@
 
 	<div class="inner" align="center">
 		<div class="body">
-
-			<br>
+		
 			<div id="mypageNavi">
-				<ul>
-					<li><a href="/admin/manageMember.me">회원 관리</a></li>
-					<li><a href="/admin/manageMeme.me">유행어 사전 관리</a></li>
-					<li><a href="/admin/manageBoard.me">추진/자유게시판 관리</a></li>
-					<li>퀴즈 관리</li>
-				</ul>
-				<br>
-				<ul class="sub">
-					<li>전체 퀴즈 목록</li>
-					<li><a href="/admin/manageQuizReported.me">신고된 퀴즈 목록</a></li>
-				</ul>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMember.me'">회원 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
+				<button type="button" class="btn_nav_sel" onclick="location.href='/admin/manageQuiz.me'">퀴즈 관리</button>
+			</div><br>
+			<div id="subnav">
+				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageQuiz.me'">전체 퀴즈 목록</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageQuizReported.me'">신고된 퀴즈 목록</button>&nbsp;&nbsp;
 			</div>
 			
 			<br>
 			<div class="content">
 				<table align="center" border="1">
 					<tr class="header">
-						<th id="part">유형</th>
-						<th id="no">번호</th>
-						<th id="question">퀴즈내용</th>
-						<th id="answer">정답</th>
-						<th id="writer">출제자</th>
-						<th id="date">작성일</th>
-						<th id="delete">&nbsp</th>
+						<th id="tbl_one">유형</th>
+						<th id="tbl_two">번호</th>
+						<th id="tbl_three">퀴즈내용</th>
+						<th id="tbl_four">정답</th>
+						<th id="tbl_five">출제자</th>
+						<th id="tbl_six">작성일</th>
+						<th id="tbl_seven">&nbsp;</th>
 					</tr>
 					<c:forEach items="${allQuizList }" var="allQuizList">
-						<tr>
-							<td id="part">
+						<tr class="tbl_body">
+							<td>
 								<c:if test="${allQuizList.quizType eq 'O'}">
 			    					O/X
 								</c:if>
@@ -176,12 +195,12 @@
 			    					객관식
 								</c:if>
 							</td>
-							<td id="no">${allQuizList.quizNo }</td>
-							<td id="question">${allQuizList.quizQuest }</td>
-							<td id="answer">${allQuizList.quizAnswer }</td>
-							<td id="writer">${allQuizList.memberId }</td>
-							<td id="date">${allQuizList.quizDate }</td>
-							<td id="delete">
+							<td>${allQuizList.quizNo }</td>
+							<td>${allQuizList.quizQuest }</td>
+							<td>${allQuizList.quizAnswer }</td>
+							<td>${allQuizList.memberId }</td>
+							<td>${allQuizList.quizDate }</td>
+							<td>
 							<form action='<c:url value="/quiz/delete.me">
 								<c:param name="quizNo" value="${allQuizList.quizNo }"></c:param>
 								</c:url>' method="post">
