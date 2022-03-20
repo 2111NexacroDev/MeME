@@ -7,113 +7,145 @@
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
 <style>
-.inner {
-/* 		position: absolute; */
-		width: 700px;
-		height: 600px;
-		top: 50%;
-		left: 50%;
-		text-align: center;
-		margin: auto;
-	/* 	margin-top: -250px; */
-	/* 	margin-left: -350px; */
-		background-color: #f9f9f9;
+	.inner {
+	position : absolute;
+	width : 800px;
+	top : 250px;
+	left : 50%;
+	margin-left : -400px;
 	}
 	
-	.body {
-/* 		height: 80%; */
-	}
-	.content {
-		height : 60%;
-		width : 80%;
-		margin: auto;
-		text-align: center;
-	}
-	.pi {
-		height : 10%;
-	}
-	.footer {
-		height : 10%;
-	}
-
 	#mypageNavi {
 	/* 	background-color : #75582F; */
-		font-weight: bold;
-		width: 500px;
-		height: 50px;
+		width: 800px;
+		height: 40px;
 		text-align: center;
-		margin: auto;
 	}
-	
-	#mypageNavi ul {
-		list-style-type : none;
-		padding-left : 50px;
-	}
-	
-	#mypageNavi li {
-		color : #DB4000;
-		float : left;
-	/* 	background-color : white; */
-		padding-right : 10px;
-		text-align : center;
-	}
-	#mypageNavi li a {
-		color : black;
-		display : block;
-		text-decoration : none;
-		text-align : center;
-	}
-	#mypageNavi li a.current {
-		color : white;
-		background-color : #DB4000;
-	}
-	
-	
-	#part {
-		width: 35px;
-	}
-	
-	#no {
-		width: 50px;
-	}
-	
-/* 	#title {
-		width: 150px;
-	} */
-	
-	#date {
-		width: 100px;
-	}
-	
-	#like {
-		width: 50px;
-	}
-	
-	#comment {
-		width: 50px;
-	}
-	#delete {
-		width: 35px;
-	}
-	.content {
-		background-color : #EBB388 ;
-		width: 50%;
-		height: 70%;
-		padding-top: 50px;
-		padding-bottom: 50px;
+	#subnav {
+		text-align: left;
+		height: 100px;
+		width: 600px;
 	}
 	.header {
 		color: white;
-		background-color: #4A4646;
+		background-color: #f26522;
 		height: 30px;
+		text-align: center;
+	}
+	.body {
+		height : 80%;
+		margin-top : 5px;
+	}
+	button {
+		color : #252525;
+		font-weight: bold;
+		border-radius: 5px;
+		transition-duration: 0.5s;
+		background-color : #f9f9f9;
+	}
+	button:hover {
+		color : #f26522;
+		transition-duration: 0.5s;
+	}
+	#ipt {
+		margin-bottom : 10px;
+		padding-left : 15px;
+		height : 40px;
+		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #808080;
+		background-color : #f9f9f9;
+	}
+	#ipt:focus {
+		border: 1px solid #f26522;
+		background-color : #ededed;
+	}
+	.btn_nav {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+		transition-duration: 0.5s;
+	}
+	.btn_nav:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_nav_sel {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #f26522;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+	}
+	.btn_nav_sel:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_submit {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 350px;
+		height: 60px;
+		padding-top: 5px;
+		transition-duration: 0.5s;
+	}
+	.btn_submit:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_rtn {
+	margin-top: 5px;
 	}
 	
+	#tbl_one {
+		width: 35px;
+	}
+	
+	#tbl_two {
+		width: 50px;
+	}
+	
+	#tbl_three {
+		width: 150px;
+	}
+	
+	#tbl_four {
+		width: 100px;
+	}
+	
+	#tbl_five {
+		width: 50px;
+	}
+	
+	#tbl_six {
+		width: 50px;
+	}
 	.sub {
 		font-size: smaller;
 	}
-	button {
-		color : #8F2B00;
+	.btn_subnav_sel {
+		color : #f26522;
 	}
+	.btn_mod {
+		background-color: blue;
+		color : #ffffff;
+	}
+	.btn_del {
+		background-color: red;
+		color : #ffffff;
+	}
+	.tbl_body {
+		text-align: center;
+	}
+	
 </style>
 </head>
 <body>
@@ -121,30 +153,27 @@
 
 	<div class="inner" align="center">
 		<div class="body">
-
-			<br>
 			<div id="mypageNavi">
-				<ul>
-					<li><a href="/admin/manageMember.me">회원 관리</a></li>
-					<li><a href="/admin/manageMeme.me">유행어 사전 관리</a></li>
-					<li><a href="/admin/manageBoard.me">추진/자유게시판 관리</a></li>
-					<li><a href="/admin/manageQuiz.me">퀴즈 관리</a></li>
-				</ul>
+					<button type="button" class="btn_nav" onclick="location.href='/admin/manageMember.me'">회원 관리</button>
+					<button type="button" class="btn_nav" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
+					<button type="button" class="btn_nav" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
+					<button type="button" class="btn_nav" onclick="location.href='/admin/manageQuiz.me'">퀴즈 관리</button>
+			</div>
+			<div id="subnav">
 			</div>
 			
 			<div class="content">
-				<h3>관리자 페이지에 오신것을<br>
-					환영합니다.</h3>			
+				<h1 style="font-weight: bold;">관리자 페이지에 오신것을<br>
+					환영합니다.</h1>
 			</div>
 		</div>
 <!-- 		<div style="text-align:center" class="pi"> -->
 <!-- 		</div> -->
-		<p></p>
+		<br><br>
 		<div class="footer">
 			<button type="button" onclick="location.href='/'">홈으로</button>
 			<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 		</div>
-		<p></p>
 	</div>
 </body>
 </html>
