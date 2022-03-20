@@ -26,6 +26,28 @@
 	#title_name {
    			font-weight: bold;
 	}
+	
+	/* 등록 버튼 */
+ 	#writeSubmitButton {
+		border : 1px solid #f26522;
+		background-color: #fef3ee;
+		color: #f26522;
+		border-radius : 5px;
+		padding : 5px 10px;
+		font-size:13px;
+		font-weight: bold;
+		margin-right: 5px;
+ 	}
+ 	
+ 	#writeCancelButton {
+		border : 1px solid #888;
+		background-color: #ffffff;
+		color: #888;
+		border-radius : 5px;
+		padding : 5px 10px;
+		font-size:13px;
+		font-weight: bold;
+ 	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -209,8 +231,8 @@
 		</div>
 		<br>
 		<div align="right">
-		    <input type="submit" value="등록">
-		    <input type="button" value="취소">
+		    <input type="submit" id="writeSubmitButton" value="등록하기">
+		    <input type="button" id="writeCancelButton" value="취소" onclick="history.back();">
 		</div>
 		
 	   

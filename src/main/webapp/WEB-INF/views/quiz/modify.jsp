@@ -14,7 +14,7 @@
 		margin: auto;
 	}
 	#att_zone{
-	width: 660px;
+	width: 400px;
 	min-height:150px;
 	padding:10px;
 	border:1px dotted #00f;
@@ -27,6 +27,28 @@
 	#title_name {
    font-weight: bold;
 	}
+	
+	/* 등록 버튼 */
+ 	#writeSubmitButton {
+		border : 1px solid #f26522;
+		background-color: #fef3ee;
+		color: #f26522;
+		border-radius : 5px;
+		padding : 5px 10px;
+		font-size:13px;
+		font-weight: bold;
+		margin-right: 5px;
+ 	}
+ 	
+ 	#writeCancelButton {
+		border : 1px solid #888;
+		background-color: #ffffff;
+		color: #888;
+		border-radius : 5px;
+		padding : 5px 10px;
+		font-size:13px;
+		font-weight: bold;
+ 	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -213,17 +235,17 @@ $(document).ready(function(){
 	    </select>
 	    
 	    <br>
-	    <textarea name="quizQuest" cols="50" rows="10" placeholder="문제를 입력 해주세요">${quiz.quizQuest }</textarea><br><br>
-	    <input type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" value="${quiz.quizAnswer }"><br>
+	    <textarea name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요">${quiz.quizQuest }</textarea><br><br>
+	    <input type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" value="${quiz.quizAnswer }" size="51"><br>
 	    <br>
 	    <div id="choice" style="display: none;">
-			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요" value="${quiz.quizCh1 }"> &nbsp;&nbsp;
+			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요" value="${quiz.quizCh1 }" size="40"> &nbsp;&nbsp;
 			<input type="button" id="plus" value="+">
 			<input type="button" id="minus" value="-">
 			<br>
-			<input type="text" name="quizCh2" placeholder="보기를 입력 해주세요" value="${quiz.quizCh2 }">
-			<input type="text" name="quizCh3" id="quizCh3" placeholder="보기를 입력 해주세요" style="display: none" value="${quiz.quizCh3 }">
-			<input type="text" name="quizCh4" id="quizCh4" placeholder="보기를 입력 해주세요" style="display: none" value="${quiz.quizCh4 }">
+			<input type="text" name="quizCh2" placeholder="보기를 입력 해주세요" value="${quiz.quizCh2 }" size="40">
+			<input type="text" name="quizCh3" id="quizCh3" placeholder="보기를 입력 해주세요" style="display: none" value="${quiz.quizCh3 }" size="40">
+			<input type="text" name="quizCh4" id="quizCh4" placeholder="보기를 입력 해주세요" style="display: none" value="${quiz.quizCh4 }" size="40">
 		</div>
 		첨부 이미지
 		<br>
@@ -233,8 +255,11 @@ $(document).ready(function(){
 			<div id='att_zone' 
 			      data-placeholder='이미지 파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
 		</div>
-	    <input type="submit" value="수정">
-	    <input type="button" value="취소">
+		<br>
+		<div align="right">
+	    <input type="submit" id="writeSubmitButton" value="수정하기">
+	    <input type="button" id="writeCancelButton" value="취소" onclick="history.back();">
+	    </div>
 	    <input type="hidden" name="quizNo" value="${quiz.quizNo }">
     </form>
     

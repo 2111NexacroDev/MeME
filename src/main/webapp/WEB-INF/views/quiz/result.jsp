@@ -169,7 +169,7 @@ window.onload = function(){
 <body>
 	<div id="quizContents">
 		<c:forEach var="i" items="${qList}" varStatus="vs">
-			<b>문제 : ${i.quizQuest} <br></b>
+			<b><img src="/resources/images/quiz_Q.png"> ${i.quizQuest} <br></b>
 			<c:forEach var="j" items="${i.fileName}">
 					<img src="/resources/quizUploadFiles/${j}"><br>
 			</c:forEach>
@@ -182,9 +182,9 @@ window.onload = function(){
 		    	(4) ${i.quizCh4} <br>
 		    	</div>
 	    	</c:if>
-		    	<div id="answer">정답 : ${i.quizAnswer} <br></div>
+		    	<div id="answer"><img src="/resources/images/quiz_A.png"> ${i.quizAnswer} <br></div>
 		    	<div id="userAnswer">나의 답 : ${userAnswer[vs.index] } <br></div>
-		        <button align="right" class="btn-modal" id="${i.quizNo}">신고</button>
+		        <button align="right" class="btn-modal" id="${i.quizNo}"><img src="/resources/images/quiz_report.png"></button>
 		    	<br><br><br>
 		</c:forEach>
 		정답 갯수 : ${score }
