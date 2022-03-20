@@ -7,13 +7,6 @@
 <meta charset="UTF-8">
 <title>유행어 사전 오류페이지</title>
 <style>
-
-/* 	.message {
-	text-align : center;
-	position : absolute;
-	top : 45%;
-	left : 30%;
-	} */
 .c-right {
 	width: 25%;
 	float: left;
