@@ -4,25 +4,99 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>퀴즈 등록 페이지</title>
 <style>
 	#quizWriteForm {
 /* 		border: 1px solid black; */
-		width:400px;
+		width:700px;
 		text-align: left;
 		margin: auto;
+		border: 1px solid #ccc;
+	 	border-collapse: separate;
+		border-radius : 5px;
+		background-color : white;
+		font-size: 14px;
 	}
+	
+	#type {
+		--border: 1px solid #f26522;
+		width: 100px;
+		margin : 20px 0 15px 20px;
+		font-size: 14px;
+		border: none;
+		--border-radius : 5px;
+	}
+	
+		#type option {
+			font-size: 14px;
+		}
+		
+		
+	#quizQuest {
+		width:95%;
+		resize: none;
+		padding: 10px;
+		margin: 15px;
+		border: none;
+	}
+	
+	#quizAnswer {
+		width:95%;
+		margin : 15px;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 10px;
+		border: none;
+	}
+	
+	#choice {
+		width:100%;
+		margin : 15px;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 10px;
+		--border: none;
+	}
+		#plus, #minus {
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			background-color: white;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+		}
+	
+	#image_preview {
+		width:95%;
+		margin : 15px;
+		margin-top: 0;
+		padding: 5px;
+	}
+		#image_preview div {
+			font-size: 14px;
+		}
+	
 	#att_zone{
-	width: 400px;
-	min-height:150px;
-	padding:10px;
-	border:1px dotted #00f;
+		width: 100%;
+		min-height:150px;
+		padding:10px;
+		border:1px dotted #f26522;
 	}
+	
 	#att_zone:empty:before{
 		content : attr(data-placeholder);
 		color : #999;
 		font-size:.9em;
 	}
+	
+	#btnAtt {
+		--border-radius : 5px;
+		padding : 5px 0;
+		margin-bottom: 10px;
+		font-size:14px;
+	}
+	
+	
 	#title_name {
    			font-weight: bold;
 	}
@@ -39,7 +113,7 @@
 		margin-right: 5px;
  	}
  	
- 	#writeCancelButton {
+ 	 #writeCancelButton {
 		border : 1px solid #888;
 		background-color: #ffffff;
 		color: #888;
@@ -202,16 +276,24 @@
 </head>
 <body>
 	<form action="/quiz/write.me" method="post" id="quizWriteForm" enctype="multipart/form-data">
+		
 	    <select name="quizType" id="type">
 	        <option value="" selected disabled>유형선택</option>
 	        <option value="O">OX퀴즈</option>
 	        <option value="M">객관식퀴즈</option>
 	        <option value="S">단답형퀴즈</option>
 	    </select>
-	    <br>
-	    <textarea name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요"></textarea><br><br>
-	    <input type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51"><br>
-	    <br>
+	    
+	    <hr style="width:670px; text-align:center;">
+	    
+	    <textarea id="quizQuest" name="quizQuest" cols="54" rows="10" placeholder="문제를 입력 해주세요"></textarea>
+	    
+	    <hr style="width:670px; text-align:center;">
+	    
+	    <input id="quizAnswer" type="text" name="quizAnswer" placeholder="정답을 입력 해주세요" size="51"><br>
+
+	    
+	   	
 	    <div id="choice" style="display: none;">
 			<input type="text" name="quizCh1" placeholder="보기를 입력 해주세요" size="40"> &nbsp;&nbsp;
 			<input type="button" id="plus" value="+">
@@ -221,18 +303,24 @@
 			<input type="text" name="quizCh3" id="quizCh3" placeholder="보기를 입력 해주세요" style="display: none" size="40">
 			<input type="text" name="quizCh4" id="quizCh4" placeholder="보기를 입력 해주세요" style="display: none" size="40">
 		</div>
-		첨부 이미지
-		<br>
+		<hr style="width:670px; text-align:center;">
 		<div id='image_preview'>
-			<h3>이미지 미리보기</h3>
-			<input type='file' id='btnAtt' multiple='multiple' name="uploadFile" accept="image/*"/>
+			<div>
+				첨부 이미지 &nbsp&nbsp&nbsp&nbsp<input type='file' id='btnAtt' multiple='multiple' name="uploadFile" accept="image/*"/>
+			</div> 
+			
+			<br>
+			<div style="margin-bottom: 10px;">이미지 미리보기</div>
+			
 			<div id='att_zone' 
-			      data-placeholder='이미지 파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+			      data-placeholder='이미지 파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
+			</div>
 		</div>
-		<br>
-		<div align="right">
+		
+		<hr style="width:670px; text-align:center; color: red;">
+		<div align="right" style="padding:15px;">
+			<input type="button" id="writeCancelButton" value="취소" onclick="history.back();">
 		    <input type="submit" id="writeSubmitButton" value="등록하기">
-		    <input type="button" id="writeCancelButton" value="취소" onclick="history.back();">
 		</div>
 		
 	   
