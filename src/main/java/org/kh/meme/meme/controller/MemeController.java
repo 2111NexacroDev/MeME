@@ -170,6 +170,7 @@ public class MemeController {
 			Meme meme = mService.printOneByMeme(memeName);
 			MemeFile memeFile = mService.printOneByMemeFile(meme.getMemeNo());
 			
+			
 			if (meme != null) {
 				memeRank(model);
 
@@ -183,17 +184,29 @@ public class MemeController {
 			} else {
 				// 일단 error 나누어서 안 적음, 필요하면 적기
 				/* model.addAttribute("msg", "사전 상세 조회 실패"); */
+				
 				model.addAttribute("title", "");
 				return "common/memeErrorPage";
 			}
 
 		} catch (Exception e) {
-			model.addAttribute("msg", "사전에 등재되지 않은 단어 입니다.");
+			List<Meme> memeSuggestionList = mService.printMemeSuggesion(memeName);
+			model.addAttribute("msg", "찾으시는 유행어가 없다면 사전 등재를 요청해 보세요.");
+			model.addAttribute("memeSuggestionList", memeSuggestionList);
 			return ".tilesHead/common/memeErrorPage";
 
 		}
 
 	}
+	/*
+	 * //검색제안 public String memeSuggestion (Model model, @RequestParam(value =
+	 * "memeName") String memeName) {
+	 * 
+	 * List<Meme> memeSuggestionList = mService.printMemeSuggesion(memeName);
+	 * model.addAttribute("memeSuggestionList", memeSuggestionList);
+	 * 
+	 * return null; }
+	 */
 
 	// 사전 수정삭제 요청
 	@RequestMapping(value = "/meme/requestView", method = RequestMethod.GET)
