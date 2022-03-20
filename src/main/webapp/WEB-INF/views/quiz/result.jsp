@@ -195,7 +195,7 @@ window.onload = function(){
 		    	<br><br><br>
 		</c:forEach>
 		정답 갯수 : ${score }
-		
+		<br><br>
 		<!-- 모달 영역 -->
 		<div id="modal" class="modal-overlay">
 	        <div class="modal-window">
