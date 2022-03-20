@@ -37,7 +37,8 @@
 	}
 	
 		table {
-			background-color:white; border:1px solid #ccc;
+			background-color:white;
+			border:1px solid #ccc;
 			text-align: center;
 		}
 			table td {
@@ -51,6 +52,29 @@
 			}
 			.tbl_body {
 				
+			}
+			#tbl_one {
+				width: 50px;
+			}
+			
+			#tbl_two {
+				width: 50px;
+			}
+			
+			#tbl_three {
+				width: 300px;
+			}
+			
+			#tbl_four {
+				width: 100px;
+			}
+			
+			#tbl_five {
+				width: 50px;
+			}
+			
+			#tbl_six {
+				width: 50px;
 			}
 	
 	/* 버튼 스타일 */
