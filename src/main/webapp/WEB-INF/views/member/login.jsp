@@ -82,7 +82,7 @@
 <body>
 	<div class="inner">
 	<br>
-		<img class="login_logo" width="370px" src="./resources/images/login_logo_2.png">
+		<img class="login_logo" width="370px" src="./resources/images/logo_big.png">
 		<div class="content" align="center">
 			<form action="/member/login.me" method="post">
 				<table>
