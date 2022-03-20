@@ -7,115 +7,148 @@
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
 <style>
-	.inner {
-/* 		position: absolute; */
-		width: 700px;
-		height: 600px;
-		top: 50%;
-		left: 50%;
-		text-align: center;
-		margin: auto;
-	/* 	margin-top: -250px; */
-	/* 	margin-left: -350px; */
-		background-color: #f9f9f9;
+.inner {
+	position : absolute;
+	width : 800px;
+	top : 250px;
+	left : 50%;
+	margin-left : -400px;
 	}
 	
-	.body {
-/* 		height: 80%; */
-	}
-	.content {
-		height : 60%;
-		width : 80%;
-		margin: auto;
-		text-align: center;
-	}
-	.pi {
-		height : 10%;
-	}
-	.footer {
-		height : 10%;
-	}
-
 	#mypageNavi {
 	/* 	background-color : #75582F; */
+		width: 800px;
+		height: 40px;
+		text-align: center;
+	}
+	#subnav {
+		text-align: left;
+		height: 100px;
+		width: 600px;
+	}
+	.header {
+		color: white;
+		background-color: #f26522;
+		height: 30px;
+		text-align: center;
+	}
+	.body {
+		height : 80%;
+	}
+	.content {
+		margin-top: -80px;
+	}
+	button {
+		color : #252525;
 		font-weight: bold;
+		border-radius: 5px;
+		transition-duration: 0.5s;
+		background-color : #f9f9f9;
+	}
+	button:hover {
+		color : #f26522;
+		transition-duration: 0.5s;
+	}
+	#ipt {
+		margin-bottom : 10px;
+		padding-left : 15px;
+		height : 40px;
+		width : 350px;
+		border-radius: 5px;
+		border: 1px solid #808080;
+		background-color : #f9f9f9;
+	}
+	#ipt:focus {
+		border: 1px solid #f26522;
+		background-color : #ededed;
+	}
+	.btn_nav {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+		transition-duration: 0.5s;
+	}
+	.btn_nav:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_nav_sel {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #f26522;
+		width: 170px;
+		height: 40px;
+		padding-top: 3px;
+	}
+	.btn_nav_sel:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_submit {
+		font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+		width: 350px;
+		height: 60px;
+		padding-top: 5px;
+		transition-duration: 0.5s;
+	}
+	.btn_submit:hover {
+		background-color: #f26522;
+	    color: #ffffff;
+	    transition-duration: 0.5s;
+	}
+	.btn_rtn {
+	margin-top: 5px;
+	}
+	
+	#tbl_one {
+		width: 35px;
+	}
+	
+	#tbl_two {
+		width: 70px;
+	}
+	
+	#tbl_three {
 		width: 500px;
-		height: 50px;
-		text-align: center;
-		margin: auto;
 	}
 	
-	#mypageNavi ul {
-		list-style-type : none;
-		padding-left : 50px;
-	}
-	
-	#mypageNavi li {
-		color : #DB4000;
-		float : left;
-	/* 	background-color : white; */
-		padding-right : 10px;
-		text-align : center;
-	}
-	#mypageNavi li a {
-		color : black;
-		display : block;
-		text-decoration : none;
-		text-align : center;
-	}
-	#mypageNavi li a.current {
-		color : white;
-		background-color : #DB4000;
-	}
-	
-	#part {
-		text-align: center;
-		font-size: smaller;
-		width: 40px;
-		
-	}
-	
-	#no {
-		text-align: center;
-		font-size: smaller;
-		width: 50px;
-	}
-	
-	#memeno {
-		text-align: center;
-		font-size: smaller;
-		width: 200px;
-	}
-	
-	#type {
-		text-align: center;
-		font-size: smaller;
+	#tbl_four {
 		width: 80px;
 	}
 	
-	#contents {
-		text-align: center;
-		font-size: smaller;
-		width: 100px;
+	#tbl_five {
+		width: 50px;
 	}
 	
-	.header {
-		color: white;
-		background-color: #A64E08  ;
-		height: 30px;
+	#tbl_six {
+		width: 50px;
 	}
-	
-	
-	.content table td{
-		font-size: smaller;
-	}
-	
 	.sub {
 		font-size: smaller;
 	}
-	button {
-		color : #8F2B00;
+	.btn_subnav_sel {
+		color : #f26522;
 	}
+	.btn_mod {
+		background-color: blue;
+		color : #ffffff;
+	}
+	.btn_del {
+		background-color: red;
+		color : #ffffff;
+	}
+	.tbl_body {
+		text-align: center;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -124,32 +157,28 @@
 	<div class="inner" align="center">
 		<div class="body">
 
-			<br>
 			<div id="mypageNavi">
-				<ul>
-					<li><a href="/admin/manageMember.me">회원 관리</a></li>
-					<li>유행어 사전 관리</li>
-					<li><a href="/admin/manageBoard.me">추진/자유게시판 관리</a></li>
-					<li><a href="/admin/manageQuiz.me">퀴즈 관리</a></li>
-				</ul>
-				<br>
-				<ul class="sub">
-					<li><a href="/admin/manageMeme.me">전체 유행어 목록</a></li>
-					<li>사전 요청 목록</li>
-				</ul>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMember.me'">회원 관리</button>
+				<button type="button" class="btn_nav_sel" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageQuiz.me'">퀴즈 관리</button>
+			</div><br>
+			<div id="subnav">
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMeme.me'">전체 유행어 목록</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageMemeRequest.me'">사전 요청 목록</button>&nbsp;&nbsp;
 			</div>
 			
 			<br>
 			<div class="content">
 				<table align="center" border="1">
 					<tr class="header">
-						<th id="no">번호</th>
-						<th id="memeno">사전 번호</th>
-						<th id="type">유형</th>
-						<th id="contents">내용</th>
+						<th id="tbl_one">번호</th>
+						<th id="tbl_two">사전 번호</th>
+						<th id="tbl_three">내용</th>
+						<th id="tbl_four">유형</th>
 					</tr>
 					<c:forEach items="${allMemeRequestList }" var="allMemeRequestList">
-						<tr>
+						<tr class="tbl_body">
 							<td>${allMemeRequestList.memeReqNo }</td>
 							<td>
 								<c:if test="${empty allMemeRequestList.memeNo}">
@@ -159,15 +188,15 @@
 								${allMemeRequestList.memeNo }
 								</c:if>
 							</td>
+							<td>${allMemeRequestList.memeRequestContents }</td>
 							<td>
 								<c:if test="${allMemeRequestList.memeRequestType eq 'M'}">
-								수정
+								<button>수정</button>
 								</c:if>
 								<c:if test="${allMemeRequestList.memeRequestType eq 'D'}">
-								삭제
+								<button>삭제</button>
 								</c:if>
 							</td>
-							<td>${allMemeRequestList.memeRequestContents }</td>
 						</tr>
 					</c:forEach>
 				</table>
