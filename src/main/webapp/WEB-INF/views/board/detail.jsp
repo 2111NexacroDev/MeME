@@ -516,6 +516,12 @@
 		alert("글이 보이도록 처리 되었습니다.");
 	}
 
+	/* 댓글 등록 focus 버튼 색상 변경 */
+	$("#commentContents").on("focus", function(){
+		$("#cSubmit").css('color', '#f26522');
+	});
+	
+		
 	$("#cSubmit").on("click", function(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
