@@ -34,7 +34,9 @@
 	}
 	.body {
 		height : 80%;
-		margin-top : 5px;
+	}
+	.content {
+		margin-top: -20px;
 	}
 	button {
 		color : #252525;
@@ -166,65 +168,67 @@
 					<button type="button" class="btn_subnav_sel">퀴즈</button>
 			</div>
 			
-			<table align="center" border="1" text-align="center" style="background-color:white">
-				<tr class="header">
-					<td id="tbl_one">유형</td>
-					<td id="tbl_two">문제</td>
-					<td id="tbl_three">답</td>
-					<td id="tbl_four">작성일</td>
-					<td colspan="2"></td>
-				</tr>
-				<c:forEach items="${myQuizList }" var="myQuizList">
-					<tr class="tbl_body">
-						<td>
-							<c:if test="${myQuizList.quizType eq 'O'}">
-		    					O/X
-							</c:if>
-							<c:if test="${myQuizList.quizType eq 'S'}">
-		    					단답형
-							</c:if>
-							<c:if test="${myQuizList.quizType eq 'M'}">
-		    					객관식
-							</c:if>
-						</td>
-						<td>${myQuizList.quizQuest }</td>
-						<td>${myQuizList.quizAnswer }</td>
-						<td>${myQuizList.quizDate }</td>
-						<td>
-							<form action='<c:url value="/quiz/modifyView.me">
-								<c:param name="quizNo" value="${myQuizList.quizNo }"></c:param>
-								</c:url>' method="post">
-								<button type="submit" class="btn_mod">수정</button>
-							</form>
-						</td>
-						<td>
-							<form action='<c:url value="/quiz/delete.me">
-								<c:param name="quizNo" value="${myQuizList.quizNo }"></c:param>
-								</c:url>' method="post">
-								<button type="submit" class="btn_del">삭제</button>
-							</form>
-						</td>
+			<div class="content">
+				<table align="center" border="1" text-align="center" style="background-color:white">
+					<tr class="header">
+						<td id="tbl_one">유형</td>
+						<td id="tbl_two">문제</td>
+						<td id="tbl_three">답</td>
+						<td id="tbl_four">작성일</td>
+						<td colspan="2"></td>
 					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<p></p>
-		<div style="text-align:center" class="pi">
-			<c:if test="${pi.startNavi gt 1 }">
-				<button style="height:25px; width:55px">이전</button>
-			</c:if>
-			<c:forEach var="p" begin="${pi.startNavi }" end="${pi.endNavi }">
-				<c:url var="pagination" value="/member/myQuiz.me">
-					<c:param name="page" value="${p }"></c:param>
-				</c:url>
-				<a href="${pagination }">${p }</a>&nbsp;
-			</c:forEach>
-			<c:if test="${pi.endNavi lt maxPage }">
-				<button style="height:25px; width:55px">다음</button>
-			</c:if>
-			<div class="footer">
-				<button type="button" onclick="location.href='/'">홈으로</button>
-				<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>
+					<c:forEach items="${myQuizList }" var="myQuizList">
+						<tr class="tbl_body">
+							<td>
+								<c:if test="${myQuizList.quizType eq 'O'}">
+			    					O/X
+								</c:if>
+								<c:if test="${myQuizList.quizType eq 'S'}">
+			    					단답형
+								</c:if>
+								<c:if test="${myQuizList.quizType eq 'M'}">
+			    					객관식
+								</c:if>
+							</td>
+							<td>${myQuizList.quizQuest }</td>
+							<td>${myQuizList.quizAnswer }</td>
+							<td>${myQuizList.quizDate }</td>
+							<td>
+								<form action='<c:url value="/quiz/modifyView.me">
+									<c:param name="quizNo" value="${myQuizList.quizNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_mod">수정</button>
+								</form>
+							</td>
+							<td>
+								<form action='<c:url value="/quiz/delete.me">
+									<c:param name="quizNo" value="${myQuizList.quizNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_del">삭제</button>
+								</form>
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+				<p></p>
+				<div style="text-align:center" class="pi">
+					<c:if test="${pi.startNavi gt 1 }">
+						<button style="height:25px; width:55px">이전</button>
+					</c:if>
+					<c:forEach var="p" begin="${pi.startNavi }" end="${pi.endNavi }">
+						<c:url var="pagination" value="/member/myQuiz.me">
+							<c:param name="page" value="${p }"></c:param>
+						</c:url>
+						<a href="${pagination }">${p }</a>&nbsp;
+					</c:forEach>
+					<c:if test="${pi.endNavi lt maxPage }">
+						<button style="height:25px; width:55px">다음</button>
+					</c:if>
+				</div>
+				<div class="footer">
+					<button type="button" onclick="location.href='/'">홈으로</button>
+					<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>
+				</div>
 			</div>
 		</div>
 	</div>
