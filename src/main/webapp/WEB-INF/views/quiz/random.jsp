@@ -14,8 +14,10 @@
 		text-align: center;
 	}
 	#quizContents {
-/* 		border: 1px solid black; */
-		width: 500px;
+ 		border: 1px solid #ccc; 
+ 		border-radius: 5px;
+ 		padding: 60px 30px;
+		width: 700px;
 		text-align: left;
 		margin: auto;
 	}
@@ -25,7 +27,7 @@
 	}
 	
 	[id^='ch'] {
-		font-size: 15px;
+		font-size: 16px;
 		color: #008F7C;
 	}
 	#type {
@@ -36,7 +38,15 @@
 	}
 	
 	#quest_Q {
-		height:350px;
+		height:300px;
+	}
+	
+	#answer {
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		padding: 10px;
+		align: center;
+		margin: 0 auto;
 	}
 </style>
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -115,10 +125,10 @@
 								$('#answer').attr("placeholder", "단어 입력후 엔터");
 							}else {
 								$('#type').html("객관식 퀴즈");
-								$('#ch1').html("보기<br>(1) "+data.quizCh1);
-								$('#ch2').html("(2) "+data.quizCh2);
-								$('#ch3').html("(3) "+data.quizCh3);
-								$('#ch4').html("(4) "+data.quizCh4);
+								$('#ch1').html("<br><br>[ 보기 ]<br>① "+data.quizCh1);
+								$('#ch2').html("② "+data.quizCh2);
+								$('#ch3').html("③ "+data.quizCh3);
+								$('#ch4').html("④ "+data.quizCh4);
 								$('#answer').attr("placeholder", "1 ~ 4 숫자 입력후 엔터");
 							}
 							$report[nextNum] = data.quizNo;
@@ -174,8 +184,9 @@
 </script>
 </head>
 <body>
+<br><br>
 	<div id="quizContents">
-		<br>
+		
 		<div align="right">
 		<B>제한시간 :<span id="time"></span></B> 초</div>
 		<div id="type" style="font-weight:bolder;"></div>
@@ -185,19 +196,21 @@
 			<B><span id="whether"></span></B>
 		</div>
 		<br>
-		<div id="quest">
-			<div id="quest_Q">
-				<b id="question"></b> <br>
-				<div id="quizFile">
-				</div>
-				<div id="ch1"></div>
-				<div id="ch2"></div>
-				<div id="ch3"></div>
-				<div id="ch4"></div>
-				<br> <br> <br>
+			<div id="quest">
+				<div id="quest_Q">
+					<b id="question"></b> <br>
+					<div id="quizFile">
+					</div>
+					<div id="ch1"></div>
+					<div id="ch2"></div>
+					<div id="ch3"></div>
+					<div id="ch4"></div>
+					<br> <br> <br>
 				</div>
 			</div>
-			<div>
+			<hr style="width:600px; text-align:center;">
+			<br>
+			<div style="text-align:center;">
 				<input type="text" id="answer" size="65">
 			</div>
 			
