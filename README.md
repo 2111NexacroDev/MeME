@@ -206,7 +206,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 #### 4. 유행어 퀴즈
 ###### 카테고리의 '퀴즈 풀기' 탭을 통해 30초 랜덤 퀴즈 풀이
 ###### 풀이 중 정답과 오답이 표시되며 우측 상단에 30초 카운트다운
-<img src="https://user-images.githubusercontent.com/100409006/159245805-453309c5-219a-49fd-be7d-367c76d627a9.PNG" alt="퀴즈 풀기" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159247283-a7fce05a-9d01-4404-97c6-3935c52f5447.PNG" alt="퀴즈 풀기" width="70%">
 
 ###### 30초가 지나면 결과창에서 내 풀이와 정답을 확인해볼 수 있으며, 오류가 있는 퀴즈는 신고 가능
 <img src="https://user-images.githubusercontent.com/100409006/159245808-202a3615-0c4f-45ee-beff-397607e127ce.PNG" alt="퀴즈 결과" width="70%">
@@ -224,7 +224,7 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ###### 각 페이지에 맞는 랭킹을 메인으로 출력, 다른 랭킹 탭 클릭 시 해당 랭킹 확인 가능
 <img src="https://user-images.githubusercontent.com/100409006/159244609-d6537829-5c4c-4a3d-834d-4589ebe72083.PNG" alt="유행어 사전 (검색 시 나오는 상세페이지)_ 로그인상태" width="70%">
 <img src="https://user-images.githubusercontent.com/100409006/159236775-6d2a62dd-e765-487c-ba3d-ad1cb227f2cb.PNG" alt="게시글 목록" width="70%">
-<img src="https://user-images.githubusercontent.com/100409006/159245805-453309c5-219a-49fd-be7d-367c76d627a9.PNG" alt="퀴즈 풀기" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159247283-a7fce05a-9d01-4404-97c6-3935c52f5447.PNG" alt="퀴즈 풀기" width="70%">
 <br/><br/>
 
 
