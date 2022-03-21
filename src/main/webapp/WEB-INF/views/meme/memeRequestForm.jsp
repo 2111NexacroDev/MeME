@@ -15,6 +15,16 @@
 	padding-left: 150px
 }
 
+.main2 {
+	border: 1px solid #ccc;
+	background-color: #ffffff;
+	border-radius: 5px;
+	align: center;
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 30px 0 30px 70px;
+}
 #btn-request {
 	border: 1px solid #f26522;
 	background-color: #fef3ee;
@@ -35,37 +45,47 @@
 	font-size: 13px;
 	font-weight: bold;
 }
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+#memeRequestContents {
+	height: 200px;
+	resize: none;
+	border: none;
+}
+
 </style>
 </head>
 <body>
-	<div class="main">
+	<div class="main2">
 		<form id="memeRequestForm" action="/meme/request" method="get"
 			enctype="multipart/form-data">
 			<input type="hidden" name="memeNo" value="${param.memeNo }">
-			<br>
 			<div class="request">요청유형</div>
 			<div class="request2">
-				<select name="memeRequestType">
+				<select name="memeRequestType" style="border:none; width: 70px;">
 					<option value="M" selected="selectd">수정</option>
 					<option value="D">삭제</option>
 				</select>
 			</div>
-			<br>
-			<br>
+			<hr style="width:670px; text-align:center; margin-left: -55px">
 			<div class="request">유행어</div>
 			<div class="request2">
 				<input type="text" size="40" name="memeName"
-					value=${param.memeName }>
+					value=${param.memeName } style="border:none;">
 			</div>
-			<br>
-			<br>
+			<hr style="width:670px; text-align:center; margin-left: -55px">
 			<div class="request">요청 내용</div>
 			<div class="request2">
-				<textarea rows="5" cols="45" name="memeRequestContents"></textarea>
+				<textarea rows="5" cols="45" id="memeRequestContents" 
+				name="memeRequestContents" placeholder="요청 사항을 입력해주세요"></textarea>
 			</div>
-			<br>
-			<br>
-			<div align="center">
+			<hr style="width:670px; text-align:center; margin-left: -55px">
+			<div align="right" height="50px" style="padding:15px; margin-bottom: -20px;">
 				<input type="reset" id="btn-reset" value="취소"
 					onclick="location.href='/';"> <input id="btn-request"
 					type="submit" value="등록하기">
