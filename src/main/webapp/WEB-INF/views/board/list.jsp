@@ -69,6 +69,21 @@
 		color: white;
 	}
 
+	#searchBtn {
+	    --font-size: 16px;
+	    color: #ffffff;
+	    background-color: #252525;
+	    --text-align: center;
+	    --margin-bottom:2px;
+	    --padding: 10px 0px;
+	    border-radius: 5px;
+	}
+	
+	#searchBtn:hover {
+	    background-color: #f26522;
+	    color: #ffffff;
+	}
+
 </style>
 </head>
 <body>
@@ -138,7 +153,7 @@
 	</div>
 	<br>
 	<form action="/board/search" method="post">
-		<div style="text-align:center">
+		<div style="text-align:center; margin:0 auto">
 			<select name="type" style="height:30px; width:80px">
 				<option value="0" style="text-align: center">분류</option>
 				<option value="F" style="text-align: center">자유</option>
@@ -147,7 +162,7 @@
 				<option value="writer" style="text-align: center">작성자</option>
 			</select>
 			<input type="text" name="keyword" style="height:30px; width:250px">
-			<button type="submit" style="height:30px; width:100px">Search</button>
+			<button type="submit" id="searchBtn" style="height:30px; width:100px">Search</button>
 		</div>
 	</form>
 	
