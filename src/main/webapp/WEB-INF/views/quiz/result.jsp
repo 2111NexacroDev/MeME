@@ -19,8 +19,9 @@
 			background-color: #f9f9f9;
 		}
 		button{
-			background-color: red;
-			color: yellow;
+			margin-top: 20px;
+			background-color: rgba(255, 255, 255, 0.25);
+			color: red;
 		}
         #modal.modal-overlay {
             width: 100%;
