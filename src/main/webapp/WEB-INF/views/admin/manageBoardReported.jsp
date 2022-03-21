@@ -182,7 +182,13 @@
 							<td id="writer">${reportBoardList.memberNickname }</td>
 							<td id="date">${reportBoardList.boardDate }</td>
 							<td id="reports">${reportBoardList.boardReport }</td>
-							<td><button type="button" class="btn_del">삭제</button></td>
+							<td id="delete">
+								<form action='<c:url value="/board/detail_delete_admin">
+									<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_del">삭제</button>
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</table>

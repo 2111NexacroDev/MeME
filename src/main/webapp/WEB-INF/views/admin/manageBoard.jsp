@@ -182,7 +182,7 @@
 							<td id="date">${allBoardList.boardDate }</td>
 							<td id="views">${allBoardList.boardCount }</td>
 							<td id="delete">
-								<form action='<c:url value="/board/detail_delete_mypage">
+								<form action='<c:url value="/board/detail_delete_admin">
 									<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
 									</c:url>' method="post">
 									<button type="submit" class="btn_del">삭제</button>
