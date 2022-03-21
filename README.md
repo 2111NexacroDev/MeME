@@ -158,9 +158,9 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 ## 5. 주요기능
 #### 1. 메인 페이지
-
-![메인 페이지](https://user-images.githubusercontent.com/100409006/157794282-c823846d-2bba-41af-8710-1d0b40dba752.PNG)
-![2](https://user-images.githubusercontent.com/100409006/157794441-bcda0610-f5f6-4c67-8e20-e5cdd0a821fd.PNG)
+##### 좌측 카테고리 버튼을 통해 다른 페이지로 이동 가능
+<img src="https://user-images.githubusercontent.com/100409006/159236398-ac1882fb-3e19-4f7e-bf2e-26a84af30d29.PNG" alt="메인페이지 1" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159236403-e5543a95-51c6-4c5b-8bea-bb912e9d32e9.PNG" alt="메인페이지 2 토글 목록" width="70%">
 
 <br/><br/>
 
@@ -178,19 +178,26 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
  
 #### 3. 유행어 추진/자유게시판
 
+###### 게시글 목록페이지에서 제목을 누르면 상세페이지로 이동, 글쓰기 버튼을 누르면 게시글 작성 가능
+<img src="https://user-images.githubusercontent.com/100409006/159236775-6d2a62dd-e765-487c-ba3d-ad1cb227f2cb.PNG" alt="게시글 목록" width="70%">
 
-![27](https://user-images.githubusercontent.com/100409006/157796185-d36443d5-e2ca-438e-8666-4bb96f64d1f7.PNG)
-![28](https://user-images.githubusercontent.com/100409006/157796188-41315f8c-6cb4-4786-9069-a55adfd5fa7d.PNG)
-![29](https://user-images.githubusercontent.com/100409006/157796190-71319b48-1f47-4e3d-adc9-023b67401ccc.PNG)
-![30](https://user-images.githubusercontent.com/100409006/157796191-4b9ada95-42cf-47da-9c36-6b117a68defb.PNG)
-![31](https://user-images.githubusercontent.com/100409006/157796193-3f4f2966-2bef-4b82-b7cb-c19fabf64cf8.PNG)
-![32](https://user-images.githubusercontent.com/100409006/157796194-728cd62f-7db3-4d5e-8c90-a8d8fb37caf2.PNG)
-![33](https://user-images.githubusercontent.com/100409006/157796177-f179c393-5c58-4391-ab6e-2507e47abfef.PNG)
+
+###### 게시글 등록
+<img src="https://user-images.githubusercontent.com/100409006/159236777-41a752f8-7701-47f7-800a-e4bfdeb4068b.PNG" alt="게시글 등록" width="70%">
+
+
+###### 게시글 상세 페이지, 게시글 수정/삭제 가능, 댓글 등록/수정/삭제 가능
+<img src="https://user-images.githubusercontent.com/100409006/159236778-5749f67f-c1fd-4274-a04e-b386bf0bf6a0.PNG" alt="게시글 상세" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159236780-6f535821-db79-4528-87ce-c165eaa01bff.PNG" alt="게시글 수정" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159236781-cfa8586d-fadc-4a6b-adcb-5cf2c5531fa6.PNG" alt="게시글 수정 성공" width="70%">
+
+###### 다른 사용자의 마음의 드는 게시글 추천 및 문제 게시글 신고
+<img src="https://user-images.githubusercontent.com/100409006/159236787-bc4f5f85-7b6e-4e8e-97fb-7201aa529f36.PNG" alt="게시글 추천 가능" width="70%">
+
 <br/><br/>
 
  
 #### 4. 유행어 퀴즈
-
 
 ![34](https://user-images.githubusercontent.com/100409006/157796628-68295f15-adbc-4c90-be3d-0863635f7f4a.PNG)
 ![35](https://user-images.githubusercontent.com/100409006/157796630-72641c0b-d61e-4e95-b724-5e0983279327.PNG)
@@ -209,9 +216,9 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 #### 6. 유행어 타임라인
+###### 시기별로 가장 유행했던 유행어를 한 눈에 볼 수 있음
+<img src="https://user-images.githubusercontent.com/100409006/159238560-ad564521-1882-4f03-a3ce-05439358cd7f.png" alt="타임라인" width="70%">
 
-
-![38](https://user-images.githubusercontent.com/100409006/157796636-333ec66a-1b2b-4845-b2fb-c86dbb01e83c.PNG)
 <br/><br/>
 
 
