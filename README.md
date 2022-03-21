@@ -204,20 +204,27 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
  
 #### 4. 유행어 퀴즈
+###### 카테고리의 '퀴즈 풀기' 탭을 통해 30초 랜덤 퀴즈 풀이
+###### 풀이 중 정답과 오답이 표시되며 우측 상단에 30초 카운트다운
+<img src="https://user-images.githubusercontent.com/100409006/159245805-453309c5-219a-49fd-be7d-367c76d627a9.PNG" alt="퀴즈 풀기" width="70%">
 
-![34](https://user-images.githubusercontent.com/100409006/157796628-68295f15-adbc-4c90-be3d-0863635f7f4a.PNG)
-![35](https://user-images.githubusercontent.com/100409006/157796630-72641c0b-d61e-4e95-b724-5e0983279327.PNG)
-![36](https://user-images.githubusercontent.com/100409006/157796631-5f149392-4d10-4912-96f8-3e01ca804271.PNG)
-![37](https://user-images.githubusercontent.com/100409006/157796623-4f8c7e22-2c92-4f38-8a4e-3e75af17e4cb.PNG)
+###### 30초가 지나면 결과창에서 내 풀이와 정답을 확인해볼 수 있으며, 오류가 있는 퀴즈는 신고 가능
+<img src="https://user-images.githubusercontent.com/100409006/159245808-202a3615-0c4f-45ee-beff-397607e127ce.PNG" alt="퀴즈 결과" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159245810-313b25cf-35e3-4119-8ea9-951eaf25da55.PNG" alt="퀴즈 신고" width="70%">
+
+###### '퀴즈 만들기' 탭을 통해 직접 퀴즈 등록 가능
+<img src="https://user-images.githubusercontent.com/100409006/159245810-313b25cf-35e3-4119-8ea9-951eaf25da55.PNG" alt="유행어 퀴즈 등록" width="70%">
+
+
+
 <br/><br/>
 
 
 #### 5. 유행어 랭킹
-
-
-![39](https://user-images.githubusercontent.com/100409006/157796644-9f5dd9d3-9e4d-4453-8fa9-718e6205c0c7.PNG)
-![40](https://user-images.githubusercontent.com/100409006/157796646-da0789d0-4f17-4296-8a3b-31f7be961bb6.PNG)
-![41](https://user-images.githubusercontent.com/100409006/157796643-010d890f-1fe1-44f1-b065-ff399baf3513.PNG)
+###### 각 페이지에 맞는 랭킹을 메인으로 출력, 다른 랭킹 탭 클릭 시 해당 랭킹 확인 가능
+<img src="https://user-images.githubusercontent.com/100409006/159244609-d6537829-5c4c-4a3d-834d-4589ebe72083.PNG" alt="유행어 사전 (검색 시 나오는 상세페이지)_ 로그인상태" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159236775-6d2a62dd-e765-487c-ba3d-ad1cb227f2cb.PNG" alt="게시글 목록" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/159245805-453309c5-219a-49fd-be7d-367c76d627a9.PNG" alt="퀴즈 풀기" width="70%">
 <br/><br/>
 
 
