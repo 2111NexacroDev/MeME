@@ -15,6 +15,7 @@
 	}
 	#quizContents {
  		border: 1px solid #ccc; 
+ 		background-color: #ffffff;
  		border-radius: 5px;
  		padding: 60px 30px;
 		width: 700px;
