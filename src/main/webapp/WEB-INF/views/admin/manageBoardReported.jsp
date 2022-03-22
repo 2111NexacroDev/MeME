@@ -149,7 +149,7 @@
 			<div id="subnav">
 				<button type="button" onclick="location.href='/admin/manageBoard.me'">전체 글 목록</button>&nbsp;&nbsp;
 				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageBoardReported.me'">신고된 글 목록</button>&nbsp;&nbsp;
- 				<button type="button" onclick="location.href='/admin/manageBoardNStatus.me'">숨겨진 글 목록</button>
+ 				<button type="button" onclick="location.href='/admin/manageBoardNStatus.me'">숨긴 글 목록</button>
 			</div>
 			<br>
 			

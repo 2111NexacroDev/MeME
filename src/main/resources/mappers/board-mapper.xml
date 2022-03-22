@@ -159,11 +159,11 @@
 	<!-- 관리자 페이지 -->
 	<!-- 신고 게시글 -->
 	<select id="selectAllBoardListCount_admin" resultType="_int">
-		SELECT COUNT(*) FROM BOARD_TBL
+		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_STATUS ='Y'
 	</select>
   	
 	<select id="selectAllBoardList_admin" resultMap="boardResultMap">
-		SELECT * FROM BOARD_TBL ORDER BY BOARD_NO DESC
+		SELECT * FROM BOARD_TBL WHERE BOARD_STATUS ='Y' ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectReportBoardListCount" resultType="_int">
