@@ -562,7 +562,7 @@ public class BoardController {
 			//board_tbl boardLike update
 			
 			System.out.println("board 숨기기");
-			return "redirect:/admin/manageBoardReported.me";
+			return "redirect:/admin/manageBoardNStatus.me";
 //				return "redirect:"+referer;
 		} else {
 			System.out.println("board 숨기기 실패");
@@ -587,7 +587,7 @@ public class BoardController {
 			//board_tbl boardLike update
 			
 			System.out.println("board 보이기");
-			return "redirect:/admin/manageBoardReported.me";
+			return "redirect:/admin/manageBoardNStatus.me";
 //				return "redirect:"+referer;
 		} else {
 			System.out.println("board 보이기 실패");

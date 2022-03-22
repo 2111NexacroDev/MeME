@@ -149,8 +149,8 @@
 			</div><br>
 			<div id="subnav">
 				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageMeme.me'">전체 유행어 목록</button>&nbsp;&nbsp;
-				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRequest.me'">사전 요청 목록</button>&nbsp;&nbsp;
 				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRegister.me'">사전 등재 요청</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRequest.me'">사전 요청 목록</button>&nbsp;&nbsp;
 			</div>
 			
 			<div class="content">
@@ -160,7 +160,7 @@
 						<th id="tbl_one">번호</th>
 						<th id="tbl_two">유행어</th>
 						<th id="tbl_three">작성자</th>
-						<th id="tbl_four">등재일</th>
+						<th id="tbl_four">유행시기</th>
 						<th>&nbsp;</th>
 					</tr>
 					<c:forEach items="${allMemeList }" var="allMemeList">
