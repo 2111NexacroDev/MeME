@@ -38,6 +38,11 @@ public class AdminServiceImpl implements AdminService{
 		return totalCount;
 	}
 	@Override
+	public int getAllMemeRegisterListCount() {
+		int totalCount = aStore.allMemeRegisterListCount(sqlSession);
+		return totalCount;
+	}
+	@Override
 	public int getAllBoardListCount() {
 		int totalCount = aStore.allBoardListCount(sqlSession);
 		return totalCount;
@@ -66,6 +71,11 @@ public class AdminServiceImpl implements AdminService{
 	public List<MemeRequest> printAllMemeRequest(PageInfo pi) {
 		List<MemeRequest> allMemeRequestList = aStore.selectAllMemeRequest(sqlSession, pi);
 		return allMemeRequestList;
+	}
+	@Override
+	public List<Meme> printAllMemeRegister(PageInfo pi) {
+		List<Meme> allMemeRegisterList = aStore.selectAllMemeRegister(sqlSession, pi);
+		return allMemeRegisterList;
 	}
 	@Override
 	public List<Board> printAllBoard(PageInfo pi) {

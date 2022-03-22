@@ -55,15 +55,15 @@
 			}
 			/* 총 너비 600으로 맞춤 (수정, 삭제 버튼 50)*/
 			#tbl_one {
-				width: 60px;
+				width: 80px;
 			}
 			
 			#tbl_two {
-				width: 60px;
+				width: 300px;
 			}
 			
 			#tbl_three {
-				width: 230px;
+				width: 120px;
 			}
 			
 			#tbl_four {
@@ -71,7 +71,7 @@
 			}
 			
 			#tbl_five {
-				width: 100px;
+				width: 50px;
 			}
 			
 			#tbl_six {
@@ -132,6 +132,7 @@
 		font-weight: normal;
 	}
 	
+	
 </style>
 </head>
 <body>
@@ -139,64 +140,42 @@
 
 	<div class="inner" align="center">
 		<div class="body">
-		
+
 			<div id="mypageNavi">
 				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMember.me'">회원 관리</button>
-				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
-				<button type="button" class="btn_nav_sel" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
+				<button type="button" class="btn_nav_sel" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
 				<button type="button" class="btn_nav" onclick="location.href='/admin/manageQuiz.me'">퀴즈 관리</button>
 			</div><br>
 			<div id="subnav">
-				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageBoard.me'">전체 글 목록</button>&nbsp;&nbsp;
-				<button type="button" onclick="location.href='/admin/manageBoardReported.me'">신고된 글 목록</button>&nbsp;&nbsp;
- 				<button type="button" onclick="location.href='/admin/manageBoardNStatus.me'">숨겨진 글 목록</button>
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMeme.me'">전체 유행어 목록</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRequest.me'">사전 요청 목록</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageMemeRegister.me'">사전 등재 요청</button>&nbsp;&nbsp;
 			</div>
+			
+			<br>
 			<div class="content">
 			<br>
 				<table align="center" border="1">
 					<tr class="header">
-						<th id="tbl_one">구분</th>
-						<th id="tbl_two">글번호</th>
-						<th id="tbl_three">글제목</th>
-						<th id="tbl_four">작성자</th>
-						<th id="tbl_five">작성일</th>
-						<th id="tbl_six">조회수</th>
+						<th id="tbl_one">번호</th>
+						<th id="tbl_two">유행어</th>
+						<th id="tbl_three">작성자</th>
+						<th id="tbl_four">등재일</th>
 						<th colspan="2">&nbsp;</th>
 					</tr>
-					<c:forEach items="${allBoardList }" var="allBoardList">
+					<c:forEach items="${allMemeRegisterList }" var="allMemeRegisterList">
 						<tr class="tbl_body">
-							<td id="part">
-								<c:if test="${allBoardList.boardType eq 'P'}">
-			    					추진
-								</c:if>
-								<c:if test="${allBoardList.boardType eq 'F'}">
-			    					자유
-								</c:if>
-							</td>
-							<td id="no">${allBoardList.boardNo }</td>
-							<c:url var="bDetail" value="/board/detail">
-								<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
+							<td>${allMemeRegisterList.memeNo }</td>
+							<c:url var="mDetail" value="/meme/detail">
+								<c:param name="memeName" value="${allMemeRegisterList.memeName }"></c:param>
 							</c:url>
-							<td id="title"><a href="${bDetail }">${allBoardList.boardTitle }</a></td>
-							<td id="writer">${allBoardList.memberNickname }</td>
-							<td id="date">${allBoardList.boardDate }</td>
-							<td id="views">${allBoardList.boardCount }</td>
-							<td id="delete">
-								<form action='<c:url value="/board/detail_reportAdminToN">
-									<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
-									</c:url>' method="post">
-									<button type="submit" class="btn_del">숨김</button>
-								</form>
-							</td>
-							<td id="delete">
-								<form action='<c:url value="/board/detail_delete_admin">
-									<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
-									</c:url>' method="post">
-									<button type="submit" class="btn_del">삭제</button>
-								</form>
-							</td>
+							<td><a href="${mDetail }">${allMemeRegisterList.memeName }</a></td>
+							<td>${allMemeRegisterList.memberNickname }</td>
+							<td>${allMemeRegisterList.memeDate }</td>
+							<td><button class="btn_mod">등재</button></td>
+							<td><button class="btn_del">삭제</button></td>
 						</tr>
-						
 					</c:forEach>
 				</table>
 			</div>
@@ -206,7 +185,7 @@
 					<button style="height:25px; width:55px">이전</button>
 				</c:if>
 				<c:forEach var="p" begin="${pi.startNavi }" end="${pi.endNavi }">
-					<c:url var="pagination" value="/admin/manageBoard.me">
+					<c:url var="pagination" value="/admin/manageMemeRegister.me">
 						<c:param name="page" value="${p }"></c:param>
 					</c:url>
 					<a href="${pagination }">${p }</a>&nbsp;
@@ -221,6 +200,7 @@
 			<button type="button" onclick="location.href='/'">홈으로</button>
 			<button type="button" onclick="location.href='/member/logout.me'">로그아웃</button>		
 		</div>
+		<p></p>
 	</div>
 </body>
 </html>

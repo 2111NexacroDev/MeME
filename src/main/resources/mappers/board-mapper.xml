@@ -174,7 +174,7 @@
 		SELECT * FROM BOARD_TBL WHERE BOARD_STATUS = 'Y' AND BOARD_REPORT > 0 ORDER BY BOARD_NO DESC
 	</select>
 	
-	<select id="selectStatusNBoardListCount" resultMap="boardResultMap">
+	<select id="selectStatusNBoardListCount" resultType="_int">
 		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_STATUS = 'N'
 	</select>
 	

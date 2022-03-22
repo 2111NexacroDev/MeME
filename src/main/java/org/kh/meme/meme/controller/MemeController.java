@@ -165,7 +165,7 @@ public class MemeController {
 
 	// 사전 상세보기
 	@RequestMapping(value = "/meme/detail", method = RequestMethod.GET)
-	public String memeDetail(Model model, @RequestParam(value = "memeName") String memeName) {
+	public String memeDetail(Model model, HttpSession session, @RequestParam(value = "memeName") String memeName) {
 		try {
 			Meme meme = mService.printOneByMeme(memeName);
 			MemeFile memeFile = mService.printOneByMemeFile(meme.getMemeNo());
@@ -173,6 +173,17 @@ public class MemeController {
 			
 			if (meme != null) {
 				memeRank(model);
+				
+				Member login = (Member)session.getAttribute("loginMember");
+				
+				
+				if (meme.getMemeStatus().equals("N") && (login==null || login.getmGrade().equals("M"))) {
+					List<Meme> memeSuggestionList = mService.printMemeSuggesion(memeName);
+					model.addAttribute("msg", "찾으시는 유행어가 없다면 사전 등재를 요청해 보세요.");
+					model.addAttribute("memeSuggestionList", memeSuggestionList);
+					return ".tilesHead/common/memeErrorPage";
+
+				}
 
 				// 조회수 증가
 				mService.memeCountUpdate(meme.getMemeNo());

@@ -37,6 +37,12 @@ public class AdminStoreLogic implements AdminStore{
 	}
 	
 	@Override
+	public int allMemeRegisterListCount(SqlSession sqlSession) {
+		int totalCount = sqlSession.selectOne("MemeMapper.selectMemeRegisterListCount");
+		return totalCount;
+	}
+	
+	@Override
 	public int allBoardListCount(SqlSession sqlSession) {
 		int totalCount = sqlSession.selectOne("BoardMapper.selectAllBoardListCount_admin");
 		return totalCount;
@@ -90,6 +96,18 @@ public class AdminStoreLogic implements AdminStore{
 		
 		List<MemeRequest> allMemeRequestList = sqlSession.selectList("MemeMapper.selectAllMemeRequestList", pi, rowBounds);
 		return allMemeRequestList;
+	}
+	
+	@Override
+	public List<Meme> selectAllMemeRegister(SqlSession sqlSession, PageInfo pi) {
+		int limit = pi.getBoardLimit();
+		int currentPage = pi.getCurrentPage();
+		int offset = (currentPage - 1 ) * limit;
+
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		List<Meme> allMemeRegisterList = sqlSession.selectList("MemeMapper.selectAllMemeRegisterList", pi, rowBounds);
+		return allMemeRegisterList;
 	}
 
 	@Override
