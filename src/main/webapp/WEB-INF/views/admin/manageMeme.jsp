@@ -150,6 +150,7 @@
 			<div id="subnav">
 				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageMeme.me'">전체 유행어 목록</button>&nbsp;&nbsp;
 				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRequest.me'">사전 요청 목록</button>&nbsp;&nbsp;
+				<button type="button" class="btn_subnav" onclick="location.href='/admin/manageMemeRegister.me'">사전 등재 요청</button>&nbsp;&nbsp;
 			</div>
 			
 			<div class="content">

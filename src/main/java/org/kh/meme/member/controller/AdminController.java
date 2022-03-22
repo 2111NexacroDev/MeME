@@ -118,6 +118,31 @@ public class AdminController {
 		return ".tilesHead/admin/manageMemeRequest";
 	}
 	
+	// 관리자 페이지 - 사전 등재 관리
+		@RequestMapping(value="/admin/manageMemeRegister.me", method=RequestMethod.GET)
+		public String manageMemeRegister(HttpServletRequest request
+				,Model model
+				, @RequestParam(value="page", required=false) Integer page) {
+			HttpSession session = request.getSession();
+			Member member = (Member)session.getAttribute("loginMember");
+			if(member == null) {
+				return "redirect:/login.me";
+			}else if(member.getmGrade().equals("M")) {
+				return ".tilesHead/admin/error";
+			}
+			
+			int currentPage = (page != null) ? page : 1;
+			int totalCount = aService.getAllMemeRegisterListCount();
+			PageInfo pi = Pagination.getPageInfo(currentPage, totalCount);
+			model.addAttribute("pi", pi);
+			
+			
+			List<Meme> allMemeRegisterList = aService.printAllMemeRegister(pi);
+			model.addAttribute("allMemeRegisterList", allMemeRegisterList);
+			model.addAttribute("title", "관리자 페이지");
+			return ".tilesHead/admin/manageMemeRegister";
+		}
+	
 	// 관리자 페이지 - 게시글 관리
 	@RequestMapping(value="/admin/manageBoard.me", method=RequestMethod.GET)
 	public String manageBoard(HttpServletRequest request
@@ -171,8 +196,8 @@ public class AdminController {
 	}
 	
 
-	// 관리자 페이지 - 숨긴 글 관리
-	@RequestMapping(value="/admin/manageBoardStatus.me", method=RequestMethod.GET)
+	// 관리자 페이지 - 숨긴 게시글 관리
+	@RequestMapping(value="/admin/manageBoardNStatus.me", method=RequestMethod.GET)
 	public String manageBoardStatus(HttpServletRequest request
 			, Model model
 			, @RequestParam(value="page", required=false) Integer page)
@@ -190,8 +215,13 @@ public class AdminController {
 		PageInfo pi = Pagination.getPageInfo(currentPage, totalCount);
 		model.addAttribute("pi", pi);
 		
+		System.out.println(totalCount);
+		
 		
 		List<Board> statusNBoardList = aService.printStatusNBoard(pi);
+		
+		System.out.println(statusNBoardList);
+		
 		model.addAttribute("statusNBoardList", statusNBoardList);
 		model.addAttribute("title", "관리자 페이지");
 		return ".tilesHead/admin/manageBoardStatus";

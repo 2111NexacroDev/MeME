@@ -17,6 +17,7 @@ public interface AdminStore {
 	int allMemberListCount(SqlSession sqlSession);
 	int allMemeListCount(SqlSession sqlSession);
 	int allMemeRequestListCount(SqlSession sqlSession);
+	int allMemeRegisterListCount(SqlSession sqlSession);
 	int allQuizListCount(SqlSession sqlSession);
 	int allQuizReportListCount(SqlSession sqlSession);
 	int allBoardListCount(SqlSession sqlSession);
@@ -24,6 +25,7 @@ public interface AdminStore {
 	List<Member> selectAllMember(SqlSession sqlSession, PageInfo pi);
 	List<Meme> selectAllMeme(SqlSession sqlSession, PageInfo pi);
 	List<MemeRequest> selectAllMemeRequest(SqlSession sqlSession, PageInfo pi);
+	List<Meme> selectAllMemeRegister(SqlSession sqlSession, PageInfo pi);
 	List<Quiz> selectAllQuiz(SqlSession sqlSession, PageInfo pi);
 	List<QuizReport> selectAllQuizReport(SqlSession sqlSession, PageInfo pi);
 	List<Board> selectAllBoard(SqlSession sqlSession, PageInfo pi);

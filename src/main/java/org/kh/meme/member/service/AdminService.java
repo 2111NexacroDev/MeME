@@ -15,6 +15,7 @@ public interface AdminService {
 	int getAllMemberListCount();
 	int getAllMemeListCount();
 	int getAllMemeRequestListCount();
+	int getAllMemeRegisterListCount();
 	int getAllQuizListCount();
 	int getAllQuizReportListCount();
 	int getAllBoardListCount();
@@ -22,6 +23,7 @@ public interface AdminService {
 	List<Member> printAllMember(PageInfo pi);
 	List<Meme> printAllMeme(PageInfo pi);
 	List<MemeRequest> printAllMemeRequest(PageInfo pi);
+	List<Meme> printAllMemeRegister(PageInfo pi);
 	List<Quiz> printAllQuiz(PageInfo pi);
 	List<QuizReport> printAllQuizReportRequest(PageInfo pi);
 	List<Board> printAllBoard(PageInfo pi);

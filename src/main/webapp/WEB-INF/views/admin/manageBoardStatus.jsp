@@ -7,35 +7,78 @@
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
 <style>
-.inner {
-	position : absolute;
-	width : 800px;
-	top : 250px;
-	left : 50%;
-	margin-left : -400px;
+	.inner {
+		position : absolute;
+		width : 800px;
+		top : 250px;
+		left : 50%;
+		margin-left : -400px;
 	}
 	
-	#mypageNavi {
-	/* 	background-color : #75582F; */
-		width: 800px;
-		height: 40px;
-		text-align: center;
-	}
-	#subnav {
-		text-align: left;
-		height: 100px;
-		width: 600px;
-	}
-	.header {
-		color: white;
-		background-color: #f26522;
-		height: 30px;
-		text-align: center;
-	}
 	.body {
 		height : 80%;
-		margin-top : 5px;
 	}
+	
+	/* 네비 */
+		#mypageNavi {
+		/* 	background-color : #75582F; */
+			width: 800px;
+			height: 40px;
+			text-align: center;
+		}
+		#subnav {
+			text-align: left;
+			height: 40px;
+			width: 600px;
+		}
+	
+	.content {
+		margin-top: -20px;
+	}
+	
+		table {
+			background-color:white;
+			border:1px solid #ccc;
+			text-align: center;
+		}
+			table td {
+				padding: 3px;
+			}
+			/* table header */
+			.header {
+				color: white;
+				background-color: #f26522;
+				height: 30px;
+			}
+			.tbl_body {
+				
+			}
+			/* 총 너비 600으로 맞춤 (수정, 삭제 버튼 50)*/
+			#tbl_one {
+				width: 60px;
+			}
+			
+			#tbl_two {
+				width: 60px;
+			}
+			
+			#tbl_three {
+				width: 230px;
+			}
+			
+			#tbl_four {
+				width: 100px;
+			}
+			
+			#tbl_five {
+				width: 100px;
+			}
+			
+			#tbl_six {
+				width: 50px;
+			}
+	
+	/* 버튼 스타일 */
 	button {
 		color : #252525;
 		font-weight: bold;
@@ -47,19 +90,8 @@
 		color : #f26522;
 		transition-duration: 0.5s;
 	}
-	#ipt {
-		margin-bottom : 10px;
-		padding-left : 15px;
-		height : 40px;
-		width : 350px;
-		border-radius: 5px;
-		border: 1px solid #808080;
-		background-color : #f9f9f9;
-	}
-	#ipt:focus {
-		border: 1px solid #f26522;
-		background-color : #ededed;
-	}
+	
+	/* #mypageNavi */
 	.btn_nav {
 		font-size: 16px;
 	    color: #ffffff;
@@ -87,63 +119,17 @@
 	    color: #ffffff;
 	    transition-duration: 0.5s;
 	}
-	.btn_submit {
-		font-size: 16px;
-	    color: #ffffff;
-	    background-color: #252525;
-		width: 350px;
-		height: 60px;
-		padding-top: 5px;
-		transition-duration: 0.5s;
-	}
-	.btn_submit:hover {
-		background-color: #f26522;
-	    color: #ffffff;
-	    transition-duration: 0.5s;
-	}
-	.btn_rtn {
-	margin-top: 5px;
-	}
 	
-	#tbl_one {
-		width: 35px;
-	}
-	
-	#tbl_two {
-		width: 50px;
-	}
-	
-	#tbl_three {
-		width: 150px;
-	}
-	
-	#tbl_four {
-		width: 100px;
-	}
-	
-	#tbl_five {
-		width: 50px;
-	}
-	
-	#tbl_six {
-		width: 50px;
-	}
-	.sub {
-		font-size: smaller;
-	}
+	/* #subnav */
 	.btn_subnav_sel {
 		color : #f26522;
 	}
-	.btn_mod {
-		background-color: blue;
-		color : #ffffff;
-	}
-	.btn_del {
-		background-color: red;
-		color : #ffffff;
-	}
-	.tbl_body {
-		text-align: center;
+	
+	/* 수정, 삭제 버튼 */
+	.btn_mod, .btn_del { 
+		background-color: #ffffff;
+		--color : #ffffff;
+		font-weight: normal;
 	}
 	
 </style>
@@ -154,36 +140,33 @@
 	<div class="inner" align="center">
 		<div class="body">
 
-			<br>
 			<div id="mypageNavi">
-				<ul>
-					<li><a href="/admin/manageMember.me">회원 관리</a></li>
-					<li><a href="/admin/manageMeme.me">유행어 사전 관리</a></li>
-					<li>추진/자유게시판 관리</li>
-					<li><a href="/admin/manageQuiz.me">퀴즈 관리</a></li>
-				</ul>
-				<br>
-				<ul class="sub">
-					<li><a href="/admin/manageBoard.me">전체 글 목록</a></li>
-					<li><a href="/admin/manageBoardReported.me">신고된 글 목록</a></li>
-					<li>숨겨진 글 목록</li>
-				</ul>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMember.me'">회원 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageMeme.me'">유행어 사전 관리</button>
+				<button type="button" class="btn_nav_sel" onclick="location.href='/admin/manageBoard.me'">추진/자유게시판 관리</button>
+				<button type="button" class="btn_nav" onclick="location.href='/admin/manageQuiz.me'">퀴즈 관리</button>
+			</div><br>
+			<div id="subnav">
+				<button type="button" onclick="location.href='/admin/manageBoard.me'">전체 글 목록</button>&nbsp;&nbsp;
+				<button type="button" onclick="location.href='/admin/manageBoardReported.me'">신고된 글 목록</button>&nbsp;&nbsp;
+ 				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageBoardStatus.me'">숨겨진 글 목록</button>
 			</div>
 			
 			<br>
 			<div class="content">
 				<table align="center" border="1">
 					<tr class="header">
-						<th id="part">구분</th>
-						<th id="no">글번호</th>
-						<th id="title">글제목</th>
-						<th id="writer">작성자</th>
-						<th id="date">작성일</th>
-						<th id="views">조회수</th>
+						<th id="tbl_one">구분</th>
+						<th id="tbl_two">글번호</th>
+						<th id="tbl_three">글제목</th>
+						<th id="tbl_four">작성자</th>
+						<th id="tbl_five">작성일</th>
+						<th id="tbl_six">조회수</th>
+						<th colspan="2">&nbsp;</th>
 					</tr>
 					<c:forEach items="${statusNBoardList }" var="statusNBoardList">
-						<tr>
-							<td id="part">
+						<tr class="tbl_body">
+							<td>
 								<c:if test="${statusNBoardList.boardType eq 'P'}">
 			    					추진
 								</c:if>
@@ -191,17 +174,32 @@
 			    					자유
 								</c:if>
 							</td>
-							<td id="no">${statusNBoardList.boardNo }</td>
+							<td>${statusNBoardList.boardNo }</td>
 							<c:url var="bDetail" value="/board/detail">
 								<c:param name="boardNo" value="${statusNBoardList.boardNo }"></c:param>
 							</c:url>
-							<td id="title"><a href="${bDetail }">${statusNBoardList.boardTitle }</a></td>
-							<td id="writer">${statusNBoardList.memberNickname }</td>
-							<td id="date">${statusNBoardList.boardDate }</td>
-							<td id="views">${statusNBoardList.boardCount }</td>
+							<td><a href="${bDetail }">${statusNBoardList.boardTitle }</a></td>
+							<td>${statusNBoardList.memberNickname }</td>
+							<td>${statusNBoardList.boardDate }</td>
+							<td>${statusNBoardList.boardCount }</td>
+							<td>
+								<form action='<c:url value="/board/detail_reportAdminToY">
+									<c:param name="boardNo" value="${statusNBoardList.boardNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_del">보이기</button>
+								</form>
+							</td>
+							<td>
+								<form action='<c:url value="/board/detail_delete_admin">
+									<c:param name="boardNo" value="${statusNBoardList.boardNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_del">삭제</button>
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
+				
 			</div>
 			<p></p>
 			<div style="text-align:center" class="pi">

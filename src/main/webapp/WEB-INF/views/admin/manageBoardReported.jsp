@@ -149,7 +149,7 @@
 			<div id="subnav">
 				<button type="button" onclick="location.href='/admin/manageBoard.me'">전체 글 목록</button>&nbsp;&nbsp;
 				<button type="button" class="btn_subnav_sel" onclick="location.href='/admin/manageBoardReported.me'">신고된 글 목록</button>&nbsp;&nbsp;
-<!-- 				<button type="button" onclick="location.href='/admin/manageBoardStatus.me'">숨겨진 글 목록</button> -->
+ 				<button type="button" onclick="location.href='/admin/manageBoardNStatus.me'">숨겨진 글 목록</button>
 			</div>
 			<br>
 			
@@ -162,7 +162,7 @@
 						<th id="tbl_four">작성자</th>
 						<th id="tbl_five">작성일</th>
 						<th id="tbl_six">신고수</th>
-						<th>&nbsp;</th>
+						<th colspan="2">&nbsp;</th>
 					</tr>
 					<c:forEach items="${reportBoardList }" var="reportBoardList">
 						<tr class="tbl_body">
@@ -183,8 +183,15 @@
 							<td id="date">${reportBoardList.boardDate }</td>
 							<td id="reports">${reportBoardList.boardReport }</td>
 							<td id="delete">
+								<form action='<c:url value="/board/detail_reportAdminToN">
+									<c:param name="boardNo" value="${reportBoardList.boardNo }"></c:param>
+									</c:url>' method="post">
+									<button type="submit" class="btn_del">숨김</button>
+								</form>
+							</td>
+							<td id="delete">
 								<form action='<c:url value="/board/detail_delete_admin">
-									<c:param name="boardNo" value="${allBoardList.boardNo }"></c:param>
+									<c:param name="boardNo" value="${reportBoardList.boardNo }"></c:param>
 									</c:url>' method="post">
 									<button type="submit" class="btn_del">삭제</button>
 								</form>

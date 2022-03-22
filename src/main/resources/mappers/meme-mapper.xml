@@ -58,7 +58,7 @@
 	<!-- 유행어 검색하여 상세페이지 이동 -->
 	<select id="selectOneByMeme" resultMap="memeResultMap">
 		SELECT * FROM MEME_TBL
-		WHERE MEME_NAME = #{memeName} AND MEME_STATUS = 'Y'
+		WHERE MEME_NAME = #{memeName}
 	</select>
 	<select id="selectOneByMemeFile" resultMap="memeFileResultMap">
 		SELECT * FROM
@@ -69,11 +69,21 @@
 		COUNT(*) FROM
 		MEME_REQUEST WHERE MEMEREQUEST_STATUS='Y'
 	</select>
+	<select id="selectMemeRegisterListCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		MEME_TBL WHERE MEME_STATUS='N'
+	</select>
 	<select id="selectAllMemeRequestList"
 		resultMap="memeRequestResultMap">
 		SELECT * FROM
 		MEME_REQUEST WHERE MEMEREQUEST_STATUS='N' ORDER
 		BY MEMEREQ_NO DESC
+	</select>
+	<select id="selectAllMemeRegisterList"
+		resultMap="memeResultMap">
+		SELECT * FROM
+		MEME_TBL WHERE MEME_STATUS='N' ORDER
+		BY MEME_NO DESC
 	</select>
 
 	<!-- 유행어 등록 요청 -->
