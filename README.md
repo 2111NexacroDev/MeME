@@ -237,37 +237,15 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 #### 7. 로그인 기능
 
-![7](https://user-images.githubusercontent.com/100409006/157795362-d80aacc5-5761-4586-9601-d23561411811.PNG)
-![8](https://user-images.githubusercontent.com/100409006/157795364-5920a6c3-1b2b-4886-9758-49812dd4b6b7.PNG)
-![9](https://user-images.githubusercontent.com/100409006/157795365-2b8875fc-0698-49ca-9051-e79e9c85f908.PNG)
-![10](https://user-images.githubusercontent.com/100409006/157795367-78d90c6f-2563-426b-818e-8f4373a13cb3.PNG)
-![11](https://user-images.githubusercontent.com/100409006/157795356-1a55b211-0e3f-4b92-a6df-c59a5caca335.PNG)
 <br/><br/>
 
 
 #### 8. 마이페이지
 
-![12](https://user-images.githubusercontent.com/100409006/157795772-07409bb7-f4a6-4bfc-84d2-d6e3e48c5d73.PNG)
-![13](https://user-images.githubusercontent.com/100409006/157795773-74786415-afb5-43bc-b623-9ab2f834696d.PNG)
-![14](https://user-images.githubusercontent.com/100409006/157795765-26382fed-9a4a-4215-a233-97280a2473d6.PNG)
-![15](https://user-images.githubusercontent.com/100409006/157795768-a083759b-fb14-4d04-9829-6fb59118ee0f.PNG)
-![16](https://user-images.githubusercontent.com/100409006/157795771-7fdacebf-48f2-4c75-9924-128ebd1cfd4c.PNG)
-
 <br/><br/>
 
 #### 9. 관리자페이지
 
-
-![17](https://user-images.githubusercontent.com/100409006/157795921-e43fb6f3-83d2-464b-85a0-09f80c0ef345.PNG)
-![18](https://user-images.githubusercontent.com/100409006/157795922-44f7e575-ed58-48c5-af17-7df2b327c1ce.PNG)
-![19](https://user-images.githubusercontent.com/100409006/157795923-6c0e4f61-ccbe-46bd-8e8a-6a3b0a9a5821.PNG)
-![20](https://user-images.githubusercontent.com/100409006/157795924-59ed83d8-b617-4a88-9a70-6728f07cdcc5.PNG)
-![21](https://user-images.githubusercontent.com/100409006/157795925-c8567d63-6293-46ec-a2ef-94c45b90175f.PNG)
-![22](https://user-images.githubusercontent.com/100409006/157795926-00b49ae0-08ed-4aae-820a-09719e90d2ae.PNG)
-![23](https://user-images.githubusercontent.com/100409006/157795927-d9306ac3-65d8-4869-a962-866a1035487a.PNG)
-![24](https://user-images.githubusercontent.com/100409006/157795928-662fcae6-fb56-4e53-9f41-f3580c9f6c87.PNG)
-![25](https://user-images.githubusercontent.com/100409006/157795931-ac43f23a-88b3-40df-8862-0b95cc5406ea.PNG)
-![26](https://user-images.githubusercontent.com/100409006/157795918-89c0d96c-20ad-4740-b732-e7016a5db461.PNG)
 
 <br/><br/><br/>
 
