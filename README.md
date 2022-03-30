@@ -238,11 +238,14 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 #### 7. 로그인 기능
 - ###### 회원가입
 <img src="https://user-images.githubusercontent.com/100409006/160737377-bba377b8-ac2e-41b3-b9b4-4c5dfea93591.PNG" alt="회원가입" width="70%">
+
 - ###### 로그인
 <img src="https://user-images.githubusercontent.com/100409006/160737380-976461f9-c90d-403f-9946-8f345656b5a0.PNG" alt="로그인" width="70%">
+
 ###### 아이디 찾기 결과 해당 정보에 맞는 아이디를 출력한다.
 <img src="https://user-images.githubusercontent.com/100409006/160737374-7781af8d-3b0f-4a9e-89b2-24e5a51a0ef0.PNG" alt="아이디 찾기" width="70%">
 <img src="https://user-images.githubusercontent.com/100409006/160737373-f6d7b8b6-b24b-49dd-9346-28f8890cbd18.PNG" alt="아이디 찾기 결과" width="70%">
+
 ###### 비밀번호 찾기 결과 해당 아이디의 비밀번호를 재설정할 수 있도록 한다.
 <img src="https://user-images.githubusercontent.com/100409006/160737370-c03d5166-b21d-446b-b083-60cf649e0cd4.PNG" alt="비밀번호 찾기" width="70%">
 <img src="https://user-images.githubusercontent.com/100409006/160737382-d158d5ed-c768-439a-9f20-b58229f4ba60.PNG" alt="비밀번호 재설정" width="70%">
