@@ -236,17 +236,19 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 #### 7. 로그인 기능
+###### 로그인 성공 시 메인 페이지로 이동하며, 회원가입, 아이디/비밀번호 찾기 성공 시 로그인 페이지로 이동할 수 있도록 안내
+
 - ###### 회원가입
 <img src="https://user-images.githubusercontent.com/100409006/160737377-bba377b8-ac2e-41b3-b9b4-4c5dfea93591.PNG" alt="회원가입" width="70%">
 
 - ###### 로그인
 <img src="https://user-images.githubusercontent.com/100409006/160737380-976461f9-c90d-403f-9946-8f345656b5a0.PNG" alt="로그인" width="70%">
 
-###### 아이디 찾기 결과 해당 정보에 맞는 아이디를 출력한다.
+###### 아이디 찾기 결과 해당 정보에 맞는 아이디를 출력
 <img src="https://user-images.githubusercontent.com/100409006/160737374-7781af8d-3b0f-4a9e-89b2-24e5a51a0ef0.PNG" alt="아이디 찾기" width="70%">
 <img src="https://user-images.githubusercontent.com/100409006/160737373-f6d7b8b6-b24b-49dd-9346-28f8890cbd18.PNG" alt="아이디 찾기 결과" width="70%">
 
-###### 비밀번호 찾기 결과 해당 아이디의 비밀번호를 재설정할 수 있도록 한다.
+###### 비밀번호 찾기 결과 해당 아이디의 비밀번호를 재설정 할 수 있음
 <img src="https://user-images.githubusercontent.com/100409006/160737370-c03d5166-b21d-446b-b083-60cf649e0cd4.PNG" alt="비밀번호 찾기" width="70%">
 <img src="https://user-images.githubusercontent.com/100409006/160737382-d158d5ed-c768-439a-9f20-b58229f4ba60.PNG" alt="비밀번호 재설정" width="70%">
 
@@ -255,6 +257,21 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 
 
 #### 8. 마이페이지
+###### 내가 작성한 글의 제목을 누르면 해당 게시글 상세 페이지로 이동하고, 수정 및 삭제 가능
+<img src="https://user-images.githubusercontent.com/100409006/160742939-1d1ec86e-6e9d-42ce-a0eb-096a01450b75.PNG" alt="마이페이지 나의 게시글" width="70%">
+
+###### 내가 작성한 퀴즈의 수정 및 삭제 가능
+<img src="https://user-images.githubusercontent.com/100409006/160742930-e9f5a487-0a8c-4ec8-a4d6-8a5f8dac1a10.PNG" alt="마이페이지 나의 퀴즈" width="70%">
+
+###### 내가 작성한 댓글의 내용을 누르면 해당 게시글로 이동한다.
+<img src="https://user-images.githubusercontent.com/100409006/160742938-c244db0c-5b06-4ea7-a87e-7a6fa2a53699.PNG" alt="마이페이지 나의 댓글" width="70%">
+
+###### 회원 정보 수정에서 비밀번호와 이메일 수정 가능
+<img src="https://user-images.githubusercontent.com/100409006/160742934-4286ad13-fe9b-4c8e-83bb-174329efe917.PNG" alt="회원 정보 수정" width="70%">
+
+###### 회원 탈퇴
+<img src="https://user-images.githubusercontent.com/100409006/160742933-06157a35-2646-4b67-8430-779242dcf584.PNG" alt="회원 탈퇴" width="70%">
+
 
 <br/><br/>
 
