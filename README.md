@@ -269,13 +269,34 @@ MEME DICTIONARY는 빠르게 변화하는 유행어들을 쉽게 찾아볼 수 �
 ###### 회원 정보 수정에서 비밀번호와 이메일 수정 가능
 <img src="https://user-images.githubusercontent.com/100409006/160742934-4286ad13-fe9b-4c8e-83bb-174329efe917.PNG" alt="회원 정보 수정" width="70%">
 
-###### 회원 탈퇴
+- ###### 회원 탈퇴
 <img src="https://user-images.githubusercontent.com/100409006/160742933-06157a35-2646-4b67-8430-779242dcf584.PNG" alt="회원 탈퇴" width="70%">
 
 
 <br/><br/>
 
 #### 9. 관리자페이지
+- ###### 메인
+<img src="https://user-images.githubusercontent.com/100409006/160752630-1b25f451-afa0-425f-90bd-318a90a6cb89.PNG" alt="메인" width="70%">
+
+- ###### 회원관리
+<img src="https://user-images.githubusercontent.com/100409006/160752640-71bf5a7f-a2f7-492d-94f2-f82b0c09938c.PNG" alt="회원관리" width="70%">
+
+- ###### 유행어 사전
+<img src="https://user-images.githubusercontent.com/100409006/160752636-9ca9d2b3-7e48-4765-881a-91bf9115c04b.PNG" alt="유행어 사전 관리 - 전체" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/160752633-6b3ce5a2-98bb-43a1-8c5a-831b1239f291.PNG" alt="유행어 사전 관리 - 사전 등재 요청" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/160752635-9f592d07-239b-4fa7-8aa9-568ff0540125.PNG" alt="유행어 사전 관리 - 사전 수정 삭제 요청" width="70%">
+
+- ###### 유행어 추진/자유게시판
+   ###### 신고된 게시글을 숨길 수 있고, 숨긴 글 목록에서 다시 보이게 설정 가능. 게시글 제목을 누르면 해당 게시글로 이동하도록 구현
+<img src="https://user-images.githubusercontent.com/100409006/160752624-8d1bff79-f3a9-4da8-a70e-a168f29c78f1.PNG" alt="게시판 - 전체" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/160752627-658d0260-cc63-4546-be3d-e6bf7d5814c4.PNG" alt="게시판 - 신고 글" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/160752624-8d1bff79-f3a9-4da8-a70e-a168f29c78f1.PNG" alt="게시판 - 숨긴 글" width="70%">
+
+- ###### 유행어 퀴즈
+   ###### 등록된 퀴즈의 수정 및 삭제 가능
+<img src="https://user-images.githubusercontent.com/100409006/160752637-eb754de2-80ba-4b95-b27c-1799e818fe57.PNG" alt="퀴즈 - 전체" width="70%">
+<img src="https://user-images.githubusercontent.com/100409006/160752639-e8b2f1aa-3830-43ec-8f3a-a53dca80aa20.PNG" alt="퀴즈 -신고된 퀴즈 목록" width="70%">
 
 
 <br/><br/><br/>
