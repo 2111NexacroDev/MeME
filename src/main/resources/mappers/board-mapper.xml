@@ -103,8 +103,9 @@
 		SELECT * FROM COMMENT_TBL WHERE BOARD_NO = #{boardNo} AND COMMENT_STATUS = 'Y' ORDER BY COMMENT_NO ASC
 	</select>
 	
+	<!-- 220620 로컬 DB 연결하면서 컬럼 순서 바뀜, memberid 맨 뒤로 위치만 수정함! -->
 	<insert id="insertComment">
-		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberId}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT)
+		INSERT INTO COMMENT_TBL VALUES(COMMENT_SEQ.NEXTVAL, #{boardNo}, #{commentParentsno}, #{memberNickname}, #{commentContents}, DEFAULT, DEFAULT, DEFAULT, #{memberId})
 	</insert>
 	
 	<update id="updateComment">

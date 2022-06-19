@@ -225,7 +225,7 @@
 		
 		/* 댓글 수정 영역 */
 		#commentEditTd {
-			padding: 5px 10px 5px 30px;
+			padding: 5px 5px 5px 30px;
 		}
 		#modifyCommentVal {
 			padding: 10px;
@@ -236,9 +236,9 @@
 		}
 		/* 수정완료 버튼 */
 		#commentEditButton {
-			width: 60px;
+			width: 80px;
 			background-color: #ffffff;
-			margin: 5px 35px 10px 0;
+			margin: 5px 30px 10px 0;
 			font-size: 13px;
 			text-align: right;
 			color: #f26522;
@@ -492,7 +492,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<button type="button" id="cSubmit" style="font-size:13px; color:#888; background-color: white; width: 40px; height: 20px; margin:15px 10px;">등록</button>
+				<button type="button" id="cSubmit" style="font-size:13px; color:#888; background-color: white; width: 40px; height: 20px; margin:15px 10px; margin-right: 20px;">등록</button>
 			</td>
 		</tr>
 	</table>
@@ -530,7 +530,6 @@
 		$("#cSubmit").css('color', '#f26522');
 	});
 	
-		
 	$("#cSubmit").on("click", function(){
 		var boardNo = "${oneBoard.boardNo }";
 		var memberNickname = "${member.memberNickname}";
