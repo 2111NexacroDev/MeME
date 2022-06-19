@@ -17,8 +17,6 @@
 		margin: auto;
 		margin-bottom: 5px;
 	}
-		
-		
      	
      	/* 검정색 */
 		#writeButton {
